@@ -1,0 +1,1324 @@
+<!doctype html>
+<!--
+  Free website template by 8B: https://8b.com/templates/ferrule/
+  Source: https://github.com/8bsite/plumber-website-template
+  MIT License (code) https://8b.com/ · Photos: Unsplash License, see CREDITS.md · Fonts: Google Fonts (OFL)
+  One HTML file, no build step. Notes for people and AI agents: README.md and AGENTS.md.
+  Scroll motion: CSS scroll-driven animations and an inline script, no libraries. A GSAP build of this page: index.gsap.html.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ferrule — Plumbing and heating engineers for Sheffield</title>
+<meta name="description" content="Ferrule fits, services and repairs boilers, radiators, underfloor heating, bathrooms and hot water across Sheffield and South Yorkshire. Fixed prices in writing, Gas Safe engineers, 24-hour callouts.">
+<meta name="generator" content="8B Templates">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ferrule — Plumbing and heating engineers for Sheffield">
+<meta property="og:description" content="Ferrule fits, services and repairs boilers, radiators, underfloor heating, bathrooms and hot water across Sheffield and South Yorkshire. Fixed prices in writing, Gas Safe engineers, 24-hour callouts.">
+<meta property="og:image" content="https://your-domain.example/preview.png" data-8b-placeholder="og-image">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%23ff5b1f'%2F%3E%3Ctext%20x%3D'32'%20y%3D'45'%20font-family%3D'Arial%2CHelvetica%2Csans-serif'%20font-size%3D'38'%20font-weight%3D'700'%20text-anchor%3D'middle'%20fill%3D'%230e0e0e'%3EF%3C%2Ftext%3E%3C%2Fsvg%3E" data-8b-placeholder="favicon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GwevMToedPibnq0SZe1Q.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwRGFWfOw.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwYGFWfOw.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwTGFWfOw.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwSGFWfOw.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 88%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GwevMToedPibnq0She1YmV.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 88%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GwevMToedPibnq0SZe1Q.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style data-8b-part="layers">
+@layer tokens, base, atoms, layout, sections, scenes;
+</style>
+<style data-8b-part="tokens">
+@layer tokens {
+:root {
+  --color-1: #f2f2f2;
+  --color-2: #0e0e0e;
+  --color-3: #ff5b1f;
+  --color-4: #c63d00;
+  --color-5: #ffffff;
+  --color-6: #2a4cff;
+  --color-7: #c9c9c9;
+  --color-8: #5c5c5c;
+  --font-1: "Instrument Sans", "Instrument Sans Fallback", "Arial Narrow", Arial, sans-serif;
+  --font-2: "Geist", "Geist Fallback", Arial, sans-serif;
+  --radius-1: 26px;
+  --radius-2: 999px;
+  --space-1: clamp(14px, 2vw, 28px);
+}
+}
+</style>
+<style data-8b-part="base">
+@layer base {
+@font-face { font-family: "Instrument Sans Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"); font-weight: 100 549; size-adjust: 81.2%; ascent-override: 119.4%; descent-override: 30.8%; line-gap-override: 0%; }
+@font-face { font-family: "Geist Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"); font-weight: 100 549; size-adjust: 102.9%; ascent-override: 98.2%; descent-override: 29.2%; line-gap-override: 0%; }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--color-1); color: var(--color-2); font-family: var(--font-2); font-size: 16px; line-height: 1.5; font-weight: 400; overflow-x: clip; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--color-6); outline-offset: 3px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+}
+</style>
+<style data-8b-part="system">
+@layer atoms {
+.m-text { font-family: var(--font-2); font-size: 16px; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; font-style: normal; }
+.m-text-2 { font-family: var(--font-1); font-size: 120px; font-weight: 400; font-stretch: 88%; line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase; font-style: normal; }
+.m-text-3 { font-family: var(--font-2); font-size: clamp(18px, 1.8vw, 24px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; text-transform: none; font-style: normal; color: var(--color-4); }
+.m-text-4 { font-family: var(--font-2); font-size: 13px; font-weight: 400; line-height: 1.35; letter-spacing: 0; text-transform: none; font-style: normal; }
+.m-text-5 { font-family: var(--font-1); font-size: clamp(26px, 3vw, 40px); font-weight: 400; font-stretch: 88%; line-height: 0.95; letter-spacing: -0.005em; text-transform: uppercase; font-style: normal; }
+.m-text-6 { font-family: var(--font-2); font-size: clamp(18px, 1.6vw, 22px); font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; text-transform: none; font-style: normal; }
+
+.m-btn { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border: 0; border-radius: var(--radius-2); background: var(--color-3); color: var(--color-2); font-family: var(--font-2); font-size: 16px; font-weight: 500; line-height: 1; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; cursor: pointer; overflow: hidden; }
+.m-btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-2); clip-path: inset(50% 0 50% 0 round var(--radius-2)); transition: clip-path .5s cubic-bezier(.7, 0, .2, 1); }
+.m-btn__label, .m-btn__icon { transition: color .3s, stroke .3s; }
+.m-btn__icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; flex: none; }
+.m-btn-2 { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 18px; border: 0; border-radius: var(--radius-2); background: var(--color-2); color: var(--color-5); font-family: var(--font-2); font-size: 14px; font-weight: 500; line-height: 1; letter-spacing: -0.005em; text-decoration: none; white-space: nowrap; cursor: pointer; overflow: hidden; }
+.m-btn-2::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-3); clip-path: inset(50% 0 50% 0 round var(--radius-2)); transition: clip-path .5s cubic-bezier(.7, 0, .2, 1); }
+.m-btn-2 > span { transition: color .3s; }
+.m-btn-3 { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 16px; border: 1px solid var(--color-7); border-radius: var(--radius-2); background: var(--color-5); color: var(--color-2); font-family: var(--font-2); font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: -0.005em; text-decoration: none; white-space: nowrap; cursor: pointer; overflow: hidden; }
+.m-btn-3::before { content: ""; position: absolute; inset: -1px; z-index: -1; background: var(--color-2); clip-path: inset(50% 0 50% 0 round var(--radius-2)); transition: clip-path .5s cubic-bezier(.7, 0, .2, 1); }
+.m-btn-3 > span { transition: color .3s; }
+@media (hover: hover) {
+  .m-btn:hover::before, .m-btn-2:hover::before, .m-btn-3:hover::before { clip-path: inset(0 0 0 0 round var(--radius-2)); }
+  .m-btn:hover { color: var(--color-5); }
+  .m-btn-2:hover { color: var(--color-2); }
+  .m-btn-3:hover { color: var(--color-5); }
+}
+.m-link { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; padding-bottom: 2px; transition: background-size .45s cubic-bezier(.7, 0, .2, 1); }
+@media (hover: hover) {
+  .m-link:hover { background-size: 0 1px; background-position: 100% 100%; }
+}
+.m-icon-btn { display: inline-grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--color-7); border-radius: var(--radius-2); background: var(--color-5); color: var(--color-2); cursor: pointer; }
+.m-icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; transition: transform .5s cubic-bezier(.7, 0, .2, 1); }
+@media (hover: hover) {
+  .m-icon-btn:hover svg { transform: rotate(90deg); }
+}
+.m-badge { font-stretch: normal; display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid currentColor; border-radius: var(--radius-2); font-family: var(--font-2); font-size: 13px; font-weight: 500; line-height: 1; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+.m-badge-2 { font-stretch: normal; display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: var(--radius-2); background: var(--color-6); color: var(--color-5); font-family: var(--font-2); font-size: 13px; font-weight: 500; line-height: 1; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+.m-badge-3 { font-stretch: normal; display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: var(--radius-2); background: var(--color-3); color: var(--color-2); font-family: var(--font-2); font-size: 13px; font-weight: 500; line-height: 1; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+.m-band { position: relative; overflow: hidden; border-radius: var(--radius-1); background: var(--color-2); }
+.m-band > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.m-star { display: block; width: 120px; height: 120px; overflow: visible; fill: none; stroke: var(--color-3); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.m-star path { vector-effect: non-scaling-stroke; }
+.m-surface { background: var(--color-5); color: var(--color-2); border: 1px solid var(--color-7); border-radius: var(--radius-1); padding: clamp(20px, 2.4vw, 32px); }
+.m-field { display: block; width: 100%; min-height: 52px; padding: 14px 16px; border: 1px solid var(--color-7); border-radius: 14px; background: var(--color-5); color: var(--color-2); font-family: var(--font-2); font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: 0; appearance: none; }
+textarea.m-field { min-height: 120px; resize: vertical; }
+.m-field-2 { position: relative; display: inline-flex; align-items: center; }
+.m-field-2__select { min-height: 40px; padding: 0 36px 0 16px; border: 1px solid var(--color-7); border-radius: var(--radius-2); background: var(--color-5); color: var(--color-2); font-family: var(--font-2); font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: -0.005em; appearance: none; cursor: pointer; }
+.m-field-2__icon { position: absolute; right: 12px; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; pointer-events: none; }
+}
+</style>
+<style data-8b-part="layout">
+@layer layout {
+.l-gutter { padding-inline: var(--space-1); }
+.l-clip { overflow-x: clip; }
+}
+</style>
+<style data-8b-part="section:navigation">
+@layer sections {
+#navigation { position: fixed; inset: 0 0 auto; z-index: 50; padding: 12px var(--space-1); transition: transform .5s cubic-bezier(.7, 0, .2, 1); }
+#navigation.is-hidden { transform: translateY(calc(-100% - 6px)); }
+#navigation .nav__bar { display: flex; align-items: center; gap: 6px; }
+#navigation .nav__brand { font-size: 16px; font-weight: 500; padding: 0 14px; border-radius: 10px; }
+#navigation .nav__brand::before { border-radius: 10px; clip-path: inset(50% 0 50% 0 round 10px); }
+#navigation .nav__brand sup { font-size: .6em; margin-left: 1px; }
+#navigation .nav__area { margin-left: clamp(8px, 9vw, 150px); }
+#navigation .nav__group { display: flex; gap: 4px; margin: 0 auto; }
+#navigation .nav__menu { display: none; }
+#navigation .nav__overlay { position: fixed; inset: 0; z-index: 60; background: var(--color-1); padding: 12px var(--space-1) 32px; display: flex; flex-direction: column; gap: 28px; overflow-y: auto; }
+#navigation .nav__overlay[hidden] { display: none; }
+#navigation .nav__overlay-top { display: flex; justify-content: space-between; align-items: center; }
+#navigation .nav__overlay-links { display: grid; gap: 4px; }
+#navigation .nav__overlay-links a { text-decoration: none; font-size: clamp(44px, 13vw, 64px); }
+#navigation .nav__overlay-foot { margin-top: auto; display: grid; gap: 12px; justify-items: start; }
+@media (max-width: 1080px) {
+  #navigation .nav__phone { display: none; }
+}
+@media (max-width: 880px) {
+  #navigation .nav__group, #navigation .nav__area { display: none; }
+  #navigation .nav__menu { display: inline-flex; }
+  #navigation .nav__bar > .nav__book { margin-left: auto; }
+}
+@media (hover: hover) {
+  #navigation .nav__brand:hover::before { clip-path: inset(0 0 0 0 round 10px); }
+}
+}
+</style>
+<style data-8b-part="section:opening">
+@layer sections {
+#opening { position: relative; overflow-x: clip; }
+#opening .op__first { position: sticky; top: 0; z-index: 1; height: 100svh; min-height: 540px; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; padding: 0 var(--space-1) var(--space-1); }
+#opening .op__spacer { height: var(--op-nav, 64px); }
+#opening .op__frame { position: relative; z-index: 2; min-height: 150px; }
+#opening .op__band { position: absolute; inset: 0; overflow: hidden; border-radius: var(--radius-1); background: var(--color-2); }
+#opening .op__drift { position: absolute; inset: 0; transform: scale(1.08); }
+#opening .op__drift > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#opening .op__shade { position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-2) 20%, transparent) 0%, color-mix(in srgb, var(--color-2) 40%, transparent) 40%, color-mix(in srgb, var(--color-2) 82%, transparent) 78%); pointer-events: none; }
+#opening .op__type { position: relative; z-index: 1; container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; padding-top: 14px; }
+#opening .op__title { display: contents; }
+#opening .op__line { display: block; white-space: nowrap; font-size: min(calc(100cqw / 10.2), calc(var(--op-box) / (var(--len) * 0.51))); }
+#opening .op__line > span { display: block; }
+#opening .op__l1 { --op-box: 100cqw; grid-column: 1 / -1; grid-row: 1; }
+#opening .op__l2 { --op-box: 82cqw; grid-column: 3 / -1; grid-row: 2; justify-self: end; }
+#opening .op__l3 { --op-box: 49cqw; grid-column: 1 / 7; grid-row: 3; }
+#opening .op__tag { grid-column: 1 / 3; grid-row: 2; align-self: center; display: grid; gap: 6px; padding-top: .4em; }
+#opening .op__tag .m-text-4 { color: var(--color-4); }
+#opening .op__note { grid-column: 7 / 10; grid-row: 3; align-self: center; max-width: 30ch; color: var(--color-4); position: relative; z-index: 1; }
+#opening .op__star { grid-column: 9 / 11; grid-row: 3; justify-self: center; align-self: center; width: clamp(80px, 11cqw, 150px); aspect-ratio: 1; margin-bottom: -4%; }
+#opening .op__star .m-star { width: 100%; height: 100%; }
+#opening .op__cta { grid-column: 10 / -1; grid-row: 3; justify-self: end; align-self: end; position: relative; z-index: 1; }
+
+#opening .op__second { position: relative; z-index: 2; min-height: 100svh; display: grid; align-content: end; padding: calc(var(--op-nav, 64px) + 24px) var(--space-1) var(--space-1); background: var(--color-2); color: var(--color-5); overflow: hidden; isolation: isolate; }
+#opening .op__second :focus-visible { outline-color: var(--color-5); }
+#opening .op__title2 { display: contents; }
+#opening .op__m1 { --op-box: 100cqw; grid-column: 1 / -1; grid-row: 1; }
+#opening .op__m2 { --op-box: 82cqw; grid-column: 3 / -1; grid-row: 2; justify-self: end; }
+#opening .op__m3 { --op-box: 40cqw; grid-column: 1 / 6; grid-row: 3; }
+#opening .op__tag2 { grid-column: 1 / 3; grid-row: 2; align-self: center; color: var(--color-5); padding-top: .4em; }
+#opening .op__sides { grid-column: 6 / -1; grid-row: 3; display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px 24px; align-items: end; }
+#opening .op__side { display: grid; gap: 10px; justify-items: start; max-width: 28ch; }
+#opening .op__more { justify-self: end; white-space: nowrap; }
+
+@media (prefers-reduced-motion: no-preference) {
+  #opening .op__frame { animation: op-frame 1.1s cubic-bezier(.2, .7, .1, 1) backwards; }
+  #opening .op__line > span { animation: op-rise .9s cubic-bezier(.2, .7, .1, 1) backwards; }
+  #opening .op__l2 > span { animation-delay: .08s; }
+  #opening .op__l3 > span { animation-delay: .16s; }
+  #opening .op__tag > *, #opening .op__note > span, #opening .op__cta > span { animation: op-rise .8s .25s cubic-bezier(.2, .7, .1, 1) backwards; }
+  #opening .op__drift { animation: op-drift 7s ease-in-out infinite alternate; }
+  #opening .op__star .m-star { animation: op-spin 24s linear infinite; }
+  #opening.is-off .op__drift, #opening.is-off .op__star .m-star { animation-play-state: paused; }
+}
+@keyframes op-frame { from { clip-path: inset(6% 4% 6% 4% round var(--radius-1)); transform: translateY(18px); } to { clip-path: inset(0 0 0 0 round var(--radius-1)); transform: none; } }
+@keyframes op-rise { from { transform: translateY(.35em); } }
+@keyframes op-drift { from { transform: scale(1.08) translateX(-2.6%); } to { transform: scale(1.08) translateX(2.6%); } }
+@keyframes op-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 760px) {
+  #opening .op__first { min-height: 600px; }
+  #opening .op__type { column-gap: 10px; row-gap: 0; }
+  #opening .op__line { font-size: min(calc(100cqw / 6.6), calc(100cqw / (var(--len) * 0.53))); }
+  #opening .op__l1 { font-size: calc(100cqw / 6.6); white-space: normal; }
+  #opening .op__l2 { grid-column: 1 / -1; }
+  #opening .op__l3 { grid-column: 1 / 10; }
+  #opening .op__star { grid-column: 10 / -1; grid-row: 3; width: 100%; max-width: 72px; justify-self: end; margin: 0; }
+  #opening .op__tag { grid-column: 1 / 8; grid-row: 4; padding-top: 14px; }
+  #opening .op__cta { grid-column: 8 / -1; grid-row: 4; align-self: end; min-height: 44px; padding: 0 16px; }
+  #opening .op__note { grid-column: 1 / -1; grid-row: 5; max-width: none; padding-top: 10px; }
+  #opening .op__m1 { font-size: calc(100cqw / 6.6); white-space: normal; }
+  #opening .op__m2 { grid-column: 1 / -1; }
+  #opening .op__m3 { grid-column: 1 / -1; }
+  #opening .op__tag2 { grid-column: 1 / -1; grid-row: 4; padding-top: 14px; }
+  #opening .op__sides { grid-column: 1 / -1; grid-row: 5; grid-template-columns: 1fr 1fr; padding-top: 18px; gap: 14px 16px; }
+  #opening .op__more { grid-column: 1 / -1; justify-self: start; }
+}
+}
+</style>
+<style data-8b-part="section:footer">
+@layer sections {
+#footer { background: var(--color-2); color: var(--color-5); padding: clamp(48px, 7vw, 96px) var(--space-1) var(--space-1); border-radius: var(--radius-1) var(--radius-1) 0 0; }
+#footer :focus-visible { outline-color: var(--color-3); }
+#footer .ft__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+#footer .ft__lead { max-width: 30ch; }
+#footer .ft__links { display: grid; gap: 6px; }
+#footer .ft__addr { font-style: normal; display: grid; gap: 6px; color: var(--color-7); }
+#footer .ft__addr a { color: var(--color-5); }
+#footer .ft__rule { height: 1px; background: var(--color-7); margin: clamp(40px, 6vw, 80px) 0 18px; transform-origin: 0 50%; opacity: .5; }
+#footer .ft__mark { container-type: inline-size; }
+#footer .ft__mark span { display: block; font-size: min(42vw, calc(100cqw / (var(--len) * 0.535))); white-space: nowrap; }
+#footer .ft__base { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; color: var(--color-7); padding-top: 18px; }
+@media (max-width: 760px) {
+  #footer .ft__top { grid-template-columns: 1fr 1fr; }
+  #footer .ft__lead { grid-column: 1 / -1; }
+}
+}
+</style>
+<style data-8b-part="section:services">
+@layer sections {
+#services { padding: clamp(88px, 11vw, 168px) var(--space-1) clamp(64px, 8vw, 120px); }
+#services .sv__head { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; margin-bottom: clamp(36px, 5vw, 72px); }
+#services .sv__title { grid-column: 1 / 9; display: grid; }
+#services .sv__title > span { display: block; white-space: nowrap; font-size: min(10cqw, calc(64cqw / (var(--len) * 0.53))); }
+#services .sv__title > span:nth-child(2) { justify-self: end; }
+#services .sv__lead { grid-column: 9 / -1; max-width: 32ch; padding-bottom: .4em; }
+#services .sv__list { container-type: inline-size; border-top: 1px solid var(--color-7); }
+#services .sv__row { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr); column-gap: clamp(16px, 2vw, 28px); align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-7); }
+#services .sv__word { white-space: nowrap; font-size: min(8.6cqw, calc(45cqw / (var(--len) * 0.53))); }
+#services .sv__word > span { display: inline-block; }
+#services .sv__info { display: grid; gap: 10px; justify-items: start; max-width: 34ch; }
+#services .sv__info .m-badge { color: var(--color-4); }
+#services .sv__pic { aspect-ratio: 2.6 / 1; }
+#services .sv__pic img[data-pos="top"] { object-position: 50% 12%; }
+@media (max-width: 760px) {
+  #services .sv__head { grid-template-columns: 1fr; row-gap: 18px; }
+  #services .sv__title, #services .sv__lead { grid-column: 1 / -1; }
+  #services .sv__title > span { font-size: min(15cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #services .sv__row { grid-template-columns: 1fr; row-gap: 12px; padding: 18px 0 20px; }
+  #services .sv__word { font-size: min(17cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #services .sv__pic { aspect-ratio: 2.3 / 1; }
+}
+}
+</style>
+<style data-8b-part="section:prices">
+@layer sections {
+#prices { padding: clamp(72px, 9vw, 140px) var(--space-1); }
+#prices .pr__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+#prices .pr__side { position: sticky; top: 96px; display: grid; gap: 28px; container-type: inline-size; }
+#prices .pr__title > span { display: block; white-space: nowrap; font-size: min(17cqw, calc(100cqw / (var(--len) * 0.53))); }
+#prices .pr__title > span:nth-child(2) { padding-left: 12cqw; }
+#prices .pr__lead { max-width: 34ch; }
+#prices .pr__mark { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: center; max-width: 40ch; color: var(--color-8); }
+#prices .pr__mark .m-star { width: 72px; height: 72px; }
+#prices .pr__board { border-top: 1px solid var(--color-2); }
+#prices .pr__row { display: grid; grid-template-columns: auto minmax(24px, 1fr) auto; column-gap: 14px; row-gap: 6px; align-items: baseline; padding: 20px 0 18px; border-bottom: 1px solid var(--color-7); }
+#prices .pr__name { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+#prices .pr__dots { height: 6px; align-self: center; transform-origin: 0 50%; background-image: radial-gradient(circle, var(--color-8) 1.3px, transparent 1.8px); background-size: 9px 6px; background-repeat: repeat-x; background-position: 0 50%; }
+#prices .pr__price { white-space: nowrap; }
+#prices .pr__price small { font-family: var(--font-2); font-stretch: normal; font-size: 13px; text-transform: none; letter-spacing: 0; color: var(--color-8); margin-right: 6px; vertical-align: middle; }
+#prices .pr__note { grid-column: 1 / -1; color: var(--color-8); max-width: 52ch; }
+@media (max-width: 860px) {
+  #prices .pr__grid { grid-template-columns: 1fr; }
+  #prices .pr__side { position: static; }
+  #prices .pr__title > span { font-size: min(15cqw, calc(100cqw / (var(--len) * 0.53))); }
+}
+}
+</style>
+<style data-8b-part="section:visit">
+@layer sections {
+#visit { padding: clamp(72px, 9vw, 140px) var(--space-1); }
+#visit .vi__head { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; margin-bottom: clamp(48px, 7vw, 100px); }
+#visit .vi__title { grid-column: 1 / 9; display: grid; }
+#visit .vi__title > span { display: block; white-space: nowrap; font-size: min(10cqw, calc(66cqw / (var(--len) * 0.53))); }
+#visit .vi__title > span:nth-child(2) { padding-left: 24cqw; }
+#visit .vi__lead { grid-column: 9 / -1; max-width: 30ch; padding-bottom: .4em; }
+#visit .vi__track { position: relative; max-width: 1180px; margin: 0 auto; }
+#visit .vi__line { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; margin-left: -2px; border-radius: var(--radius-2); background: var(--color-7); overflow: hidden; }
+#visit .vi__fill { position: absolute; inset: 0; border-radius: var(--radius-2); background: linear-gradient(180deg, var(--color-6), var(--color-3)); transform-origin: 50% 0; }
+#visit .vi__steps { display: grid; gap: clamp(40px, 6vw, 88px); }
+#visit .vi__step { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr); align-items: start; }
+#visit .vi__num { grid-column: 2; justify-self: center; display: grid; place-items: center; width: 52px; height: 52px; border-radius: var(--radius-2); border: 2px solid var(--color-2); background: var(--color-5); font-family: var(--font-2); font-size: 16px; font-weight: 500; position: relative; z-index: 1; transition: background-color .4s, color .4s, border-color .4s; }
+#visit .vi__body { display: grid; gap: 12px; grid-row: 1; max-width: 46ch; }
+#visit .vi__step:nth-child(odd) .vi__body { grid-column: 1; justify-self: end; text-align: right; justify-items: end; }
+#visit .vi__step:nth-child(even) .vi__body { grid-column: 3; }
+#visit .vi__body .m-text { color: var(--color-8); }
+#visit .vi__step.is-done .vi__num { background: var(--color-2); color: var(--color-5); }
+@media (prefers-reduced-motion: no-preference) {
+  #visit .is-pending .vi__step:not(.is-done) .vi__body { color: var(--color-8); }
+  #visit .is-pending .vi__step:not(.is-done) .vi__num { border-color: var(--color-7); color: var(--color-8); }
+}
+@media (max-width: 760px) {
+  #visit .vi__head { grid-template-columns: 1fr; row-gap: 18px; }
+  #visit .vi__title, #visit .vi__lead { grid-column: 1 / -1; }
+  #visit .vi__title > span { font-size: min(16cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #visit .vi__title > span:nth-child(2) { padding-left: 0; justify-self: end; }
+  #visit .vi__line { left: 26px; }
+  #visit .vi__step { grid-template-columns: 52px minmax(0, 1fr); column-gap: 18px; }
+  #visit .vi__num { grid-column: 1; }
+  #visit .vi__step:nth-child(odd) .vi__body, #visit .vi__step:nth-child(even) .vi__body { grid-column: 2; justify-self: start; text-align: left; justify-items: start; }
+}
+}
+</style>
+<style data-8b-part="section:work">
+@layer sections {
+#work { padding: clamp(72px, 9vw, 140px) var(--space-1) clamp(48px, 6vw, 96px); }
+#work .wk__head { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+#work .wk__title { grid-column: 1 / 8; display: grid; }
+#work .wk__title > span { display: block; white-space: nowrap; font-size: min(10cqw, calc(56cqw / (var(--len) * 0.53))); }
+#work .wk__title > span:nth-child(2) { justify-self: end; }
+#work .wk__lead { grid-column: 9 / -1; max-width: 30ch; padding-bottom: .4em; }
+#work .wk__stack { display: grid; gap: clamp(20px, 3vw, 40px); }
+#work .wk__card { position: sticky; top: 16px; display: grid; grid-template-rows: auto auto; gap: 18px; padding: 12px 12px 22px; border-radius: calc(var(--radius-1) + 12px); background: var(--color-5); border: 1px solid var(--color-7); overflow: hidden; }
+#work .wk__card:nth-child(2) { top: 30px; }
+#work .wk__card:nth-child(3) { top: 44px; }
+#work .wk__card:nth-child(4) { top: 58px; }
+#work .wk__card:nth-child(5) { top: 72px; }
+#work .wk__band { height: min(54vh, 44vw); min-height: 220px; }
+#work .wk__band img { transform: scale(1.12); }
+#work .wk__meta { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr); gap: 12px 24px; align-items: start; padding: 0 10px; }
+#work .wk__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+#work .wk__meta .m-text-4 { color: var(--color-8); }
+#work .wk__dim { position: absolute; inset: 0; background: var(--color-2); opacity: 0; pointer-events: none; }
+@media (max-width: 760px) {
+  #work .wk__head { grid-template-columns: 1fr; row-gap: 18px; }
+  #work .wk__title, #work .wk__lead { grid-column: 1 / -1; }
+  #work .wk__title > span { font-size: min(18cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #work .wk__band { height: 42vh; min-height: 200px; }
+  #work .wk__meta { grid-template-columns: 1fr; padding: 0 4px; }
+}
+}
+</style>
+<style data-8b-part="section:team">
+@layer sections {
+#team { padding: clamp(72px, 9vw, 140px) var(--space-1); }
+#team .tm__head { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; margin-bottom: clamp(40px, 6vw, 88px); }
+#team .tm__title { grid-column: 1 / 9; display: grid; }
+#team .tm__title > span { display: block; white-space: nowrap; font-size: min(10cqw, calc(66cqw / (var(--len) * 0.53))); }
+#team .tm__title > span:nth-child(2) { padding-left: 30cqw; }
+#team .tm__lead { grid-column: 9 / -1; max-width: 32ch; padding-bottom: .4em; }
+#team .tm__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); align-items: start; }
+#team .tm__card { display: grid; gap: 14px; }
+#team .tm__card:nth-child(even) { margin-top: clamp(40px, 8vw, 120px); }
+#team .tm__pic { position: relative; aspect-ratio: 5 / 8; border-radius: var(--radius-2); overflow: hidden; background: var(--color-7); }
+#team .tm__pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#team .tm__facts { display: flex; flex-wrap: wrap; gap: 6px; }
+#team .tm__card .m-text-4 { color: var(--color-8); max-width: 30ch; }
+@media (max-width: 860px) {
+  #team .tm__head { grid-template-columns: 1fr; row-gap: 18px; }
+  #team .tm__title, #team .tm__lead { grid-column: 1 / -1; }
+  #team .tm__title > span { font-size: min(16cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #team .tm__title > span:nth-child(2) { padding-left: 0; justify-self: end; }
+  #team .tm__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #team .tm__card:nth-child(even) { margin-top: 56px; }
+}
+}
+</style>
+<style data-8b-part="section:heat">
+@layer sections {
+#heat { padding: clamp(72px, 9vw, 140px) var(--space-1); }
+#heat .ht__head { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; margin-bottom: clamp(36px, 5vw, 72px); }
+#heat .ht__title { grid-column: 1 / 9; display: grid; }
+#heat .ht__title > span { display: block; white-space: nowrap; font-size: min(10cqw, calc(66cqw / (var(--len) * 0.53))); }
+#heat .ht__title > span:nth-child(2) { justify-self: end; }
+#heat .ht__lead { grid-column: 9 / -1; max-width: 30ch; padding-bottom: .4em; }
+#heat .ht__stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px; }
+#heat .ht__half { position: relative; z-index: 1; display: grid; align-content: space-between; gap: 32px; min-height: min(74vh, 640px); padding: clamp(22px, 2.6vw, 36px); border-radius: var(--radius-1); }
+#heat .ht__half--cold { background: var(--color-6); color: var(--color-5); }
+#heat .ht__half--hot { background: var(--color-3); color: var(--color-2); }
+#heat .ht__half--cold :focus-visible { outline-color: var(--color-5); }
+#heat .ht__half h3 { margin-top: 18px; }
+#heat .ht__list li { padding: 12px 0; border-top: 1px solid currentColor; }
+#heat .ht__pic { min-height: 320px; }
+@media (max-width: 860px) {
+  #heat .ht__head { grid-template-columns: 1fr; row-gap: 18px; }
+  #heat .ht__title, #heat .ht__lead { grid-column: 1 / -1; }
+  #heat .ht__title > span { font-size: min(16cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #heat .ht__stage { grid-template-columns: 1fr; }
+  #heat .ht__half { min-height: 0; }
+  #heat .ht__pic { min-height: 0; aspect-ratio: 4 / 3; }
+}
+}
+</style>
+<style data-8b-part="section:reviews">
+@layer sections {
+#reviews { padding: clamp(72px, 9vw, 140px) 0; }
+#reviews .rv__head { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; margin: 0 var(--space-1) clamp(36px, 5vw, 64px); }
+#reviews .rv__title { grid-column: 1 / 9; display: grid; }
+#reviews .rv__title > span { display: block; white-space: nowrap; font-size: min(10cqw, calc(66cqw / (var(--len) * 0.53))); }
+#reviews .rv__title > span:nth-child(2) { justify-self: end; }
+#reviews .rv__lead { grid-column: 9 / -1; max-width: 30ch; padding-bottom: .4em; }
+#reviews .rv__viewport { padding: 0 var(--space-1); }
+#reviews .rv__row { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+#reviews .rv__card { height: 100%; display: grid; align-content: space-between; gap: 28px; }
+#reviews .rv__card .m-text-4 { color: var(--color-8); }
+#reviews .rv__who { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+@media (prefers-reduced-motion: no-preference) {
+  #reviews .rv__viewport.is-looping { overflow: hidden; padding: 0; }
+  #reviews .is-looping .rv__row { display: flex; gap: 0; width: max-content; animation: rv-loop 70s linear infinite; }
+  #reviews .is-looping .rv__item { width: clamp(280px, 30vw, 400px); padding-left: 14px; }
+  #reviews .is-looping:hover .rv__row, #reviews .is-looping:focus-within .rv__row, #reviews .is-looping.is-off .rv__row { animation-play-state: paused; }
+}
+@keyframes rv-loop { to { transform: translateX(-50%); } }
+@media (max-width: 760px) {
+  #reviews .rv__head { grid-template-columns: 1fr; row-gap: 18px; }
+  #reviews .rv__title, #reviews .rv__lead { grid-column: 1 / -1; }
+  #reviews .rv__title > span { font-size: min(15cqw, calc(100cqw / (var(--len) * 0.53))); }
+}
+}
+</style>
+<style data-8b-part="section:emergency">
+@layer sections {
+#emergency { background: var(--color-2); color: var(--color-5); padding: clamp(80px, 10vw, 150px) var(--space-1) clamp(56px, 7vw, 100px); border-radius: var(--radius-1); }
+#emergency :focus-visible { outline-color: var(--color-3); }
+#emergency .em__top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+#emergency .em__title { max-width: 22ch; }
+#emergency .em__tag { color: var(--color-3); text-align: right; display: flex; align-items: center; gap: 14px; }
+#emergency .em__tag .m-star { width: 56px; height: 56px; flex: none; }
+#emergency .em__number { display: block; container-type: inline-size; margin: clamp(18px, 3vw, 40px) 0 clamp(36px, 5vw, 64px); color: var(--color-3); text-decoration: none; }
+#emergency .em__number > span { display: block; white-space: nowrap; font-size: calc(100cqw / (var(--len) * 0.45)); transform-origin: 0% 100%; }
+#emergency .em__foot { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr); gap: clamp(20px, 3vw, 44px); align-items: start; padding-top: 28px; border-top: 1px solid var(--color-8); }
+#emergency .em__tips { display: grid; gap: 16px; counter-reset: none; }
+#emergency .em__tips li { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
+#emergency .em__tips .m-badge { color: var(--color-3); }
+#emergency .em__pic { aspect-ratio: 1.7 / 1; }
+@media (max-width: 860px) {
+  #emergency .em__top { grid-template-columns: 1fr; }
+  #emergency .em__tag { text-align: left; }
+  #emergency .em__foot { grid-template-columns: 1fr; }
+}
+}
+</style>
+<style data-8b-part="section:faq">
+@layer sections {
+#faq { padding: clamp(80px, 10vw, 150px) var(--space-1) clamp(56px, 7vw, 100px); }
+#faq .fq__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+#faq .fq__side { position: sticky; top: 96px; display: grid; gap: 24px; container-type: inline-size; }
+#faq .fq__title > span { display: block; white-space: nowrap; font-size: min(17cqw, calc(100cqw / (var(--len) * 0.53))); }
+#faq .fq__title > span:nth-child(2) { padding-left: 18cqw; }
+#faq .fq__side .m-text-6 { max-width: 30ch; }
+#faq .fq__list { border-bottom: 1px solid var(--color-7); }
+#faq .fq__q { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 40px; gap: 20px; align-items: center; padding: 22px 0; cursor: pointer; list-style: none; }
+#faq .fq__q::-webkit-details-marker { display: none; }
+#faq .fq__rule { position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--color-7); transform-origin: 0 50%; }
+#faq .fq__q .m-star { width: 34px; height: 34px; justify-self: end; transition: transform .5s cubic-bezier(.7, 0, .2, 1), fill .3s; }
+#faq details[open] .fq__q .m-star { transform: rotate(30deg); fill: var(--color-3); }
+#faq .fq__a { padding: 0 60px 26px 0; max-width: 62ch; color: var(--color-8); }
+@media (hover: hover) {
+  #faq .fq__q:hover .m-star { transform: rotate(30deg); }
+}
+@media (max-width: 860px) {
+  #faq .fq__grid { grid-template-columns: 1fr; }
+  #faq .fq__side { position: static; }
+  #faq .fq__title > span { font-size: min(15cqw, calc(100cqw / (var(--len) * 0.53))); }
+  #faq .fq__a { padding-right: 0; }
+}
+}
+</style>
+<style data-8b-part="section:contact">
+@layer sections {
+#contact { padding: clamp(96px, 11vw, 160px) var(--space-1) clamp(56px, 7vw, 100px); }
+#contact .ct__frame { position: relative; }
+#contact .ct__band { aspect-ratio: 3.6 / 1; }
+#contact .ct__type { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: end; padding-top: 16px; }
+#contact .ct__title { display: contents; }
+#contact .ct__title > span { display: block; white-space: nowrap; font-size: min(calc(100cqw / 8.5), calc(var(--ct-box) / (var(--len) * 0.53))); }
+#contact .ct__l1 { --ct-box: 100cqw; grid-column: 1 / -1; grid-row: 1; }
+#contact .ct__l2 { --ct-box: 100cqw; grid-column: 1 / -1; grid-row: 2; justify-self: end; }
+#contact .ct__l3 { --ct-box: 50cqw; grid-column: 1 / 7; grid-row: 3; }
+#contact .ct__tag { grid-column: 8 / -1; grid-row: 3; align-self: center; justify-self: end; display: grid; gap: 6px; padding-top: .4em; }
+#contact .ct__tag .m-text-4 { color: var(--color-4); }
+#contact .ct__body { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(20px, 3vw, 44px); margin-top: clamp(36px, 5vw, 64px); align-items: start; }
+#contact .ct__ways { display: grid; gap: 8px; justify-items: start; }
+#contact .ct__ways .m-text-4 { color: var(--color-8); margin-top: 10px; max-width: 34ch; }
+#contact .ct__form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+#contact .ct__field { display: grid; gap: 6px; }
+#contact .ct__field--wide { grid-column: 1 / -1; }
+#contact .ct__field .m-text-4 { color: var(--color-8); }
+#contact .ct__send { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+#contact .ct__status { color: var(--color-4); }
+@media (max-width: 760px) {
+  #contact .ct__band { aspect-ratio: 1.8 / 1; }
+  #contact .ct__title > span { font-size: min(calc(100cqw / 6.6), calc(100cqw / (var(--len) * 0.53))); }
+  #contact .ct__l1 { white-space: normal; font-size: calc(100cqw / 6.6); }
+  #contact .ct__l2, #contact .ct__l3 { grid-column: 1 / -1; }
+  #contact .ct__tag { grid-column: 1 / -1; grid-row: 4; padding-top: 16px; justify-self: start; }
+  #contact .ct__body { grid-template-columns: 1fr; }
+  #contact .ct__form { grid-template-columns: 1fr; }
+}
+}
+</style>
+<style data-8b-part="motion">
+@layer scenes {
+[data-8b-live] [data-8b-motion~="leader"] { animation-name: motion-leader-scale; animation-duration: 1s; animation-delay: 0s; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); animation-fill-mode: both; animation-play-state: paused; transform: none; }
+[data-8b-live] [data-8b-motion~="leader"].is-in { animation-play-state: running; }
+[data-8b-live] [data-8b-motion~="strip"] { animation-name: motion-strip-clippath; animation-duration: 1.1s; animation-delay: 0s; animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1); animation-fill-mode: both; animation-play-state: paused; }
+[data-8b-live] [data-8b-motion~="strip"].is-in { animation-play-state: running; }
+[data-8b-live] [data-8b-motion~="strip"] img { animation-name: motion-strip-img-scale; animation-duration: 1.4s; animation-delay: 0s; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); animation-fill-mode: both; animation-play-state: paused; transform: none; }
+[data-8b-live] [data-8b-motion~="strip"].is-in img { animation-play-state: running; }
+[data-8b-live] [data-8b-motion~="relay"] { view-timeline: --motion-relay block; view-timeline-inset: 0; }
+[data-8b-live] [data-8b-motion~="relay"] > * { display: block; --motion-relay-t: calc(.8 + (var(--n, 1) - 1) * .14); --motion-relay-x: -36%; animation: motion-relay auto cubic-bezier(0.25, 1, 0.5, 1) both; animation-timeline: --motion-relay; animation-range: cover calc(4vh + 38vh * var(--i, 0) * .14 / var(--motion-relay-t)) cover calc(4vh + 38vh * (var(--i, 0) * .14 + .8) / var(--motion-relay-t)); }
+[data-8b-live] [data-8b-motion~="relay"] > :nth-child(even) { --motion-relay-x: 36%; }
+@keyframes motion-relay { 0% { translate: var(--motion-relay-x) 0; opacity: 0; } 100% { translate: 0 0; opacity: 1; } }
+@keyframes motion-leader-scale { 0% { scale: 0 1; } 100% { scale: 1; } }
+@keyframes motion-strip-clippath { 0% { clip-path: inset(44% 0% round 999px); } 99.998% { clip-path: inset(0% round 999px); } 100% { clip-path: none; } }
+@keyframes motion-strip-img-scale { 0% { scale: 1.22; } 100% { scale: 1; } }
+}
+</style>
+<style data-8b-part="scene:opening">
+@layer scenes {
+@property --opening-q { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --opening-k { syntax: "<number>"; inherits: true; initial-value: 1; }
+[data-8b-live] #opening { --opening-h: 100svh; view-timeline: --opening-t block; view-timeline-inset: 0; }
+[data-8b-live] #opening .op__band, [data-8b-live] #opening .op__shade, [data-8b-live] #opening .op__star, [data-8b-live] #opening .op__line, [data-8b-live] #opening .op__tag, [data-8b-live] #opening .op__note, [data-8b-live] #opening .op__cta, [data-8b-live] #opening .op__tag2, [data-8b-live] #opening .op__sides { animation-timeline: --opening-t; animation-fill-mode: both; animation-duration: auto; }
+
+[data-8b-live] #opening.is-staged .op__band { overflow: visible; border-radius: 0; background: transparent; clip-path: inset(calc(var(--opening-q) * var(--opening-top) * -1) calc(var(--opening-q) * var(--opening-right) * -1) calc(var(--opening-q) * var(--opening-bottom) * -1) calc(var(--opening-q) * var(--opening-left) * -1) round calc(var(--opening-k) * var(--radius-1))); }
+[data-8b-live] #opening.is-staged .op__second { background: transparent; }
+[data-8b-live] #opening.is-staged .op__drift > img { inset: auto; max-width: none; object-fit: fill; width: var(--opening-w); height: var(--opening-ph); left: var(--opening-img-left); top: var(--opening-img-top); translate: calc(var(--opening-x0) * (1 - var(--opening-q))) calc(var(--opening-y0) * (1 - var(--opening-q))); scale: calc(var(--opening-s0) + (1 - var(--opening-s0)) * var(--opening-q)); }
+[data-8b-live] #opening.is-staged .op__shade { inset: auto; width: var(--opening-vw); height: var(--opening-vh); left: calc(var(--opening-left) * -1); top: calc(var(--opening-top) * -1); }
+
+[data-8b-live] #opening .op__band { animation-name: opening-q, opening-k; animation-timing-function: linear; animation-range: contain calc(var(--opening-h) * 0) contain calc(var(--opening-h) * 0.56075), contain calc(var(--opening-h) * 0.28037) contain calc(var(--opening-h) * 0.56075); }
+[data-8b-live] #opening .op__shade { animation-name: opening-shade; animation-timing-function: linear; animation-range: contain calc(var(--opening-h) * 0.23364) contain calc(var(--opening-h) * 0.65421); }
+[data-8b-live] #opening .op__star { animation-name: opening-star; animation-timing-function: cubic-bezier(0.3333, 0, 0.6667, 0.3333); animation-range: contain calc(var(--opening-h) * 0) contain calc(var(--opening-h) * 0.42056); }
+[data-8b-live] #opening .op__title .op__line { animation-name: opening-out-left; animation-timing-function: cubic-bezier(0.3333, 0, 0.6667, 0); }
+[data-8b-live] #opening .op__l1 { animation-range: contain calc(var(--opening-h) * 0) contain calc(var(--opening-h) * 0.37383); }
+[data-8b-live] #opening .op__title .op__l2 { animation-name: opening-out-right; animation-range: contain calc(var(--opening-h) * 0.03738) contain calc(var(--opening-h) * 0.41121); }
+[data-8b-live] #opening .op__l3 { animation-range: contain calc(var(--opening-h) * 0.07477) contain calc(var(--opening-h) * 0.4486); }
+[data-8b-live] #opening .op__tag, [data-8b-live] #opening .op__note, [data-8b-live] #opening .op__cta { animation-name: opening-aside; animation-timing-function: linear; }
+[data-8b-live] #opening .op__tag { animation-range: contain calc(var(--opening-h) * 0) contain calc(var(--opening-h) * 0.20561); }
+[data-8b-live] #opening .op__note { animation-range: contain calc(var(--opening-h) * 0.02804) contain calc(var(--opening-h) * 0.23364); }
+[data-8b-live] #opening .op__cta { animation-range: contain calc(var(--opening-h) * 0.05607) contain calc(var(--opening-h) * 0.26168); }
+[data-8b-live] #opening .op__title2 .op__line { animation-name: opening-in-left; animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+[data-8b-live] #opening .op__m1 { animation-range: contain calc(var(--opening-h) * 0.51402) contain calc(var(--opening-h) * 0.88785); }
+[data-8b-live] #opening .op__title2 .op__m2 { animation-name: opening-in-right; animation-range: contain calc(var(--opening-h) * 0.57009) contain calc(var(--opening-h) * 0.94393); }
+[data-8b-live] #opening .op__m3 { animation-range: contain calc(var(--opening-h) * 0.62617) contain calc(var(--opening-h) * 1); }
+[data-8b-live] #opening .op__tag2, [data-8b-live] #opening .op__sides { animation-name: opening-rest; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); }
+[data-8b-live] #opening .op__tag2 { animation-range: contain calc(var(--opening-h) * 0.70093) contain calc(var(--opening-h) * 0.93458); }
+[data-8b-live] #opening .op__sides { animation-range: contain calc(var(--opening-h) * 0.74766) contain calc(var(--opening-h) * 0.98131); }
+
+@keyframes opening-q { 0% { --opening-q: 0; animation-timing-function: cubic-bezier(0.3333, 0, 0.6667, 0); } 50% { --opening-q: .5; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); } 100% { --opening-q: 1; } }
+@keyframes opening-k { 0% { --opening-k: 1; } 100% { --opening-k: 0; } }
+@keyframes opening-shade { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes opening-star { 0% { rotate: 0deg; scale: 1; opacity: 1; } 100% { rotate: 150deg; scale: 2.6; opacity: 0; } }
+@keyframes opening-out-left { 0% { translate: 0 0; } 100% { translate: -115% 0; } }
+@keyframes opening-out-right { 0% { translate: 0 0; } 100% { translate: 115% 0; } }
+@keyframes opening-aside { 0% { translate: 0 0; opacity: 1; } 100% { translate: 0 50px; opacity: 0; } }
+@keyframes opening-in-left { 0% { translate: -70% 0; opacity: 0; } 100% { translate: 0 0; opacity: 1; } }
+@keyframes opening-in-right { 0% { translate: 70% 0; opacity: 0; } 100% { translate: 0 0; opacity: 1; } }
+@keyframes opening-rest { 0% { translate: 0 40px; opacity: 0; } 100% { translate: 0 0; opacity: 1; } }
+}
+</style>
+<style data-8b-part="scene:services">
+@layer scenes {
+[data-8b-live] #services .sv__list > li { view-timeline: --services-item block; view-timeline-inset: 0; }
+[data-8b-live] #services .sv__list > li > .sv__pic, [data-8b-live] #services .sv__list > li > .sv__pic > img, [data-8b-live] #services .sv__list > li > .sv__word > span { animation-timeline: --services-item; animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); animation-fill-mode: both; }
+[data-8b-live] #services .sv__list > li > .sv__pic { animation-name: services-figure-sv-pic-clippath; animation-range: cover 25% cover 78%; }
+[data-8b-live] #services .sv__list > li > .sv__pic > img { animation-name: services-figure-sv-pic-img-scale; animation-range: cover 25% cover 78%; transform: none; }
+[data-8b-live] #services .sv__list > li > .sv__word > span { animation-name: services-h3-sv-word-span-translate, services-h3-sv-word-span-color; animation-range: cover 25% cover 41%, cover 25% cover 78%; transform: none; }
+@keyframes services-figure-sv-pic-clippath { 0% { clip-path: inset(46% 0% round 26px); } 30.1887% { clip-path: inset(0% round 26px); } 30.1907% { clip-path: none; } 69.8113% { clip-path: none; } 69.8133% { clip-path: inset(0% round 26px); } 100% { clip-path: inset(46% 0% round 26px); } }
+@keyframes services-figure-sv-pic-img-scale { 0% { scale: 1.25; } 30.1887% { scale: 1; } 69.8113% { scale: 1; } 100% { scale: 1.25; } }
+@keyframes services-h3-sv-word-span-translate { 0% { translate: 0px 0px; } 100% { translate: min(3vw, 48px) 0px; } }
+@keyframes services-h3-sv-word-span-color { 0% { color: var(--color-8); } 30.1887% { color: var(--color-2); } 69.8113% { color: var(--color-2); } 100% { color: var(--color-8); } }
+}
+</style>
+<style data-8b-part="scene:visit">
+@layer scenes {
+[data-8b-live] #visit .vi__track { view-timeline: --visit-t block; view-timeline-inset: 0; }
+[data-8b-live] #visit .vi__fill { animation: visit-fill auto linear both; animation-timeline: --visit-t; animation-range: cover 38vh cover calc(100% - 62vh); }
+@keyframes visit-fill { 0% { clip-path: inset(0% 0% 100% 0%); } 100% { clip-path: inset(0% 0% 0% 0%); } }
+}
+</style>
+<style data-8b-part="scene:work">
+@layer scenes {
+[data-8b-live] #work { timeline-scope: --work-t2, --work-t3, --work-t4; }
+[data-8b-live] #work .wk__stack > li { view-timeline-inset: 0; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(-n+3), [data-8b-live] #work .wk__stack > li > .wk__band > img, [data-8b-live] #work .wk__stack > li:nth-of-type(-n+3) > .wk__dim { animation-timing-function: linear; animation-fill-mode: both; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(1) { view-timeline: --work-item block; animation-name: work-li-wk-card-scale; animation-timeline: --work-t2; animation-range: cover 0% cover calc(100vh - 30px); transform: none; transform-origin: 50% 0%; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(2) { view-timeline: --work-item block, --work-t2 block; animation-name: work-li-wk-card-scale; animation-timeline: --work-t3; animation-range: cover 0% cover calc(100vh - 44px); transform: none; transform-origin: 50% 0%; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(3) { view-timeline: --work-item block, --work-t3 block; animation-name: work-li-wk-card-scale; animation-timeline: --work-t4; animation-range: cover 0% cover calc(100vh - 58px); transform: none; transform-origin: 50% 0%; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(4) { view-timeline: --work-item block, --work-t4 block; }
+[data-8b-live] #work .wk__stack > li > .wk__band > img { animation-name: work-figure-wk-band-img-translate; animation-timeline: --work-item; animation-range: cover 0% cover calc(100vh - 16px - 14px * var(--i)); transform: none; scale: 1.12; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(-n+3) > .wk__dim { animation-name: work-div-wk-dim-opacity; }
+[data-8b-live] #work .wk__stack > li:nth-of-type(1) > .wk__dim { animation-timeline: --work-t2; animation-range: cover 0% cover calc(100vh - 30px); }
+[data-8b-live] #work .wk__stack > li:nth-of-type(2) > .wk__dim { animation-timeline: --work-t3; animation-range: cover 0% cover calc(100vh - 44px); }
+[data-8b-live] #work .wk__stack > li:nth-of-type(3) > .wk__dim { animation-timeline: --work-t4; animation-range: cover 0% cover calc(100vh - 58px); }
+@keyframes work-figure-wk-band-img-translate { 0% { translate: 0px -7%; } 100% { translate: 0px 0px; } }
+@keyframes work-li-wk-card-scale { 0% { scale: 1; } 100% { scale: 0.93; } }
+@keyframes work-div-wk-dim-opacity { 0% { opacity: 0; } 100% { opacity: 0.4; } }
+}
+</style>
+<style data-8b-part="scene:heat">
+@layer scenes {
+[data-8b-live] { --ease-power2-inout: linear(0, 0.0001, 0.0005, 0.0017, 0.004, 0.0078, 0.0135, 0.0214, 0.032, 0.0456, 0.0625, 0.0832, 0.108, 0.1373, 0.1715, 0.2109, 0.256, 0.3071, 0.3645, 0.4287, 0.5, 0.5713, 0.6355, 0.6929, 0.744, 0.7891, 0.8285, 0.8627, 0.892, 0.9168, 0.9375, 0.9544, 0.968, 0.9786, 0.9865, 0.9922, 0.996, 0.9983, 0.9995, 0.9999, 1); }
+[data-8b-live] #heat .ht__stage { view-timeline: --heat-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #heat .ht__half--cold, [data-8b-live] #heat .ht__half--hot { animation-timeline: --heat-t1; animation-timing-function: var(--ease-power2-inout); animation-fill-mode: both; transform: none; }
+[data-8b-live] #heat .ht__pic > img { animation-name: heat-figure-ht-pic-img-scale; animation-timeline: --heat-t1; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+@keyframes heat-div-ht-half-translate-d { 0% { translate: calc(60% + 12px) 0px; } 100% { translate: 0px 0px; } }
+@keyframes heat-div-ht-half-translate-m { 0% { translate: 0px calc((100vw - 2 * var(--space-1)) * .375 + 12px); } 100% { translate: 0px 0px; } }
+@keyframes heat-div-ht-half-translate-2-d { 0% { translate: calc(-60% - 12px) 0px; } 100% { translate: 0px 0px; } }
+@keyframes heat-div-ht-half-translate-2-m { 0% { translate: 0px calc((100vw - 2 * var(--space-1)) * -.375 - 12px); } 100% { translate: 0px 0px; } }
+@keyframes heat-figure-ht-pic-img-scale { 0% { scale: 1.3; } 100% { scale: 1; } }
+@media (min-width: 861px) {
+  [data-8b-live] #heat .ht__half--cold { animation-name: heat-div-ht-half-translate-d; animation-range: cover 18vh cover calc(50% - 2vh); }
+  [data-8b-live] #heat .ht__half--hot { animation-name: heat-div-ht-half-translate-2-d; animation-range: cover 18vh cover calc(50% - 2vh); }
+  [data-8b-live] #heat .ht__pic > img { animation-range: cover 18vh cover calc(50% - 2vh); }
+}
+@media (max-width: 860px) {
+  [data-8b-live] #heat .ht__half--cold { animation-name: heat-div-ht-half-translate-m; animation-range: cover 18vh cover 88vh; }
+  [data-8b-live] #heat .ht__half--hot { animation-name: heat-div-ht-half-translate-2-m; animation-range: cover 18vh cover 88vh; }
+  [data-8b-live] #heat .ht__pic > img { animation-range: cover 18vh cover 88vh; }
+}
+}
+</style>
+<style data-8b-part="scene:reviews">
+@layer scenes {
+}
+</style>
+<style data-8b-part="scene:emergency">
+@layer scenes {
+[data-8b-live] #emergency, [data-8b-live] #emergency .em__number > span, [data-8b-live] #emergency .m-star, [data-8b-live] #emergency-title { animation-timeline: --emergency-t1; animation-fill-mode: both; }
+[data-8b-live] #emergency { view-timeline: --emergency-t1 block; view-timeline-inset: 0; animation-name: emergency-emergency-backgroundcolor; animation-range: cover 5vh cover 50.5vh; animation-timing-function: linear; }
+[data-8b-live] #emergency .em__number > span { animation-name: emergency-a-em-number-span-scale, emergency-a-em-number-span-color; animation-range: cover 5vh cover 70vh; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); transform: none; }
+[data-8b-live] #emergency .m-star { animation-name: emergency-svg-m-star-rotate; animation-range: cover 5vh cover 70vh; animation-timing-function: linear; transform: none; }
+[data-8b-live] #emergency-title { animation-name: emergency-emergency-title-color; animation-range: cover 18vh cover 50.5vh; animation-timing-function: linear; }
+@keyframes emergency-emergency-backgroundcolor { 0% { background-color: var(--color-1); } 100% { background-color: var(--color-2); } }
+@keyframes emergency-a-em-number-span-scale { 0% { scale: 0.62; } 100% { scale: 1; } }
+@keyframes emergency-a-em-number-span-color { 0% { color: var(--color-2); } 100% { color: var(--color-3); } }
+@keyframes emergency-svg-m-star-rotate { 0% { rotate: -120deg; } 100% { rotate: 0deg; } }
+@keyframes emergency-emergency-title-color { 0% { color: var(--color-2); } 100% { color: var(--color-5); } }
+}
+</style>
+<style data-8b-part="scene:contact">
+@layer scenes {
+[data-8b-live] #contact .ct__frame { view-timeline: --contact-t block; view-timeline-inset: 0; }
+[data-8b-live] #contact .ct__band, [data-8b-live] #contact .ct__band > img { animation-duration: auto; animation-fill-mode: both; animation-timeline: --contact-t; animation-range: cover 8vh cover 66vh; animation-timing-function: linear; }
+[data-8b-live] #contact .ct__band { animation-name: contact-band, contact-rest; animation-range: cover 8vh cover 66vh, cover 63.1vh cover 66vh; animation-fill-mode: both, forwards; }
+[data-8b-live] #contact .ct__band > img { animation-name: contact-img; }
+@keyframes contact-band { 0% { clip-path: inset(-16% calc(var(--space-1) * -1) round 0px); overflow: visible; border-radius: 0; background: transparent; animation-timing-function: cubic-bezier(0.3333, 0, 0.6667, 0); } 50% { clip-path: inset(-8% calc(var(--space-1) * -.5) round calc(var(--radius-1) * .5)); overflow: visible; border-radius: 0; background: transparent; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); } 100% { clip-path: inset(0% 0px round var(--radius-1)); overflow: visible; border-radius: 0; background: transparent; } }
+@keyframes contact-rest { 0%, 100% { clip-path: none; overflow: hidden; border-radius: var(--radius-1); background: var(--color-2); } }
+@keyframes contact-img { 0% { scale: 1.3728; animation-timing-function: cubic-bezier(0.3333, 0, 0.6667, 0); } 50% { scale: 1.1864; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); } 100% { scale: 1; } }
+}
+</style>
+<script data-8b-part="motion-gate">
+if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.supports('animation-timeline: view()')) document.documentElement.setAttribute('data-8b-live', '');
+</script>
+</head>
+<body>
+<!-- navigation: fixed row of outlined pills: wordmark, area select, four section links, phone and a black Book a visit; Menu pill and full-screen overlay on phones; hides on scroll down -->
+<header id="navigation" data-8b-section="navigation">
+  <nav class="nav__bar" aria-label="Main">
+    <a class="m-btn-3 nav__brand" href="#opening"><span>Ferrule<sup>®</sup></span></a>
+    <label class="m-field-2 nav__area"><span class="visually-hidden">Your area</span><select class="m-field-2__select" data-area-select>
+      <option value="Sheffield" selected>Sheffield</option>
+      <option value="Rotherham">Rotherham</option>
+      <option value="Barnsley">Barnsley</option>
+      <option value="Chesterfield">Chesterfield</option>
+      <option value="Doncaster">Doncaster</option>
+    </select><svg class="m-field-2__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></label>
+    <ul class="nav__group">
+      <li><a class="m-btn-3" href="#services"><span>Services</span></a></li>
+      <li><a class="m-btn-3" href="#prices"><span>Prices</span></a></li>
+      <li><a class="m-btn-3" href="#work"><span>Work</span></a></li>
+      <li><a class="m-btn-3" href="#faq"><span>FAQ</span></a></li>
+    </ul>
+    <a data-8b-placeholder="phone" class="m-btn-3 nav__phone" href="tel:+441140000000"><span>0114 000 0000</span></a>
+    <a class="m-btn-2 nav__book" href="#contact"><span>Book a visit</span></a>
+    <button class="m-btn-3 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><span>Menu</span></button>
+  </nav>
+  <div class="nav__overlay" id="menu" hidden>
+    <div class="nav__overlay-top">
+      <a class="m-btn-3 nav__brand" href="#opening"><span>Ferrule<sup>®</sup></span></a>
+      <button class="m-icon-btn nav__close" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <ul class="nav__overlay-links" data-8b-items=":scope > li">
+      <li><a class="m-text-2" href="#services">Services</a></li>
+      <li><a class="m-text-2" href="#prices">Prices</a></li>
+      <li><a class="m-text-2" href="#visit">How a visit goes</a></li>
+      <li><a class="m-text-2" href="#work">Work</a></li>
+      <li><a class="m-text-2" href="#faq">FAQ</a></li>
+      <li><a class="m-text-2" href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav__overlay-foot">
+      <a data-8b-placeholder="phone" class="m-btn-3" href="tel:+441140000000"><span>0114 000 0000</span></a>
+      <a class="m-btn-2" href="#contact"><span>Book a visit</span></a>
+    </div>
+  </div>
+</header>
+<main>
+<!-- opening: two screens: a wide rounded photo band over a three-line staggered uppercase headline with an orange tagline, a note, the asterisk and a Book a visit button, then a dark screen with a statement and the cold side and hot side lists (animation: scene:opening) -->
+<section id="opening" class="l-clip" data-8b-section="opening" aria-labelledby="opening-title">
+  <div class="op__first">
+    <div class="op__spacer" aria-hidden="true"></div>
+    <div class="op__frame">
+      <div class="op__band">
+        <div class="op__drift"><img class="op__img" src="https://images.unsplash.com/photo-1769376695235-d3253548a5d7?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8Y29wcGVyJTIwcGlwZXN8ZW58MXwwfHx8MTc5MTQwNDk5MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=1330&q=60" width="1600" height="900" alt="Copper pipes branching into a cross over a turquoise wall" fetchpriority="high"></div>
+        <div class="op__shade" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="op__type">
+      <h1 class="op__title m-text-2" id="opening-title">
+        <span class="op__line op__l1" style="--len:20"><span>Plumbing and heating</span></span>
+        <span class="op__line op__l2" style="--len:13"><span>engineers for</span></span>
+        <span class="op__line op__l3" style="--len:9"><span>Sheffield</span></span>
+      </h1>
+      <div class="op__tag">
+        <p class="m-text-3">Same-day callouts,<br>fixed prices</p>
+        <p class="m-text-4">Engineers out across <span data-area-text>Sheffield</span> every day.</p>
+      </div>
+      <p class="op__note m-text-4"><span>Boilers, radiators, underfloor heating, leaks, bathrooms and hot water — fitted, serviced and repaired by Gas Safe engineers who quote in writing before they start.</span></p>
+      <div class="op__star"><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></div>
+      <a class="m-btn op__cta" href="#contact"><span class="m-btn__label">Book a visit</span><svg class="m-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+  <div class="op__second">
+    <div class="op__type">
+      <h2 class="op__title2 m-text-2">
+        <span class="op__line op__m1" style="--len:18"><span>Everything between</span></span>
+        <span class="op__line op__m2" style="--len:16"><span>the stopcock and</span></span>
+        <span class="op__line op__m3" style="--len:9"><span>the flue.</span></span>
+      </h2>
+      <p class="op__tag2 m-text-3">Two trades, one engineer, one invoice.</p>
+      <div class="op__sides">
+        <div class="op__side"><span class="m-badge-2">Cold side</span><p class="m-text-4">Taps, toilets, showers, leaks, stopcocks, water mains and hot water cylinders.</p></div>
+        <div class="op__side"><span class="m-badge-3">Hot side</span><p class="m-text-4">Boilers, radiators, underfloor heating, heat pumps, flues and smart controls.</p></div>
+        <a class="m-link op__more m-text-4" href="#services">Every service, with prices</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- services: index of seven services as giant words, each with a note, a price tag and a panoramic photo strip (animation: scene:services) -->
+<section id="services" class="l-clip" data-8b-section="services" aria-labelledby="services-title">
+  <div class="sv__head">
+    <h2 class="sv__title m-text-2" id="services-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:11">What we fix</span><span style="--len:7">and fit</span></h2>
+    <p class="sv__lead m-text-6">Seven kinds of work, one firm and one phone number. Each one starts with a survey and a quote in writing.</p>
+  </div>
+  <ol class="sv__list" data-8b-items=":scope > li">
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:7"><span>Boilers</span></h3>
+      <div class="sv__info"><p class="m-text-4">Combi, system and regular boilers fitted, serviced and repaired, with the manufacturer's warranty registered for you.</p><span class="m-badge">From £2,450 fitted</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1667264921635-0fdd6bab6174?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8Ym9pbGVyJTIwaW5zdGFsbGF0aW9ufGVufDF8MHx8fDE3OTE0MDUwOTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="1067" alt="Copper flow and return pipes packed around a boiler's pump" loading="lazy"></figure>
+    </li>
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:9"><span>Radiators</span></h3>
+      <div class="sv__info"><p class="m-text-4">New radiators and valves, cold spots chased down, systems balanced so every room warms at the same pace.</p><span class="m-badge">From £190 a swap</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1669725341213-7379ff6c90d5?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8cmFkaWF0b3J8ZW58MXwwfHx8MTc5MTQwNjE2MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="1065" alt="A white panel radiator under a window in a quiet room" loading="lazy"></figure>
+    </li>
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:10"><span>Underfloor</span></h3>
+      <div class="sv__info"><p class="m-text-4">Wet underfloor heating laid in screed or on overlay boards, with a thermostat for every room.</p><span class="m-badge">Priced per room</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1667491295131-c6ccecd35f65?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8dW5kZXJmbG9vciUyMGhlYXRpbmclMjBwaXBlc3xlbnwxfDB8fHwxNzkxNDA1MDEzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="1067" alt="Blue and red underfloor heating pipes clipped across a floor before the screed" loading="lazy"></figure>
+    </li>
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:5"><span>Leaks</span></h3>
+      <div class="sv__info"><p class="m-text-4">From a dripping trap to a burst main: traced, isolated and fixed, usually on the first visit.</p><span class="m-badge">From £140</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1637939157381-fe0d03755314?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NXx8ZHJpcHBpbmclMjB0YXB8ZW58MXwwfHx8MTc5MTQwNjE2Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="1067" alt="A drop of water hanging from a chrome tap against a brick wall" loading="lazy" data-pos="top"></figure>
+    </li>
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:9"><span>Bathrooms</span></h3>
+      <div class="sv__info"><p class="m-text-4">Showers, baths, toilets and full refits, with the pipework finished before the tiler arrives.</p><span class="m-badge">Quoted after a survey</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1685949546169-0d6e2505acae?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NXx8d2Fsay1pbiUyMHNob3dlcnxlbnwxfDB8fHwxNzkxNDA2MTYzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="1067" alt="A brass hand shower spraying water across a tiled wall" loading="lazy"></figure>
+    </li>
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:9"><span>Cylinders</span></h3>
+      <div class="sv__info"><p class="m-text-4">Vented and unvented hot water cylinders swapped in a day, with the G3 paperwork done.</p><span class="m-badge">From £1,650</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1594233078955-e1f73a02ebb2?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Ym9pbGVyfGVufDF8MXx8fDE3OTE0MDUwNjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="2000" alt="A copper hot water cylinder mounted on a pale wall" loading="lazy"></figure>
+    </li>
+    <li class="sv__row">
+      <h3 class="sv__word m-text-2" style="--len:10"><span>Heat pumps</span></h3>
+      <div class="sv__info"><p class="m-text-4">Air source surveys and installs, sized room by room, with the £7,500 grant application handled.</p><span class="m-badge">Survey free</span></div>
+      <figure class="sv__pic m-band"><img src="https://images.unsplash.com/photo-1776860150272-653efc74193c?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8aGVhdCUyMHB1bXAlMjBvdXRkb29yJTIwdW5pdHxlbnwxfDB8fHwxNzkxNDA0OTk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=720&q=60" width="1600" height="1203" alt="An air source heat pump on the lawn beside a modern stone-clad house" loading="lazy"></figure>
+    </li>
+  </ol>
+</section>
+<!-- prices: fixed price board of eight jobs with dotted leaders, beside a heading, a lead and a note marked with the asterisk -->
+<section id="prices" class="l-clip" data-8b-section="prices" aria-labelledby="prices-title">
+  <div class="pr__grid">
+    <div class="pr__side">
+      <h2 class="pr__title m-text-2" id="prices-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:9">Prices we</span><span style="--len:14">put in writing</span></h2>
+      <p class="pr__lead m-text-6">The number on the quote is the number on the invoice. No padded callouts, no surprises once the floorboards are up.</p>
+      <div class="pr__mark"><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg><p class="m-text-4">Prices include VAT and the parts named. If we find something else, we stop, show you and quote it before going on.</p></div>
+    </div>
+    <dl class="pr__board" data-8b-items=":scope > .pr__row">
+      <div class="pr__row"><dt class="pr__name m-text-5">Boiler service <span class="m-badge-3">Most booked</span></dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£95</dd><dd class="pr__note m-text-4">Annual service with flue gas analysis and the warranty stamp.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Landlord gas certificate</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£79</dd><dd class="pr__note m-text-4">CP12 for one boiler and up to three gas appliances.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Callout, first hour</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£85</dd><dd class="pr__note m-text-4">Then £20 a quarter hour. The same rate at weekends.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Leak trace and repair</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£140</dd><dd class="pr__note m-text-4">Most leaks found and fixed inside two hours.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Radiator swap</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£190</dd><dd class="pr__note m-text-4">Like for like: drain down, new radiator and valves, refill and balance.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Power flush</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£420</dd><dd class="pr__note m-text-4">Up to ten radiators, inhibitor and a magnetic filter check.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Unvented cylinder</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5">£1,650</dd><dd class="pr__note m-text-4">Fitted in a day and certified.</dd></div>
+      <div class="pr__row"><dt class="pr__name m-text-5">Combi boiler, fitted</dt><dd class="pr__dots" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></dd><dd class="pr__price m-text-5"><small>from</small>£2,450</dd><dd class="pr__note m-text-4">Old boiler out, system flushed, filter and smart thermostat in, ten-year warranty.</dd></div>
+    </dl>
+  </div>
+</section>
+<!-- visit: five steps of a visit zig-zagging either side of a vertical line that fills from blue to orange (animation: scene:visit) -->
+<section id="visit" class="l-clip" data-8b-section="visit" aria-labelledby="visit-title">
+  <div class="vi__head">
+    <h2 class="vi__title m-text-2" id="visit-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:11">How a visit</span><span style="--len:4">goes</span></h2>
+    <p class="vi__lead m-text-6">Five steps, the same on a dripping tap as on a new heating system.</p>
+  </div>
+  <div class="vi__track">
+    <div class="vi__line" aria-hidden="true"><div class="vi__fill"></div></div>
+    <ol class="vi__steps" data-8b-items=":scope > li">
+      <li class="vi__step"><span class="vi__num">1</span><div class="vi__body"><h3 class="m-text-5">You call or book</h3><p class="m-text">A person answers from 7 a.m. to 9 p.m. Tell us what's wrong, send a photo if you can, and pick a two-hour slot.</p></div></li>
+      <li class="vi__step"><span class="vi__num">2</span><div class="vi__body"><h3 class="m-text-5">We look first</h3><p class="m-text">The engineer finds the cause, measures and photographs it, and shows you what they've found before touching anything.</p></div></li>
+      <li class="vi__step"><span class="vi__num">3</span><div class="vi__body"><h3 class="m-text-5">A quote in writing</h3><p class="m-text">Small jobs are priced on the spot; bigger ones arrive by email within a working day, itemised, with dates.</p></div></li>
+      <li class="vi__step"><span class="vi__num">4</span><div class="vi__body"><h3 class="m-text-5">The work</h3><p class="m-text">Dust sheets down, water and heating off only as long as needed, old parts taken away, the room left as we found it.</p></div></li>
+      <li class="vi__step"><span class="vi__num">5</span><div class="vi__body"><h3 class="m-text-5">Tested and signed off</h3><p class="m-text">Pressure and flue tests, the certificate and warranty registered in your name, and a walk round the controls.</p></div></li>
+    </ol>
+  </div>
+</section>
+<!-- work: four recent jobs as panoramic photo cards that stack as you scroll, each with a title, three tags and a line (animation: scene:work) -->
+<section id="work" class="l-clip" data-8b-section="work" aria-labelledby="work-title">
+  <div class="wk__head">
+    <h2 class="wk__title m-text-2" id="work-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:6">Recent</span><span style="--len:4">jobs</span></h2>
+    <p class="wk__lead m-text-6">Four jobs from the last month, photographed on the day we finished.</p>
+  </div>
+  <ol class="wk__stack" data-8b-items=":scope > li" data-8b-fixed="4">
+    <li class="wk__card">
+      <figure class="wk__band m-band"><img src="https://images.unsplash.com/photo-1721825157088-1cf9e64ddba5?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MTF8fGJhdGhyb29tJTIwcmVub3ZhdGlvbnxlbnwxfDB8fHwxNzkxNDA1MDkyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=1350&q=60" width="1600" height="1067" alt="A finished bathroom with a freestanding bath, a black-framed shower screen and a floating vanity" loading="lazy"></figure>
+      <div class="wk__meta"><h3 class="m-text-5">Bathroom refit, Nether Edge</h3><ul class="wk__tags"><li class="m-badge">Bathrooms</li><li class="m-badge">6 days</li><li class="m-badge">S7</li></ul><p class="m-text-4">Freestanding bath and walk-in shower; old lead pipework replaced back to the stopcock.</p></div>
+      <div class="wk__dim" aria-hidden="true"></div>
+    </li>
+    <li class="wk__card">
+      <figure class="wk__band m-band"><img src="https://images.unsplash.com/photo-1650551182991-b07558247564?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8Ym9pbGVyJTIwaW5zdGFsbGF0aW9ufGVufDF8MHx8fDE3OTE0MDUwOTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=1350&q=60" width="1600" height="1064" alt="A plant room of insulated pipes, valves, gauges and a pump above an orange boiler" loading="lazy"></figure>
+      <div class="wk__meta"><h3 class="m-text-5">Plant room, Kelham Island</h3><ul class="wk__tags"><li class="m-badge">Heating</li><li class="m-badge">9 days</li><li class="m-badge">S3</li></ul><p class="m-text-4">Two boilers on one header for a block of twelve flats, with a pump that turns itself down at night.</p></div>
+      <div class="wk__dim" aria-hidden="true"></div>
+    </li>
+    <li class="wk__card">
+      <figure class="wk__band m-band"><img src="https://images.unsplash.com/photo-1596652832618-c1b013dd5cfd?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NXx8dW5kZXJmbG9vciUyMGhlYXRpbmclMjBwaXBlc3xlbnwxfDB8fHwxNzkxNDA1MDEzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=1350&q=60" width="1600" height="1067" alt="Curved rows of underfloor heating pipe laid across a large floor" loading="lazy"></figure>
+      <div class="wk__meta"><h3 class="m-text-5">Underfloor, Dore</h3><ul class="wk__tags"><li class="m-badge">Underfloor</li><li class="m-badge">4 days</li><li class="m-badge">S17</li></ul><p class="m-text-4">An open-plan extension on six zones, laid before the screed and pressure-tested overnight.</p></div>
+      <div class="wk__dim" aria-hidden="true"></div>
+    </li>
+    <li class="wk__card">
+      <figure class="wk__band m-band"><img src="https://images.unsplash.com/photo-1646592491489-ebdf758b9d11?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8a2l0Y2hlbiUyMHNpbmslMjBwbHVtYmluZ3xlbnwxfDB8fHwxNzkxNDA1MDk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=1350&q=60" width="1600" height="1067" alt="A white kitchen with a steel sink and a tall chrome tap under the window" loading="lazy"></figure>
+      <div class="wk__meta"><h3 class="m-text-5">Kitchen move, Walkley</h3><ul class="wk__tags"><li class="m-badge">Plumbing</li><li class="m-badge">2 days</li><li class="m-badge">S6</li></ul><p class="m-text-4">Sink, dishwasher and washing machine moved to the other wall, with a new stopcock you can actually reach.</p></div>
+      <div class="wk__dim" aria-hidden="true"></div>
+    </li>
+  </ol>
+</section>
+<!-- team: four engineers in tall capsule portraits on a staggered row, each with a name, two tags and a line -->
+<section id="team" class="l-clip" data-8b-section="team" aria-labelledby="team-title">
+  <div class="tm__head">
+    <h2 class="tm__title m-text-2" id="team-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:9">Who turns</span><span style="--len:2">up</span></h2>
+    <p class="tm__lead m-text-6">Four engineers, all employed by us, all Gas Safe registered. You get a name and a photo the evening before.</p>
+  </div>
+  <ul class="tm__list" data-8b-items=":scope > li">
+    <li class="tm__card">
+      <figure class="tm__pic" data-8b-motion="strip"><img src="https://images.unsplash.com/photo-1688841747582-41097036109d?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8ZmVtYWxlJTIwZW5naW5lZXIlMjBwb3J0cmFpdHxlbnwxfDF8fHwxNzkxNDA1MDkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=380&q=60" width="1600" height="2400" alt="Kwame Mensah in a hard hat and orange high-visibility jacket, smiling" loading="lazy"></figure>
+      <h3 class="m-text-5">Kwame Mensah</h3>
+      <ul class="tm__facts"><li class="m-badge">Heating</li><li class="m-badge">14 years</li></ul>
+      <p class="m-text-4">Boilers and system design. Gas Safe 000000.</p>
+    </li>
+    <li class="tm__card">
+      <figure class="tm__pic" data-8b-motion="strip"><img src="https://images.unsplash.com/photo-1690166444493-b3f5fbcd4762?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NXx8ZmVtYWxlJTIwZW5naW5lZXIlMjBwb3J0cmFpdHxlbnwxfDF8fHwxNzkxNDA1MDkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=380&q=60" width="1600" height="2406" alt="Aisha Rahman in orange workwear and a white hard hat, holding a set of drawings" loading="lazy"></figure>
+      <h3 class="m-text-5">Aisha Rahman</h3>
+      <ul class="tm__facts"><li class="m-badge">Heat pumps</li><li class="m-badge">8 years</li></ul>
+      <p class="m-text-4">Surveys, heat loss and the grant paperwork. Gas Safe 000000.</p>
+    </li>
+    <li class="tm__card">
+      <figure class="tm__pic" data-8b-motion="strip"><img src="https://images.unsplash.com/photo-1728516687003-58347d3412b3?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MTJ8fHRyYWRlc21hbiUyMHBvcnRyYWl0fGVufDF8MXx8fDE3OTE0MDUwNjl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=380&q=60" width="1600" height="2400" alt="Tom Hallam in a blue shirt, smiling, against a white wall" loading="lazy"></figure>
+      <h3 class="m-text-5">Tom Hallam</h3>
+      <ul class="tm__facts"><li class="m-badge">Plumbing</li><li class="m-badge">11 years</li></ul>
+      <p class="m-text-4">Bathrooms, cylinders and anything wet.</p>
+    </li>
+    <li class="tm__card">
+      <figure class="tm__pic" data-8b-motion="strip"><img src="https://images.unsplash.com/photo-1768421433981-46bb7881e3dd?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8d29ya3dlYXIlMjBwb3J0cmFpdCUyMG1hbnxlbnwxfDF8fHwxNzkxNDA1MDkxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=360&q=60" width="1600" height="2844" alt="Callum Reid, bearded, in overalls and a bowler hat" loading="lazy"></figure>
+      <h3 class="m-text-5">Callum Reid</h3>
+      <ul class="tm__facts"><li class="m-badge">Callouts</li><li class="m-badge">19 years</li></ul>
+      <p class="m-text-4">The night line, leaks and breakdowns. Gas Safe 000000.</p>
+    </li>
+  </ul>
+</section>
+<!-- heat: boiler or heat pump advice: a blue card and an orange card that part to reveal a heat pump photo between them (animation: scene:heat) -->
+<section id="heat" class="l-clip" data-8b-section="heat" aria-labelledby="heat-title">
+  <div class="ht__head">
+    <h2 class="ht__title m-text-2" id="heat-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:9">Boiler or</span><span style="--len:10">heat pump?</span></h2>
+    <p class="ht__lead m-text-6">We fit both, so we can tell you straight which one suits your house.</p>
+  </div>
+  <div class="ht__stage">
+    <div class="ht__half ht__half--cold">
+      <div><span class="m-badge">Keep a boiler</span><h3 class="m-text-5">If the house leaks heat faster than it holds it</h3></div>
+      <ul class="ht__list m-text" data-8b-items=":scope > li">
+        <li>Solid walls, single glazing or a loft you can't insulate yet.</li>
+        <li>Small radiators you'd rather not change.</li>
+        <li>Nowhere outside for a unit the size of a washing machine.</li>
+      </ul>
+    </div>
+    <figure class="ht__pic m-band"><img src="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8aGVhdCUyMHB1bXAlMjBvdXRkb29yJTIwdW5pdHxlbnwxfDB8fHwxNzkxNDA0OTk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=1160&q=60" width="1600" height="1067" alt="An air source heat pump between shrubs beside a brick house" loading="lazy"></figure>
+    <div class="ht__half ht__half--hot">
+      <div><span class="m-badge">Switch to a heat pump</span><h3 class="m-text-5">If the house is snug and you want gas gone</h3></div>
+      <ul class="ht__list m-text" data-8b-items=":scope > li">
+        <li>Cavity walls filled, a loft with a thick blanket of insulation.</li>
+        <li>Room for a hot water cylinder and a unit outside.</li>
+        <li>You qualify for the £7,500 grant; we check and apply for you.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- reviews: six short reviews on white cards in one continuous moving row (animation: scene:reviews) -->
+<section id="reviews" class="l-clip" data-8b-section="reviews" aria-labelledby="reviews-title">
+  <div class="rv__head">
+    <h2 class="rv__title m-text-2" id="reviews-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:8">What the</span><span style="--len:14">neighbours say</span></h2>
+    <p class="rv__lead m-text-6">Rated 4.9 out of 5 from 612 reviews on Google and Checkatrade.</p>
+  </div>
+  <div class="rv__viewport" data-loop-row>
+    <ul class="rv__row" data-8b-items=":scope > li">
+      <li class="rv__item"><blockquote class="rv__card m-surface"><p class="m-text-6">“Boiler died on a Sunday night. Callum was here before ten and we had heating by midnight.”</p><footer class="rv__who"><span class="m-text-4">Hannah, Crookes</span><span class="m-badge">Breakdown</span></footer></blockquote></li>
+      <li class="rv__item"><blockquote class="rv__card m-surface"><p class="m-text-6">“The quote was itemised to the last valve, and the invoice matched it exactly.”</p><footer class="rv__who"><span class="m-text-4">Richard, Ecclesall</span><span class="m-badge">New boiler</span></footer></blockquote></li>
+      <li class="rv__item"><blockquote class="rv__card m-surface"><p class="m-text-6">“Aisha walked us through the heat loss room by room before selling us anything.”</p><footer class="rv__who"><span class="m-text-4">Sam and Priya, Totley</span><span class="m-badge">Heat pump</span></footer></blockquote></li>
+      <li class="rv__item"><blockquote class="rv__card m-surface"><p class="m-text-6">“Six days, as promised. They even hoovered the loft hatch.”</p><footer class="rv__who"><span class="m-text-4">Mark, Nether Edge</span><span class="m-badge">Bathroom</span></footer></blockquote></li>
+      <li class="rv__item"><blockquote class="rv__card m-surface"><p class="m-text-6">“Found a leak two other firms had missed, under the bath, in forty minutes.”</p><footer class="rv__who"><span class="m-text-4">Joan, Hillsborough</span><span class="m-badge">Leak</span></footer></blockquote></li>
+      <li class="rv__item"><blockquote class="rv__card m-surface"><p class="m-text-6">“Twelve flats, two boilers, no tenant without hot water for more than a morning.”</p><footer class="rv__who"><span class="m-text-4">Kelham Lofts management</span><span class="m-badge">Plant room</span></footer></blockquote></li>
+    </ul>
+  </div>
+</section>
+<!-- emergency: dark emergency block: heading, the phone number as a giant orange link filling the width, three first steps and a gas flame photo (animation: scene:emergency) -->
+<section id="emergency" class="l-clip" data-8b-section="emergency" aria-labelledby="emergency-title">
+  <div class="em__top">
+    <h2 class="em__title m-text-5" id="emergency-title">Burst pipe, no heat, no hot water? Call us, day or night.</h2>
+    <p class="em__tag m-text-3"><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg><span>Every hour of every day</span></p>
+  </div>
+  <a data-8b-placeholder="phone" class="em__number m-text-2" href="tel:+441140000000"><span style="--len:13">0114 000 0000</span></a>
+  <div class="em__foot">
+    <p class="m-text-6">An engineer at most Sheffield postcodes within 90 minutes, at the same hourly rate at 3 a.m. as at 3 p.m.</p>
+    <ol class="em__tips" data-8b-items=":scope > li">
+      <li><span class="m-badge">1</span><p class="m-text">Turn the stopcock clockwise until it stops. It's usually under the kitchen sink.</p></li>
+      <li><span class="m-badge">2</span><p class="m-text">Switch the boiler off at its fused spur and leave any lights off that water has reached.</p></li>
+      <li><span class="m-badge">3</span><p class="m-text">Lift what you can off the floor, put towels down and call us. We'll talk you through the rest.</p></li>
+    </ol>
+    <figure class="em__pic m-band"><img src="https://images.unsplash.com/photo-1622308023558-2130696ec5cd?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8N3x8Ymx1ZSUyMGdhcyUyMGZsYW1lfGVufDF8MHx8fDE3OTE0MDUwMTJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=580&q=60" width="1600" height="1067" alt="A ring of blue gas flames in the dark" loading="lazy"></figure>
+  </div>
+</section>
+<!-- faq: questions and answers (native <details>) with the asterisk as the toggle, beside a heading and a phone line -->
+<section id="faq" class="l-clip" data-8b-section="faq" aria-labelledby="faq-title">
+  <div class="fq__grid">
+    <div class="fq__side">
+      <h2 class="fq__title m-text-2" id="faq-title" data-8b-motion="relay" data-8b-items=":scope > span"><span style="--len:6">Before</span><span style="--len:7">you ask</span></h2>
+      <p class="m-text-6">Anything else, <a data-8b-placeholder="phone" class="m-link" href="tel:+441140000000">call 0114 000 0000</a> and a person will answer.</p>
+    </div>
+    <div class="fq__list" data-8b-items=":scope > details">
+      <details class="fq__item"><summary class="fq__q"><span class="fq__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></span><span class="m-text-5">Do you charge for quotes?</span><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></summary><div class="fq__a"><p class="m-text">No. Surveys and written quotes are free anywhere inside the ring road and £45 beyond it, taken off the bill if you go ahead.</p></div></details>
+      <details class="fq__item"><summary class="fq__q"><span class="fq__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></span><span class="m-text-5">Is everyone Gas Safe registered?</span><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></summary><div class="fq__a"><p class="m-text">Every engineer who works on gas is, and their number is on the text we send the evening before. Ask to see the card at the door; they expect it.</p></div></details>
+      <details class="fq__item"><summary class="fq__q"><span class="fq__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></span><span class="m-text-5">How long does a new boiler take?</span><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></summary><div class="fq__a"><p class="m-text">A like-for-like combi swap is one day. Moving it or converting from a system boiler is two. You're never left without hot water overnight.</p></div></details>
+      <details class="fq__item"><summary class="fq__q"><span class="fq__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></span><span class="m-text-5">Do you work weekends?</span><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></summary><div class="fq__a"><p class="m-text">Saturdays for booked work, and the emergency line runs every hour of every day at the same rate.</p></div></details>
+      <details class="fq__item"><summary class="fq__q"><span class="fq__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></span><span class="m-text-5">Can you sort the heat pump grant?</span><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></summary><div class="fq__a"><p class="m-text">Yes. We're an accredited installer, so we check you qualify, apply for you and take the grant off the price before you pay.</p></div></details>
+      <details class="fq__item"><summary class="fq__q"><span class="fq__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></span><span class="m-text-5">What guarantee do I get?</span><svg class="m-star" viewBox="-60 -60 120 120" aria-hidden="true"><path d="M-13 -22.52L-13 -44A13 13 0 0 1 13 -44L13 -22.52L31.61 -33.26A13 13 0 0 1 44.61 -10.74L26 0L44.61 10.74A13 13 0 0 1 31.61 33.26L13 22.52L13 44A13 13 0 0 1 -13 44L-13 22.52L-31.61 33.26A13 13 0 0 1 -44.61 10.74L-26 0L-44.61 -10.74A13 13 0 0 1 -31.61 -33.26Z"/></svg></summary><div class="fq__a"><p class="m-text">Two years on our workmanship for everything, and up to ten on boilers through the manufacturer, registered in your name on the day.</p></div></details>
+    </div>
+  </div>
+</section>
+<!-- contact: closing photo band, a giant three-line heading with a call-back tagline, phone and email pills, the address and a call-back form (animation: scene:contact) -->
+<section id="contact" class="l-clip" data-8b-section="contact" aria-labelledby="contact-title">
+  <div class="ct__frame"><figure class="ct__band m-band"><img src="https://images.unsplash.com/photo-1696154994502-93dd97495a4f?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8Y29wcGVyJTIwcGlwZSUyMGJsdWV8ZW58MXwwfHx8MTc5MTQwNTAxMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=1600&q=60" width="1600" height="900" alt="A red valve wheel on a blue pipe running down a white wall" loading="lazy"></figure></div>
+  <div class="ct__type">
+    <h2 class="ct__title m-text-2" id="contact-title"><span class="ct__l1" style="--len:14">Tell us what's</span><span class="ct__l2" style="--len:16">leaking, banging</span><span class="ct__l3" style="--len:7">or cold</span></h2>
+    <div class="ct__tag"><p class="m-text-3">We call back within<br>the working hour</p><p class="m-text-4">Monday to Saturday, 7 a.m. to 9 p.m.</p></div>
+  </div>
+  <div class="ct__body">
+    <div class="ct__ways">
+      <a data-8b-placeholder="phone" class="m-btn-3" href="tel:+441140000000"><span>0114 000 0000</span></a>
+      <a data-8b-placeholder="email" class="m-btn-3" href="mailto:hello@ferrule.example"><span>hello@ferrule.example</span></a>
+      <p class="m-text-4">1 Example Street, Sheffield S3 0ZZ. Emergencies any hour on the same number.</p>
+    </div>
+    <form data-8b-placeholder="form" class="ct__form m-surface" action="#contact" method="post" novalidate>
+      <label class="ct__field"><span class="m-text-4">Your name</span><input class="m-field" type="text" name="name" autocomplete="name" required></label>
+      <label class="ct__field"><span class="m-text-4">Phone</span><input class="m-field" type="tel" name="phone" autocomplete="tel" required></label>
+      <label class="ct__field"><span class="m-text-4">Postcode</span><input class="m-field" type="text" name="postcode" autocomplete="postal-code"></label>
+      <label class="ct__field"><span class="m-text-4">The job</span><select class="m-field" name="job">
+        <option>Boiler</option><option>Radiators</option><option>Underfloor heating</option><option>Leak</option><option>Bathroom</option><option>Hot water cylinder</option><option>Heat pump</option><option>Something else</option>
+      </select></label>
+      <label class="ct__field ct__field--wide"><span class="m-text-4">What's happening</span><textarea class="m-field" name="message" rows="4"></textarea></label>
+      <div class="ct__send">
+        <p class="ct__status m-text-4" role="status" data-done="Thanks. We'll call you back within the working hour." data-invalid="Please add your name and a phone number."></p>
+        <button class="m-btn" type="submit"><span class="m-btn__label">Send request</span><svg class="m-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+<!-- footer: dark footer: one-line description, five links, address, phone, email, a drawn rule, the wordmark filling the width, copyright with the Design: 8B credit, Gas Safe number and Book a visit -->
+<footer id="footer" data-8b-section="footer">
+  <div class="ft__top">
+    <p class="ft__lead m-text-6">Ferrule Plumbing &amp; Heating. Gas Safe engineers for Sheffield and South Yorkshire since 2011.</p>
+    <ul class="ft__links m-text" data-8b-items=":scope > li">
+      <li><a class="m-link" href="#services">Services</a></li>
+      <li><a class="m-link" href="#prices">Prices</a></li>
+      <li><a class="m-link" href="#visit">How a visit goes</a></li>
+      <li><a class="m-link" href="#work">Recent work</a></li>
+      <li><a class="m-link" href="#faq">Questions</a></li>
+    </ul>
+    <address class="ft__addr m-text">
+      <span>1 Example Street<br>Sheffield S3 0ZZ</span>
+      <a data-8b-placeholder="phone" class="m-link" href="tel:+441140000000">0114 000 0000</a>
+      <a data-8b-placeholder="email" class="m-link" href="mailto:hello@ferrule.example">hello@ferrule.example</a>
+    </address>
+  </div>
+  <div class="ft__rule" data-8b-motion="leader" aria-hidden="true" data-8b-enter="92%"></div>
+  <p class="ft__mark m-text-2" aria-label="Ferrule"><span style="--len:7">Ferrule</span></p>
+  <div class="ft__base m-text-4">
+    <span>© 2026 Ferrule Plumbing &amp; Heating Ltd. Registered in England, no. 00000000. · Design: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></span>
+    <span>Gas Safe register 000000</span>
+    <a class="m-link" href="#contact">Book a visit</a>
+  </div>
+</footer>
+<script data-8b-part="section-script:navigation">
+(() => {
+  const header = document.getElementById('navigation');
+  const toggle = header.querySelector('.nav__menu');
+  const overlay = header.querySelector('.nav__overlay');
+  const close = header.querySelector('.nav__close');
+  const setMenu = open => {
+    overlay.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open) { window.motionKit?.wheel?.stop(); close.focus(); } else { window.motionKit?.wheel?.start(); }
+  };
+  toggle.addEventListener('click', () => setMenu(true));
+  close.addEventListener('click', () => { setMenu(false); toggle.focus(); });
+  overlay.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !overlay.hidden) { setMenu(false); toggle.focus(); } });
+  let last = window.scrollY, travel = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY, step = y - last;
+    last = y;
+    if (!step) return;
+    travel = Math.sign(step) === Math.sign(travel) ? travel + step : step;
+    if (y < 80 || travel < -24) header.classList.remove('is-hidden');
+    else if (travel > 24 && !header.contains(document.activeElement)) header.classList.add('is-hidden');
+  }, { passive: true });
+  header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
+  const select = header.querySelector('[data-area-select]');
+  select.addEventListener('change', () => {
+    document.querySelectorAll('[data-area-text]').forEach(node => { node.textContent = select.value; });
+  });
+})();
+</script>
+<script data-8b-part="section-script:opening">
+(() => {
+  const section = document.getElementById('opening');
+  const header = document.getElementById('navigation');
+  const setNav = () => section.style.setProperty('--op-nav', header.querySelector('.nav__bar').offsetHeight + 24 + 'px');
+  setNav();
+  new ResizeObserver(setNav).observe(header.querySelector('.nav__bar'));
+  new IntersectionObserver(([entry]) => section.classList.toggle('is-off', !entry.isIntersecting)).observe(section.querySelector('.op__first'));
+})();
+</script>
+<script data-8b-part="section-script:contact">
+(() => {
+  const form = document.querySelector('#contact .ct__form');
+  const status = form.querySelector('.ct__status');
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.checkValidity()) { status.textContent = status.dataset.invalid; form.querySelector(':invalid')?.focus(); return; }
+    status.textContent = status.dataset.done;
+    form.reset();
+  });
+})();
+</script>
+<script data-8b-part="motion-kit">
+(() => {
+const live = document.documentElement.hasAttribute('data-8b-live');
+const measures = new Set();
+let queued = false;
+const run = fn => { try { fn(); } catch (error) { console.error('[motion-kit] measure failed', error); } };
+const remeasure = () => {
+if (queued) return;
+queued = true;
+requestAnimationFrame(() => { queued = false; measures.forEach(run); realign(); });
+};
+const realign = () => document.getAnimations().forEach(animation => {
+if (animation.timeline && animation.timeline !== document.timeline && animation.playState === 'running') { animation.pause(); animation.play(); }
+});
+window.motionKit = {
+live,
+box(element) {
+if (!(element instanceof HTMLElement)) { const r = element.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height }; }
+let x = 0, y = 0, node = element;
+while (node) { x += node.offsetLeft; y += node.offsetTop; node = node.offsetParent; }
+return { x, y, w: element.offsetWidth, h: element.offsetHeight };
+},
+set(element, vars) { for (const [name, value] of Object.entries(vars)) element.style.setProperty(name, String(value)); },
+measure(fn) { if (!live) return; measures.add(fn); run(fn); },
+scene(id, fn) {
+if (!live) return;
+try { fn(); } catch (error) {
+console.error(`[motion-kit] scene ${id} failed; its section stays static`, error);
+document.querySelector(`style[data-8b-part="scene:${id}"]`)?.setAttribute('media', 'not all');
+}
+}
+};
+if (!live) { window.motionReady = Promise.resolve(); return; }
+const number = () => document.querySelectorAll('[data-8b-items]').forEach(group => {
+let items;
+try { items = [...group.querySelectorAll(group.getAttribute('data-8b-items'))]; } catch { return; }
+items.forEach((item, index) => { item.style.setProperty('--i', index); item.style.setProperty('--n', items.length); });
+});
+number();
+measures.add(number);
+requestAnimationFrame(realign);
+new ResizeObserver(remeasure).observe(document.body);
+document.fonts.ready.then(remeasure);
+addEventListener('load', remeasure);
+window.motionReady = document.fonts.ready.then(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+})();
+(() => {
+const kit = window.motionKit;
+if (!kit.live || !matchMedia('(pointer: fine)').matches) return;
+let target = scrollY, current = scrollY, last = 0, running = false, paused = false;
+const inner = (node, dy) => {
+for (; node && node !== document.body && node !== document.documentElement; node = node.parentElement) {
+if (!/(auto|scroll)/.test(getComputedStyle(node).overflowY) || node.scrollHeight <= node.clientHeight) continue;
+if (dy > 0 ? node.scrollTop + node.clientHeight < node.scrollHeight - 1 : node.scrollTop > 0) return true;
+}
+return false;
+};
+const step = now => {
+current += (target - current) * (1 - Math.exp(-5.3 * Math.min(0.05, (now - last) / 1000)));
+last = now;
+if (Math.abs(target - current) < 0.5) current = target;
+scrollTo({ top: current, behavior: 'instant' });
+if (current !== target) requestAnimationFrame(step); else running = false;
+};
+addEventListener('wheel', event => {
+if (paused || event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY) || inner(event.target, event.deltaY)) return;
+event.preventDefault();
+if (!running) target = current = scrollY;
+const unit = event.deltaMode === 1 ? 40 : event.deltaMode === 2 ? innerHeight : 1;
+target = Math.max(0, Math.min(document.documentElement.scrollHeight - innerHeight, target + event.deltaY * unit * 0.95));
+if (!running) { running = true; last = performance.now(); requestAnimationFrame(step); }
+}, { passive: false });
+kit.wheel = { stop() { paused = true; }, start() { paused = false; } };
+})();
+(() => {
+const kit = window.motionKit;
+if (!kit.live) return;
+const at = element => {
+const own = parseFloat(element.getAttribute('data-8b-enter'));
+return own >= 0 && own <= 100 ? own / 100 : 0.88;
+};
+let pending = [...document.querySelectorAll('[data-8b-motion]')].map(element => ({ element, y: 0, at: at(element) }));
+let queued = false;
+const check = () => {
+queued = false;
+pending = pending.filter(item => {
+if (item.y > scrollY + innerHeight * item.at) return true;
+item.element.classList.add('is-in');
+return false;
+});
+};
+const queue = () => { if (!queued) { queued = true; requestAnimationFrame(check); } };
+kit.measure(() => { pending.forEach(item => { item.y = kit.box(item.element).y; }); queue(); });
+addEventListener('scroll', queue, { passive: true });
+})();
+(() => {
+if (!window.motionKit.live) return;
+const sheet = new CSSStyleSheet();
+sheet.replaceSync('[data-8b-off],[data-8b-off]::before,[data-8b-off]::after{animation-play-state:paused!important}');
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+const seen = new Set(), loops = new Map();
+const watch = new IntersectionObserver(entries => {
+entries.forEach(entry => entry.isIntersecting ? seen.add(entry.target) : seen.delete(entry.target));
+loops.forEach((section, element) => element.toggleAttribute('data-8b-off', !seen.has(element) && !seen.has(section)));
+});
+const scan = () => document.getAnimations().forEach(animation => {
+const element = animation.effect?.target;
+if (!element || loops.has(element) || animation.effect.getTiming().iterations !== Infinity || animation.timeline !== document.timeline) return;
+const section = element.closest('section,header,footer') || element;
+loops.set(element, section);
+watch.observe(element);
+watch.observe(section);
+});
+scan();
+addEventListener('load', scan);
+document.addEventListener('animationstart', scan, true);
+})();
+(() => {
+const kit = window.motionKit;
+kit.track = () => {};
+if (!kit.live) return;
+const named = { top: 0, center: 0.5, bottom: 1 };
+const point = text => text.trim().split(/\s+/).map(word => named[word] ?? parseFloat(word) / 100);
+kit.track = (element, start, end, fn) => {
+const [s0, v0] = point(start), [s1, v1] = point(end);
+let queued = false;
+const run = () => {
+queued = false;
+const box = element.getBoundingClientRect(), vh = innerHeight;
+const d0 = box.top + box.height * s0 - vh * v0, d1 = box.top + box.height * s1 - vh * v1;
+fn(d1 === d0 ? (d0 <= 0 ? 1 : 0) : Math.min(1, Math.max(0, -d0 / (d1 - d0))));
+};
+addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(run); } }, { passive: true });
+kit.measure(run);
+};
+})();
+</script>
+<script data-8b-part="scene-script:opening">
+motionKit.scene('opening', () => {
+  const section = document.getElementById('opening');
+  const first = section.querySelector('.op__first');
+  const frame = section.querySelector('.op__frame');
+  const img = section.querySelector('.op__img');
+  const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
+  motionKit.measure(() => {
+    const vw = first.clientWidth, vh = first.clientHeight;
+    const bl = frame.offsetLeft, bt = frame.offsetTop, bw = frame.offsetWidth, bh = frame.offsetHeight;
+    const W = Math.max(vw, vh * ratio), H = W / ratio;
+    motionKit.set(section, {
+      '--opening-h': first.offsetHeight + 'px', '--opening-vw': vw + 'px', '--opening-vh': vh + 'px',
+      '--opening-top': bt + 'px', '--opening-left': bl + 'px', '--opening-right': vw - bl - bw + 'px', '--opening-bottom': vh - bt - bh + 'px',
+      '--opening-w': W + 'px', '--opening-ph': H + 'px', '--opening-img-left': (vw - W) / 2 - bl + 'px', '--opening-img-top': (vh - H) / 2 - bt + 'px',
+      '--opening-s0': Math.max(bw, bh * ratio) / W, '--opening-x0': bl + bw / 2 - vw / 2 + 'px', '--opening-y0': bt + bh / 2 - vh / 2 + 'px'
+    });
+  });
+  motionKit.track(section, 'top top', 'top -100%', progress => section.classList.toggle('is-staged', progress > 0.0005));
+});
+</script>
+<script data-8b-part="scene-script:visit">
+motionKit.scene('visit', () => {
+  const track = document.querySelector('#visit .vi__track');
+  const steps = [...track.querySelectorAll('.vi__step')];
+  let marks = [];
+  motionKit.measure(() => { marks = steps.map(step => (step.offsetTop + step.querySelector('.vi__num').offsetHeight / 2) / track.offsetHeight); });
+  track.classList.add('is-pending');
+  motionKit.track(track, 'top 62%', 'bottom 62%', progress => steps.forEach((step, i) => step.classList.toggle('is-done', progress >= marks[i] - 0.001)));
+});
+</script>
+<script data-8b-part="scene-script:reviews">
+motionKit.scene('reviews', () => {
+  const viewport = document.querySelector('#reviews [data-loop-row]');
+  const row = viewport.querySelector('[data-8b-items]');
+  [...row.children].forEach(item => {
+    const copy = item.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.inert = true;
+    row.append(copy);
+  });
+  viewport.classList.add('is-looping');
+});
+</script>
+</body>
+</html>

@@ -79,12 +79,12 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
         <div className="hidden sm:flex items-center z-10">
           <VenomButton
             onClick={handleRegisterClick}
-            captureRadius={65}
-            senseRadius={220}
-            style={{ width: "165px", height: "42px", borderRadius: "10px" }}
+            captureRadius={55}
+            senseRadius={200}
+            style={{ width: "135px", height: "40px", borderRadius: "8px" }}
             className="font-mono text-xs font-bold uppercase tracking-wider"
           >
-            Register Now &nearr;
+            Register
           </VenomButton>
         </div>
 
@@ -133,10 +133,10 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
               onClick={handleRegisterClick}
               captureRadius={50}
               senseRadius={180}
-              style={{ width: "100%", height: "46px", borderRadius: "10px" }}
+              style={{ width: "100%", height: "44px", borderRadius: "8px" }}
               className="w-full font-mono text-xs font-bold uppercase tracking-wider"
             >
-              Register Now &nearr;
+              Register
             </VenomButton>
           </div>
         </div>

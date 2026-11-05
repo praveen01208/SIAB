@@ -3,6 +3,8 @@
 import React from "react";
 import TeamLanyardRail, { LanyardMember } from "./ui/team-lanyard-rail";
 import { WebShotCard } from "./WebShotButton";
+import { RevealHeading } from "./ui/RevealHeading";
+import { MagicText } from "./ui/MagicText";
 
 interface CoordinatorsSectionProps {
   onMeetTeam?: () => void;
@@ -111,12 +113,16 @@ export default function CoordinatorsSection({
           <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
             Leadership &amp; Guidance
           </span>
-          <h2 className="font-display text-[2.1rem] sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight sm:tracking-wider uppercase leading-none my-3 select-none break-words max-w-full">
-            Coordinators
-          </h2>
-          <p className="text-neutral-400 text-sm sm:text-base max-w-lg mx-auto mt-3 font-normal">
+          <div className="my-3 flex justify-center">
+            <RevealHeading>
+              <h2 className="font-display text-[2.1rem] sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight sm:tracking-wider uppercase leading-none select-none break-words max-w-full">
+                Coordinators
+              </h2>
+            </RevealHeading>
+          </div>
+          <MagicText className="text-neutral-400 text-sm sm:text-base max-w-lg mx-auto mt-3 font-normal">
             Interactive credentials rail — click or press Enter to flip badges, or drag to swing.
-          </p>
+          </MagicText>
         </div>
 
         {/* Realistic Lanyard Rail with Physics Simulation - Open on Background */}

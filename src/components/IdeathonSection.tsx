@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { WebShotButton } from "./WebShotButton";
+import { RevealHeading } from "./ui/RevealHeading";
+import { MagicText } from "./ui/MagicText";
 
 const stages = [
   {
@@ -175,12 +177,16 @@ export default function IdeathonSection() {
         <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-500 font-semibold block mb-2">
           5 Stages of Competition
         </span>
-        <h2 className="ns__title font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-wider uppercase text-black leading-none my-3 select-none drop-shadow-sm" id="ns-title">
-          IDEATHON
-        </h2>
-        <p className="text-neutral-700 font-medium mt-7 sm:mt-9 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed relative z-20">
+        <div className="my-3 flex justify-center">
+          <RevealHeading>
+            <h2 className="ns__title font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-wider uppercase text-black leading-none select-none drop-shadow-sm" id="ns-title">
+              IDEATHON
+            </h2>
+          </RevealHeading>
+        </div>
+        <MagicText className="text-neutral-700 font-medium mt-7 sm:mt-9 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed relative z-20">
           Five structured stages taking your breakthrough idea from concept to a shipped prototype.
-        </p>
+        </MagicText>
       </div>
 
       {/* Stacked Deck with GSAP Swing Animation */}

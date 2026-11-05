@@ -3,6 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealHeading } from "./ui/RevealHeading";
+import { MagicText } from "./ui/MagicText";
 
 interface EditorialAboutProps {
   onNavigate: (page: string) => void;
@@ -145,8 +147,10 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
               24-Hour National Hackathon &amp; Ideathon
             </p>
             <h2 className="m-text-2 op-h1 font-display tracking-wider uppercase">
-              <span className="ln"><span className="ln__i">INVENTRA</span></span>{" "}
-              <span className="ln"><span className="ln__i">HACK</span></span>
+              <RevealHeading>
+                <span className="ln"><span className="ln__i">INVENTRA</span></span>{" "}
+                <span className="ln"><span className="ln__i">HACK</span></span>
+              </RevealHeading>
             </h2>
           </div>
           <p className="m-text-2 op-sub font-display tracking-wide uppercase">
@@ -234,10 +238,12 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
           </li>
         </ul>
 
-        <p className="m-text op-para l-b text-neutral-300">
-          Inventra is a 24-hour national-level hackathon designed to spark innovation, creativity, and problem-solving among aspiring engineers and technologists across the country. Structured across three intensive phases—Idea Evaluation, Overnight Prototype Development, and Final Jury Pitching—teams collaborate to solve real-world industry challenges and build functional software and hardware products, competing for a bounty prize pool of ₹80,000+.{" "}
+        <div className="m-text op-para l-b text-neutral-300">
+          <MagicText className="inline">
+            Inventra is a 24-hour national-level hackathon designed to spark innovation, creativity, and problem-solving among aspiring engineers and technologists across the country. Structured across three intensive phases—Idea Evaluation, Overnight Prototype Development, and Final Jury Pitching—teams collaborate to solve real-world industry challenges and build functional software and hardware products, competing for a bounty prize pool of ₹80,000+.
+          </MagicText>{" "}
           <a
-            className="m-link-2"
+            className="m-link-2 inline-block ml-1"
             href="#ideathon-page"
             onClick={(e) => {
               e.preventDefault();
@@ -246,7 +252,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
           >
             See how the 24 hours unfold ↗
           </a>
-        </p>
+        </div>
 
         <p className="hidden md:block m-text-2 op-say font-display tracking-wider uppercase">
           <span className="ln"><span className="ln__i l-left">the</span><span className="ln__i">best</span></span>

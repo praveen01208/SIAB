@@ -3,6 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealHeading } from "./ui/RevealHeading";
+import { MagicText } from "./ui/MagicText";
 
 interface EventDetailsSectionProps {
   onExploreDomains?: () => void;
@@ -167,16 +169,20 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
             Resources &amp; Location
           </span>
 
-          <h2
-            id="events-details-heading"
-            className="font-display text-4xl sm:text-5xl md:text-6xl text-black tracking-wider uppercase leading-tight mb-3 select-none"
-          >
-            Event Details &amp; Venue
-          </h2>
+          <div className="mb-3 flex justify-center">
+            <RevealHeading>
+              <h2
+                id="events-details-heading"
+                className="font-display text-4xl sm:text-5xl md:text-6xl text-black tracking-wider uppercase leading-tight select-none"
+              >
+                Event Details &amp; Venue
+              </h2>
+            </RevealHeading>
+          </div>
 
-          <p className="font-body text-neutral-600 text-sm sm:text-base leading-relaxed">
+          <MagicText className="font-body text-neutral-600 text-sm sm:text-base leading-relaxed">
             Essential directives, sprint timetable, and arena coordinates for INVENTRA 2026. Review official documentation and find your way to the campus grounds.
-          </p>
+          </MagicText>
         </div>
 
         {/* =============================================================

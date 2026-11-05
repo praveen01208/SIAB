@@ -3,6 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealHeading } from "./ui/RevealHeading";
+import { MagicText } from "./ui/MagicText";
 
 const scheduleStations = [
   {
@@ -145,17 +147,21 @@ export default function DatesWheelSection() {
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 font-semibold block mb-1">
             Schedule &amp; Milestones
           </span>
-          <h2 id="bd-title" className="select-none leading-none my-1">
-            <span className="font-display text-xs sm:text-sm md:text-base tracking-[0.28em] uppercase text-neutral-500 font-bold block mb-1">
-              IMPORTANT
-            </span>
-            <span className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase text-black block leading-none">
-              DATES
-            </span>
-          </h2>
-          <p className="text-neutral-500 mt-1.5 text-xs sm:text-sm max-w-md mx-auto">
+          <div className="my-1 flex flex-col items-center">
+            <RevealHeading>
+              <span className="font-display text-xs sm:text-sm md:text-base tracking-[0.28em] uppercase text-neutral-500 font-bold block mb-1">
+                IMPORTANT
+              </span>
+            </RevealHeading>
+            <RevealHeading delay={0.08}>
+              <h2 id="bd-title" className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase text-black block leading-none select-none">
+                DATES
+              </h2>
+            </RevealHeading>
+          </div>
+          <MagicText className="text-neutral-500 mt-1.5 text-xs sm:text-sm max-w-md mx-auto">
             Five critical checkpoints taking you from concept submission to the live 24-hour sprint.
-          </p>
+          </MagicText>
         </div>
 
         {/* Circular Dashed Orbit Rim */}

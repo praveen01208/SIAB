@@ -21,6 +21,8 @@ import DomainsView from "@/components/DomainsView";
 import TeamView from "@/components/TeamView";
 import Footer from "@/components/Footer";
 import InitialLoader from "@/components/InitialLoader";
+import { RevealHeading } from "@/components/ui/RevealHeading";
+import { MagicText } from "@/components/ui/MagicText";
 
 export default function Home() {
   const [activeView, setActiveView] = useState<"main" | "domains" | "team">("main");
@@ -319,13 +321,13 @@ export default function Home() {
                     Dept of Computer Science &amp; Engineering KLECET presents
                   </p>
 
-                  {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) */}
-                  <div className="overflow-hidden py-3 sm:py-2 md:py-1 relative z-30 w-full flex justify-center">
+                  {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) with stretched feel */}
+                  <div className="overflow-hidden py-5 sm:py-4 md:py-3 relative z-30 w-full flex justify-center">
                     <h1
                       ref={inventraTitleRef}
                       className="font-display text-[3.35rem] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block"
                     >
-                      <span className="inline-block scale-y-[1.35] md:scale-y-100 origin-center">
+                      <span className="inline-block scale-y-[1.65] md:scale-y-[1.4] origin-center">
                         INVENTRA
                       </span>
                     </h1>
@@ -469,23 +471,18 @@ export default function Home() {
                 <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
                   Prizes &amp; Perks
                 </span>
-                <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none my-3 select-none break-words">
-                  Why Participate?
-                </h2>
+                <div className="my-3 flex justify-center">
+                  <RevealHeading>
+                    <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words">
+                      Why Participate?
+                    </h2>
+                  </RevealHeading>
+                </div>
               </div>
 
-              <p className="text-neutral-300 text-base leading-relaxed text-justify max-w-4xl mx-auto mb-16 font-normal">
-                Sure, the prize pool and goodies are exciting—but a hackathon is
-                about so much more. It’s a 24-hour journey of creativity,
-                collaboration, and problem-solving. You’ll push your limits,
-                explore bold ideas, and experience the thrill of building
-                something from scratch. Along the way, you’ll connect with
-                like-minded peers, enjoy free food and caffeine, collect
-                exclusive event swag, and create memories that last a lifetime.
-                Whether you win or not, you’ll gain new skills, boost your
-                confidence, and take home an experience that truly sets you
-                apart.
-              </p>
+              <MagicText className="text-neutral-300 text-base leading-relaxed text-justify max-w-4xl mx-auto mb-16 font-normal">
+                Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
+              </MagicText>
 
               {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
               <PrizeCards />

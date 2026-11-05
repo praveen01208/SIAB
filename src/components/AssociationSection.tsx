@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealHeading } from "./ui/RevealHeading";
 
 interface PartnerItem {
   id: string;
@@ -144,9 +145,13 @@ export default function AssociationSection() {
           <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-600 font-bold mb-2">
             Partners &amp; Affiliations
           </span>
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase leading-none text-black">
-            In Association
-          </h2>
+          <div className="flex justify-center">
+            <RevealHeading>
+              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase leading-none text-black select-none">
+                In Association
+              </h2>
+            </RevealHeading>
+          </div>
         </div>
 
         {/* 4 Cards 2x2 Grid with Liquid Fill from Bottom */}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import VaporCountdown from "@/components/VaporCountdown";
 import { WebShotCard } from "@/components/WebShotButton";
@@ -136,6 +137,9 @@ export default function Home() {
       document.documentElement.classList.remove("loading-intro");
     }
     setShowLoader(false);
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
   };
 
   const openRegistration = (e?: React.MouseEvent) => {

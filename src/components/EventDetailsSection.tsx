@@ -59,8 +59,8 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
         scrollTrigger: {
           id: "ev-doors:desktop",
           trigger: stage,
-          start: "top bottom",
-          end: "center 55%",
+          start: "top 90%",
+          end: "top 38%",
           scrub: 0.5,
           invalidateOnRefresh: true,
         },
@@ -95,8 +95,8 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
         scrollTrigger: {
           id: "ev-doors:mobile",
           trigger: stage,
-          start: "top bottom",
-          end: "center 58%",
+          start: "top 92%",
+          end: "top 45%",
           scrub: 0.5,
           invalidateOnRefresh: true,
         },
@@ -124,7 +124,12 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
       });
     });
 
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 350);
+
     return () => {
+      clearTimeout(refreshTimer);
       mm.revert();
       ScrollTrigger.getById("ev-head")?.kill();
       ScrollTrigger.getById("ev-doors:desktop")?.kill();

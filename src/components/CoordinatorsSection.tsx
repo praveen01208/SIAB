@@ -2,7 +2,7 @@
 
 import React from "react";
 import TeamLanyardRail, { LanyardMember } from "./ui/team-lanyard-rail";
-import { WebShotButton } from "./WebShotButton";
+import { VenomButton } from "./ui/VenomButton";
 
 interface CoordinatorsSectionProps {
   onMeetTeam?: () => void;
@@ -128,21 +128,17 @@ export default function CoordinatorsSection({
             caption="Hover, drag, pull down or click any badge to flip and inspect credentials"
           />
 
-          {/* Meet The Full Team button positioned outside rail with ample breathing room so silk threads never get clipped */}
+          {/* Meet The Full Team button positioned with Venom liquid-metal button */}
           {showMeetTeamButton && onMeetTeam && (
             <div className="flex justify-center mt-6 pb-12 relative z-30 overflow-visible">
-              <WebShotButton
+              <VenomButton
                 onClick={onMeetTeam}
-                size="md"
-                shape="square"
-                color="#ffffff"
-                inkColor="#ffffff"
-                reach={140}
-                className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-white text-black bg-white"
+                captureRadius={100}
+                senseRadius={280}
+                className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider"
               >
-                <span>Meet The Full Team</span>
-                <i className="fa-solid fa-arrow-right ml-2"></i>
-              </WebShotButton>
+                Meet The Full Team &rarr;
+              </VenomButton>
             </div>
           )}
         </div>

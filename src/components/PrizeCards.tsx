@@ -57,8 +57,8 @@ export default function PrizeCards() {
       });
 
       // Synchronized lowering travel matching Card 1 (First Runner Up)
-      // Exactly 36px max so all three cards lower together without hiding behind background
-      const desktopTravel = () => -Math.min(window.innerHeight * 0.05, 36);
+      // Exactly 18px so all three cards lower together without hiding behind background
+      const desktopTravel = () => -18;
 
       // Card 1 (Left / 1st Runner Up): Lower + Swing Left
       tl.fromTo(
@@ -231,7 +231,7 @@ export default function PrizeCards() {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-visible pt-10 md:pt-14 pb-8 mb-16"
+      className="relative overflow-visible pt-16 md:pt-20 pb-8 mb-16"
     >
       <div className="grid md:grid-cols-3 gap-8 items-start relative">
         {/* ===================================================================
@@ -280,7 +280,7 @@ export default function PrizeCards() {
             <span className="depths-hang-clip right-[10%]" aria-hidden="true" />
 
             <TiltCard>
-              <div className="prize-outer grand md:-translate-y-2">
+              <div className="prize-outer grand">
                 <div className="prize-dot" />
                 <div className="prize-inner">
                   <div className="prize-ray" />

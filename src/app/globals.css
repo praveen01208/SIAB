@@ -2788,4 +2788,24 @@ html.lenis, html.lenis body {
 
 
 
-.venom-label { white-space: nowrap !important; }
+.venom-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+}
+
+.venom-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

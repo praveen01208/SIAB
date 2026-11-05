@@ -54,63 +54,27 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
 
     // Desktop split animation (scene:doors)
     mm.add("(min-width: 768px)", () => {
-      const lift = 0.07;
+      const lift = 25;
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "ev-doors:desktop",
           trigger: stage,
-          start: "top 90%",
-          end: "top 38%",
-          scrub: 0.5,
+          start: "top 95%",
+          end: "top 70%",
+          scrub: 0.2,
           invalidateOnRefresh: true,
         },
       });
 
       tl.fromTo(
         card1,
-        { xPercent: 12, y: () => window.innerHeight * lift },
+        { xPercent: 3, y: lift },
         { xPercent: 0, y: 0, ease: "power2.out", duration: 1 },
         0
       ).fromTo(
         card2,
-        { xPercent: -12, y: () => -window.innerHeight * lift },
+        { xPercent: -3, y: -lift },
         { xPercent: 0, y: 0, ease: "power2.out", duration: 1 },
-        0
-      );
-
-      images.forEach((img) => {
-        tl.fromTo(
-          img,
-          { scale: 1.25 },
-          { scale: 1, ease: "power2.out", duration: 1 },
-          0
-        );
-      });
-    });
-
-    // Mobile split animation (scene:doors narrow)
-    mm.add("(max-width: 767px)", () => {
-      const lift = 0.05;
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "ev-doors:mobile",
-          trigger: stage,
-          start: "top 92%",
-          end: "top 45%",
-          scrub: 0.5,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      tl.fromTo(
-        card1,
-        { y: () => window.innerHeight * lift },
-        { y: 0, ease: "power2.out", duration: 1 },
-        0
-      ).fromTo(
-        card2,
-        { y: () => -window.innerHeight * lift },
-        { y: 0, ease: "power2.out", duration: 1 },
         0
       );
 
@@ -124,12 +88,53 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
       });
     });
 
-    const refreshTimer = setTimeout(() => {
+    // Mobile split animation (scene:doors narrow)
+    mm.add("(max-width: 767px)", () => {
+      const lift = 18;
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: "ev-doors:mobile",
+          trigger: stage,
+          start: "top 95%",
+          end: "top 70%",
+          scrub: 0.2,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.fromTo(
+        card1,
+        { y: lift },
+        { y: 0, ease: "power2.out", duration: 1 },
+        0
+      ).fromTo(
+        card2,
+        { y: -lift },
+        { y: 0, ease: "power2.out", duration: 1 },
+        0
+      );
+
+      images.forEach((img) => {
+        tl.fromTo(
+          img,
+          { scale: 1.1 },
+          { scale: 1, ease: "power2.out", duration: 1 },
+          0
+        );
+      });
+    });
+
+    const refreshTimer1 = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 350);
+    }, 150);
+
+    const refreshTimer2 = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 600);
 
     return () => {
-      clearTimeout(refreshTimer);
+      clearTimeout(refreshTimer1);
+      clearTimeout(refreshTimer2);
       mm.revert();
       ScrollTrigger.getById("ev-head")?.kill();
       ScrollTrigger.getById("ev-doors:desktop")?.kill();

@@ -76,13 +76,13 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
         </nav>
 
         {/* Right: Clean modern Register Button with Venom liquid-metal effect */}
-        <div className="hidden sm:flex items-center z-10">
+        <div className="hidden sm:flex items-center justify-center z-10">
           <VenomButton
             onClick={handleRegisterClick}
             captureRadius={55}
             senseRadius={200}
             style={{ width: "135px", height: "40px", borderRadius: "8px" }}
-            className="font-mono text-xs font-bold uppercase tracking-wider"
+            className="font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center"
           >
             Register
           </VenomButton>
@@ -134,7 +134,7 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
               captureRadius={50}
               senseRadius={180}
               style={{ width: "100%", height: "44px", borderRadius: "8px" }}
-              className="w-full font-mono text-xs font-bold uppercase tracking-wider"
+              className="w-full font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center"
             >
               Register
             </VenomButton>

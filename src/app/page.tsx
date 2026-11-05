@@ -251,24 +251,25 @@ export default function Home() {
         <main id="main-content" className="flex-grow">
           {/* =========================================================================
               SHARED GRID WRAPPER: Header + Hero share the continuous white tech grid
+              Mobile utilizes full screen (min-h-[100svh]), desktop remains normal
              ========================================================================= */}
-          <div className="relative bg-white hero-grid-light border-b border-neutral-200 overflow-hidden">
+          <div className="relative bg-white hero-grid-light border-b border-neutral-200 overflow-hidden min-h-[100svh] md:min-h-0 flex flex-col justify-between">
             
             {/* Simple Clean Full-Width Navbar over the shared grid (with entrance animation ref) */}
-            <div ref={headerRef} className="w-full relative z-50">
+            <div ref={headerRef} className="w-full relative z-50 flex-shrink-0">
               <Navbar onNavigate={handleNavigate} onRegister={openRegistration} />
             </div>
 
             {/* HERO SECTION */}
             <section
               id="home"
-              className="relative pt-6 md:pt-10 pb-0 overflow-hidden flex flex-col items-center"
+              className="relative flex-1 flex flex-col justify-between items-center pt-2 sm:pt-4 md:pt-10 pb-0 overflow-hidden w-full"
             >
               {/* -------------------------------------------------------------
-                  Vertical Infinite Scroll on the Left Flank (side-by-side with middle content)
+                  Vertical Infinite Scroll on the Left Flank (Desktop & Tablet only - hidden on mobile)
                   with top and bottom white smoke fades
                  ------------------------------------------------------------- */}
-              <div className="absolute left-2 sm:left-4 md:left-8 lg:left-12 top-6 sm:top-10 bottom-12 md:bottom-20 w-16 sm:w-20 md:w-24 overflow-hidden z-20 flex flex-col items-center pointer-events-none">
+              <div className="hidden md:flex absolute left-2 sm:left-4 md:left-8 lg:left-12 top-6 sm:top-10 bottom-12 md:bottom-20 w-16 sm:w-20 md:w-24 overflow-hidden z-20 flex-col items-center pointer-events-none">
                 {/* Top White Smoke Fade */}
                 <div className="absolute top-0 inset-x-0 h-16 sm:h-24 bg-gradient-to-b from-white via-white/90 to-transparent z-10" />
                 
@@ -307,65 +308,124 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-20 flex flex-col items-center w-full">
+              <div className="max-w-7xl mx-auto px-3 sm:px-6 text-center relative z-20 flex flex-col justify-between items-center w-full flex-1">
                 
                 {/* -------------------------------------------------------------
-                    Center Content: Title, Presents, Countdown
+                    Center Content: Title, Presents, Countdown (stay in middle on mobile)
                    ------------------------------------------------------------- */}
-                {/* Above INVENTRA: Dept of Computer Science & Engineering KLECET presents */}
-                <p className="font-body text-xs sm:text-sm md:text-base text-neutral-600 font-semibold tracking-wide uppercase mb-1 z-30">
-                  Dept of Computer Science & Engineering KLECET presents
-                </p>
+                <div className="flex flex-col items-center w-full my-auto md:my-0 md:pt-1 py-4 md:py-0">
+                  {/* Above INVENTRA: Dept of Computer Science & Engineering KLECET presents */}
+                  <p className="font-body text-[12px] sm:text-xs md:text-base text-neutral-600 font-bold tracking-wider uppercase mb-2 z-30 px-3 text-center max-w-sm sm:max-w-md mx-auto">
+                    Dept of Computer Science &amp; Engineering KLECET presents
+                  </p>
 
-                {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) */}
-                <div className="overflow-hidden py-1 relative z-30 w-full flex justify-center">
-                  <h1
-                    ref={inventraTitleRef}
-                    className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase leading-none select-none my-1 drop-shadow-sm will-change-transform inline-block"
-                  >
-                    INVENTRA
-                  </h1>
-                </div>
-
-                {/* Small Minimalist Particle Countdown (Starts square and expands left & right) */}
-                <div
-                  ref={timerCardRef}
-                  className="w-full flex flex-col items-center mt-3 mb-0 relative z-30 will-change-transform"
-                >
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-2">
-                    <span className="w-2 h-2 rounded-full bg-black animate-ping" />
-                    <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-neutral-700 font-bold">
-                      Registration Closes in 14 Days
-                    </span>
+                  {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) */}
+                  <div className="overflow-hidden py-3 sm:py-2 md:py-1 relative z-30 w-full flex justify-center">
+                    <h1
+                      ref={inventraTitleRef}
+                      className="font-display text-[3.35rem] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block"
+                    >
+                      <span className="inline-block scale-y-[1.35] md:scale-y-100 origin-center">
+                        INVENTRA
+                      </span>
+                    </h1>
                   </div>
 
-                  <WebShotCard reach={140} threads={5}>
-                    <div className="bg-white/95 backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl border border-neutral-200/90 shadow-md">
-                      <VaporCountdown
-                        targetDate={Date.now() + 14 * 86_400_000}
-                        labels={["DAYS", "HOURS", "MINUTES", "SECONDS"]}
-                        size="small"
-                        className="mx-auto"
-                      />
+                  {/* Small Minimalist Particle Countdown (enlarged & shifted downwards on mobile) */}
+                  <div
+                    ref={timerCardRef}
+                    className="w-full flex flex-col items-center mt-20 sm:mt-24 md:mt-3 mb-0 relative z-30 will-change-transform"
+                  >
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 scale-110 sm:scale-115 md:scale-100 origin-center">
+                      <span className="w-2 h-2 rounded-full bg-black animate-ping" />
+                      <span className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-800 font-bold">
+                        Registration Closes in 14 Days
+                      </span>
                     </div>
-                  </WebShotCard>
+
+                    <WebShotCard reach={140} threads={5}>
+                      <div className="bg-white/95 backdrop-blur-md px-6 py-4.5 sm:px-7 sm:py-5 md:px-5 md:py-3.5 rounded-2xl border border-neutral-200/90 shadow-xl scale-120 sm:scale-125 md:scale-100 origin-top">
+                        <VaporCountdown
+                          targetDate={Date.now() + 14 * 86_400_000}
+                          labels={["DAYS", "HOURS", "MINUTES", "SECONDS"]}
+                          size="small"
+                          className="mx-auto"
+                        />
+                      </div>
+                    </WebShotCard>
+                  </div>
                 </div>
 
-                {/* H-B2 Ultra-wide Image asset (Starts small and grows slowly) */}
-                <div
-                  ref={heroImageRef}
-                  className="w-full max-w-6xl mx-auto -mt-4 sm:-mt-8 md:-mt-12 flex justify-center relative z-10 px-2 sm:px-4 will-change-transform"
-                  onContextMenu={(e) => e.preventDefault()}
-                >
-                  <img
-                    src="/images/H-B2.png"
-                    alt=""
-                    draggable={false}
-                    className="w-full max-h-[300px] sm:max-h-[380px] md:max-h-[460px] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.08)] filter brightness-100 select-none pointer-events-none transition-transform duration-500 hover:scale-[1.01]"
-                  />
+                {/* -------------------------------------------------------------
+                    Bottom Block (Mobile & Desktop): Marquee directly above H-B + Hero Image Asset
+                    (Lifted upwards on mobile view; desktop unchanged)
+                   ------------------------------------------------------------- */}
+                <div className="w-full flex flex-col items-center mt-auto pb-4 sm:pb-6 md:pb-0 md:translate-y-0">
+                  {/* Mobile Horizontal Infinite Scroll of H-1 to H-4 Assets (enlarged & shifted upwards) */}
+                  <div className="block md:hidden w-full overflow-hidden py-2 mb-4 -translate-y-20 sm:-translate-y-24 md:translate-y-0 relative z-20 pointer-events-none select-none">
+                    {/* Left and right soft white gradient edge fades */}
+                    <div className="absolute left-0 inset-y-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 inset-y-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-                  {/* Fog of white at the bottom of H-B2 asset to smoothly hide any sharp edge */}
-                  <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+                    <div className="animate-infinite-scroll flex items-center gap-8 sm:gap-10 w-max">
+                      {[
+                        "/images/H-1.png",
+                        "/images/H-2.png",
+                        "/images/H-3.png",
+                        "/images/H-4.png",
+                        "/images/H-1.png",
+                        "/images/H-2.png",
+                        "/images/H-3.png",
+                        "/images/H-4.png",
+                        "/images/H-1.png",
+                        "/images/H-2.png",
+                        "/images/H-3.png",
+                        "/images/H-4.png",
+                        "/images/H-1.png",
+                        "/images/H-2.png",
+                        "/images/H-3.png",
+                        "/images/H-4.png",
+                      ].map((src, i) => (
+                        <div
+                          key={`mob-h-${i}`}
+                          className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 flex items-center justify-center opacity-95"
+                        >
+                          <img
+                            src={src}
+                            alt=""
+                            draggable={false}
+                            className="max-w-full max-h-full object-contain drop-shadow-md select-none pointer-events-none"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Hero Image Asset: H-B2 on Desktop / Tablet, H-B on Mobile */}
+                  <div
+                    ref={heroImageRef}
+                    className="w-full max-w-6xl mx-auto md:-mt-10 mb-0 flex justify-center relative z-10 px-2 sm:px-4 will-change-transform"
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
+                    {/* Desktop / Tablet panoramic asset */}
+                    <img
+                      src="/images/H-B2.png"
+                      alt=""
+                      draggable={false}
+                      className="hidden md:block w-full max-h-[300px] sm:max-h-[380px] md:max-h-[460px] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.08)] filter brightness-100 select-none pointer-events-none transition-transform duration-500 hover:scale-[1.01]"
+                    />
+
+                    {/* Mobile compact illustration asset: prominent, filling mobile screen bottom */}
+                    <img
+                      src="/images/H-B.png"
+                      alt=""
+                      draggable={false}
+                      className="block md:hidden w-full max-w-[460px] sm:max-w-xl mx-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.08)] filter brightness-100 select-none pointer-events-none mb-0 scale-[1.15] sm:scale-[1.20] md:scale-100 origin-bottom -translate-y-5 sm:-translate-y-7 md:translate-y-0"
+                    />
+
+                    {/* Fog of white at the bottom of hero asset: ONLY on desktop panoramic asset */}
+                    <div className="hidden md:block absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+                  </div>
                 </div>
 
               </div>
@@ -409,7 +469,7 @@ export default function Home() {
                 <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
                   Prizes &amp; Perks
                 </span>
-                <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-wider uppercase leading-none my-3 select-none">
+                <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none my-3 select-none break-words">
                   Why Participate?
                 </h2>
               </div>

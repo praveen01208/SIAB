@@ -79,7 +79,7 @@ export default function AssociationSection() {
 
     const mm = gsap.matchMedia();
 
-    // Desktop staircase & bottom liquid fill on scroll
+    // Liquid fill on scroll
     mm.add("(min-width: 900px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -100,19 +100,6 @@ export default function AssociationSection() {
           { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.out", duration: 1 },
           i * 0.15
         );
-      });
-
-      // Staircase translation step matching brewery template
-      cards.forEach((card, i) => {
-        const stepY = i * -36;
-        if (stepY !== 0) {
-          tl.fromTo(
-            card,
-            { y: stepY },
-            { y: 0, ease: "power2.out", duration: 1 },
-            0
-          );
-        }
       });
     });
 
@@ -162,23 +149,23 @@ export default function AssociationSection() {
           </h2>
         </div>
 
-        {/* 4 Cards Staircase with Liquid Fill from Bottom */}
+        {/* 4 Cards 2x2 Grid with Liquid Fill from Bottom */}
         <ul
           ref={stairsRef}
-          className="tap__stairs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 items-start"
+          className="tap__stairs grid grid-cols-2 gap-3.5 sm:gap-6 max-w-3xl sm:max-w-4xl mx-auto items-stretch"
         >
           {PARTNERS.map((partner) => (
             <li
               key={partner.id}
-              className={`tap__card ${partner.colorClass} relative flex flex-col p-6 rounded-2xl border-1.5 border-dashed border-black/40 bg-white text-black isolation-isolate transition-transform duration-300 hover:-translate-y-1.5 shadow-md overflow-hidden`}
+              className={`tap__card ${partner.colorClass} relative flex flex-col p-4 sm:p-5 rounded-2xl border-1.5 border-dashed border-black/40 bg-white text-black isolation-isolate transition-transform duration-300 hover:-translate-y-1 shadow-sm overflow-hidden`}
             >
               {/* BASE LAYER: White background with black text (Visible before black liquid fills) */}
               <div className="relative z-0 flex flex-col h-full select-none">
-                <h3 className="tap__name font-display text-2xl sm:text-3xl font-extrabold uppercase text-center tracking-wide text-black">
+                <h3 className="tap__name font-display text-lg sm:text-2xl font-extrabold uppercase text-center tracking-wide text-black">
                   {partner.name}
                 </h3>
 
-                <p className="tap__style font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-2 text-neutral-600">
+                <p className="tap__style font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-1 sm:mt-1.5 text-neutral-600">
                   {partner.style}
                 </p>
 
@@ -186,7 +173,7 @@ export default function AssociationSection() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tap__photo-wrapper w-[72%] aspect-[1/1.25] mx-auto my-5 rounded-full bg-neutral-100 flex items-center justify-center p-4 border border-black/20 shadow-sm transition-transform duration-300 hover:scale-105"
+                  className="tap__photo-wrapper w-[48%] sm:w-[45%] aspect-square mx-auto my-3 sm:my-4 rounded-full bg-neutral-100 flex items-center justify-center p-2.5 sm:p-3 border border-black/20 shadow-sm transition-transform duration-300 hover:scale-105"
                   title={`Visit ${partner.name}`}
                 >
                   <img
@@ -197,11 +184,11 @@ export default function AssociationSection() {
                   />
                 </a>
 
-                <p className="tap__note font-body text-xs sm:text-sm leading-relaxed text-center text-neutral-700 mb-5 min-h-[44px]">
+                <p className="tap__note font-body text-[11px] sm:text-xs leading-relaxed text-center text-neutral-700 mb-3 sm:mb-4 min-h-0 line-clamp-2 sm:line-clamp-none">
                   {partner.note}
                 </p>
 
-                <div className="tap__price flex justify-between items-center pt-3.5 border-t border-dashed border-black/30 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-bold text-neutral-700 mt-auto">
+                <div className="tap__price flex justify-between items-center pt-2 sm:pt-2.5 border-t border-dashed border-black/30 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider font-bold text-neutral-700 mt-auto">
                   <span>{partner.leftBadge}</span>
                   <span>{partner.rightBadge}</span>
                 </div>
@@ -209,18 +196,18 @@ export default function AssociationSection() {
 
               {/* TOP LIQUID FILL LAYER: Jet-black background with white text, rising from bottom on scroll */}
               <div
-                className="tap__fill absolute inset-0 z-10 flex flex-col p-6 rounded-2xl bg-black text-white pointer-events-none border-t-2 border-white/60 shadow-[0_-4px_16px_rgba(255,255,255,0.2)]"
+                className="tap__fill absolute inset-0 z-10 flex flex-col p-4 sm:p-5 rounded-2xl bg-black text-white pointer-events-none border-t-2 border-white/60 shadow-[0_-4px_16px_rgba(255,255,255,0.2)]"
                 style={{ clipPath: "inset(100% 0% 0% 0%)" }}
               >
-                <h3 className="tap__name font-display text-2xl sm:text-3xl font-extrabold uppercase text-center tracking-wide text-white">
+                <h3 className="tap__name font-display text-lg sm:text-2xl font-extrabold uppercase text-center tracking-wide text-white">
                   {partner.name}
                 </h3>
 
-                <p className="tap__style font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-2 text-neutral-300">
+                <p className="tap__style font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-1 sm:mt-1.5 text-neutral-300">
                   {partner.style}
                 </p>
 
-                <div className="tap__photo-wrapper w-[72%] aspect-[1/1.25] mx-auto my-5 rounded-full bg-white flex items-center justify-center p-4 border border-white/20 shadow-sm">
+                <div className="tap__photo-wrapper w-[48%] sm:w-[45%] aspect-square mx-auto my-3 sm:my-4 rounded-full bg-white flex items-center justify-center p-2.5 sm:p-3 border border-white/20 shadow-sm">
                   <img
                     src={partner.logo}
                     alt={partner.name}
@@ -229,11 +216,11 @@ export default function AssociationSection() {
                   />
                 </div>
 
-                <p className="tap__note font-body text-xs sm:text-sm leading-relaxed text-center text-neutral-300 mb-5 min-h-[44px]">
+                <p className="tap__note font-body text-[11px] sm:text-xs leading-relaxed text-center text-neutral-300 mb-3 sm:mb-4 min-h-0 line-clamp-2 sm:line-clamp-none">
                   {partner.note}
                 </p>
 
-                <div className="tap__price flex justify-between items-center pt-3.5 border-t border-dashed border-white/30 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-bold text-neutral-200 mt-auto">
+                <div className="tap__price flex justify-between items-center pt-2 sm:pt-2.5 border-t border-dashed border-white/30 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider font-bold text-neutral-200 mt-auto">
                   <span>{partner.leftBadge}</span>
                   <span>{partner.rightBadge}</span>
                 </div>

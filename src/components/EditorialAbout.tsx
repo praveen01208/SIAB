@@ -248,7 +248,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
           </a>
         </p>
 
-        <p className="m-text-2 op-say font-display tracking-wider uppercase">
+        <p className="hidden md:block m-text-2 op-say font-display tracking-wider uppercase">
           <span className="ln"><span className="ln__i l-left">the</span><span className="ln__i">best</span></span>
           <span className="ln l-a"><span className="ln__i">hacks are the</span></span>
           <span className="ln l-a"><span className="ln__i">daring ones.</span></span>

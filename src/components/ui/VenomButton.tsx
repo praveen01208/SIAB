@@ -240,7 +240,7 @@ export function VenomButton({
 
       >
 
-        <span className="venom-label" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textAlign: "center", width: "100%", height: "100%", lineHeight: 1, margin: 0, padding: 0, whiteSpace: "nowrap" }}>{children}</span>
+        <span className="venom-label" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", width: "100%", height: "100%", lineHeight: 1, margin: 0, padding: 0, whiteSpace: "nowrap", pointerEvents: "none" }}>{children}</span>
 
       </button>
 
@@ -308,7 +308,7 @@ const STYLES = `
 
 .venom-label {
 
-  position: relative; z-index: calc(var(--venom-z, 1) + 1);
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1; width: 100%; height: 100%; margin: 0; padding: 0; white-space: nowrap; z-index: calc(var(--venom-z, 1) + 1);
 
   color: #fff; mix-blend-mode: difference;
 

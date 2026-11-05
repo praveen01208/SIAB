@@ -44,12 +44,14 @@ const scheduleStations = [
 
 export default function DatesWheelSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
-    if (!section) return;
+    const stage = stageRef.current;
+    if (!section || !stage) return;
 
     const rim = section.querySelector<HTMLElement>(".bd__rim");
     const stations = Array.from(
@@ -64,7 +66,7 @@ export default function DatesWheelSection() {
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const step = () =>
         parseFloat(getComputedStyle(section).getPropertyValue("--bd-step")) ||
-        (window.innerWidth <= 760 ? 48 : 22);
+        (window.innerWidth <= 760 ? 42 : 22);
 
       // Smooth, jitter-free continuous scrub timeline with 0 dead gaps
       const timeline = gsap.timeline({
@@ -73,16 +75,24 @@ export default function DatesWheelSection() {
           trigger: section,
           start: "top top",
           end: "bottom bottom",
+          pin: stage,
+          pinType: "fixed",
+          pinSpacing: false,
           scrub: 1.0,
+          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
+      const initialHold = 0.2;
+      const stepDuration = 1.0;
+      const finalHold = 0.5;
+
       for (let k = 1; k < stations.length; k++) {
-        const at = (k - 1) * 1.0;
+        const at = initialHold + (k - 1) * stepDuration;
         const vars = (angle: () => number) => ({
           rotation: angle,
-          duration: 1.0,
+          duration: stepDuration,
           ease: "power1.inOut",
         });
 
@@ -104,7 +114,8 @@ export default function DatesWheelSection() {
         }
       }
 
-      timeline.to({}, { duration: 0.1 });
+      // Generous hold buffer: lock the final date (checkpoint 05) at the center until the user finishes scrolling through it
+      timeline.to({}, { duration: finalHold });
 
       return () => {
         section.removeAttribute("data-wheel");
@@ -128,9 +139,9 @@ export default function DatesWheelSection() {
       {/* Target for nav link jumping */}
       <div id="dates" className="absolute -top-16 left-0 opacity-0 pointer-events-none" />
 
-      <div className="bd__stage">
+      <div ref={stageRef} className="bd__stage">
         {/* Title Header: "IMPORTANT" in small size, "DATES" in big size */}
-        <div className="text-center max-w-3xl mx-auto mb-4 relative z-20 px-4">
+        <div className="text-center max-w-3xl mx-auto mb-2 sm:mb-3 relative z-20 px-4">
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 font-semibold block mb-1">
             Schedule &amp; Milestones
           </span>
@@ -142,7 +153,7 @@ export default function DatesWheelSection() {
               DATES
             </span>
           </h2>
-          <p className="text-neutral-500 mt-2 text-xs sm:text-sm max-w-md mx-auto">
+          <p className="text-neutral-500 mt-1.5 text-xs sm:text-sm max-w-md mx-auto">
             Five critical checkpoints taking you from concept submission to the live 24-hour sprint.
           </p>
         </div>

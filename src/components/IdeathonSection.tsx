@@ -171,14 +171,14 @@ export default function IdeathonSection() {
       </div>
 
       {/* Title Header */}
-      <div className="text-center max-w-4xl mx-auto mb-16 relative z-10 px-4">
+      <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-16 relative z-20 px-4">
         <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-500 font-semibold block mb-2">
           5 Stages of Competition
         </span>
         <h2 className="ns__title font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-wider uppercase text-black leading-none my-3 select-none drop-shadow-sm" id="ns-title">
           IDEATHON
         </h2>
-        <p className="text-neutral-600 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
+        <p className="text-neutral-700 font-medium mt-7 sm:mt-9 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed relative z-20">
           Five structured stages taking your breakthrough idea from concept to a shipped prototype.
         </p>
       </div>
@@ -199,8 +199,8 @@ export default function IdeathonSection() {
       </ul>
 
       {/* Bottom Download Template Callout (Open directly on section bg with square WebShot button) */}
-      <div className="text-center mt-16 relative z-20 px-4 flex flex-col items-center">
-        <p className="text-base sm:text-lg md:text-xl font-display font-bold text-black flex items-center justify-center gap-2 mb-6">
+      <div className="text-center mt-8 sm:mt-10 mb-2 sm:mb-4 relative z-20 px-4 flex flex-col items-center">
+        <p className="text-base sm:text-lg md:text-xl font-display font-bold text-black flex items-center justify-center gap-2 mb-4">
           <i className="fa-solid fa-rocket text-black"></i>
           <span>Only shortlisted teams will proceed to the final 24h round.</span>
         </p>

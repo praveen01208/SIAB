@@ -184,25 +184,25 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
            ============================================================= */}
         <div
           ref={stageRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto items-stretch"
         >
           {/* -------------------------------------------------------------
-              CARD 1: CAMPUS ARENA & MAP (WIDE & SLEEK HEIGHT)
+              CARD 1: CAMPUS ARENA & MAP (ROUNDED & COMPACT)
              ------------------------------------------------------------- */}
-          <div ref={card1Ref} className="ev-card rounded-none">
-            {/* Top Tag Badges (Square) */}
-            <div className="flex items-center justify-between mb-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-black text-white font-mono text-[11px] font-bold uppercase tracking-widest border border-black">
-                <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse" />
+          <div ref={card1Ref} className="ev-card rounded-2xl">
+            {/* Top Tag Badges */}
+            <div className="flex items-center justify-between mb-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black text-white font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-widest border border-black">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 Arena Venue
               </span>
-              <span className="font-mono text-xs text-neutral-600 font-bold uppercase tracking-wider">
+              <span className="font-mono text-[11px] sm:text-xs text-neutral-600 font-bold uppercase tracking-wider">
                 Chikodi, Karnataka
               </span>
             </div>
 
-            {/* Visual Container (Wide, Reduced Height) */}
-            <div className="card-visual rounded-none group-hover:shadow-lg border border-neutral-200">
+            {/* Visual Container */}
+            <div className="card-visual rounded-xl group-hover:shadow-md border border-neutral-200">
               <img
                 src="/images/location.avif"
                 alt="KLECET Campus Arena Map"
@@ -211,49 +211,49 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
                 onContextMenu={(e) => e.preventDefault()}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white pointer-events-none">
-                <span className="font-mono text-xs bg-black/85 backdrop-blur-md px-2.5 py-1 rounded-none border border-white/20 font-medium">
+              <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white pointer-events-none">
+                <span className="font-mono text-[10px] sm:text-[11px] bg-black/85 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-white/20 font-medium">
                   16.4258° N, 74.5986° E
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider bg-emerald-400 text-black font-extrabold px-2 py-0.5 rounded-none">
+                <span className="font-mono text-[9px] uppercase tracking-wider bg-emerald-400 text-black font-extrabold px-2 py-0.5 rounded-md">
                   Open Arena
                 </span>
               </div>
             </div>
 
             {/* Content Info */}
-            <div className="pt-4 pb-1">
-              <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-black font-black uppercase tracking-tight mb-2">
+            <div className="pt-3 pb-1">
+              <h3 className="font-display text-lg sm:text-xl lg:text-2xl text-black font-black uppercase tracking-tight mb-1.5">
                 KLECET Campus Arena
               </h3>
-              <p className="font-body text-neutral-600 text-xs sm:text-sm leading-relaxed mb-3.5">
+              <p className="font-body text-neutral-600 text-xs sm:text-[13px] leading-relaxed mb-3">
                 Department of Computer Science &amp; Engineering, KLE College of Engineering &amp; Technology. Fully equipped hackathon facilities.
               </p>
 
-              {/* Amenity Badges (Square) */}
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-neutral-200">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-neutral-100 text-neutral-800 font-mono text-xs font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-wifi text-[11px] text-neutral-600"></i>
+              {/* Amenity Badges */}
+              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-200">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-wifi text-[10px] text-neutral-600"></i>
                   Gigabit LAN &amp; Wi-Fi
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-neutral-100 text-neutral-800 font-mono text-xs font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-utensils text-[11px] text-neutral-600"></i>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-utensils text-[10px] text-neutral-600"></i>
                   Meals &amp; Midnight Fuel
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-neutral-100 text-neutral-800 font-mono text-xs font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-plug text-[11px] text-neutral-600"></i>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-plug text-[10px] text-neutral-600"></i>
                   24/7 Power Backup
                 </span>
               </div>
             </div>
 
-            {/* Bottom Button (btn-31 animation, strictly square, uniform height) */}
+            {/* Bottom Button */}
             <div className="card-btn-wrap">
               <a
                 href="https://maps.app.goo.gl/CdUfT6EThXswZaRCA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-31 w-full h-12 sm:h-13 rounded-none text-xs sm:text-sm"
+                className="btn-31 w-full h-11 sm:h-12 rounded-xl text-xs sm:text-sm font-bold"
               >
                 <span className="text-container">
                   <span className="text">
@@ -266,22 +266,22 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
           </div>
 
           {/* -------------------------------------------------------------
-              CARD 2: SPRINT GUIDELINES & TIMELINE (WIDE & SLEEK HEIGHT)
+              CARD 2: SPRINT GUIDELINES & TIMELINE (ROUNDED & COMPACT)
              ------------------------------------------------------------- */}
-          <div ref={card2Ref} className="ev-card rounded-none">
-            {/* Top Tag Badges (Square) */}
-            <div className="flex items-center justify-between mb-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-black text-white font-mono text-[11px] font-bold uppercase tracking-widest border border-black">
-                <span className="w-1.5 h-1.5 rounded-none bg-cyan-400 animate-pulse" />
+          <div ref={card2Ref} className="ev-card rounded-2xl">
+            {/* Top Tag Badges */}
+            <div className="flex items-center justify-between mb-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black text-white font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-widest border border-black">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 Rulebook &amp; Docs
               </span>
-              <span className="font-mono text-xs text-neutral-600 font-bold uppercase tracking-wider">
+              <span className="font-mono text-[11px] sm:text-xs text-neutral-600 font-bold uppercase tracking-wider">
                 INVENTRA 2026
               </span>
             </div>
 
-            {/* Visual Container (Wide, Reduced Height) */}
-            <div className="card-visual rounded-none group-hover:shadow-lg bg-neutral-950 flex items-center justify-center p-4 border border-neutral-200">
+            {/* Visual Container */}
+            <div className="card-visual rounded-xl group-hover:shadow-md bg-neutral-950 flex items-center justify-center p-3 border border-neutral-200">
               <img
                 src="/images/H-B2.png"
                 alt="INVENTRA Guidelines Graphic"
@@ -290,49 +290,49 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
                 onContextMenu={(e) => e.preventDefault()}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white pointer-events-none">
-                <span className="font-mono text-xs bg-black/85 backdrop-blur-md px-2.5 py-1 rounded-none border border-white/20 font-medium">
+              <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white pointer-events-none">
+                <span className="font-mono text-[10px] sm:text-[11px] bg-black/85 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-white/20 font-medium">
                   Official Directive PDF
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider bg-cyan-400 text-black font-extrabold px-2 py-0.5 rounded-none">
+                <span className="font-mono text-[9px] uppercase tracking-wider bg-cyan-400 text-black font-extrabold px-2 py-0.5 rounded-md">
                   24h Sprint
                 </span>
               </div>
             </div>
 
             {/* Content Info */}
-            <div className="pt-4 pb-1">
-              <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-black font-black uppercase tracking-tight mb-2">
+            <div className="pt-3 pb-1">
+              <h3 className="font-display text-lg sm:text-xl lg:text-2xl text-black font-black uppercase tracking-tight mb-1.5">
                 Sprint Guidelines &amp; Timeline
               </h3>
-              <p className="font-body text-neutral-600 text-xs sm:text-sm leading-relaxed mb-3.5">
+              <p className="font-body text-neutral-600 text-xs sm:text-[13px] leading-relaxed mb-3">
                 Strict 9:30 AM check-in, deliverables format, team regulations, and milestone jury pitch rubrics.
               </p>
 
-              {/* Directive Badges (Square) */}
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-neutral-200">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-neutral-100 text-neutral-800 font-mono text-xs font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-id-card text-[11px] text-neutral-600"></i>
+              {/* Directive Badges */}
+              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-200">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-id-card text-[10px] text-neutral-600"></i>
                   Mandatory ID Badge
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-neutral-100 text-neutral-800 font-mono text-xs font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-clock text-[11px] text-neutral-600"></i>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-clock text-[10px] text-neutral-600"></i>
                   Strict 9:30 AM Cutoff
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-neutral-100 text-neutral-800 font-mono text-xs font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-award text-[11px] text-neutral-600"></i>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-award text-[10px] text-neutral-600"></i>
                   Jury Evaluation
                 </span>
               </div>
             </div>
 
-            {/* Bottom Button (btn-31 animation, strictly square, uniform height) */}
+            {/* Bottom Button */}
             <div className="card-btn-wrap">
               <a
                 href="https://drive.google.com/file/d/1Hb8IGJ5wbAyb1PTJWLSCGr3j2HQnPoSc/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-31 w-full h-12 sm:h-13 rounded-none text-xs sm:text-sm"
+                className="btn-31 w-full h-11 sm:h-12 rounded-xl text-xs sm:text-sm font-bold"
               >
                 <span className="text-container">
                   <span className="text">
@@ -346,12 +346,12 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
         </div>
 
         {/* Schedule link + Explore Domains */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14 sm:mt-20 pt-10 border-t border-neutral-200">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 pt-8 border-t border-neutral-200">
           <a
             href="https://drive.google.com/file/d/1dnrDq_yf3yRWlla5IgQgSxMaIJRBFjiW/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-neutral-800 hover:text-black py-3 px-6 rounded-none border border-neutral-300 hover:border-black transition-all"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-neutral-800 hover:text-black py-2.5 px-5 rounded-xl border border-neutral-300 hover:border-black transition-all"
           >
             <i className="fa-solid fa-calendar-days text-xs text-neutral-500"></i>
             <span>View Round-by-Round Schedule (PDF)</span>
@@ -361,7 +361,7 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
           {onExploreDomains && (
             <button
               onClick={onExploreDomains}
-              className="btn-31 h-12 sm:h-14 px-8 rounded-none text-xs sm:text-sm font-bold"
+              className="btn-31 h-11 sm:h-12 px-7 rounded-xl text-xs sm:text-sm font-bold"
             >
               <span className="text-container">
                 <span className="text">

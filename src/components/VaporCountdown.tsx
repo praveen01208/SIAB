@@ -474,9 +474,9 @@ export function VaporCountdown({
       className={`relative inline-grid select-none ${className}`}
       style={{
         gridTemplateColumns: `repeat(${numGroups}, auto)`,
-        columnGap: isSmall ? "0.45em" : "0.6em",
+        columnGap: isSmall ? "0.5em" : "0.6em",
         rowGap: isSmall ? "0.25rem" : "0.5rem",
-        fontSize: isSmall ? "clamp(1.15rem, 2.2vw, 1.6rem)" : "clamp(2rem, 5vw, 4rem)",
+        fontSize: isSmall ? "clamp(1.35rem, 3.6vw, 1.8rem)" : "clamp(2rem, 5vw, 4rem)",
       }}
     >
       <time ref={timeRef} aria-live="off" style={{ display: "contents" }}>
@@ -485,7 +485,7 @@ export function VaporCountdown({
             key={group}
             className={`flex justify-center font-bold font-mono leading-none tracking-tight text-black opacity-0 tabular-nums motion-reduce:opacity-100 ${
               isSmall
-                ? "bg-neutral-100 px-2 py-1 rounded border border-neutral-300 shadow-sm"
+                ? "bg-neutral-100 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md border border-neutral-300 shadow-sm"
                 : "bg-neutral-900/60 px-2 py-1 rounded border border-neutral-700/50 backdrop-blur-sm"
             }`}
           >
@@ -499,7 +499,7 @@ export function VaporCountdown({
           <span
             key={label}
             className={`text-center font-mono font-bold tracking-[0.2em] text-neutral-500 uppercase ${
-              isSmall ? "text-[8px] md:text-[9px]" : "text-[10px] md:text-xs"
+              isSmall ? "text-[8.5px] sm:text-[9.5px] md:text-[9px]" : "text-[10px] md:text-xs"
             }`}
           >
             {label}

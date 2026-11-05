@@ -94,7 +94,7 @@ function useWebSilk(
     const wrap = wrapRef.current;
     const cv = canvasRef.current;
     const ctx = cv?.getContext("2d");
-    if (reduced || !el || !wrap || !cv || !ctx) return;
+    if (reduced || !el || !wrap || !cv || !ctx || disabled) return;
 
     const n = Math.max(1, Math.round(threads));
     const pad = reach + 24;
@@ -202,7 +202,7 @@ function useWebSilk(
       raf = 0;
       const p = local();
       const here = cap(p.x, p.y);
-      const want = pointer.known && !disabled && here.dist > 1 && here.dist < reach;
+      const want = pointer.known && !disabled && here.dist < reach;
       if (want && !active) {
         ink = inkColor || "#000000";
       }
@@ -291,7 +291,6 @@ function useWebSilk(
     };
 
     const onMove = (e: PointerEvent) => {
-      if (e.pointerType === "touch" && e.buttons === 0) return;
       pointer.x = e.clientX;
       pointer.y = e.clientY;
       pointer.known = true;
@@ -306,8 +305,24 @@ function useWebSilk(
         kick();
       }
     };
-    const onEnd = (e: PointerEvent) => {
-      if (e.pointerType !== "touch") return;
+    const onTouch = (e: TouchEvent) => {
+      if (!e.touches.length) return;
+      const t = e.touches[0];
+      pointer.x = t.clientX;
+      pointer.y = t.clientY;
+      pointer.known = true;
+      if (raf) return;
+      const r = el.getBoundingClientRect();
+      if (
+        t.clientX > r.left - reach &&
+        t.clientX < r.right + reach &&
+        t.clientY > r.top - reach &&
+        t.clientY < r.bottom + reach
+      ) {
+        kick();
+      }
+    };
+    const onEnd = () => {
       pointer.known = false;
       kick();
     };
@@ -330,6 +345,10 @@ function useWebSilk(
     window.addEventListener("pointerdown", onMove, { passive: true });
     window.addEventListener("pointerup", onEnd, { passive: true });
     window.addEventListener("pointercancel", onEnd, { passive: true });
+    window.addEventListener("touchmove", onTouch, { passive: true });
+    window.addEventListener("touchstart", onTouch, { passive: true });
+    window.addEventListener("touchend", onEnd, { passive: true });
+    window.addEventListener("touchcancel", onEnd, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("pointerout", onOut, { passive: true });
 
@@ -340,6 +359,10 @@ function useWebSilk(
       window.removeEventListener("pointerdown", onMove);
       window.removeEventListener("pointerup", onEnd);
       window.removeEventListener("pointercancel", onEnd);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("touchstart", onTouch);
+      window.removeEventListener("touchend", onEnd);
+      window.removeEventListener("touchcancel", onEnd);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("pointerout", onOut);
     };
@@ -479,7 +502,7 @@ export function WebShotCard({
   });
 
   return (
-    <div ref={wrapRef} className={cn("relative isolate inline-block", className)} {...rest}>
+    <div ref={wrapRef} className={cn("relative isolate inline-block max-w-full overflow-hidden sm:overflow-visible", className)} {...rest}>
       {!reduced && (
         <canvas
           ref={canvasRef}

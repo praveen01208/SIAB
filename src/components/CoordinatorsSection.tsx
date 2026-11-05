@@ -2,7 +2,7 @@
 
 import React from "react";
 import TeamLanyardRail, { LanyardMember } from "./ui/team-lanyard-rail";
-import { VenomButton } from "./ui/VenomButton";
+import { WebShotCard } from "./WebShotButton";
 
 interface CoordinatorsSectionProps {
   onMeetTeam?: () => void;
@@ -104,14 +104,14 @@ export default function CoordinatorsSection({
   showMeetTeamButton = true,
 }: CoordinatorsSectionProps) {
   return (
-    <section id="coordinators" className="page pt-24 sm:pt-32 pb-32 sm:pb-40 reveal active bg-black text-white border-t border-neutral-900 overflow-visible relative">
+    <section id="coordinators" className="page pt-20 sm:pt-32 pb-12 sm:pb-36 reveal active bg-black text-white border-t border-neutral-900 overflow-visible relative">
       <div className="container mx-auto px-4 sm:px-6 overflow-visible">
         {/* Centered Middle Header */}
         <div className="text-center max-w-4xl mx-auto mb-14 flex flex-col items-center">
           <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
             Leadership &amp; Guidance
           </span>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-wider uppercase leading-none my-3 select-none">
+          <h2 className="font-display text-[2.1rem] sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight sm:tracking-wider uppercase leading-none my-3 select-none break-words max-w-full">
             Coordinators
           </h2>
           <p className="text-neutral-400 text-sm sm:text-base max-w-lg mx-auto mt-3 font-normal">
@@ -128,19 +128,21 @@ export default function CoordinatorsSection({
             caption="Hover, drag, pull down or click any badge to flip and inspect credentials"
           />
 
-          {/* Meet The Full Team button (Solid Crisp White against Black Background) */}
+          {/* Meet The Full Team button (Solid Crisp White, Glow Removed, with Silk Elastic Interaction on Desktop) */}
           {showMeetTeamButton && onMeetTeam && (
-            <div className="flex justify-center mt-8 pb-12 relative z-30">
-              <button
-                type="button"
-                onClick={onMeetTeam}
-                className="group inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-white text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-neutral-100 hover:scale-[1.03] shadow-[0_4px_24px_rgba(255,255,255,0.25)] hover:shadow-[0_8px_32px_rgba(255,255,255,0.45)] cursor-pointer border border-white"
-              >
-                <span>Meet The Full Team</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1.5 font-bold">
-                  &rarr;
-                </span>
-              </button>
+            <div className="flex justify-center mt-6 sm:mt-8 pb-4 sm:pb-10 relative z-30">
+              <WebShotCard reach={130} threads={4}>
+                <button
+                  type="button"
+                  onClick={onMeetTeam}
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-white text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-neutral-100 hover:scale-[1.03] cursor-pointer border border-white"
+                >
+                  <span>Meet The Full Team</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1.5 font-bold">
+                    &rarr;
+                  </span>
+                </button>
+              </WebShotCard>
             </div>
           )}
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { WebShotButton } from "./WebShotButton";
+import { VenomButton } from "./ui/VenomButton";
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -75,18 +75,17 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
           </a>
         </nav>
 
-        {/* Right: Clean modern Register Button pushed to the right end with WebShot animation */}
+        {/* Right: Clean modern Register Button with Venom liquid-metal effect */}
         <div className="hidden sm:flex items-center z-10">
-          <WebShotButton
+          <VenomButton
             onClick={handleRegisterClick}
-            size="md"
-            color="#000000"
-            inkColor="#000000"
-            className="font-mono text-xs font-bold uppercase tracking-wider h-10 px-5 cursor-pointer shadow-md"
+            captureRadius={65}
+            senseRadius={220}
+            style={{ width: "165px", height: "42px", borderRadius: "10px" }}
+            className="font-mono text-xs font-bold uppercase tracking-wider"
           >
-            <span>Register Now</span>
-            <i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-80 ml-1.5"></i>
-          </WebShotButton>
+            Register Now &nearr;
+          </VenomButton>
         </div>
 
         {/* Mobile menu hamburger */}
@@ -129,16 +128,16 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
           >
             Domains
           </a>
-          <div className="w-full pt-1">
-            <WebShotButton
+          <div className="w-full pt-1 flex justify-center">
+            <VenomButton
               onClick={handleRegisterClick}
-              size="md"
-              color="#000000"
-              className="w-full font-mono text-xs font-bold uppercase tracking-wider h-11"
+              captureRadius={50}
+              senseRadius={180}
+              style={{ width: "100%", height: "46px", borderRadius: "10px" }}
+              className="w-full font-mono text-xs font-bold uppercase tracking-wider"
             >
-              <span>Register Now</span>
-              <i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-80 ml-1.5"></i>
-            </WebShotButton>
+              Register Now &nearr;
+            </VenomButton>
           </div>
         </div>
       )}

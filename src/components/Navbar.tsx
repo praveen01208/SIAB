@@ -81,7 +81,16 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
             onClick={handleRegisterClick}
             captureRadius={55}
             senseRadius={200}
-            style={{ width: "135px", height: "40px", borderRadius: "8px" }}
+            style={{
+              width: "135px",
+              height: "40px",
+              borderRadius: "8px",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              lineHeight: 1,
+            }}
             className="font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center"
           >
             Register

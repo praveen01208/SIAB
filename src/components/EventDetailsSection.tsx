@@ -52,76 +52,84 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
     const img2 = card2.querySelector(".card-visual img");
     const images = [img1, img2].filter(Boolean);
 
-    // Desktop split animation (scene:doors)
+    // Desktop card entrance (no horizontal xPercent overlap - strictly separated in grid)
     mm.add("(min-width: 768px)", () => {
-      const lift = 25;
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "ev-doors:desktop",
-          trigger: stage,
-          start: "top 95%",
-          end: "top 70%",
-          scrub: 0.2,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      tl.fromTo(
+      gsap.fromTo(
         card1,
-        { xPercent: 3, y: lift },
-        { xPercent: 0, y: 0, ease: "power2.out", duration: 1 },
-        0
-      ).fromTo(
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            id: "ev-card1",
+            trigger: stage,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
         card2,
-        { xPercent: -3, y: -lift },
-        { xPercent: 0, y: 0, ease: "power2.out", duration: 1 },
-        0
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.12,
+          ease: "power2.out",
+          scrollTrigger: {
+            id: "ev-card2",
+            trigger: stage,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
       );
 
       images.forEach((img) => {
-        tl.fromTo(
+        gsap.fromTo(
           img,
           { scale: 1.15 },
-          { scale: 1, ease: "power2.out", duration: 1 },
-          0
+          {
+            scale: 1,
+            ease: "power2.out",
+            duration: 1.2,
+            scrollTrigger: {
+              trigger: stage,
+              start: "top 85%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          }
         );
       });
     });
 
-    // Mobile split animation (scene:doors narrow)
+    // Mobile card entrance
     mm.add("(max-width: 767px)", () => {
-      const lift = 18;
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "ev-doors:mobile",
-          trigger: stage,
-          start: "top 95%",
-          end: "top 70%",
-          scrub: 0.2,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      tl.fromTo(
-        card1,
-        { y: lift },
-        { y: 0, ease: "power2.out", duration: 1 },
-        0
-      ).fromTo(
-        card2,
-        { y: -lift },
-        { y: 0, ease: "power2.out", duration: 1 },
-        0
+      gsap.fromTo(
+        [card1, card2],
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            id: "ev-mobile-cards",
+            trigger: stage,
+            start: "top 88%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
       );
-
-      images.forEach((img) => {
-        tl.fromTo(
-          img,
-          { scale: 1.1 },
-          { scale: 1, ease: "power2.out", duration: 1 },
-          0
-        );
-      });
     });
 
     const refreshTimer1 = setTimeout(() => {
@@ -137,8 +145,9 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
       clearTimeout(refreshTimer2);
       mm.revert();
       ScrollTrigger.getById("ev-head")?.kill();
-      ScrollTrigger.getById("ev-doors:desktop")?.kill();
-      ScrollTrigger.getById("ev-doors:mobile")?.kill();
+      ScrollTrigger.getById("ev-card1")?.kill();
+      ScrollTrigger.getById("ev-card2")?.kill();
+      ScrollTrigger.getById("ev-mobile-cards")?.kill();
     };
   }, []);
 

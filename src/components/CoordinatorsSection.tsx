@@ -128,17 +128,19 @@ export default function CoordinatorsSection({
             caption="Hover, drag, pull down or click any badge to flip and inspect credentials"
           />
 
-          {/* Meet The Full Team button positioned with Venom liquid-metal button */}
+          {/* Meet The Full Team button (Solid Crisp White against Black Background) */}
           {showMeetTeamButton && onMeetTeam && (
-            <div className="flex justify-center mt-6 pb-12 relative z-30 overflow-visible">
-              <VenomButton
+            <div className="flex justify-center mt-8 pb-12 relative z-30">
+              <button
+                type="button"
                 onClick={onMeetTeam}
-                captureRadius={100}
-                senseRadius={280}
-                className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-white text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-neutral-100 hover:scale-[1.03] shadow-[0_4px_24px_rgba(255,255,255,0.25)] hover:shadow-[0_8px_32px_rgba(255,255,255,0.45)] cursor-pointer border border-white"
               >
-                Meet The Full Team &rarr;
-              </VenomButton>
+                <span>Meet The Full Team</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1.5 font-bold">
+                  &rarr;
+                </span>
+              </button>
             </div>
           )}
         </div>

@@ -240,7 +240,7 @@ export function VenomButton({
 
       >
 
-        <span className="venom-label">{children}</span>
+        <span className="venom-label" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textAlign: "center", width: "100%", height: "100%", lineHeight: 1, margin: 0, padding: 0, whiteSpace: "nowrap" }}>{children}</span>
 
       </button>
 

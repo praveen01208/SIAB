@@ -380,7 +380,7 @@ export default function Home() {
                     </div>
 
                     <WebShotCard reach={140} threads={5}>
-                      <div className="bg-white/95 backdrop-blur-md px-5 py-4 sm:px-7 sm:py-5 md:px-6 md:py-4 rounded-2xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-105 md:scale-100 origin-top overflow-visible">
+                      <div className="bg-white/95 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-2.5 md:px-5 md:py-2.5 rounded-xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-100 md:scale-100 origin-top overflow-visible">
                         <CombinationLockCountdown className="mx-auto" />
                       </div>
                     </WebShotCard>

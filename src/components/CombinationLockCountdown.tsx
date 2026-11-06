@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface CombinationLockCountdownProps {
   targetDate?: number;
@@ -13,14 +13,37 @@ interface DialProps {
 }
 
 function Dial({ digit, onClick }: DialProps) {
-  // Rotate nonagon cylinder so that face-[digit] points forward
-  const rotation = digit * 36;
+  const [angle, setAngle] = useState(() => digit * 36);
+  const prevDigitRef = useRef(digit);
+
+  useEffect(() => {
+    const prev = prevDigitRef.current;
+    if (prev !== digit) {
+      let delta = (digit - prev) % 10;
+      if (delta > 5) delta -= 10;
+      if (delta < -5) delta += 10;
+      setAngle((prevAngle) => prevAngle + delta * 36);
+      prevDigitRef.current = digit;
+    }
+  }, [digit]);
 
   return (
-    <div className="dial cursor-pointer" onClick={onClick} title="Click to spin dial">
+    <div
+      className="dial cursor-pointer"
+      onClick={onClick}
+      title="Click to spin dial"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+    >
       <div
         className="nonagon"
-        style={{ transform: `rotateX(${rotation}deg)` }}
+        style={{ transform: `rotateX(${angle}deg)` }}
       >
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
           <div key={n} className={`face face-${n}`}>
@@ -36,8 +59,13 @@ export default function CombinationLockCountdown({
   targetDate,
   className = "",
 }: CombinationLockCountdownProps) {
-  // Default to 14 days from now if not specified
-  const targetTime = targetDate || Date.now() + 14 * 86_400_000;
+  // Stable target timestamp locked once on mount to prevent interval resets
+  const targetTimeRef = useRef<number>(0);
+  if (targetTimeRef.current === 0) {
+    targetTimeRef.current =
+      targetDate ||
+      Date.now() + 14 * 86_400_000 + 8 * 3_600_000 + 45 * 60_000 + 30_000;
+  }
 
   const [timeLeft, setTimeLeft] = useState({
     days: 14,
@@ -58,9 +86,11 @@ export default function CombinationLockCountdown({
   });
 
   useEffect(() => {
+    const target = targetDate || targetTimeRef.current;
+
     const updateCountdown = () => {
       const now = Date.now();
-      const diff = Math.max(0, targetTime - now);
+      const diff = Math.max(0, target - now);
 
       const totalSeconds = Math.floor(diff / 1000);
       const days = Math.floor(totalSeconds / 86400);
@@ -74,9 +104,9 @@ export default function CombinationLockCountdown({
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [targetTime]);
+  }, [targetDate]);
 
-  // Break values into 2 digits each
+  // Break values into 2 digits each with manual offset support
   const d1 = (Math.floor(Math.min(99, timeLeft.days) / 10) + manualOffsets.d1) % 10;
   const d2 = (Math.min(99, timeLeft.days) % 10 + manualOffsets.d2) % 10;
 

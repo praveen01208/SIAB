@@ -12,51 +12,51 @@ const RANSOM_STYLES = [
   {
     bg: "#fef08a", // Manila / Yellow newspaper clipping
     color: "#000000",
-    font: "font-mono font-black",
     border: "2px solid #000000",
-    shadow: "2px 3px 0px rgba(0,0,0,0.85)",
+    shadow: "2px 2px 0px rgba(0,0,0,0.9)",
+    rot: -1.5,
   },
   {
     bg: "#000000", // Inverted black cutout block
     color: "#ffffff",
-    font: "font-serif font-black italic",
-    border: "1.5px solid #ffffff",
-    shadow: "-2px 3px 0px rgba(0,0,0,0.4)",
+    border: "2px solid #ffffff",
+    shadow: "2px 2px 0px rgba(0,0,0,0.5)",
+    rot: 1.2,
   },
   {
     bg: "#fbcfe8", // Magenta magazine cut
     color: "#831843",
-    font: "font-display font-extrabold",
-    border: "1.5px dashed #831843",
-    shadow: "3px 2px 0px #000000",
+    border: "2px dashed #831843",
+    shadow: "2px 2px 0px #000000",
+    rot: -1.2,
   },
   {
     bg: "#93c5fd", // Cyan newsprint clipping
     color: "#1e3a8a",
-    font: "font-sans font-black",
     border: "2px solid #1e3a8a",
     shadow: "2px 2px 0px #1e3a8a",
+    rot: 1.5,
   },
   {
     bg: "#bef264", // Acid lime cutout
     color: "#14532d",
-    font: "font-mono font-bold uppercase",
-    border: "1.5px solid #14532d",
-    shadow: "-2px 2px 0px rgba(0,0,0,0.7)",
+    border: "2px solid #14532d",
+    shadow: "2px 2px 0px rgba(0,0,0,0.8)",
+    rot: -1.0,
   },
   {
     bg: "#fdba74", // Orange tabloid clipping
     color: "#7c2d12",
-    font: "font-serif font-extrabold",
     border: "2px solid #7c2d12",
-    shadow: "3px 3px 0px rgba(0,0,0,0.8)",
+    shadow: "2px 2px 0px rgba(0,0,0,0.8)",
+    rot: 1.0,
   },
   {
-    bg: "#ffffff", // Pure white sticker with black text
+    bg: "#ffffff", // Pure white sticker with bold black border
     color: "#000000",
-    font: "font-mono font-black",
     border: "2px solid #000000",
     shadow: "2px 2px 0px rgba(0,0,0,0.9)",
+    rot: -1.5,
   },
 ];
 
@@ -72,23 +72,21 @@ function KidnapLetter({ char }: KidnapLetterProps) {
   const [isGlitching, setIsGlitching] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [styleIndex, setStyleIndex] = useState(0);
-  const [transformStyle, setTransformStyle] = useState("");
   const isHoveredRef = useRef(false);
   const glitchTimeoutRef = useRef<NodeJS.Timeout>();
   const slideshowIntervalRef = useRef<NodeJS.Timeout>();
 
-  // Ambient Glitch: Codrops Kidnap GlitchFx
+  // Ambient Glitch: Codrops Kidnap GlitchFx (swaps styles strictly in place - zero layout shake)
   useEffect(() => {
     let isCancelled = false;
 
     const scheduleGlitch = () => {
-      const delay = getRandomInt(1200, 4800);
+      const delay = getRandomInt(1400, 5000);
       glitchTimeoutRef.current = setTimeout(() => {
         if (isCancelled || isHoveredRef.current) return;
 
-        // Perform 4-6 rapid glitch iterations
         let iteration = 0;
-        const totalIterations = getRandomInt(4, 6);
+        const totalIterations = getRandomInt(3, 5);
 
         const runIteration = () => {
           if (isCancelled || isHoveredRef.current) return;
@@ -96,17 +94,10 @@ function KidnapLetter({ char }: KidnapLetterProps) {
           if (iteration < totalIterations) {
             setIsGlitching(true);
             setStyleIndex(getRandomInt(0, RANSOM_STYLES.length - 1));
-            const x = getRandomInt(-6, 6);
-            const y = getRandomInt(-6, 6);
-            const rot = getRandomInt(-7, 7);
-            setTransformStyle(`translate3d(${x}px, ${y}px, 0px) rotate(${rot}deg)`);
-
             iteration++;
-            setTimeout(runIteration, getRandomInt(50, 120));
+            setTimeout(runIteration, getRandomInt(70, 140));
           } else {
-            // Reset to rest state
             setIsGlitching(false);
-            setTransformStyle("");
             scheduleGlitch();
           }
         };
@@ -124,7 +115,7 @@ function KidnapLetter({ char }: KidnapLetterProps) {
     };
   }, []);
 
-  // Hover Slideshow: Rapid magazine cutout cycle
+  // Hover Slideshow: Rapid magazine cutout cycle (strictly in place - no positional shake)
   const handleMouseEnter = () => {
     isHoveredRef.current = true;
     setIsHovered(true);
@@ -135,10 +126,6 @@ function KidnapLetter({ char }: KidnapLetterProps) {
     const cycle = () => {
       currentStyle = (currentStyle + 1) % RANSOM_STYLES.length;
       setStyleIndex(currentStyle);
-      const x = getRandomInt(-7, 7);
-      const y = getRandomInt(-7, 7);
-      const rot = getRandomInt(-8, 8);
-      setTransformStyle(`translate3d(${x}px, ${y}px, 0px) rotate(${rot}deg) scale(1.08)`);
     };
 
     cycle();
@@ -153,7 +140,6 @@ function KidnapLetter({ char }: KidnapLetterProps) {
     if (slideshowIntervalRef.current) {
       clearInterval(slideshowIntervalRef.current);
     }
-    setTransformStyle("");
   };
 
   const activeStyle = RANSOM_STYLES[styleIndex];
@@ -163,29 +149,31 @@ function KidnapLetter({ char }: KidnapLetterProps) {
     <span
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative inline-flex items-center justify-center cursor-pointer select-none transition-transform duration-75 mx-[0.03em]"
-      style={{
-        transform: transformStyle || undefined,
-        willChange: "transform",
-      }}
+      className="relative inline-flex items-center justify-center cursor-pointer select-none px-[0.08em] mx-[0.02em]"
     >
-      {isCutoutActive ? (
-        <span
-          className={`inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-[3px] ${activeStyle.font}`}
-          style={{
-            backgroundColor: activeStyle.bg,
-            color: activeStyle.color,
-            border: activeStyle.border,
-            boxShadow: activeStyle.shadow,
-          }}
-        >
-          {char}
-        </span>
-      ) : (
-        <span className="inline-block transition-colors duration-150 hover:text-neutral-700">
-          {char}
-        </span>
-      )}
+      {/* Ransom Cutout Box Layer (Absolute backdrop: 0 layout displacement on neighbor letters) */}
+      <span
+        aria-hidden="true"
+        className={`absolute inset-x-[-3px] inset-y-[-2px] sm:inset-x-[-5px] sm:inset-y-[-4px] rounded-[3px] pointer-events-none transition-opacity duration-75 ${
+          isCutoutActive ? "opacity-100" : "opacity-0"
+        }`}
+        style={{
+          backgroundColor: activeStyle.bg,
+          border: activeStyle.border,
+          boxShadow: activeStyle.shadow,
+          transform: isCutoutActive ? `rotate(${activeStyle.rot}deg)` : "none",
+        }}
+      />
+
+      {/* Stable Letter Character (Guaranteed fixed position - NEVER shakes or shifts neighbors) */}
+      <span
+        className="relative z-10 inline-block transition-colors duration-75 font-display"
+        style={{
+          color: isCutoutActive ? activeStyle.color : "currentColor",
+        }}
+      >
+        {char}
+      </span>
     </span>
   );
 }

@@ -330,13 +330,13 @@ export default function Home() {
                     Dept of Computer Science &amp; Engineering KLECET presents
                   </p>
 
-                  {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) with Codrops Magneto Letter Interaction */}
-                  <div className="overflow-hidden py-5 sm:py-4 md:py-3 relative z-30 w-full flex justify-center">
+                  {/* Hackathon Name: INVENTRA with Codrops Magneto Letter Interaction (Overflow visible so stretched tops never clip) */}
+                  <div className="overflow-visible py-5 sm:py-4 md:py-3 relative z-40 w-full flex justify-center">
                     <h1
                       ref={inventraTitleRef}
-                      className="font-display text-[3.35rem] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block"
+                      className="font-display text-[3.35rem] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block overflow-visible relative z-40"
                     >
-                      <MagnetoText text="INVENTRA" stretchScale={1.42} />
+                      <MagnetoText text="INVENTRA" stretchScale={1.38} />
                     </h1>
                   </div>
 

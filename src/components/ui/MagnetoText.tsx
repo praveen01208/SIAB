@@ -17,7 +17,6 @@ interface LetterItemProps {
 function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
   const containerRef = useRef<HTMLSpanElement>(null);
   const innerRef = useRef<HTMLSpanElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
   const circlesRef = useRef<SVGCircleElement[]>([]);
   const isHoveredRef = useRef(false);
   const currentScaleYRef = useRef(1);
@@ -25,7 +24,7 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
   const handleMouseEnter = () => {
     isHoveredRef.current = true;
     if (innerRef.current) {
-      innerRef.current.style.transition = "transform 0.35s cubic-bezier(0.1, 1, 0.3, 1)";
+      innerRef.current.style.transition = "transform 0.3s cubic-bezier(0.1, 1, 0.3, 1)";
     }
   };
 
@@ -34,15 +33,17 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
 
     const bounds = containerRef.current.getBoundingClientRect();
     // Distance from bottom of the letter upwards
-    const relY = Math.max(0, Math.min(bounds.height * 1.6, e.clientY - bounds.top));
-    const normalizedY = relY / bounds.height; // 0 = at top, 1 = at bottom
+    const mouseY = Math.max(0, Math.min(bounds.height, e.clientY - bounds.top));
+    const normalizedY = mouseY / bounds.height; // 1 = at bottom, 0 = at top
 
-    // Magneto physics: mouse near top stretches letter vertically (scaleY up to 1.6) and pinches horizontally (scaleX down to 0.8)
-    const sX = (1 - 0.78) * normalizedY + 0.78;
-    const sY = (1 - 1.62) * normalizedY + 1.62;
+    // Magneto physics: mouse near top stretches letter vertically (scaleY factor up to 1.45)
+    // and pinches horizontally (scaleX down to 0.82)
+    const factor = 1 + (1 - normalizedY) * 0.45; // 1.0 to 1.45
+    const sX = 1 - (factor - 1) * 0.38;
+    const sY = factor * stretchScale;
 
-    currentScaleYRef.current = sY;
-    innerRef.current.style.transform = `scale(${sX}, ${sY * stretchScale})`;
+    currentScaleYRef.current = factor;
+    innerRef.current.style.transform = `scale(${sX}, ${sY})`;
   };
 
   const handleMouseLeave = () => {
@@ -51,7 +52,7 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
     if (!inner) return;
 
     inner.style.transition = "none";
-    const lastScaleY = currentScaleYRef.current;
+    const lastFactor = currentScaleYRef.current;
 
     // Codrops Magneto: Elastic recoil back to rest position
     gsap.killTweensOf(inner);
@@ -62,8 +63,8 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
       ease: "elastic.out(1.2, 0.35)",
     });
 
-    // If stretched sufficiently (>1.35x), burst magnetic droplets upward
-    if (lastScaleY > 1.35 && circlesRef.current.length > 0) {
+    // If stretched sufficiently (>1.25x factor), burst magnetic droplets upward
+    if (lastFactor > 1.25 && circlesRef.current.length > 0) {
       circlesRef.current.forEach((circle, i) => {
         if (!circle) return;
         gsap.killTweensOf(circle);
@@ -76,11 +77,11 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
             scaleY: 1.8,
           },
           {
-            y: -120 - Math.random() * 140,
+            y: -110 - Math.random() * 120,
             opacity: 0,
             scaleX: 0.25,
             scaleY: 1.8,
-            duration: 0.38 + Math.random() * 0.12,
+            duration: 0.36 + Math.random() * 0.1,
             delay: i * 0.045,
             ease: "power2.out",
           }
@@ -97,15 +98,14 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative inline-block cursor-pointer select-none px-[0.02em]"
+      className="relative inline-block cursor-pointer select-none px-[0.03em] overflow-visible"
       style={{ verticalAlign: "bottom" }}
     >
       {/* Magneto Droplets SVG */}
       <svg
-        ref={svgRef}
         viewBox="0 0 100 150"
         preserveAspectRatio="xMaxYMax meet"
-        className="pointer-events-none absolute left-1/2 -translate-x-1/2 w-[3.2vw] min-w-[22px] max-w-[46px] h-auto bottom-[85%] z-20 overflow-visible"
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2 w-[3.2vw] min-w-[22px] max-w-[46px] h-auto bottom-[90%] z-50 overflow-visible"
       >
         {[0, 1, 2].map((i) => (
           <circle
@@ -125,7 +125,7 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
       {/* Inner Character (Magnetically Stretches with Elastic Recoil) */}
       <span
         ref={innerRef}
-        className="inline-block will-change-transform origin-bottom"
+        className="inline-block will-change-transform origin-bottom overflow-visible"
         style={{
           transform: `scale(1, ${stretchScale})`,
           transformOrigin: "50% 100%",
@@ -137,11 +137,11 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
   );
 }
 
-export function MagnetoText({ text, className = "", stretchScale = 1.45 }: MagnetoTextProps) {
+export function MagnetoText({ text, className = "", stretchScale = 1.38 }: MagnetoTextProps) {
   const chars = text.split("");
 
   return (
-    <span className={`inline-flex items-end justify-center ${className}`}>
+    <span className={`inline-flex items-end justify-center overflow-visible ${className}`}>
       {chars.map((char, index) => (
         <MagnetoLetter key={`${char}-${index}`} char={char} stretchScale={stretchScale} />
       ))}

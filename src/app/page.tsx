@@ -288,14 +288,14 @@ export default function Home() {
     mm.add("(min-width: 768px)", () => {
       // Stage 1: Event Details Section Choreography
       // Initially sits underneath Guidelines (revealed as Guidelines rolls off).
-      // Heading is initially centered in screen (y: 160).
-      // As Guidelines crosses heading, Event Details scrolls up (y: 160 -> y: -220).
+      // Heading is initially centered in screen (y: "22vh").
+      // As Guidelines crosses heading, Event Details scrolls up (y: "22vh" -> y: "-22vh").
       // Cards reach middle and lock in place.
       // Balanced duration before Why Participate scrolls up on top of it.
       const evMover = document.getElementById("event-details-mover");
       const evTrack = document.getElementById("event-details-track");
       if (evMover && evTrack) {
-        gsap.set(evMover, { y: 160 });
+        gsap.set(evMover, { y: "22vh" });
 
         const evTl = gsap.timeline({
           scrollTrigger: {
@@ -312,7 +312,7 @@ export default function Home() {
         evTl.to(
           evMover,
           {
-            y: -220,
+            y: "-22vh",
             duration: 0.45,
             ease: "power2.out",
           },
@@ -330,10 +330,12 @@ export default function Home() {
       // Once filled, section stays fixed right there, and Coordinators slides right on top of it.
       const mover = document.getElementById("association-mover");
       const assocTrack = document.getElementById("association-track");
+      const assocStage = document.getElementById("association-stage");
+      const coordLayer = document.getElementById("coordinators-layer");
       const fills = document.querySelectorAll<HTMLElement>(".tap__fill");
 
-      if (mover && assocTrack) {
-        gsap.set(mover, { y: 130 });
+      if (mover && assocTrack && assocStage && coordLayer) {
+        gsap.set(mover, { y: 120 });
         if (fills.length) {
           gsap.set(fills, { clipPath: "inset(100% 0% 0%)" });
         }
@@ -369,12 +371,23 @@ export default function Home() {
               duration: 0.35,
               ease: "power2.out",
             },
-            0.28 + i * 0.05
+            0.26 + i * 0.05
           );
         });
 
-        // 3. Once cards are filled, section remains fixed right there in place
+        // 3. Keep section fixed in place in the center
         assocTl.to({}, { duration: 0.35 }, 0.65);
+
+        // Rock-solid pin: In Association NEVER unpins or moves until Coordinators is completely on top of it!
+        ScrollTrigger.create({
+          id: "pin-association-fixed",
+          trigger: assocStage,
+          start: "top top",
+          endTrigger: coordLayer,
+          end: "top top",
+          pin: true,
+          pinSpacing: false,
+        });
       }
 
       // Stage 3: Coordinators -> Footer reveal
@@ -382,12 +395,14 @@ export default function Home() {
       // When Coordinators bottom Apple divider reaches top of viewport (top 0),
       // it STOPS scrolling further upwards and locks at top 0, revealing the Footer below it.
       const coordBottom = document.getElementById("coordinators-bottom-bar");
-      if (coordBottom) {
+      const footerContainer = document.getElementById("footer-curtain-container");
+      if (coordBottom && footerContainer) {
         ScrollTrigger.create({
           id: "pin-coordinators-bottom",
           trigger: coordBottom,
           start: "top top",
-          end: "+=99999",
+          endTrigger: footerContainer,
+          end: "bottom bottom",
           pin: true,
           pinSpacing: false,
         });
@@ -398,6 +413,7 @@ export default function Home() {
       mm.revert();
       ScrollTrigger.getById("ev-details-choreography")?.kill();
       ScrollTrigger.getById("association-choreography")?.kill();
+      ScrollTrigger.getById("pin-association-fixed")?.kill();
       ScrollTrigger.getById("pin-coordinators-bottom")?.kill();
     };
   }, [activeView]);
@@ -731,7 +747,7 @@ export default function Home() {
           {/* =========================================================================
               LAYER 5: FOOTER (Revealed like a shutter beneath Coordinators)
              ========================================================================= */}
-          <div id="footer-reveal-container" className="relative z-10 w-full bg-white">
+          <div id="footer-curtain-container" className="relative z-10 w-full bg-white">
             <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
           </div>
         </main>

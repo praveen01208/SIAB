@@ -87,7 +87,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       id="footer"
       ref={footerRef}
       data-8b-section="footer"
-      className="font-body bg-white text-black pt-16 pb-12 px-4 sm:px-8 relative overflow-hidden"
+      className="font-body bg-white text-black pt-8 sm:pt-10 pb-8 px-4 sm:px-8 relative overflow-hidden"
     >
       {/* =========================================================================
           1. CODING CLUB DISPLAY WORDMARK (Hero INVENTRA Rising-Up Wall Animation)

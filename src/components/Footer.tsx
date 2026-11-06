@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextEffect from "@/components/ui/text-effect";
+import { KidnapText } from "@/components/ui/KidnapText";
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -53,6 +54,11 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
         opacity: 1,
         duration: 1.4,
         ease: "power3.out",
+        onComplete: () => {
+          if (title.parentElement) {
+            title.parentElement.style.overflow = "visible";
+          }
+        },
       },
       0
     );
@@ -91,7 +97,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           ref={codingClubTitleRef}
           className="font-display flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black tracking-wider uppercase leading-none select-none text-center will-change-transform"
         >
-          <span>CODING</span>
+          <KidnapText text="CODING" />
           <span className="inline-flex items-center justify-center bg-black rounded-full p-2.5 sm:p-4 shadow-md">
             <img
               src="/images/cclublogo.png"
@@ -100,7 +106,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
               draggable={false}
             />
           </span>
-          <span>CLUB</span>
+          <KidnapText text="CLUB" />
         </h2>
       </div>
 

@@ -23,6 +23,7 @@ import Footer from "@/components/Footer";
 import InitialLoader from "@/components/InitialLoader";
 import { RevealHeading } from "@/components/ui/RevealHeading";
 import { MagicText } from "@/components/ui/MagicText";
+import { MagnetoText } from "@/components/ui/MagnetoText";
 
 export default function Home() {
   const [activeView, setActiveView] = useState<"main" | "domains" | "team">("main");
@@ -104,6 +105,11 @@ export default function Home() {
           yPercent: 0,
           duration: 2.2,
           ease: "power3.out",
+          onComplete: () => {
+            if (inventraTitleRef.current?.parentElement) {
+              inventraTitleRef.current.parentElement.style.overflow = "visible";
+            }
+          },
         },
         0.25
       );
@@ -324,15 +330,13 @@ export default function Home() {
                     Dept of Computer Science &amp; Engineering KLECET presents
                   </p>
 
-                  {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) with stretched feel */}
+                  {/* Hackathon Name: INVENTRA rising up from behind a wall (overflow-hidden) with Codrops Magneto Letter Interaction */}
                   <div className="overflow-hidden py-5 sm:py-4 md:py-3 relative z-30 w-full flex justify-center">
                     <h1
                       ref={inventraTitleRef}
                       className="font-display text-[3.35rem] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block"
                     >
-                      <span className="inline-block scale-y-[1.65] md:scale-y-[1.4] origin-center">
-                        INVENTRA
-                      </span>
+                      <MagnetoText text="INVENTRA" stretchScale={1.42} />
                     </h1>
                   </div>
 

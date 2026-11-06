@@ -15,16 +15,16 @@ export default function AppleSectionDivider({
 
   return (
     <div
-      className={`w-full overflow-hidden leading-none pointer-events-none select-none relative z-20 ${
-        isTop ? "scale-y-[-1] -mb-[1px]" : "-mt-[1px]"
-      } ${className}`}
+      className={`w-full bg-white relative z-20 overflow-hidden leading-none pointer-events-none select-none block ${className}`}
       aria-hidden="true"
     >
       <svg
         viewBox="0 0 1024 74"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-8 sm:h-11 md:h-13 lg:h-16 block fill-black text-black pointer-events-none select-none"
+        className={`w-full h-9 sm:h-12 md:h-16 lg:h-20 block ${
+          isTop ? "scale-y-[-1]" : ""
+        }`}
         preserveAspectRatio="none"
       >
         <path

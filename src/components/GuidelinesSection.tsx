@@ -426,7 +426,7 @@ export default function GuidelinesSection() {
   }, []);
 
   return (
-    <div id="guidelines-container" className="relative font-body bg-black">
+    <div id="guidelines-container" className="relative font-body bg-white">
       {/* -------------------------------------------------------------
           ATMOSPHERIC SMOKE EFFECT JUST BELOW IMPORTANT DATES
           Seamless billowing mist transition with no separating line
@@ -616,10 +616,10 @@ export default function GuidelinesSection() {
             </li>
           ))}
         </ol>
-
-        {/* Seamless Apple Notch Border Divider transition to white section below */}
-        <AppleSectionDivider direction="bottom" />
       </section>
+
+      {/* Seamless Apple Notch Border Divider transition to white section below */}
+      <AppleSectionDivider direction="bottom" />
     </div>
   );
 }

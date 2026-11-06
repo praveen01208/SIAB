@@ -336,7 +336,7 @@ export default function Home() {
                   {/* Small Minimalist Particle Countdown (enlarged & shifted downwards on mobile) */}
                   <div
                     ref={timerCardRef}
-                    className="w-full flex flex-col items-center mt-20 sm:mt-24 md:mt-3 mb-0 relative z-30 will-change-transform"
+                    className="w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-3 mb-0 relative z-30 will-change-transform"
                   >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 scale-110 sm:scale-115 md:scale-100 origin-center">
                       <span className="w-2 h-2 rounded-full bg-black animate-ping" />
@@ -364,7 +364,7 @@ export default function Home() {
                    ------------------------------------------------------------- */}
                 <div className="w-full flex flex-col items-center mt-auto pb-4 sm:pb-6 md:pb-0 md:translate-y-0">
                   {/* Mobile Horizontal Infinite Scroll of H-1 to H-4 Assets (enlarged & shifted upwards) */}
-                  <div className="block md:hidden w-full overflow-hidden py-2 mb-4 -translate-y-20 sm:-translate-y-24 md:translate-y-0 relative z-20 pointer-events-none select-none">
+                  <div className="block md:hidden w-full overflow-hidden py-2 mb-4 relative z-20 pointer-events-none select-none">
                     {/* Left and right soft white gradient edge fades */}
                     <div className="absolute left-0 inset-y-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
                     <div className="absolute right-0 inset-y-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

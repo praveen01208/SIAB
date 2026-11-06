@@ -234,7 +234,7 @@ export default function PrizeCards() {
       ref={containerRef}
       className="relative overflow-visible pt-12 md:pt-16 pb-6 mb-12"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 sm:gap-y-20 md:gap-y-0 md:gap-x-6 lg:gap-x-8 max-w-[270px] sm:max-w-xs md:max-w-3xl mx-auto items-stretch relative">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 sm:gap-y-14 md:gap-y-0 md:gap-x-6 lg:gap-x-8 max-w-[240px] sm:max-w-[260px] md:max-w-3xl mx-auto items-stretch relative">
         {/* ===================================================================
             Card 1: 1st Runner Up (Rank #2) - Lower + Pendulum Swing Left
            =================================================================== */}
@@ -255,15 +255,15 @@ export default function PrizeCards() {
                     <div className="prize-line bottoml" />
                     <div className="prize-line rightl" />
 
-                    <span className="text-2xl mb-1 select-none relative z-10">🥈</span>
-                    <div className="inline-block bg-neutral-800 text-neutral-300 text-[8px] uppercase px-2 py-0.5 rounded-full font-mono tracking-widest font-bold mb-1 border border-neutral-700 relative z-10">
+                    <span className="text-lg mb-0.5 select-none relative z-10">🥈</span>
+                    <div className="inline-block bg-neutral-800 text-neutral-300 text-[7px] uppercase px-1.5 py-px rounded-full font-mono tracking-widest font-bold mb-0.5 border border-neutral-700 relative z-10">
                       Rank #2
                     </div>
-                    <h3 className="text-sm sm:text-base font-display font-bold text-white mb-0.5 relative z-10">
+                    <h3 className="text-xs sm:text-sm font-display font-bold text-white mb-0 relative z-10">
                       1<sup>st</sup> Runner Up
                     </h3>
-                    <p className="prize-amount text-lg sm:text-xl font-black relative z-10">₹25,000</p>
-                    <span className="text-[8.5px] uppercase font-mono font-medium text-neutral-400 mt-0.5 tracking-wider relative z-10 text-center">
+                    <p className="prize-amount text-base sm:text-lg font-black relative z-10">₹25,000</p>
+                    <span className="text-[7px] uppercase font-mono font-medium text-neutral-400 mt-0 tracking-wider relative z-10 text-center">
                       Cash Prize &amp; Official Swag
                     </span>
                   </div>
@@ -293,17 +293,17 @@ export default function PrizeCards() {
                     <div className="prize-line bottoml" />
                     <div className="prize-line rightl" />
 
-                    <span className="text-3xl mb-1 select-none relative z-10 drop-shadow-[0_0_12px_rgba(255,215,0,0.5)]">
+                    <span className="text-xl mb-0.5 select-none relative z-10 drop-shadow-[0_0_12px_rgba(255,215,0,0.5)]">
                       🥇
                     </span>
-                    <div className="inline-block bg-gradient-to-r from-amber-400 to-yellow-500 text-black text-[8.5px] uppercase px-2.5 py-0.5 rounded-full font-mono tracking-widest font-black mb-1 shadow-md relative z-10">
+                    <div className="inline-block bg-gradient-to-r from-amber-400 to-yellow-500 text-black text-[7.5px] uppercase px-2 py-px rounded-full font-mono tracking-widest font-black mb-0.5 shadow-md relative z-10">
                       🏆 Champion
                     </div>
-                    <h3 className="text-base sm:text-lg font-display font-black text-amber-300 mb-0.5 relative z-10 tracking-wide">
+                    <h3 className="text-sm sm:text-base font-display font-black text-amber-300 mb-0 relative z-10 tracking-wide">
                       Grand Prize
                     </h3>
-                    <p className="prize-amount text-xl sm:text-2xl font-black relative z-10">₹40,000</p>
-                    <span className="text-[8.5px] uppercase font-mono font-bold text-amber-200/90 mt-0.5 tracking-wider relative z-10 text-center">
+                    <p className="prize-amount text-lg sm:text-xl font-black relative z-10">₹40,000</p>
+                    <span className="text-[7px] uppercase font-mono font-bold text-amber-200/90 mt-0 tracking-wider relative z-10 text-center">
                       Trophy + Cash + Goodies
                     </span>
                   </div>
@@ -333,15 +333,15 @@ export default function PrizeCards() {
                     <div className="prize-line bottoml" />
                     <div className="prize-line rightl" />
 
-                    <span className="text-2xl mb-1 select-none relative z-10">🥉</span>
-                    <div className="inline-block bg-neutral-800 text-amber-500 text-[8px] uppercase px-2 py-0.5 rounded-full font-mono tracking-widest font-bold mb-1 border border-neutral-700 relative z-10">
+                    <span className="text-lg mb-0.5 select-none relative z-10">🥉</span>
+                    <div className="inline-block bg-neutral-800 text-amber-500 text-[7px] uppercase px-1.5 py-px rounded-full font-mono tracking-widest font-bold mb-0.5 border border-neutral-700 relative z-10">
                       Rank #3
                     </div>
-                    <h3 className="text-sm sm:text-base font-display font-bold text-white mb-0.5 relative z-10">
+                    <h3 className="text-xs sm:text-sm font-display font-bold text-white mb-0 relative z-10">
                       2<sup>nd</sup> Runner Up
                     </h3>
-                    <p className="prize-amount text-lg sm:text-xl font-black relative z-10">₹15,000</p>
-                    <span className="text-[8.5px] uppercase font-mono font-medium text-neutral-400 mt-0.5 tracking-wider relative z-10 text-center">
+                    <p className="prize-amount text-base sm:text-lg font-black relative z-10">₹15,000</p>
+                    <span className="text-[7px] uppercase font-mono font-medium text-neutral-400 mt-0 tracking-wider relative z-10 text-center">
                       Cash Prize &amp; Official Swag
                     </span>
                   </div>

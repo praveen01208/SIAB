@@ -274,7 +274,7 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
                       delay: isMenuClosing ? 0 : 0.42 + idx * 0.04,
                       ease: "easeOut",
                     }}
-                    className="text-2xl sm:text-4xl font-display font-black text-white hover:text-neutral-400 transition-colors tracking-tight uppercase leading-[1.05] select-none"
+                    className="text-3xl sm:text-4xl font-display font-black text-white hover:text-neutral-400 transition-colors tracking-tight uppercase leading-[1.05] select-none"
                   >
                     {link.label}
                   </motion.a>

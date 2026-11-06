@@ -156,8 +156,8 @@ export default function IdeathonSection() {
       data-8b-section="no-shortcuts"
       aria-labelledby="ns-title"
     >
-      {/* Drifting Parallax Floats */}
-      <div className="ns__floats" aria-hidden="true">
+      {/* Drifting Parallax Floats (hidden on mobile) */}
+      <div className="ns__floats hidden md:block" aria-hidden="true">
         <figure className="ns__float ns__float--1 protected-image select-none pointer-events-none" data-far>
           <img src="/images/H-1.png" width="300" height="300" alt="" loading="lazy" draggable={false} />
         </figure>

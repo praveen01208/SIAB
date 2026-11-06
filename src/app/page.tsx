@@ -325,8 +325,8 @@ export default function Home() {
                     Center Content: Title, Presents, Countdown (stay in middle on mobile)
                    ------------------------------------------------------------- */}
                 <div className="flex flex-col items-center w-full my-auto md:my-0 md:pt-1 py-4 md:py-0">
-                  {/* Above INVENTRA: Dept of Computer Science & Engineering KLECET presents */}
-                  <p className="font-body text-[12px] sm:text-xs md:text-base text-neutral-600 font-bold tracking-wider uppercase mb-2 z-30 px-3 text-center max-w-sm sm:max-w-md mx-auto">
+                  {/* Above INVENTRA: Dept of Computer Science & Engineering KLECET presents (lifted upwards for generous gap) */}
+                  <p className="font-body text-[12px] sm:text-xs md:text-base text-neutral-600 font-bold tracking-wider uppercase mb-5 sm:mb-7 md:mb-9 lg:mb-12 z-30 px-3 text-center max-w-sm sm:max-w-md md:max-w-lg mx-auto">
                     Dept of Computer Science &amp; Engineering KLECET presents
                   </p>
 

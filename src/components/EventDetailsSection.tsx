@@ -188,10 +188,11 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
         {/* =============================================================
             2. TWO WIDE SYMMETRICAL SQUARE CARDS (SCENE:HEAT PARTING)
            ============================================================= */}
-        <div
-          ref={stageRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto items-stretch"
-        >
+        <div id="event-details-content-stage" className="w-full flex flex-col items-center">
+          <div
+            ref={stageRef}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto items-stretch w-full"
+          >
           {/* -------------------------------------------------------------
               CARD 1: CAMPUS ARENA & MAP (ROUNDED & COMPACT)
              ------------------------------------------------------------- */}
@@ -379,6 +380,7 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
           )}
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }

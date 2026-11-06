@@ -627,7 +627,7 @@ export default function GuidelinesSection() {
         </section>
 
         {/* Seamless Apple Notch Border Divider: full-width at the bottom edge */}
-        <AppleSectionDivider direction="bottom" />
+        <AppleSectionDivider direction="bottom" className="-mt-1" />
       </div>
     </div>
   );

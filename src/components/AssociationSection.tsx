@@ -80,30 +80,6 @@ export default function AssociationSection() {
 
     const mm = gsap.matchMedia();
 
-    // Liquid fill on scroll
-    mm.add("(min-width: 900px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "on-tap:fill-desktop",
-          trigger: stairs,
-          start: "top 78%",
-          end: "bottom 48%",
-          scrub: 0.6,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      // Liquid fills from bottom to top (clip-path inset 100% -> 0%)
-      fills.forEach((fill, i) => {
-        tl.fromTo(
-          fill,
-          { clipPath: "inset(100% 0% 0% 0%)" },
-          { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.out", duration: 1 },
-          i * 0.15
-        );
-      });
-    });
-
     // Mobile sequential bottom liquid fill on scroll
     mm.add("(max-width: 899px)", () => {
       cards.forEach((card) => {

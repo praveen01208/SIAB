@@ -286,16 +286,17 @@ export default function Home() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
-      // Stage 1: Event Details is already sitting underneath GuidelinesSection,
-      // pinned at top: 0, and Why Participate slides up directly over it (pinSpacing: false)
-      const eventStage = document.getElementById("event-details-stage");
+      // Stage 1: Event Details scrolls up naturally with page from Guidelines.
+      // Once heading scrolls off screen and cards reach middle/slightly above middle (top 16%),
+      // PIN the cards stage in place. Why Participate then rolls up over it like a shutter from below.
+      const evContent = document.getElementById("event-details-content-stage");
       const whyLayer = document.getElementById("why-layer");
 
-      if (eventStage && whyLayer) {
+      if (evContent && whyLayer) {
         ScrollTrigger.create({
           id: "pin-event-details",
-          trigger: eventStage,
-          start: "top top",
+          trigger: evContent,
+          start: "top 16%",
           endTrigger: whyLayer,
           end: "top top",
           pin: true,
@@ -304,29 +305,66 @@ export default function Home() {
         });
       }
 
-      // Stage 2: Association Section is already sitting underneath Why Participate,
-      // pinned at top: 0, and Coordinators slides up directly over it (Association never moves)
-      const assocStage = document.getElementById("association-stage");
+      // Stage 2: In Association Section Choreography
+      // Initially sits underneath Why Participate, shifted down ("little below" as in screenshot).
+      // As Why Participate crosses heading, smoothly move In Association to center and pin.
+      // On further scroll, animate liquid fill on all 4 partner cards from bottom to top.
+      // After fill completes, hold for still scroll before Coordinators section covers it.
+      const mover = document.getElementById("association-mover");
+      const assocTrack = document.getElementById("association-track");
       const coordLayer = document.getElementById("coordinators-layer");
+      const fills = document.querySelectorAll<HTMLElement>(".tap__fill");
 
-      if (assocStage && coordLayer) {
-        ScrollTrigger.create({
-          id: "pin-association",
-          trigger: assocStage,
-          start: "top top",
-          endTrigger: coordLayer,
-          end: "top top",
-          pin: true,
-          pinSpacing: false,
-          anticipatePin: 1,
+      if (mover && assocTrack && coordLayer) {
+        gsap.set(mover, { y: 130 });
+        if (fills.length) {
+          gsap.set(fills, { clipPath: "inset(100% 0% 0%)" });
+        }
+
+        const assocTl = gsap.timeline({
+          scrollTrigger: {
+            id: "association-choreography",
+            trigger: assocTrack,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.8,
+            invalidateOnRefresh: true,
+          },
         });
+
+        // 1. Move to exact screen center as Why Participate rolls off and crosses heading
+        assocTl.to(
+          mover,
+          {
+            y: 0,
+            duration: 0.25,
+            ease: "power2.out",
+          },
+          0
+        );
+
+        // 2. Liquid fill cards from bottom to top while pinned in center
+        fills.forEach((fill, i) => {
+          assocTl.to(
+            fill,
+            {
+              clipPath: "inset(0% 0% 0%)",
+              duration: 0.35,
+              ease: "power2.out",
+            },
+            0.28 + i * 0.05
+          );
+        });
+
+        // 3. Still scroll hold duration while filled cards remain centered in view
+        assocTl.to({}, { duration: 0.35 }, 0.65);
       }
     });
 
     return () => {
       mm.revert();
       ScrollTrigger.getById("pin-event-details")?.kill();
-      ScrollTrigger.getById("pin-association")?.kill();
+      ScrollTrigger.getById("association-choreography")?.kill();
     };
   }, [activeView]);
 
@@ -556,32 +594,34 @@ export default function Home() {
 
           {/* =========================================================================
               5. GENERAL GUIDELINES (Plumber Template Expanding Photo Card + Black Lines)
-              Ends with Apple Divider and shrinks as a card on scroll;
-              Overlaps Event Details underneath (md:-mb-[100vh]) so Event Details is ALREADY there
+              Ends with Apple Divider and shrinks as a card on scroll
              ========================================================================= */}
-          <div className="relative z-20 md:-mb-[100vh]">
+          <div className="relative z-20">
             <GuidelinesSection />
           </div>
 
           {/* =========================================================================
-              LAYER 1: EVENT DETAILS (Already positioned underneath GuidelinesSection, locked at top: 0)
+              LAYER 1: EVENT DETAILS (Moves up naturally from Guidelines; pins cards when heading scrolls off)
              ========================================================================= */}
-          <div
-            id="event-details-stage"
-            className="w-full h-screen z-10 sticky top-0 flex flex-col justify-start items-center bg-white overflow-hidden"
-          >
-            <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
+          <div id="event-details-track" className="relative z-10 w-full bg-white">
+            <div
+              id="event-details-stage"
+              className="w-full flex flex-col justify-start items-center bg-white"
+            >
+              <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
+            </div>
+
+            {/* Generous still scroll space while pinned */}
+            <div className="hidden md:block w-full h-[90vh] pointer-events-none" />
           </div>
 
-          {/* Spacer so Event Details stays comfortably pinned in view after Guidelines leaves */}
-          <div className="hidden md:block w-full h-[120vh] pointer-events-none" />
-
           {/* =========================================================================
-              LAYER 2: WHY PARTICIPATE (Black section scrolls directly ON TOP of Event Details)
+              LAYER 2: WHY PARTICIPATE (Black section scrolls directly ON TOP of Event Details;
+              overlaps In Association underneath it)
              ========================================================================= */}
-          <div id="why-layer" className="relative z-20 w-full">
+          <div id="why-layer" className="relative z-20 w-full md:-mb-[100vh]">
             {/* Seamless Top Apple Divider: transparent background so Apple cutout is clearly visible */}
-            <AppleSectionDivider direction="top" />
+            <AppleSectionDivider direction="top" className="-mb-1" />
 
             <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden -mt-1">
               {/* Ambient Background Lighting */}
@@ -614,33 +654,35 @@ export default function Home() {
             </section>
 
             {/* Seamless Bottom Apple Divider: rolls off like shutter to reveal In Association */}
-            <AppleSectionDivider direction="bottom" />
+            <AppleSectionDivider direction="bottom" className="-mt-1" />
           </div>
 
           {/* =========================================================================
-              LAYER 3: IN ASSOCIATION WITH (Already positioned underneath Why Participate, locked at top: 0)
+              LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate, initially fixed lower down;
+              when Why Participate crosses heading, moves to center, pins, liquid fills cards, still scroll)
              ========================================================================= */}
-          <div
-            id="association-stage"
-            className="w-full h-screen z-10 sticky top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
-          >
-            <AssociationSection />
+          <div id="association-track" className="relative z-10 w-full bg-white h-[260vh]">
+            <div
+              id="association-stage"
+              className="w-full h-screen sticky top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
+            >
+              <div id="association-mover" className="w-full flex flex-col justify-center items-center will-change-transform">
+                <AssociationSection />
+              </div>
+            </div>
           </div>
-
-          {/* Spacer so Association stays comfortably pinned in view after Why Participate leaves */}
-          <div className="hidden md:block w-full h-[120vh] pointer-events-none" />
 
           {/* =========================================================================
               LAYER 4: STUDENT COORDINATORS (Black section scrolls directly ON TOP of In Association)
              ========================================================================= */}
           <div id="coordinators-layer" className="relative z-30 w-full">
             {/* Seamless Top Apple Divider: transparent background so cutout is clearly visible */}
-            <AppleSectionDivider direction="top" />
+            <AppleSectionDivider direction="top" className="-mb-1" />
 
             <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
 
             {/* Seamless Bottom Apple Divider: placed just above Footer */}
-            <AppleSectionDivider direction="bottom" />
+            <AppleSectionDivider direction="bottom" className="-mt-1" />
           </div>
 
           {/* Footer */}

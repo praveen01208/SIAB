@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import VaporCountdown from "@/components/VaporCountdown";
+import CombinationLockCountdown from "@/components/CombinationLockCountdown";
 import { WebShotCard } from "@/components/WebShotButton";
 import StarButton from "@/components/StarButton";
 import TiltCard from "@/components/TiltCard";
@@ -73,6 +74,32 @@ export default function Home() {
       document.documentElement.classList.remove("loading-intro");
       setShowLoader(false);
     }
+  }, []);
+
+  // Parallax on scroll: while moving up from hero, H-B2 asset moves upwards creating authentic depth
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroImg = heroImageRef.current;
+    if (!heroImg) return;
+
+    const parallaxAnim = gsap.to(heroImg, {
+      y: -140,
+      ease: "none",
+      scrollTrigger: {
+        id: "hero-hb2-parallax",
+        trigger: "#home",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    return () => {
+      parallaxAnim.scrollTrigger?.kill();
+      parallaxAnim.kill();
+    };
   }, []);
 
   const startHeroEntrance = () => {
@@ -353,13 +380,8 @@ export default function Home() {
                     </div>
 
                     <WebShotCard reach={140} threads={5}>
-                      <div className="bg-white/95 backdrop-blur-md px-6 py-4.5 sm:px-7 sm:py-5 md:px-5 md:py-3.5 rounded-2xl border border-neutral-200/90 shadow-xl scale-120 sm:scale-125 md:scale-100 origin-top">
-                        <VaporCountdown
-                          targetDate={Date.now() + 14 * 86_400_000}
-                          labels={["DAYS", "HOURS", "MINUTES", "SECONDS"]}
-                          size="small"
-                          className="mx-auto"
-                        />
+                      <div className="bg-white/95 backdrop-blur-md px-5 py-4 sm:px-7 sm:py-5 md:px-6 md:py-4 rounded-2xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-105 md:scale-100 origin-top overflow-visible">
+                        <CombinationLockCountdown className="mx-auto" />
                       </div>
                     </WebShotCard>
                   </div>

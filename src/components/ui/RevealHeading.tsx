@@ -24,90 +24,50 @@ export function RevealHeading({
     gsap.registerPlugin(ScrollTrigger);
 
     const el = innerRef.current;
-    const container = containerRef.current;
-    if (!el || !container) return;
+    const trigger = containerRef.current;
+    if (!el || !trigger) return;
 
-    // Check if container is already in viewport on mount (e.g. above or at fold)
-    const rect = container.getBoundingClientRect();
-    const isInView = rect.top < window.innerHeight * 0.95;
+    // 1. Initial State: Hiding behind background wall mask below (like CODING CLUB of footer)
+    gsap.set(el, { yPercent: 125, opacity: 0 });
 
-    if (isInView) {
-      // Already in viewport: animate smoothly up to 0 immediately
-      gsap.fromTo(
-        el,
-        { yPercent: 110 },
-        {
-          yPercent: 0,
-          duration: 1.1,
-          delay: delay || 0,
-          ease: "power3.out",
-          clearProps: "all",
-        }
-      );
-      return;
-    }
-
-    // Not yet in view: set starting position 110% below
-    gsap.set(el, { yPercent: 110 });
-
-    // ScrollTrigger to reveal when scrolled into view
-    const st = ScrollTrigger.create({
-      trigger: container,
-      start: "top 95%",
-      once: true,
-      onEnter: () => {
-        gsap.to(el, {
-          yPercent: 0,
-          duration: 1.1,
-          delay: delay || 0,
-          ease: "power3.out",
-          clearProps: "all",
-        });
+    // 2. Trigger animation exactly when the user reaches the section from above
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: trigger,
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true,
       },
     });
 
-    // Native IntersectionObserver backup in case ScrollTrigger is blocked by parent styles
-    let io: IntersectionObserver | null = null;
-    if (typeof IntersectionObserver !== "undefined") {
-      io = new IntersectionObserver(
-        (entries) => {
-          if (entries[0]?.isIntersecting) {
-            gsap.to(el, {
-              yPercent: 0,
-              duration: 1.0,
-              delay: delay || 0,
-              ease: "power3.out",
-              clearProps: "all",
-            });
-            io?.disconnect();
+    // 3. Rises up smoothly from below to above
+    tl.to(
+      el,
+      {
+        yPercent: 0,
+        opacity: 1,
+        duration: 1.35,
+        delay: delay || 0,
+        ease: "power3.out",
+        onComplete: () => {
+          if (trigger) {
+            trigger.style.overflow = "visible";
           }
         },
-        { threshold: 0.02, rootMargin: "60px" }
-      );
-      io.observe(container);
-    }
-
-    // Safety fallback: if after 1.8 seconds it has not triggered, force reveal with clearProps
-    const fallbackTimer = setTimeout(() => {
-      gsap.to(el, {
-        yPercent: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        clearProps: "all",
-      });
-    }, 1800);
+      },
+      0
+    );
 
     return () => {
-      st.kill();
-      io?.disconnect();
-      clearTimeout(fallbackTimer);
+      tl.kill();
+      tl.scrollTrigger?.kill();
     };
   }, [delay]);
 
   return (
     <div
       ref={containerRef}
-      className={`overflow-hidden max-w-full inline-block ${wrapperClassName}`}
+      className={`overflow-hidden max-w-full inline-block py-1.5 ${wrapperClassName}`}
     >
       <div
         ref={innerRef}

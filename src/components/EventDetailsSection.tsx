@@ -157,7 +157,7 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
     <section
       id="overview"
       ref={sectionRef}
-      className="ev-section bg-white text-black relative py-10 sm:py-14 md:py-6 lg:py-8 flex flex-col justify-center min-h-full"
+      className="ev-section bg-white text-black relative pt-8 sm:pt-10 md:pt-12 pb-6 flex flex-col justify-start w-full"
       aria-labelledby="events-details-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

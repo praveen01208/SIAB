@@ -286,8 +286,8 @@ export default function Home() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
-      // Stage 1: Event Details pins in viewport center when centered,
-      // and Why Participate slides directly up and over it (pinSpacing: false)
+      // Stage 1: Event Details is already sitting underneath GuidelinesSection,
+      // pinned at top: 0, and Why Participate slides up directly over it (pinSpacing: false)
       const eventStage = document.getElementById("event-details-stage");
       const whyLayer = document.getElementById("why-layer");
 
@@ -295,7 +295,7 @@ export default function Home() {
         ScrollTrigger.create({
           id: "pin-event-details",
           trigger: eventStage,
-          start: "center center",
+          start: "top top",
           endTrigger: whyLayer,
           end: "top top",
           pin: true,
@@ -304,8 +304,8 @@ export default function Home() {
         });
       }
 
-      // Stage 2: Association Section pins in viewport center,
-      // and Coordinators slides directly up and over it (Association never moves, pinSpacing: false)
+      // Stage 2: Association Section is already sitting underneath Why Participate,
+      // pinned at top: 0, and Coordinators slides up directly over it (Association never moves)
       const assocStage = document.getElementById("association-stage");
       const coordLayer = document.getElementById("coordinators-layer");
 
@@ -313,7 +313,7 @@ export default function Home() {
         ScrollTrigger.create({
           id: "pin-association",
           trigger: assocStage,
-          start: "center center",
+          start: "top top",
           endTrigger: coordLayer,
           end: "top top",
           pin: true,
@@ -556,27 +556,31 @@ export default function Home() {
 
           {/* =========================================================================
               5. GENERAL GUIDELINES (Plumber Template Expanding Photo Card + Black Lines)
-              Ends with full-width Apple Divider and shrinks as a card on scroll
+              Ends with Apple Divider and shrinks as a card on scroll;
+              Overlaps Event Details underneath (md:-mb-[100vh]) so Event Details is ALREADY there
              ========================================================================= */}
-          <div className="relative z-20">
+          <div className="relative z-20 md:-mb-[100vh]">
             <GuidelinesSection />
           </div>
 
           {/* =========================================================================
-              LAYER 1: EVENT DETAILS (Locked & Pinned in center via GSAP)
+              LAYER 1: EVENT DETAILS (Already positioned underneath GuidelinesSection, locked at top: 0)
              ========================================================================= */}
           <div
             id="event-details-stage"
-            className="w-full min-h-screen py-10 md:py-0 flex flex-col justify-center items-center bg-white relative z-10"
+            className="w-full h-screen z-10 sticky top-0 flex flex-col justify-start items-center bg-white overflow-hidden"
           >
             <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
           </div>
 
+          {/* Spacer so Event Details stays pinned in view after Guidelines leaves */}
+          <div className="hidden md:block w-full h-[60vh] pointer-events-none" />
+
           {/* =========================================================================
               LAYER 2: WHY PARTICIPATE (Black section scrolls directly ON TOP of Event Details)
              ========================================================================= */}
-          <div id="why-layer" className="relative z-20 bg-black w-full">
-            {/* Seamless Top Apple Divider */}
+          <div id="why-layer" className="relative z-20 bg-black w-full md:-mb-[100vh]">
+            {/* Seamless Top Apple Divider: bg-transparent so cutout is transparent */}
             <AppleSectionDivider direction="top" />
 
             <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden">
@@ -614,20 +618,23 @@ export default function Home() {
           </div>
 
           {/* =========================================================================
-              LAYER 3: IN ASSOCIATION WITH (Locked & Pinned in center via GSAP, never moves)
+              LAYER 3: IN ASSOCIATION WITH (Already positioned underneath Why Participate, locked at top: 0)
              ========================================================================= */}
           <div
             id="association-stage"
-            className="w-full min-h-screen py-10 md:py-0 flex flex-col justify-center items-center bg-white relative z-10"
+            className="w-full h-screen z-10 sticky top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
           >
             <AssociationSection />
           </div>
+
+          {/* Spacer so Association stays pinned in view after Why Participate leaves */}
+          <div className="hidden md:block w-full h-[60vh] pointer-events-none" />
 
           {/* =========================================================================
               LAYER 4: STUDENT COORDINATORS (Black section scrolls directly ON TOP of In Association)
              ========================================================================= */}
           <div id="coordinators-layer" className="relative z-30 bg-black w-full">
-            {/* Seamless Top Apple Divider */}
+            {/* Seamless Top Apple Divider: bg-transparent so cutout is transparent */}
             <AppleSectionDivider direction="top" />
 
             <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />

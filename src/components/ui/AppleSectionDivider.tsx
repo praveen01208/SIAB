@@ -8,15 +8,10 @@ interface AppleSectionDividerProps {
   bgWhite?: boolean;
 }
 
-/**
- * Apple / Synus Studio Section Divider
- * Dual-lobe cutout design matching Synus Studio (.services-scroll-cutout)
- * 100% vector-sharp pure CSS, seamless #000000 black with zero border artifacts
- */
 export default function AppleSectionDivider({
   direction = "bottom",
   className = "",
-  bgWhite = true,
+  bgWhite = false,
 }: AppleSectionDividerProps) {
   const isTop = direction === "top";
 
@@ -24,26 +19,23 @@ export default function AppleSectionDivider({
     <div
       className={`w-full ${
         bgWhite ? "bg-white" : "bg-transparent"
-      } flex justify-between h-10 sm:h-14 md:h-18 lg:h-20 select-none pointer-events-none relative z-20 overflow-hidden ${className}`}
+      } relative z-20 overflow-hidden leading-none pointer-events-none select-none block ${className}`}
       aria-hidden="true"
     >
-      {/* Left Rounded Lobe */}
-      <div
-        className={`w-[calc(50%-12px)] sm:w-[calc(50%-18px)] md:w-[calc(50%-24px)] bg-black transition-all ${
-          isTop
-            ? "rounded-t-[28px] sm:rounded-t-[46px] md:rounded-t-[64px]"
-            : "rounded-b-[28px] sm:rounded-b-[46px] md:rounded-b-[64px]"
+      <svg
+        viewBox="0 0 1024 74"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`w-full h-9 sm:h-12 md:h-16 lg:h-20 block ${
+          isTop ? "scale-y-[-1]" : ""
         }`}
-      />
-
-      {/* Right Rounded Lobe */}
-      <div
-        className={`w-[calc(50%-12px)] sm:w-[calc(50%-18px)] md:w-[calc(50%-24px)] bg-black transition-all ${
-          isTop
-            ? "rounded-t-[28px] sm:rounded-t-[46px] md:rounded-t-[64px]"
-            : "rounded-b-[28px] sm:rounded-b-[46px] md:rounded-b-[64px]"
-        }`}
-      />
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M 0,0 L 0,28 C 0,56 18,74 45,74 L 453,74 C 475,74 491,56 494,28 L 494,74 L 530,74 L 530,28 C 533,56 549,74 571,74 L 979,74 C 1006,74 1024,56 1024,28 L 1024,0 Z"
+          fill="#000000"
+        />
+      </svg>
     </div>
   );
 }

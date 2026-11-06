@@ -1602,7 +1602,22 @@
   z-index: 1;
 }
 
-/* Screen 2: Dark statement card revealed on scroll */
+/* Screen 2: Dark statement card revealed on scroll (Hidden on mobile) */
+@media (max-width: 767px) {
+  .gl-opening .op__second {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
 .gl-opening .op__second {
   position: relative;
   z-index: 2;

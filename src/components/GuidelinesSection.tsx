@@ -493,7 +493,7 @@ export default function GuidelinesSection() {
         </div>
 
         {/* Screen 2: Dark Statement Screen with Checkpoint Sides (Hidden on mobile) */}
-        <div className="hidden md:block op__second">
+        <div className="!hidden md:!grid op__second">
           <div className="op__type">
             <h3 className="op__title2 m-text-2">
               <span className="op__line op__m1" style={{ "--len": 19 } as React.CSSProperties}>

@@ -76,6 +76,9 @@ export default function Home() {
 
   const startHeroEntrance = () => {
     document.documentElement.classList.remove("loading-intro");
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
     // Trigger the hero entrance animation sequence - slowed down so it's clearly visible
     const tl = gsap.timeline();
 
@@ -360,16 +363,15 @@ export default function Home() {
 
                 {/* -------------------------------------------------------------
                     Bottom Block (Mobile & Desktop): Marquee directly above H-B + Hero Image Asset
-                    (Lifted upwards on mobile view; desktop unchanged)
                    ------------------------------------------------------------- */}
                 <div className="w-full flex flex-col items-center mt-auto pb-4 sm:pb-6 md:pb-0 md:translate-y-0">
-                  {/* Mobile Horizontal Infinite Scroll of H-1 to H-4 Assets (enlarged & shifted upwards) */}
-                  <div className="block md:hidden w-full overflow-hidden py-2 mb-4 relative z-20 pointer-events-none select-none">
+                  {/* Mobile Horizontal Infinite Scroll of H-1 to H-4 Assets: strictly equal gap from Timer Card above and H-B below */}
+                  <div className="block md:hidden w-full overflow-hidden py-1 my-6 sm:my-7 relative z-20 pointer-events-none select-none">
                     {/* Left and right soft white gradient edge fades */}
                     <div className="absolute left-0 inset-y-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
                     <div className="absolute right-0 inset-y-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-                    <div className="animate-infinite-scroll flex items-center gap-8 sm:gap-10 w-max">
+                    <div className="animate-infinite-scroll flex items-center gap-7 sm:gap-9 w-max">
                       {[
                         "/images/H-1.png",
                         "/images/H-2.png",
@@ -390,7 +392,7 @@ export default function Home() {
                       ].map((src, i) => (
                         <div
                           key={`mob-h-${i}`}
-                          className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 flex items-center justify-center opacity-95"
+                          className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center opacity-95"
                         >
                           <img
                             src={src}
@@ -417,12 +419,12 @@ export default function Home() {
                       className="hidden md:block w-full max-h-[300px] sm:max-h-[380px] md:max-h-[460px] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.08)] filter brightness-100 select-none pointer-events-none transition-transform duration-500 hover:scale-[1.01]"
                     />
 
-                    {/* Mobile compact illustration asset: prominent, filling mobile screen bottom */}
+                    {/* Mobile compact illustration asset: prominent, filling mobile screen bottom, natural spacing */}
                     <img
                       src="/images/H-B.png"
                       alt=""
                       draggable={false}
-                      className="block md:hidden w-full max-w-[460px] sm:max-w-xl mx-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.08)] filter brightness-100 select-none pointer-events-none mb-0 scale-[1.15] sm:scale-[1.20] md:scale-100 origin-bottom -translate-y-5 sm:-translate-y-7 md:translate-y-0"
+                      className="block md:hidden w-full max-w-[420px] sm:max-w-xl mx-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.08)] filter brightness-100 select-none pointer-events-none mb-0 scale-[1.05] sm:scale-[1.10] md:scale-100 origin-bottom"
                     />
 
                     {/* Fog of white at the bottom of hero asset: ONLY on desktop panoramic asset */}

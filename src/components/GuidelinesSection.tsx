@@ -427,7 +427,7 @@ export default function GuidelinesSection() {
   }, []);
 
   return (
-    <div id="guidelines-container" className="relative font-body bg-white">
+    <div id="guidelines-container" className="relative font-body bg-transparent">
       {/* -------------------------------------------------------------
           ATMOSPHERIC SMOKE EFFECT JUST BELOW IMPORTANT DATES
           Seamless billowing mist transition with no separating line
@@ -562,7 +562,7 @@ export default function GuidelinesSection() {
       <div
         id="services-card-wrapper"
         ref={servicesWrapperRef}
-        className="w-full bg-white relative z-20 will-change-transform"
+        className="w-full bg-transparent relative z-20 will-change-transform"
       >
         <section
           id="guidelines-services"

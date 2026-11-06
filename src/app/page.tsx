@@ -573,17 +573,17 @@ export default function Home() {
             <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
           </div>
 
-          {/* Spacer so Event Details stays pinned in view after Guidelines leaves */}
-          <div className="hidden md:block w-full h-[60vh] pointer-events-none" />
+          {/* Spacer so Event Details stays comfortably pinned in view after Guidelines leaves */}
+          <div className="hidden md:block w-full h-[120vh] pointer-events-none" />
 
           {/* =========================================================================
               LAYER 2: WHY PARTICIPATE (Black section scrolls directly ON TOP of Event Details)
              ========================================================================= */}
-          <div id="why-layer" className="relative z-20 bg-black w-full md:-mb-[100vh]">
-            {/* Seamless Top Apple Divider: bg-transparent so cutout is transparent */}
+          <div id="why-layer" className="relative z-20 w-full">
+            {/* Seamless Top Apple Divider: transparent background so Apple cutout is clearly visible */}
             <AppleSectionDivider direction="top" />
 
-            <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden">
+            <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden -mt-1">
               {/* Ambient Background Lighting */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none" />
 
@@ -627,14 +627,14 @@ export default function Home() {
             <AssociationSection />
           </div>
 
-          {/* Spacer so Association stays pinned in view after Why Participate leaves */}
-          <div className="hidden md:block w-full h-[60vh] pointer-events-none" />
+          {/* Spacer so Association stays comfortably pinned in view after Why Participate leaves */}
+          <div className="hidden md:block w-full h-[120vh] pointer-events-none" />
 
           {/* =========================================================================
               LAYER 4: STUDENT COORDINATORS (Black section scrolls directly ON TOP of In Association)
              ========================================================================= */}
-          <div id="coordinators-layer" className="relative z-30 bg-black w-full">
-            {/* Seamless Top Apple Divider: bg-transparent so cutout is transparent */}
+          <div id="coordinators-layer" className="relative z-30 w-full">
+            {/* Seamless Top Apple Divider: transparent background so cutout is clearly visible */}
             <AppleSectionDivider direction="top" />
 
             <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />

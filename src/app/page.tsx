@@ -248,6 +248,36 @@ export default function Home() {
     return () => observer.disconnect();
   }, [activeView]);
 
+  // Entrance animation for Why Participate text from below upwards on scroll
+  useEffect(() => {
+    if (activeView !== "main") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const whyText = document.querySelector(".why-text-content");
+    if (whyText) {
+      gsap.fromTo(
+        whyText,
+        { y: 55, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          ease: "power2.out",
+          scrollTrigger: {
+            id: "why-text-rise",
+            trigger: "#why",
+            start: "top 78%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getById("why-text-rise")?.kill();
+    };
+  }, [activeView]);
+
   return (
     <div
       onContextMenu={(e) => {
@@ -474,68 +504,87 @@ export default function Home() {
 
           {/* =========================================================================
               5. GENERAL GUIDELINES (Plumber Template Expanding Photo Card + Black Lines)
+              Ends with Apple Divider and shrinks on scroll; acts like a shutter revealing
+              Event Details fixed underneath
              ========================================================================= */}
-          <GuidelinesSection />
+          <div className="relative z-20">
+            <GuidelinesSection />
+          </div>
 
           {/* =========================================================================
-              5. EVENT DETAILS & VENUE (Plumber Template Parting Stage Animation: scene:heat)
+              LAYER 1: EVENT DETAILS (Fixed/Sticky Underneath) -> WHY PARTICIPATE (Scrolls on top)
              ========================================================================= */}
-          <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
-
-          {/* Separation: White (Event Details) to Black (Why Participate) */}
-          <AppleSectionDivider direction="top" />
-
-          {/* =========================================================================
-              6. WHY PARTICIPATE & PRIZES (DARK LUXURY THEME: BLACK BG & WHITE TEXT)
-             ========================================================================= */}
-          <section id="why" className="page py-24 sm:py-32 reveal bg-black text-white relative overflow-hidden">
-            {/* Ambient Background Lighting */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-              <div className="text-center max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto mb-8">
-                <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
-                  Prizes &amp; Perks
-                </span>
-                <div className="my-3 flex justify-center">
-                  <RevealHeading>
-                    <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
-                      Why Participate?
-                    </h2>
-                  </RevealHeading>
-                </div>
-              </div>
-
-              <MagicText className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
-                Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
-              </MagicText>
-
-              {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
-              <PrizeCards />
+          <div className="relative">
+            {/* Sticky Stage: Event Details & Venue (Locked in center position) */}
+            <div className="md:sticky md:top-0 md:h-screen md:min-h-[660px] z-10 flex flex-col justify-center bg-white overflow-hidden">
+              <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
             </div>
 
-            {/* Overheard-style Infinite Horizontal Marquee Cards with White Borders & White Text */}
-            <ValueCardsMarquee />
-          </section>
+            {/* Why Participate & Prizes: Black section scrolls directly ON TOP of Event Details */}
+            <div className="relative z-20 bg-black">
+              {/* Seamless Top Apple Divider: exact matching black tabs over white Event Details */}
+              <AppleSectionDivider direction="top" />
 
-          {/* Separation: Black (Why Participate) to White (In Association With) */}
-          <AppleSectionDivider direction="bottom" />
+              <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden">
+                {/* Ambient Background Lighting */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none" />
+
+                <div className="max-w-7xl mx-auto px-6 relative z-10 why-text-content">
+                  <div className="text-center max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto mb-8">
+                    <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
+                      Prizes &amp; Perks
+                    </span>
+                    <div className="my-3 flex justify-center">
+                      <RevealHeading>
+                        <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
+                          Why Participate?
+                        </h2>
+                      </RevealHeading>
+                    </div>
+                  </div>
+
+                  <MagicText className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
+                    Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
+                  </MagicText>
+
+                  {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
+                  <PrizeCards />
+                </div>
+
+                {/* Overheard-style Infinite Horizontal Marquee Cards with White Borders & White Text */}
+                <ValueCardsMarquee />
+              </section>
+
+              {/* Seamless Bottom Apple Divider acting as shutter curtain revealing In Association */}
+              <AppleSectionDivider direction="bottom" />
+            </div>
+          </div>
 
           {/* =========================================================================
-              7. IN ASSOCIATION WITH (Brewery Template On-Tap Staircase & Liquid Fill)
+              LAYER 2: IN ASSOCIATION WITH (Fixed/Sticky Underneath) -> COORDINATORS (Scrolls on top)
              ========================================================================= */}
-          <AssociationSection />
+          <div className="relative">
+            {/* Sticky Stage: In Association With (Locked in center position) */}
+            <div className="md:sticky md:top-0 md:h-screen md:min-h-[620px] z-10 flex flex-col justify-center bg-white overflow-hidden">
+              <AssociationSection />
+            </div>
 
-          {/* Separation: White (In Association With) to Black (Student Coordinators) */}
-          <AppleSectionDivider direction="top" />
+            {/* Coordinators Section: Black section scrolls directly ON TOP of In Association */}
+            <div className="relative z-30 bg-black">
+              {/* Seamless Top Apple Divider: sliding directly over Association cards */}
+              <AppleSectionDivider direction="top" />
 
-          {/* =========================================================================
-              8. STUDENT COORDINATORS
-             ========================================================================= */}
-          <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
+              <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
+
+              {/* Seamless Bottom Apple Divider: placed just above the Footer as requested */}
+              <AppleSectionDivider direction="bottom" />
+            </div>
+          </div>
 
           {/* Footer */}
-          <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
+          <div className="relative z-30 bg-white">
+            <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
+          </div>
         </main>
       )}
     </div>

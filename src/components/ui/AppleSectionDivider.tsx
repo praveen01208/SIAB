@@ -5,33 +5,45 @@ import React from "react";
 interface AppleSectionDividerProps {
   direction?: "bottom" | "top";
   className?: string;
+  bgWhite?: boolean;
 }
 
+/**
+ * Apple / Synus Studio Section Divider
+ * Dual-lobe cutout design matching Synus Studio (.services-scroll-cutout)
+ * 100% vector-sharp pure CSS, seamless #000000 black with zero border artifacts
+ */
 export default function AppleSectionDivider({
   direction = "bottom",
   className = "",
+  bgWhite = true,
 }: AppleSectionDividerProps) {
   const isTop = direction === "top";
 
   return (
     <div
-      className={`w-full bg-white relative z-20 overflow-hidden leading-none pointer-events-none select-none block ${className}`}
+      className={`w-full ${
+        bgWhite ? "bg-white" : "bg-transparent"
+      } flex justify-between h-9 sm:h-12 md:h-16 lg:h-20 select-none pointer-events-none relative z-20 overflow-hidden ${className}`}
       aria-hidden="true"
     >
-      <svg
-        viewBox="0 0 1024 74"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={`w-full h-9 sm:h-12 md:h-16 lg:h-20 block ${
-          isTop ? "scale-y-[-1]" : ""
+      {/* Left Rounded Lobe */}
+      <div
+        className={`w-[calc(50%-10px)] sm:w-[calc(50%-15px)] md:w-[calc(50%-20px)] bg-black transition-all ${
+          isTop
+            ? "rounded-t-[24px] sm:rounded-t-[40px] md:rounded-t-[56px]"
+            : "rounded-b-[24px] sm:rounded-b-[40px] md:rounded-b-[56px]"
         }`}
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M 0,0 L 0,28 C 0,56 18,74 45,74 L 453,74 C 475,74 491,56 494,28 L 494,74 L 530,74 L 530,28 C 533,56 549,74 571,74 L 979,74 C 1006,74 1024,56 1024,28 L 1024,0 Z"
-          fill="#000000"
-        />
-      </svg>
+      />
+
+      {/* Right Rounded Lobe */}
+      <div
+        className={`w-[calc(50%-10px)] sm:w-[calc(50%-15px)] md:w-[calc(50%-20px)] bg-black transition-all ${
+          isTop
+            ? "rounded-t-[24px] sm:rounded-t-[40px] md:rounded-t-[56px]"
+            : "rounded-b-[24px] sm:rounded-b-[40px] md:rounded-b-[56px]"
+        }`}
+      />
     </div>
   );
 }

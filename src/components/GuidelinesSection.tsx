@@ -394,18 +394,17 @@ export default function GuidelinesSection() {
         });
       }
 
-      // Bottom ending of "What we expect & evaluate": shrink slightly and round corners on scroll past center
+      // Bottom ending of "What we expect & evaluate": shrink slightly on scroll past center
+      // Both the black section and its attached Apple divider shrink as ONE single unit
       if (services) {
         gsap.to(services, {
-          scaleX: 0.96,
-          borderBottomLeftRadius: "36px",
-          borderBottomRightRadius: "36px",
+          scaleX: 0.95,
           transformOrigin: "center top",
           ease: "power2.out",
           scrollTrigger: {
             id: "gl-services:bottom-shrink",
             trigger: services,
-            start: "bottom 80%",
+            start: "bottom 85%",
             end: "bottom 30%",
             scrub: 0.6,
             invalidateOnRefresh: true,
@@ -616,10 +615,10 @@ export default function GuidelinesSection() {
             </li>
           ))}
         </ol>
-      </section>
 
-      {/* Seamless Apple Notch Border Divider transition to white section below */}
-      <AppleSectionDivider direction="bottom" />
+        {/* Seamless Apple Notch Border Divider attached INSIDE servicesRef so it shrinks together */}
+        <AppleSectionDivider direction="bottom" />
+      </section>
     </div>
   );
 }

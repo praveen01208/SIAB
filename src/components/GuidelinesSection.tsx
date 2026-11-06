@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AppleSectionDivider from "./ui/AppleSectionDivider";
 
 const guidelinesList = [
   {
@@ -392,12 +393,32 @@ export default function GuidelinesSection() {
             .set({}, {}, 1);
         });
       }
+
+      // Bottom ending of "What we expect & evaluate": shrink slightly and round corners on scroll past center
+      if (services) {
+        gsap.to(services, {
+          scaleX: 0.96,
+          borderBottomLeftRadius: "36px",
+          borderBottomRightRadius: "36px",
+          transformOrigin: "center top",
+          ease: "power2.out",
+          scrollTrigger: {
+            id: "gl-services:bottom-shrink",
+            trigger: services,
+            start: "bottom 80%",
+            end: "bottom 30%",
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
     });
 
     return () => {
       mm.revert();
       ScrollTrigger.getById("gl-opening-tl")?.kill();
       ScrollTrigger.getById("gl-services:relay")?.kill();
+      ScrollTrigger.getById("gl-services:bottom-shrink")?.kill();
       guidelinesList.forEach((_, i) => {
         ScrollTrigger.getById(`gl-services:row-${i + 1}`)?.kill();
       });
@@ -595,6 +616,9 @@ export default function GuidelinesSection() {
             </li>
           ))}
         </ol>
+
+        {/* Seamless Apple Notch Border Divider transition to white section below */}
+        <AppleSectionDivider direction="bottom" />
       </section>
     </div>
   );

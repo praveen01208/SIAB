@@ -137,7 +137,7 @@ export default function AssociationSection() {
     <section
       id="sponsors"
       ref={sectionRef}
-      className="page py-24 sm:py-32 border-t border-neutral-200 bg-white text-black relative overflow-hidden select-none"
+      className="page py-24 sm:py-32 bg-white text-black relative overflow-hidden select-none"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Giant Outlined Headline matching What's Pouring in Brewery Template */}

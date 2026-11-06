@@ -157,7 +157,7 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
     <section
       id="overview"
       ref={sectionRef}
-      className="ev-section border-t border-neutral-200 bg-white text-black relative"
+      className="ev-section bg-white text-black relative"
       aria-labelledby="events-details-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

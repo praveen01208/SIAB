@@ -92,7 +92,7 @@ export default function CoordinatorsSection({
     <section
       id="coordinators"
       ref={sectionRef}
-      className="page pt-20 sm:pt-28 pb-12 sm:pb-24 reveal active bg-black text-white border-t border-neutral-900 overflow-visible relative"
+      className="page pt-16 sm:pt-24 pb-12 sm:pb-24 reveal active bg-black text-white overflow-visible relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 flex flex-col items-center justify-center gap-8 md:gap-14">
         {/* Animated Section Header */}

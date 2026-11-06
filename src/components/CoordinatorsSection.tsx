@@ -1,157 +1,78 @@
 "use client";
 
 import React from "react";
-import TeamLanyardRail, { LanyardMember } from "./ui/team-lanyard-rail";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import { WebShotCard } from "./WebShotButton";
 import { RevealHeading } from "./ui/RevealHeading";
-import { MagicText } from "./ui/MagicText";
+import TeamCard from "./TeamCard";
+import { coordinatorsData } from "@/data/teamData";
+
+export { coordinatorsData as coordinators };
 
 interface CoordinatorsSectionProps {
   onMeetTeam?: () => void;
   showMeetTeamButton?: boolean;
 }
 
-export const coordinators = [
-  {
-    name: "Vinayak Shetti",
-    role: "Coordinator",
-    phone: "6366261008",
-    initials: "VS",
-  },
-  {
-    name: "Sanketha Kumbar",
-    role: "Coordinator",
-    phone: "9986051616",
-    initials: "SK",
-  },
-  {
-    name: "Sanskriti Singh",
-    role: "Coordinator",
-    phone: "7892001351",
-    initials: "SS",
-  },
-  {
-    name: "Praveen Patil",
-    role: "Coordinator",
-    phone: "8792946625",
-    initials: "PP",
-  },
-];
-
-const coordinatorBadges: LanyardMember[] = [
-  {
-    id: "vinayak-shetti",
-    name: "Vinayak Shetti",
-    role: "Lead Coordinator",
-    team: "INVENTRA · Leadership",
-    image: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" fill="%23ffffff"/><circle cx="80" cy="80" r="70" fill="%23111111" stroke="%23333333" stroke-width="2"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23ffffff" font-family="sans-serif" font-weight="900" font-size="44" letter-spacing="1">VS</text></svg>`,
-    bio: "Guiding the vision, overall orchestration, and inter-departmental collaboration for INVENTRA.",
-    tags: ["Leadership", "Operations", "Outreach"],
-    links: [
-      { label: "Call 6366261008", href: "tel:6366261008" },
-      { label: "WhatsApp", href: "https://wa.me/916366261008" },
-    ],
-    tone: 1,
-    drop: 12,
-  },
-  {
-    id: "sanketha-kumbar",
-    name: "Sanketha Kumbar",
-    role: "Technical Coordinator",
-    team: "INVENTRA · Tech Ops",
-    image: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" fill="%23ffffff"/><circle cx="80" cy="80" r="70" fill="%23111111" stroke="%23333333" stroke-width="2"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23ffffff" font-family="sans-serif" font-weight="900" font-size="44" letter-spacing="1">SK</text></svg>`,
-    bio: "Spearheading hackathon technical tracks, platform infrastructure, and challenge statements.",
-    tags: ["Systems", "Architecture", "Mentorship"],
-    links: [
-      { label: "Call 9986051616", href: "tel:9986051616" },
-      { label: "WhatsApp", href: "https://wa.me/919986051616" },
-    ],
-    tone: 2,
-    drop: 4,
-  },
-  {
-    id: "sanskriti-singh",
-    name: "Sanskriti Singh",
-    role: "Technical Coordinator",
-    team: "INVENTRA · Evaluation",
-    image: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" fill="%23ffffff"/><circle cx="80" cy="80" r="70" fill="%23111111" stroke="%23333333" stroke-width="2"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23ffffff" font-family="sans-serif" font-weight="900" font-size="44" letter-spacing="1">SS</text></svg>`,
-    bio: "Managing evaluation criteria, hackathon submission pipelines, and tech operations.",
-    tags: ["Tech Ops", "Evaluation", "Software"],
-    links: [
-      { label: "Call 7892001351", href: "tel:7892001351" },
-      { label: "WhatsApp", href: "https://wa.me/917892001351" },
-    ],
-    tone: 3,
-    drop: 18,
-  },
-  {
-    id: "praveen-patil",
-    name: "Praveen Patil",
-    role: "Technical Coordinator",
-    team: "INVENTRA · Operations",
-    image: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" fill="%23ffffff"/><circle cx="80" cy="80" r="70" fill="%23111111" stroke="%23333333" stroke-width="2"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23ffffff" font-family="sans-serif" font-weight="900" font-size="44" letter-spacing="1">PP</text></svg>`,
-    bio: "Directing event execution logistics, lab coordination, and participant experience flow.",
-    tags: ["Event Flow", "Logistics", "Operations"],
-    links: [
-      { label: "Call 8792946625", href: "tel:8792946625" },
-      { label: "WhatsApp", href: "https://wa.me/918792946625" },
-    ],
-    tone: 4,
-    drop: 8,
-  },
-];
-
 export default function CoordinatorsSection({
   onMeetTeam,
   showMeetTeamButton = true,
 }: CoordinatorsSectionProps) {
   return (
-    <section id="coordinators" className="page pt-20 sm:pt-32 pb-12 sm:pb-36 reveal active bg-black text-white border-t border-neutral-900 overflow-visible relative">
-      <div className="container mx-auto px-4 sm:px-6 overflow-visible">
-        {/* Centered Middle Header */}
-        <div className="text-center max-w-4xl mx-auto mb-14 flex flex-col items-center">
-          <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
-            Leadership &amp; Guidance
-          </span>
-          <div className="my-3 flex justify-center">
-            <RevealHeading>
-              <h2 className="font-display text-[2.1rem] sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight sm:tracking-wider uppercase leading-none select-none break-words max-w-full">
-                Coordinators
-              </h2>
-            </RevealHeading>
+    <section
+      id="coordinators"
+      className="page pt-20 sm:pt-28 pb-12 sm:pb-24 reveal active bg-black text-white border-t border-neutral-900 overflow-visible relative"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 flex flex-col items-center justify-center gap-8 md:gap-14">
+        {/* Animated Section Header */}
+        <motion.div
+          initial={{ y: -40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.8,
+            ease: [0.21, 0.47, 0.32, 0.98],
+          }}
+          className="max-w-2xl mx-auto flex flex-col items-center justify-center text-center gap-4"
+        >
+          <Badge
+            variant={"outline"}
+            className="px-3 py-1 h-auto text-xs font-mono uppercase tracking-widest border-neutral-700 text-neutral-300 bg-neutral-950"
+          >
+            Team
+          </Badge>
+          <RevealHeading>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium font-display text-white tracking-wider uppercase leading-none text-center">
+              Meet the creative minds behind our success
+            </h2>
+          </RevealHeading>
+        </motion.div>
+
+        {/* 4 Coordinators in 4-Column Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          {coordinatorsData.map((member, index) => (
+            <TeamCard key={member.name} member={member} index={index} />
+          ))}
+        </div>
+
+        {/* Meet The Full Team button */}
+        {showMeetTeamButton && onMeetTeam && (
+          <div className="flex justify-center mt-4 sm:mt-6 pb-2 relative z-30">
+            <WebShotCard reach={130} threads={5} inkColor="#ffffff">
+              <button
+                type="button"
+                onClick={onMeetTeam}
+                className="group inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-white text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-neutral-200 hover:scale-[1.03] cursor-pointer border border-white"
+              >
+                <span>Meet The Full Team</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1.5 font-bold">
+                  &rarr;
+                </span>
+              </button>
+            </WebShotCard>
           </div>
-          <MagicText className="text-neutral-400 text-sm sm:text-base max-w-lg mx-auto mt-3 font-normal">
-            Interactive credentials rail — click or press Enter to flip badges, or drag to swing.
-          </MagicText>
-        </div>
-
-        {/* Realistic Lanyard Rail with Physics Simulation - Open on Background */}
-        <div className="w-full max-w-6xl mx-auto overflow-visible relative py-2">
-          <TeamLanyardRail
-            items={coordinatorBadges}
-            autoplay={true}
-            interval={3500}
-            caption="Hover, drag, pull down or click any badge to flip and inspect credentials"
-          />
-
-          {/* Meet The Full Team button (Solid Crisp White with Pure White Silk Web Threads on Desktop) */}
-          {showMeetTeamButton && onMeetTeam && (
-            <div className="flex justify-center mt-6 sm:mt-8 pb-4 sm:pb-10 relative z-30">
-              <WebShotCard reach={130} threads={5} inkColor="#ffffff">
-                <button
-                  type="button"
-                  onClick={onMeetTeam}
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-white text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-neutral-100 hover:scale-[1.03] cursor-pointer border border-white"
-                >
-                  <span>Meet The Full Team</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-1.5 font-bold">
-                    &rarr;
-                  </span>
-                </button>
-              </WebShotCard>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </section>
   );

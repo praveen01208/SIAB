@@ -36,7 +36,7 @@
   html {
     scroll-behavior: auto !important;
     scroll-padding-top: 80px;
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100%;
     width: 100%;
   }
@@ -62,7 +62,7 @@
     color: #000000;
     font-family: var(--font-body), 'Bricolage Grotesque', sans-serif;
     position: relative;
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100%;
     width: 100%;
   }

@@ -278,6 +278,58 @@ export default function Home() {
     };
   }, [activeView]);
 
+  // Programmatic GSAP Layered Scroll-Based Reveal & Pinning
+  useEffect(() => {
+    if (activeView !== "main") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      // Stage 1: Event Details pins in viewport center when centered,
+      // and Why Participate slides directly up and over it (pinSpacing: false)
+      const eventStage = document.getElementById("event-details-stage");
+      const whyLayer = document.getElementById("why-layer");
+
+      if (eventStage && whyLayer) {
+        ScrollTrigger.create({
+          id: "pin-event-details",
+          trigger: eventStage,
+          start: "center center",
+          endTrigger: whyLayer,
+          end: "top top",
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
+        });
+      }
+
+      // Stage 2: Association Section pins in viewport center,
+      // and Coordinators slides directly up and over it (Association never moves, pinSpacing: false)
+      const assocStage = document.getElementById("association-stage");
+      const coordLayer = document.getElementById("coordinators-layer");
+
+      if (assocStage && coordLayer) {
+        ScrollTrigger.create({
+          id: "pin-association",
+          trigger: assocStage,
+          start: "center center",
+          endTrigger: coordLayer,
+          end: "top top",
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
+        });
+      }
+    });
+
+    return () => {
+      mm.revert();
+      ScrollTrigger.getById("pin-event-details")?.kill();
+      ScrollTrigger.getById("pin-association")?.kill();
+    };
+  }, [activeView]);
+
   return (
     <div
       onContextMenu={(e) => {
@@ -504,81 +556,84 @@ export default function Home() {
 
           {/* =========================================================================
               5. GENERAL GUIDELINES (Plumber Template Expanding Photo Card + Black Lines)
-              Ends with Apple Divider and shrinks on scroll; acts like a shutter revealing
-              Event Details fixed underneath
+              Ends with full-width Apple Divider and shrinks as a card on scroll
              ========================================================================= */}
           <div className="relative z-20">
             <GuidelinesSection />
           </div>
 
           {/* =========================================================================
-              LAYER 1: EVENT DETAILS (Fixed/Sticky Underneath) -> WHY PARTICIPATE (Scrolls on top)
+              LAYER 1: EVENT DETAILS (Locked & Pinned in center via GSAP)
              ========================================================================= */}
-          <div className="relative">
-            {/* Sticky Stage: Event Details & Venue (Locked in center position) */}
-            <div className="md:sticky md:top-0 md:h-screen md:min-h-[660px] z-10 flex flex-col justify-center bg-white overflow-hidden">
-              <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
-            </div>
-
-            {/* Why Participate & Prizes: Black section scrolls directly ON TOP of Event Details */}
-            <div className="relative z-20 bg-black">
-              {/* Seamless Top Apple Divider: exact matching black tabs over white Event Details */}
-              <AppleSectionDivider direction="top" />
-
-              <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden">
-                {/* Ambient Background Lighting */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none" />
-
-                <div className="max-w-7xl mx-auto px-6 relative z-10 why-text-content">
-                  <div className="text-center max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto mb-8">
-                    <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
-                      Prizes &amp; Perks
-                    </span>
-                    <div className="my-3 flex justify-center">
-                      <RevealHeading>
-                        <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
-                          Why Participate?
-                        </h2>
-                      </RevealHeading>
-                    </div>
-                  </div>
-
-                  <MagicText className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
-                    Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
-                  </MagicText>
-
-                  {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
-                  <PrizeCards />
-                </div>
-
-                {/* Overheard-style Infinite Horizontal Marquee Cards with White Borders & White Text */}
-                <ValueCardsMarquee />
-              </section>
-
-              {/* Seamless Bottom Apple Divider acting as shutter curtain revealing In Association */}
-              <AppleSectionDivider direction="bottom" />
-            </div>
+          <div
+            id="event-details-stage"
+            className="w-full min-h-screen py-10 md:py-0 flex flex-col justify-center items-center bg-white relative z-10"
+          >
+            <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
           </div>
 
           {/* =========================================================================
-              LAYER 2: IN ASSOCIATION WITH (Fixed/Sticky Underneath) -> COORDINATORS (Scrolls on top)
+              LAYER 2: WHY PARTICIPATE (Black section scrolls directly ON TOP of Event Details)
              ========================================================================= */}
-          <div className="relative">
-            {/* Sticky Stage: In Association With (Locked in center position) */}
-            <div className="md:sticky md:top-0 md:h-screen md:min-h-[620px] z-10 flex flex-col justify-center bg-white overflow-hidden">
-              <AssociationSection />
-            </div>
+          <div id="why-layer" className="relative z-20 bg-black w-full">
+            {/* Seamless Top Apple Divider */}
+            <AppleSectionDivider direction="top" />
 
-            {/* Coordinators Section: Black section scrolls directly ON TOP of In Association */}
-            <div className="relative z-30 bg-black">
-              {/* Seamless Top Apple Divider: sliding directly over Association cards */}
-              <AppleSectionDivider direction="top" />
+            <section id="why" className="page py-16 sm:py-24 bg-black text-white relative overflow-hidden">
+              {/* Ambient Background Lighting */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none" />
 
-              <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
+              <div className="max-w-7xl mx-auto px-6 relative z-10 why-text-content">
+                <div className="text-center max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto mb-8">
+                  <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
+                    Prizes &amp; Perks
+                  </span>
+                  <div className="my-3 flex justify-center">
+                    <RevealHeading>
+                      <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
+                        Why Participate?
+                      </h2>
+                    </RevealHeading>
+                  </div>
+                </div>
 
-              {/* Seamless Bottom Apple Divider: placed just above the Footer as requested */}
-              <AppleSectionDivider direction="bottom" />
-            </div>
+                <MagicText className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
+                  Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
+                </MagicText>
+
+                {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
+                <PrizeCards />
+              </div>
+
+              {/* Overheard-style Infinite Horizontal Marquee Cards with White Borders & White Text */}
+              <ValueCardsMarquee />
+            </section>
+
+            {/* Seamless Bottom Apple Divider: rolls off like shutter to reveal In Association */}
+            <AppleSectionDivider direction="bottom" />
+          </div>
+
+          {/* =========================================================================
+              LAYER 3: IN ASSOCIATION WITH (Locked & Pinned in center via GSAP, never moves)
+             ========================================================================= */}
+          <div
+            id="association-stage"
+            className="w-full min-h-screen py-10 md:py-0 flex flex-col justify-center items-center bg-white relative z-10"
+          >
+            <AssociationSection />
+          </div>
+
+          {/* =========================================================================
+              LAYER 4: STUDENT COORDINATORS (Black section scrolls directly ON TOP of In Association)
+             ========================================================================= */}
+          <div id="coordinators-layer" className="relative z-30 bg-black w-full">
+            {/* Seamless Top Apple Divider */}
+            <AppleSectionDivider direction="top" />
+
+            <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
+
+            {/* Seamless Bottom Apple Divider: placed just above Footer */}
+            <AppleSectionDivider direction="bottom" />
           </div>
 
           {/* Footer */}

@@ -24,24 +24,24 @@ export default function AppleSectionDivider({
     <div
       className={`w-full ${
         bgWhite ? "bg-white" : "bg-transparent"
-      } flex justify-between h-9 sm:h-12 md:h-16 lg:h-20 select-none pointer-events-none relative z-20 overflow-hidden ${className}`}
+      } flex justify-between h-10 sm:h-14 md:h-18 lg:h-20 select-none pointer-events-none relative z-20 overflow-hidden ${className}`}
       aria-hidden="true"
     >
       {/* Left Rounded Lobe */}
       <div
-        className={`w-[calc(50%-10px)] sm:w-[calc(50%-15px)] md:w-[calc(50%-20px)] bg-black transition-all ${
+        className={`w-[calc(50%-12px)] sm:w-[calc(50%-18px)] md:w-[calc(50%-24px)] bg-black transition-all ${
           isTop
-            ? "rounded-t-[24px] sm:rounded-t-[40px] md:rounded-t-[56px]"
-            : "rounded-b-[24px] sm:rounded-b-[40px] md:rounded-b-[56px]"
+            ? "rounded-t-[28px] sm:rounded-t-[46px] md:rounded-t-[64px]"
+            : "rounded-b-[28px] sm:rounded-b-[46px] md:rounded-b-[64px]"
         }`}
       />
 
       {/* Right Rounded Lobe */}
       <div
-        className={`w-[calc(50%-10px)] sm:w-[calc(50%-15px)] md:w-[calc(50%-20px)] bg-black transition-all ${
+        className={`w-[calc(50%-12px)] sm:w-[calc(50%-18px)] md:w-[calc(50%-24px)] bg-black transition-all ${
           isTop
-            ? "rounded-t-[24px] sm:rounded-t-[40px] md:rounded-t-[56px]"
-            : "rounded-b-[24px] sm:rounded-b-[40px] md:rounded-b-[56px]"
+            ? "rounded-t-[28px] sm:rounded-t-[46px] md:rounded-t-[64px]"
+            : "rounded-b-[28px] sm:rounded-b-[46px] md:rounded-b-[64px]"
         }`}
       />
     </div>

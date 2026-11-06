@@ -81,6 +81,7 @@ const guidelinesList = [
 export default function GuidelinesSection() {
   const openingRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
+  const servicesWrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Atmospheric Smoke Effect Canvas
@@ -396,16 +397,17 @@ export default function GuidelinesSection() {
 
       // Bottom ending of "What we expect & evaluate": shrink slightly on scroll past center
       // Both the black section and its attached Apple divider shrink as ONE single unit
-      if (services) {
-        gsap.to(services, {
+      const wrapper = servicesWrapperRef.current;
+      if (wrapper) {
+        gsap.to(wrapper, {
           scaleX: 0.95,
           transformOrigin: "center top",
           ease: "power2.out",
           scrollTrigger: {
             id: "gl-services:bottom-shrink",
-            trigger: services,
-            start: "bottom 85%",
-            end: "bottom 30%",
+            trigger: wrapper,
+            start: "bottom 92%",
+            end: "bottom 35%",
             scrub: 0.6,
             invalidateOnRefresh: true,
           },
@@ -555,70 +557,78 @@ export default function GuidelinesSection() {
       {/* =============================================================
           2. PLUMBER SERVICES LINES: "What we fix and fit" lines
           SOLID BLACK THEME with 10 Verbatim Rules from Guidelines Image
+          Enclosed in servicesWrapperRef so black card & Apple divider shrink together
          ============================================================= */}
-      <section
-        id="guidelines-services"
-        ref={servicesRef}
-        className="gl-services l-clip"
-        data-8b-section="services"
-        aria-labelledby="services-title"
+      <div
+        id="services-card-wrapper"
+        ref={servicesWrapperRef}
+        className="w-full bg-white relative z-20 will-change-transform"
       >
-        <div className="sv__head">
-          <h2
-            className="sv__title m-text-2"
-            id="services-title"
-            data-8b-motion="relay"
-            data-8b-items=":scope > span"
-          >
-            <span style={{ "--len": 14 } as React.CSSProperties}>
-              What we expect
-            </span>
-            <span style={{ "--len": 12 } as React.CSSProperties}>
-              &amp; evaluate
-            </span>
-          </h2>
-          <p className="sv__lead m-text-6">
-            Ten essential directives governing participant entry, deliverables, hardware equipment, and final jury evaluation rounds.
-          </p>
-        </div>
+        <section
+          id="guidelines-services"
+          ref={servicesRef}
+          className="gl-services l-clip"
+          data-8b-section="services"
+          aria-labelledby="services-title"
+          style={{ paddingBottom: 0 }}
+        >
+          <div className="sv__head">
+            <h2
+              className="sv__title m-text-2"
+              id="services-title"
+              data-8b-motion="relay"
+              data-8b-items=":scope > span"
+            >
+              <span style={{ "--len": 14 } as React.CSSProperties}>
+                What we expect
+              </span>
+              <span style={{ "--len": 12 } as React.CSSProperties}>
+                &amp; evaluate
+              </span>
+            </h2>
+            <p className="sv__lead m-text-6">
+              Ten essential directives governing participant entry, deliverables, hardware equipment, and final jury evaluation rounds.
+            </p>
+          </div>
 
-        <ol className="sv__list" data-8b-items=":scope > li">
-          {guidelinesList.map((item, i) => (
-            <li key={i} className="sv__row">
-              <h3
-                className="sv__word m-text-2"
-                style={{ "--len": item.short.length } as React.CSSProperties}
-              >
-                <span>{item.short}</span>
-              </h3>
+          <ol className="sv__list" data-8b-items=":scope > li">
+            {guidelinesList.map((item, i) => (
+              <li key={i} className="sv__row">
+                <h3
+                  className="sv__word m-text-2"
+                  style={{ "--len": item.short.length } as React.CSSProperties}
+                >
+                  <span>{item.short}</span>
+                </h3>
 
-              <div className="sv__info">
-                <p className="m-text-4">
-                  {item.rule}
-                </p>
-                <span className="m-badge">
-                  {item.badge}
-                </span>
-              </div>
+                <div className="sv__info">
+                  <p className="m-text-4">
+                    {item.rule}
+                  </p>
+                  <span className="m-badge">
+                    {item.badge}
+                  </span>
+                </div>
 
-              <figure className="sv__pic m-band protected-image select-none pointer-events-none">
-                <img
-                  src={item.img}
-                  width="1600"
-                  height="600"
-                  alt=""
-                  loading="lazy"
-                  draggable={false}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </figure>
-            </li>
-          ))}
-        </ol>
+                <figure className="sv__pic m-band protected-image select-none pointer-events-none">
+                  <img
+                    src={item.img}
+                    width="1600"
+                    height="600"
+                    alt=""
+                    loading="lazy"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
+                </figure>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-        {/* Seamless Apple Notch Border Divider attached INSIDE servicesRef so it shrinks together */}
+        {/* Seamless Apple Notch Border Divider: full-width at the bottom edge */}
         <AppleSectionDivider direction="bottom" />
-      </section>
+      </div>
     </div>
   );
 }

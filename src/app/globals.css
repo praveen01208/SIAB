@@ -2470,6 +2470,44 @@ html.lenis, html.lenis body {
   background-clip: text;
 }
 
+/* Desktop sizing for prize cards: larger and more prominent (Mobile remains locked at 110px) */
+@media (min-width: 768px) {
+  .prize-outer {
+    min-height: 205px;
+    border-radius: 14px;
+    padding: 2px;
+  }
+  .prize-inner {
+    min-height: 205px;
+    border-radius: 12px;
+    padding: 24px 18px 18px;
+  }
+  .prize-amount {
+    font-size: 1.85rem;
+    margin: 8px 0 4px;
+  }
+  .prize-outer.grand .prize-amount {
+    font-size: 2.3rem;
+  }
+  .prize-ray {
+    width: 280px;
+    height: 55px;
+  }
+}
+
+/* Universal scrollbar removal */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
 /* Coworking Template: Depths Hanging Card Wires & Clips */
 .depths-hang-clip {
   position: absolute;

@@ -469,20 +469,20 @@ export default function Home() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-              <div className="text-center max-w-3xl mx-auto mb-8">
+              <div className="text-center max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto mb-8">
                 <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold block mb-2">
                   Prizes &amp; Perks
                 </span>
                 <div className="my-3 flex justify-center">
                   <RevealHeading>
-                    <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words">
+                    <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
                       Why Participate?
                     </h2>
                   </RevealHeading>
                 </div>
               </div>
 
-              <MagicText className="text-neutral-300 text-base leading-relaxed text-justify max-w-4xl mx-auto mb-16 font-normal">
+              <MagicText className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
                 Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
               </MagicText>
 

@@ -154,10 +154,10 @@ export default function AssociationSection() {
           </div>
         </div>
 
-        {/* 4 Cards 2x2 Grid with Liquid Fill from Bottom */}
+        {/* 4 Cards: 2x2 Grid on Mobile, Single Line 4 Columns on Desktop */}
         <ul
           ref={stairsRef}
-          className="tap__stairs grid grid-cols-2 gap-3.5 sm:gap-6 max-w-3xl sm:max-w-4xl mx-auto items-stretch"
+          className="tap__stairs grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6 md:gap-4 lg:gap-6 max-w-3xl sm:max-w-4xl md:max-w-7xl mx-auto items-stretch"
         >
           {PARTNERS.map((partner) => (
             <li

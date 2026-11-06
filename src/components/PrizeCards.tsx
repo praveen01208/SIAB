@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TiltCard from "./TiltCard";
-import { WebShotCard } from "./WebShotButton";
 
 export default function PrizeCards() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -234,7 +233,7 @@ export default function PrizeCards() {
       ref={containerRef}
       className="relative overflow-visible pt-12 md:pt-16 pb-6 mb-12"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 sm:gap-y-14 md:gap-y-0 md:gap-x-6 lg:gap-x-8 max-w-[240px] sm:max-w-[260px] md:max-w-3xl mx-auto items-stretch relative">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 sm:gap-y-14 md:gap-y-0 md:gap-x-8 lg:gap-x-10 max-w-[240px] sm:max-w-[260px] md:max-w-4xl lg:max-w-5xl mx-auto items-stretch relative">
         {/* ===================================================================
             Card 1: 1st Runner Up (Rank #2) - Lower + Pendulum Swing Left
            =================================================================== */}
@@ -244,32 +243,30 @@ export default function PrizeCards() {
             <span className="depths-hang-clip left-[10%]" aria-hidden="true" />
             <span className="depths-hang-clip right-[10%]" aria-hidden="true" />
 
-            <WebShotCard reach={120} threads={5} inkColor="#ffffff" className="w-full">
-              <TiltCard>
-                <div className="prize-outer runner1">
-                  <div className="prize-dot" />
-                  <div className="prize-inner">
-                    <div className="prize-ray" />
-                    <div className="prize-line topl" />
-                    <div className="prize-line leftl" />
-                    <div className="prize-line bottoml" />
-                    <div className="prize-line rightl" />
+            <TiltCard>
+              <div className="prize-outer runner1">
+                <div className="prize-dot" />
+                <div className="prize-inner">
+                  <div className="prize-ray" />
+                  <div className="prize-line topl" />
+                  <div className="prize-line leftl" />
+                  <div className="prize-line bottoml" />
+                  <div className="prize-line rightl" />
 
-                    <span className="text-lg mb-0.5 select-none relative z-10">🥈</span>
-                    <div className="inline-block bg-neutral-800 text-neutral-300 text-[7px] uppercase px-1.5 py-px rounded-full font-mono tracking-widest font-bold mb-0.5 border border-neutral-700 relative z-10">
-                      Rank #2
-                    </div>
-                    <h3 className="text-xs sm:text-sm font-display font-bold text-white mb-0 relative z-10">
-                      1<sup>st</sup> Runner Up
-                    </h3>
-                    <p className="prize-amount text-base sm:text-lg font-black relative z-10">₹25,000</p>
-                    <span className="text-[7px] uppercase font-mono font-medium text-neutral-400 mt-0 tracking-wider relative z-10 text-center">
-                      Cash Prize &amp; Official Swag
-                    </span>
+                  <span className="text-lg md:text-3xl mb-0.5 md:mb-2 select-none relative z-10">🥈</span>
+                  <div className="inline-block bg-neutral-800 text-neutral-300 text-[7px] md:text-xs uppercase px-1.5 md:px-3 py-px md:py-0.5 rounded-full font-mono tracking-widest font-bold mb-0.5 md:mb-1.5 border border-neutral-700 relative z-10">
+                    Rank #2
                   </div>
+                  <h3 className="text-xs sm:text-sm md:text-lg font-display font-bold text-white mb-0 md:mb-1 relative z-10">
+                    1<sup>st</sup> Runner Up
+                  </h3>
+                  <p className="prize-amount text-base sm:text-lg md:text-3xl font-black relative z-10">₹25,000</p>
+                  <span className="text-[7px] md:text-xs uppercase font-mono font-medium text-neutral-400 mt-0 md:mt-1.5 tracking-wider relative z-10 text-center">
+                    Cash Prize &amp; Official Swag
+                  </span>
                 </div>
-              </TiltCard>
-            </WebShotCard>
+              </div>
+            </TiltCard>
           </div>
         </div>
 
@@ -282,34 +279,32 @@ export default function PrizeCards() {
             <span className="depths-hang-clip left-[10%]" aria-hidden="true" />
             <span className="depths-hang-clip right-[10%]" aria-hidden="true" />
 
-            <WebShotCard reach={130} threads={6} inkColor="#ffd700" className="w-full">
-              <TiltCard>
-                <div className="prize-outer grand">
-                  <div className="prize-dot" />
-                  <div className="prize-inner">
-                    <div className="prize-ray" />
-                    <div className="prize-line topl" />
-                    <div className="prize-line leftl" />
-                    <div className="prize-line bottoml" />
-                    <div className="prize-line rightl" />
+            <TiltCard>
+              <div className="prize-outer grand">
+                <div className="prize-dot" />
+                <div className="prize-inner">
+                  <div className="prize-ray" />
+                  <div className="prize-line topl" />
+                  <div className="prize-line leftl" />
+                  <div className="prize-line bottoml" />
+                  <div className="prize-line rightl" />
 
-                    <span className="text-xl mb-0.5 select-none relative z-10 drop-shadow-[0_0_12px_rgba(255,215,0,0.5)]">
-                      🥇
-                    </span>
-                    <div className="inline-block bg-gradient-to-r from-amber-400 to-yellow-500 text-black text-[7.5px] uppercase px-2 py-px rounded-full font-mono tracking-widest font-black mb-0.5 shadow-md relative z-10">
-                      🏆 Champion
-                    </div>
-                    <h3 className="text-sm sm:text-base font-display font-black text-amber-300 mb-0 relative z-10 tracking-wide">
-                      Grand Prize
-                    </h3>
-                    <p className="prize-amount text-lg sm:text-xl font-black relative z-10">₹40,000</p>
-                    <span className="text-[7px] uppercase font-mono font-bold text-amber-200/90 mt-0 tracking-wider relative z-10 text-center">
-                      Trophy + Cash + Goodies
-                    </span>
+                  <span className="text-xl md:text-4xl mb-0.5 md:mb-2 select-none relative z-10 drop-shadow-[0_0_12px_rgba(255,215,0,0.5)]">
+                    🥇
+                  </span>
+                  <div className="inline-block bg-gradient-to-r from-amber-400 to-yellow-500 text-black text-[7.5px] md:text-xs uppercase px-2 md:px-3.5 py-px md:py-0.5 rounded-full font-mono tracking-widest font-black mb-0.5 md:mb-1.5 shadow-md relative z-10">
+                    🏆 Champion
                   </div>
+                  <h3 className="text-sm sm:text-base md:text-xl font-display font-black text-amber-300 mb-0 md:mb-1 relative z-10 tracking-wide">
+                    Grand Prize
+                  </h3>
+                  <p className="prize-amount text-lg sm:text-xl md:text-4xl font-black relative z-10">₹40,000</p>
+                  <span className="text-[7px] md:text-xs uppercase font-mono font-bold text-amber-200/90 mt-0 md:mt-1.5 tracking-wider relative z-10 text-center">
+                    Trophy + Cash + Goodies
+                  </span>
                 </div>
-              </TiltCard>
-            </WebShotCard>
+              </div>
+            </TiltCard>
           </div>
         </div>
 
@@ -322,32 +317,30 @@ export default function PrizeCards() {
             <span className="depths-hang-clip left-[10%]" aria-hidden="true" />
             <span className="depths-hang-clip right-[10%]" aria-hidden="true" />
 
-            <WebShotCard reach={120} threads={5} inkColor="#cd7f32" className="w-full">
-              <TiltCard>
-                <div className="prize-outer runner2">
-                  <div className="prize-dot" />
-                  <div className="prize-inner">
-                    <div className="prize-ray" />
-                    <div className="prize-line topl" />
-                    <div className="prize-line leftl" />
-                    <div className="prize-line bottoml" />
-                    <div className="prize-line rightl" />
+            <TiltCard>
+              <div className="prize-outer runner2">
+                <div className="prize-dot" />
+                <div className="prize-inner">
+                  <div className="prize-ray" />
+                  <div className="prize-line topl" />
+                  <div className="prize-line leftl" />
+                  <div className="prize-line bottoml" />
+                  <div className="prize-line rightl" />
 
-                    <span className="text-lg mb-0.5 select-none relative z-10">🥉</span>
-                    <div className="inline-block bg-neutral-800 text-amber-500 text-[7px] uppercase px-1.5 py-px rounded-full font-mono tracking-widest font-bold mb-0.5 border border-neutral-700 relative z-10">
-                      Rank #3
-                    </div>
-                    <h3 className="text-xs sm:text-sm font-display font-bold text-white mb-0 relative z-10">
-                      2<sup>nd</sup> Runner Up
-                    </h3>
-                    <p className="prize-amount text-base sm:text-lg font-black relative z-10">₹15,000</p>
-                    <span className="text-[7px] uppercase font-mono font-medium text-neutral-400 mt-0 tracking-wider relative z-10 text-center">
-                      Cash Prize &amp; Official Swag
-                    </span>
+                  <span className="text-lg md:text-3xl mb-0.5 md:mb-2 select-none relative z-10">🥉</span>
+                  <div className="inline-block bg-neutral-800 text-amber-500 text-[7px] md:text-xs uppercase px-1.5 md:px-3 py-px md:py-0.5 rounded-full font-mono tracking-widest font-bold mb-0.5 md:mb-1.5 border border-neutral-700 relative z-10">
+                    Rank #3
                   </div>
+                  <h3 className="text-xs sm:text-sm md:text-lg font-display font-bold text-white mb-0 md:mb-1 relative z-10">
+                    2<sup>nd</sup> Runner Up
+                  </h3>
+                  <p className="prize-amount text-base sm:text-lg md:text-3xl font-black relative z-10">₹15,000</p>
+                  <span className="text-[7px] md:text-xs uppercase font-mono font-medium text-neutral-400 mt-0 md:mt-1.5 tracking-wider relative z-10 text-center">
+                    Cash Prize &amp; Official Swag
+                  </span>
                 </div>
-              </TiltCard>
-            </WebShotCard>
+              </div>
+            </TiltCard>
           </div>
         </div>
       </div>

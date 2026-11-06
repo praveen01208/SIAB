@@ -142,8 +142,8 @@ export default function DatesWheelSection() {
       <div id="dates" className="absolute -top-16 left-0 opacity-0 pointer-events-none" />
 
       <div ref={stageRef} className="bd__stage">
-        {/* Title Header: "IMPORTANT" in small size, "DATES" in big size */}
-        <div className="text-center max-w-3xl mx-auto mb-2 sm:mb-3 relative z-20 px-4">
+        {/* Title Header: "IMPORTANT" in small size, "DATES" in big size (lifted upwards on desktop for more gap) */}
+        <div className="text-center max-w-3xl mx-auto mb-2 sm:mb-3 md:mb-12 lg:mb-16 md:-translate-y-8 lg:-translate-y-12 relative z-20 px-4">
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 font-semibold block mb-1">
             Schedule &amp; Milestones
           </span>

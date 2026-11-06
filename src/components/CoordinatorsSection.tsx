@@ -134,10 +134,10 @@ export default function CoordinatorsSection({
             caption="Hover, drag, pull down or click any badge to flip and inspect credentials"
           />
 
-          {/* Meet The Full Team button (Solid Crisp White, Glow Removed, with Silk Elastic Interaction on Desktop) */}
+          {/* Meet The Full Team button (Solid Crisp White with Pure White Silk Web Threads on Desktop) */}
           {showMeetTeamButton && onMeetTeam && (
             <div className="flex justify-center mt-6 sm:mt-8 pb-4 sm:pb-10 relative z-30">
-              <WebShotCard reach={130} threads={4}>
+              <WebShotCard reach={130} threads={5} inkColor="#ffffff">
                 <button
                   type="button"
                   onClick={onMeetTeam}

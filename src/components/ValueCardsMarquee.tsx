@@ -120,14 +120,16 @@ export default function ValueCardsMarquee() {
       <div className="pointer-events-none absolute left-0 top-0 bottom-16 w-12 sm:w-24 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
       <div className="pointer-events-none absolute right-0 top-0 bottom-16 w-12 sm:w-24 bg-gradient-to-l from-black via-black/80 to-transparent z-10" />
 
-      {/* Horizontal Cards Slider */}
+      {/* Horizontal Cards Slider (Scrollbar hidden across all platforms) */}
       <div
         ref={scrollRef}
         style={{
           paddingLeft: "calc(50% - 78px)",
           paddingRight: "calc(50% - 140px)",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
-        className="w-full overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none py-6"
+        className="w-full overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:opacity-0 py-6"
       >
         <ul className="flex items-center gap-6 sm:gap-8 w-max" aria-label="Value Highlights">
           {/* Standalone Large Start Circle matching card height */}

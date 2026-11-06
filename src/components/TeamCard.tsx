@@ -19,6 +19,14 @@ export const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
+// Four distinct geometric organic shapes that cycle identically across sets of 4 students
+export const TEAM_SHAPES = [
+  "rounded-full", // Shape 0: Smooth Capsule / Oval Pill
+  "rounded-t-full rounded-b-2xl", // Shape 1: Cathedral Arch / Dome
+  "rounded-[4rem]", // Shape 2: Organic Stadium Squircle
+  "rounded-[2.5rem]", // Shape 3: Soft Modern Rounded Geometry
+];
+
 interface TeamCardProps {
   member: TeamMember;
   index: number;
@@ -27,7 +35,7 @@ interface TeamCardProps {
 export default function TeamCard({ member, index }: TeamCardProps) {
   const [imgError, setImgError] = useState(false);
 
-  const fallbackAvatar = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23111111"/><circle cx="200" cy="200" r="130" fill="%231a1a1a" stroke="%23333333" stroke-width="2"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23ffffff" font-family="sans-serif" font-weight="900" font-size="72" letter-spacing="2">${encodeURIComponent(
+  const fallbackAvatar = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23000000"/><circle cx="200" cy="200" r="130" fill="%23111111" stroke="%23222222" stroke-width="2"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23ffffff" font-family="sans-serif" font-weight="900" font-size="72" letter-spacing="2">${encodeURIComponent(
     member.name
       .split(" ")
       .map((n) => n[0])
@@ -36,13 +44,16 @@ export default function TeamCard({ member, index }: TeamCardProps) {
   )}</text></svg>`;
 
   const imgSrc = imgError ? fallbackAvatar : member.image;
+  const shapeClass = TEAM_SHAPES[index % 4];
 
   return (
-    <div className="team__card group flex flex-col items-center justify-center gap-5 select-none w-full">
-      {/* Borderless Image Frame with Bottom-to-Top Liquid Fill Animation (No square border) */}
-      <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl relative select-none bg-neutral-950/80">
-        {/* BASE LAYER: Faint monochrome silhouette visible before filling */}
-        <div className="absolute inset-0 z-0">
+    <div className="team__card group flex flex-col items-center justify-center gap-5 select-none w-full bg-black">
+      {/* Pure black inside & outside: Only the organic shape is visible with zero boundary difference */}
+      <div
+        className={`w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] overflow-hidden ${shapeClass} relative select-none bg-black`}
+      >
+        {/* BASE LAYER: Faint silhouette on pure black background */}
+        <div className="absolute inset-0 z-0 bg-black">
           <img
             className="w-full h-full object-cover grayscale contrast-90 brightness-40 opacity-20 select-none pointer-events-none"
             src={imgSrc}
@@ -53,7 +64,7 @@ export default function TeamCard({ member, index }: TeamCardProps) {
 
         {/* TOP FILL LAYER: Crisp full-contrast image filling from bottom to top on scroll */}
         <div
-          className="team__fill absolute inset-0 z-10 overflow-hidden pointer-events-none"
+          className="team__fill absolute inset-0 z-10 overflow-hidden pointer-events-none bg-black"
           style={{ clipPath: "inset(100% 0% 0% 0%)" }}
         >
           <img
@@ -67,7 +78,7 @@ export default function TeamCard({ member, index }: TeamCardProps) {
       </div>
 
       {/* Member Details */}
-      <div className="w-full flex flex-col gap-3.5 items-center justify-center">
+      <div className="w-full flex flex-col gap-3.5 items-center justify-center bg-black">
         <div className="flex flex-col items-center justify-center gap-1.5 text-center">
           <h3 className="text-xl md:text-2xl font-medium text-white tracking-wide">
             {member.name}
@@ -79,7 +90,7 @@ export default function TeamCard({ member, index }: TeamCardProps) {
         <div className="flex gap-2 text-white">
           <a
             href={member.socials.website}
-            className="p-2 hover:bg-neutral-800 rounded-full text-neutral-300 hover:text-white transition-colors"
+            className="p-2 hover:bg-neutral-900 rounded-full text-neutral-300 hover:text-white transition-colors"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${member.name} contact`}
@@ -88,7 +99,7 @@ export default function TeamCard({ member, index }: TeamCardProps) {
           </a>
           <a
             href={member.socials.linkedin}
-            className="p-2 hover:bg-neutral-800 rounded-full text-neutral-300 hover:text-white transition-colors"
+            className="p-2 hover:bg-neutral-900 rounded-full text-neutral-300 hover:text-white transition-colors"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${member.name} linkedin`}

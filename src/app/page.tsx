@@ -276,13 +276,7 @@ export default function Home() {
       )}
 
       {activeView === "team" && (
-        <>
-          <div className="bg-white hero-grid-light">
-            <Navbar onNavigate={handleNavigate} onRegister={openRegistration} />
-          </div>
-          <TeamView onBackToHome={() => transitionTo("main")} />
-          <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
-        </>
+        <TeamView onBackToHome={() => transitionTo("main")} />
       )}
 
       {activeView === "main" && (

@@ -1,6 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { WebShotCard } from "./WebShotButton";
@@ -19,9 +21,77 @@ export default function CoordinatorsSection({
   onMeetTeam,
   showMeetTeamButton = true,
 }: CoordinatorsSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = sectionRef.current;
+    const grid = gridRef.current;
+    if (!section || !grid) return;
+
+    const cards = grid.querySelectorAll<HTMLDivElement>(".team__card");
+    const fills = grid.querySelectorAll<HTMLDivElement>(".team__fill");
+
+    const mm = gsap.matchMedia();
+
+    // Desktop: Liquid fill from bottom to top on scroll (mirroring AssociationSection)
+    mm.add("(min-width: 900px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: "team-coordinators:fill-desktop",
+          trigger: grid,
+          start: "top 78%",
+          end: "bottom 50%",
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      fills.forEach((fill, i) => {
+        tl.fromTo(
+          fill,
+          { clipPath: "inset(100% 0% 0% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.out", duration: 1 },
+          i * 0.15
+        );
+      });
+    });
+
+    // Mobile: Sequential bottom liquid fill on scroll
+    mm.add("(max-width: 899px)", () => {
+      cards.forEach((card) => {
+        const fill = card.querySelector<HTMLDivElement>(".team__fill");
+        if (!fill) return;
+
+        gsap.fromTo(
+          fill,
+          { clipPath: "inset(100% 0% 0% 0%)" },
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "power2.out",
+            duration: 1,
+            scrollTrigger: {
+              trigger: card,
+              start: "top 82%",
+              end: "bottom 58%",
+              scrub: 0.5,
+            },
+          }
+        );
+      });
+    });
+
+    return () => {
+      mm.revert();
+    };
+  }, []);
+
   return (
     <section
       id="coordinators"
+      ref={sectionRef}
       className="page pt-20 sm:pt-28 pb-12 sm:pb-24 reveal active bg-black text-white border-t border-neutral-900 overflow-visible relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 flex flex-col items-center justify-center gap-8 md:gap-14">
@@ -49,8 +119,11 @@ export default function CoordinatorsSection({
           </RevealHeading>
         </motion.div>
 
-        {/* 4 Coordinators in 4-Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        {/* 4 Coordinators in 4-Column Grid with Bottom-to-Top Filling Animation */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full"
+        >
           {coordinatorsData.map((member, index) => (
             <TeamCard key={member.name} member={member} index={index} />
           ))}

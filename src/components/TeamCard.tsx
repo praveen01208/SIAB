@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { Globe } from "lucide-react";
-import { motion } from "framer-motion";
 import { TeamMember } from "@/data/teamData";
 
 export const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
@@ -36,27 +35,38 @@ export default function TeamCard({ member, index }: TeamCardProps) {
       .slice(0, 3)
   )}</text></svg>`;
 
+  const imgSrc = imgError ? fallbackAvatar : member.image;
+
   return (
-    <motion.div
-      initial={{ y: 40, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.8,
-        delay: (index % 4) * 0.1,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
-      className="group flex flex-col items-center justify-center gap-6 select-none"
-    >
-      <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-950 border border-neutral-800 shadow-lg relative">
-        <img
-          className="w-full h-full object-cover grayscale contrast-105 brightness-95 group-hover:scale-105 group-hover:contrast-120 group-hover:brightness-105 transition-all duration-500"
-          src={imgError ? fallbackAvatar : member.image}
-          alt={member.name}
-          loading="lazy"
-          onError={() => setImgError(true)}
-        />
+    <div className="team__card group flex flex-col items-center justify-center gap-5 select-none w-full">
+      {/* Borderless Image Frame with Bottom-to-Top Liquid Fill Animation (No square border) */}
+      <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl relative select-none bg-neutral-950/80">
+        {/* BASE LAYER: Faint monochrome silhouette visible before filling */}
+        <div className="absolute inset-0 z-0">
+          <img
+            className="w-full h-full object-cover grayscale contrast-90 brightness-40 opacity-20 select-none pointer-events-none"
+            src={imgSrc}
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+
+        {/* TOP FILL LAYER: Crisp full-contrast image filling from bottom to top on scroll */}
+        <div
+          className="team__fill absolute inset-0 z-10 overflow-hidden pointer-events-none"
+          style={{ clipPath: "inset(100% 0% 0% 0%)" }}
+        >
+          <img
+            className="w-full h-full object-cover grayscale contrast-110 brightness-100 group-hover:scale-105 group-hover:contrast-125 transition-transform duration-500 pointer-events-none select-none"
+            src={imgSrc}
+            alt={member.name}
+            loading="lazy"
+            onError={() => setImgError(true)}
+          />
+        </div>
       </div>
+
+      {/* Member Details */}
       <div className="w-full flex flex-col gap-3.5 items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-1.5 text-center">
           <h3 className="text-xl md:text-2xl font-medium text-white tracking-wide">
@@ -87,6 +97,6 @@ export default function TeamCard({ member, index }: TeamCardProps) {
           </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

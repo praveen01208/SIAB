@@ -140,38 +140,35 @@ export default function CoordinatorsSection({
                   WebkitBoxReflect:
                     "below 2px linear-gradient(to bottom, rgba(255,255,255,0.0), rgba(255,255,255,0.3))",
                 }}
-                className="px-10 sm:px-14 py-4 sm:py-4.5 bg-gradient-to-r from-neutral-200 via-white to-neutral-200 rounded-full shadow-2xl hover:shadow-white/20 uppercase font-mono tracking-widest relative overflow-hidden group text-transparent cursor-pointer z-10 border border-white/80 after:absolute after:rounded-full after:bg-white after:h-[88%] after:w-[96%] after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                className="px-14 sm:px-18 py-4 sm:py-5 bg-gradient-to-r from-neutral-200 via-white to-neutral-200 rounded-full shadow-2xl hover:shadow-white/20 uppercase font-mono tracking-widest relative overflow-hidden group cursor-pointer z-10 border border-white/80 after:absolute after:rounded-full after:bg-white after:h-[88%] after:w-[96%] after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
               >
-                Button
-                <p className="absolute z-40 font-mono font-bold text-black top-1/2 left-1/2 -translate-x-1/2 group-hover:-translate-y-full h-full w-full transition-all duration-300 -translate-y-[30%] tracking-widest text-xs sm:text-sm flex items-center justify-center whitespace-nowrap">
-                  MEET THE FULL TEAM
-                </p>
-                <p className="absolute z-40 top-1/2 left-1/2 font-mono font-extrabold text-black -translate-x-1/2 translate-y-full h-full w-full transition-all duration-300 group-hover:-translate-y-[35%] tracking-widest text-xs sm:text-sm flex items-center justify-center whitespace-nowrap">
-                  EXPLORE ALL MEMBERS &rarr;
-                </p>
+                <span className="invisible select-none pointer-events-none">TEAM</span>
+                <span className="absolute z-20 font-mono font-black text-black top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 tracking-[0.25em] text-base sm:text-lg md:text-xl flex items-center justify-center whitespace-nowrap select-none pointer-events-none">
+                  TEAM
+                </span>
                 <svg
-                  className="absolute w-full h-full scale-x-125 rotate-180 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 group-hover:animate-none animate-pulse group-hover:-translate-y-[45%] transition-all duration-300"
+                  className="absolute w-full h-full scale-x-125 rotate-180 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-25 group-hover:animate-none animate-pulse transition-all duration-300 pointer-events-none"
                   viewBox="0 0 2400 800"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
                     <linearGradient id="sssurf-grad" y2="100%" x2="50%" y1="0%" x1="50%">
-                      <stop offset="0%" stopOpacity={0.2} stopColor="#ffffff" />
-                      <stop offset="100%" stopOpacity={0.65} stopColor="#a3a3a3" />
+                      <stop offset="0%" stopOpacity={0.15} stopColor="#000000" />
+                      <stop offset="100%" stopOpacity={0.45} stopColor="#000000" />
                     </linearGradient>
                   </defs>
                   <g transform="matrix(1,0,0,1,0,-91.0877685546875)" fill="url(#sssurf-grad)">
-                    <path opacity="0.05" transform="matrix(1,0,0,1,0,35)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
-                    <path opacity="0.21" transform="matrix(1,0,0,1,0,70)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
-                    <path opacity="0.37" transform="matrix(1,0,0,1,0,105)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
-                    <path opacity="0.53" transform="matrix(1,0,0,1,0,140)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
-                    <path opacity="0.68" transform="matrix(1,0,0,1,0,175)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
-                    <path opacity="0.84" transform="matrix(1,0,0,1,0,210)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
+                    <path opacity="0.08" transform="matrix(1,0,0,1,0,35)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
+                    <path opacity="0.22" transform="matrix(1,0,0,1,0,70)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
+                    <path opacity="0.38" transform="matrix(1,0,0,1,0,105)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
+                    <path opacity="0.54" transform="matrix(1,0,0,1,0,140)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
+                    <path opacity="0.70" transform="matrix(1,0,0,1,0,175)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
+                    <path opacity="0.85" transform="matrix(1,0,0,1,0,210)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
                     <path opacity={1} transform="matrix(1,0,0,1,0,245)" d="M 0 305.9828838196134 Q 227.6031525693441 450 600 302.17553022897005 Q 1010.7738828515054 450 1200 343.3024459932802 Q 1379.4406250195766 450 1800 320.38902780838214 Q 2153.573162029817 450 2400 314.38564046970816 L 2400 800 L 0 800 L 0 340.3112176762882 Z" />
                   </g>
                 </svg>
                 <svg
-                  className="absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-[30%] group-hover:-translate-y-[33%] group-hover:scale-95 transition-all duration-500 z-40 fill-neutral-100/90"
+                  className="absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-[28%] group-hover:-translate-y-[32%] group-hover:scale-95 transition-all duration-500 z-30 fill-neutral-900/40 group-hover:fill-neutral-900/55 pointer-events-none"
                   viewBox="0 0 1440 320"
                   xmlns="http://www.w3.org/2000/svg"
                 >

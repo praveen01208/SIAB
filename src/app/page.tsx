@@ -248,35 +248,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, [activeView]);
 
-  // Entrance animation for Why Participate text from below upwards on scroll
-  useEffect(() => {
-    if (activeView !== "main") return;
-    gsap.registerPlugin(ScrollTrigger);
 
-    const whyText = document.querySelector(".why-text-content");
-    if (whyText) {
-      gsap.fromTo(
-        whyText,
-        { y: 55, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.85,
-          ease: "power2.out",
-          scrollTrigger: {
-            id: "why-text-rise",
-            trigger: "#why",
-            start: "top 78%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
-
-    return () => {
-      ScrollTrigger.getById("why-text-rise")?.kill();
-    };
-  }, [activeView]);
 
   // Programmatic GSAP Layered Scroll-Based Reveal & Pinning
   useEffect(() => {
@@ -287,15 +259,14 @@ export default function Home() {
 
     mm.add("(min-width: 768px)", () => {
       // Stage 1: Event Details Section Choreography
-      // Initially sits underneath Guidelines (revealed as Guidelines rolls off).
-      // Heading is initially centered in screen (y: "22vh").
-      // As Guidelines crosses heading, Event Details scrolls up (y: "22vh" -> y: "-22vh").
-      // Cards reach middle and lock in place.
-      // Balanced duration before Why Participate scrolls up on top of it.
+      // Initially fixed below Guidelines with heading and card tops visible as shown in screenshot (y: 120).
+      // As Guidelines rolls up offscreen, Event Details moves up along with it until cards center (y: -220).
+      // Cards lock in center for a generous STILL SCROLL duration.
+      // Then Why Participate comes scrolling up on top of it.
       const evMover = document.getElementById("event-details-mover");
       const evTrack = document.getElementById("event-details-track");
       if (evMover && evTrack) {
-        gsap.set(evMover, { y: "22vh" });
+        gsap.set(evMover, { y: 120 });
 
         const evTl = gsap.timeline({
           scrollTrigger: {
@@ -308,34 +279,49 @@ export default function Home() {
           },
         });
 
-        // 1. Move up to center cards as Guidelines crosses heading
+        // Phase 1: Strictly hold stationary at y: 120 while Guidelines bottom part rolls up like a shutter and crosses heading
+        evTl.fromTo(
+          evMover,
+          { y: 120 },
+          { y: 120, duration: 0.28, ease: "none" },
+          0
+        );
+
+        // Phase 2: ONLY AFTER Guidelines crosses the heading, start moving upwards until cards hit center
         evTl.to(
           evMover,
           {
-            y: "-22vh",
-            duration: 0.45,
+            y: -220,
+            duration: 0.18,
             ease: "power2.out",
           },
-          0.1
+          0.28
         );
 
-        // 2. Balanced hold with cards fixed in middle before Why Participate arrives
-        evTl.to({}, { duration: 0.35 }, 0.55);
+        // Phase 3: Still scroll: Cards stay locked in center for a long, generous scroll so user sees card details
+        evTl.to(
+          evMover,
+          {
+            y: -220,
+            duration: 0.54,
+            ease: "none",
+          },
+          0.46
+        );
       }
 
-      // Stage 2: In Association Section Choreography
-      // Initially sits underneath Why Participate, shifted down ("little below" as in screenshot).
-      // As Why Participate crosses heading, smoothly move In Association to center and pin.
-      // On further scroll, animate liquid fill on all 4 partner cards from bottom to top.
-      // Once filled, section stays fixed right there, and Coordinators slides right on top of it.
-      const mover = document.getElementById("association-mover");
+      // Stage 2: In Association Choreography
+      // 1. Stationary at y: 120 while Why Participate bottom rolls up like a shutter and crosses heading
+      // 2. ONLY AFTER Why Participate crosses heading, smoothly moves to center (y: 0)
+      // 3. Liquid fill scrubs on all 4 cards from bottom to top while in center
+      // 4. Once filled, section REMAINS FIXED RIGHT THERE in center for a generous still scroll
+      // 5. Then Coordinators layer scrolls directly on top of it
+      const assocMover = document.getElementById("association-mover");
       const assocTrack = document.getElementById("association-track");
-      const assocStage = document.getElementById("association-stage");
-      const coordLayer = document.getElementById("coordinators-layer");
       const fills = document.querySelectorAll<HTMLElement>(".tap__fill");
 
-      if (mover && assocTrack && assocStage && coordLayer) {
-        gsap.set(mover, { y: 120 });
+      if (assocMover && assocTrack) {
+        gsap.set(assocMover, { y: 120 });
         if (fills.length) {
           gsap.set(fills, { clipPath: "inset(100% 0% 0%)" });
         }
@@ -351,57 +337,64 @@ export default function Home() {
           },
         });
 
-        // 1. Move to exact screen center as Why Participate rolls off and crosses heading
-        assocTl.to(
-          mover,
-          {
-            y: 0,
-            duration: 0.25,
-            ease: "power2.out",
-          },
+        // Phase 1: Strictly hold stationary at y: 120 while Why Participate bottom rolls up like a shutter and crosses heading
+        assocTl.fromTo(
+          assocMover,
+          { y: 120 },
+          { y: 120, duration: 0.28, ease: "none" },
           0
         );
 
-        // 2. Liquid fill cards from bottom to top while pinned in center
+        // Phase 2: ONLY AFTER Why Participate crosses heading, move to exact center of screen (y: 0)
+        assocTl.to(
+          assocMover,
+          {
+            y: 0,
+            duration: 0.18,
+            ease: "power2.out",
+          },
+          0.28
+        );
+
+        // Phase 3: Liquid fill all 4 cards from bottom to top while in center
         fills.forEach((fill, i) => {
           assocTl.to(
             fill,
             {
               clipPath: "inset(0% 0% 0%)",
-              duration: 0.35,
+              duration: 0.14,
               ease: "power2.out",
             },
-            0.26 + i * 0.05
+            0.46 + i * 0.04
           );
         });
 
-        // 3. Keep section fixed in place in the center
-        assocTl.to({}, { duration: 0.35 }, 0.65);
-
-        // Rock-solid pin: In Association NEVER unpins or moves until Coordinators is completely on top of it!
-        ScrollTrigger.create({
-          id: "pin-association-fixed",
-          trigger: assocStage,
-          start: "top top",
-          endTrigger: coordLayer,
-          end: "top top",
-          pin: true,
-          pinSpacing: false,
-        });
+        // Phase 4: Cards are 100% filled and STAY FIXED in center for a long, generous scroll so Coordinators is delayed
+        assocTl.to(
+          assocMover,
+          {
+            y: 0,
+            duration: 0.40,
+            ease: "none",
+          },
+          0.60
+        );
       }
 
       // Stage 3: Coordinators -> Footer reveal
-      // Footer is fixed underneath Coordinators. Coordinators rolls up like a shutter on scroll.
+      // Footer is revealed as Coordinators rolls up like a shutter on scroll.
       // When Coordinators bottom Apple divider reaches top of viewport (top 0),
       // it STOPS scrolling further upwards and locks at top 0, revealing the Footer below it.
       const coordBottom = document.getElementById("coordinators-bottom-bar");
-      const footerContainer = document.getElementById("footer-curtain-container");
-      if (coordBottom && footerContainer) {
+      const footerCurtain = document.getElementById("footer-curtain-container");
+
+      if (coordBottom && footerCurtain) {
+        // Lock Coordinators bottom Apple divider at top 0 framing the screen
         ScrollTrigger.create({
           id: "pin-coordinators-bottom",
           trigger: coordBottom,
           start: "top top",
-          endTrigger: footerContainer,
+          endTrigger: footerCurtain,
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
@@ -413,7 +406,6 @@ export default function Home() {
       mm.revert();
       ScrollTrigger.getById("ev-details-choreography")?.kill();
       ScrollTrigger.getById("association-choreography")?.kill();
-      ScrollTrigger.getById("pin-association-fixed")?.kill();
       ScrollTrigger.getById("pin-coordinators-bottom")?.kill();
     };
   }, [activeView]);
@@ -654,10 +646,10 @@ export default function Home() {
               LAYER 1: EVENT DETAILS (Fixed underneath Guidelines, revealed as Guidelines rolls off;
               heading centered, scrolls up when Guidelines crosses it, cards fix to middle, balanced timing)
              ========================================================================= */}
-          <div id="event-details-track" className="relative z-10 w-full bg-white h-[180vh]">
+          <div id="event-details-track" className="relative z-10 w-full bg-white h-[440vh]">
             <div
               id="event-details-stage"
-              className="w-full h-screen sticky top-0 flex flex-col justify-start items-center bg-white overflow-hidden"
+              className="w-full h-auto md:h-screen md:sticky md:top-0 flex flex-col justify-start items-center bg-white overflow-hidden"
             >
               <div
                 id="event-details-mover"
@@ -672,7 +664,7 @@ export default function Home() {
               LAYER 2: WHY PARTICIPATE (Black section scrolls directly ON TOP of Event Details;
               overlaps In Association underneath it)
              ========================================================================= */}
-          <div id="why-layer" className="relative z-20 w-full md:-mb-[100vh]">
+          <div id="why-layer" className="relative z-30 w-full md:-mt-[100vh] md:-mb-[100vh]">
             {/* Seamless Top Apple Divider: transparent background so Apple cutout is clearly visible */}
             <AppleSectionDivider direction="top" className="-mb-1" />
 
@@ -686,17 +678,15 @@ export default function Home() {
                     Prizes &amp; Perks
                   </span>
                   <div className="my-3 flex justify-center">
-                    <RevealHeading>
-                      <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
-                        Why Participate?
-                      </h2>
-                    </RevealHeading>
+                    <h2 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-normal sm:tracking-wider uppercase leading-tight sm:leading-none select-none break-words md:whitespace-nowrap">
+                      Why Participate?
+                    </h2>
                   </div>
                 </div>
 
-                <MagicText className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
+                <p className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
                   Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
-                </MagicText>
+                </p>
 
                 {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
                 <PrizeCards />
@@ -712,12 +702,12 @@ export default function Home() {
 
           {/* =========================================================================
               LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate;
-              centers, cards fill, stays fixed right there, next section goes on top of it)
+              shutter reveal, moves to center, cards liquid fill, holds fixed, Coordinators rolls over)
              ========================================================================= */}
-          <div id="association-track" className="relative z-10 w-full bg-white h-[180vh]">
+          <div id="association-track" className="relative z-20 w-full bg-white h-[460vh]">
             <div
               id="association-stage"
-              className="w-full h-screen sticky top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
+              className="w-full h-auto md:h-screen md:sticky md:top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
             >
               <div
                 id="association-mover"
@@ -732,14 +722,14 @@ export default function Home() {
               LAYER 4: STUDENT COORDINATORS (Black section scrolls directly ON TOP of In Association;
               overlaps Footer underneath it)
              ========================================================================= */}
-          <div id="coordinators-layer" className="relative z-20 w-full md:-mb-[100vh]">
+          <div id="coordinators-layer" className="relative z-30 w-full md:-mt-[100vh]">
             {/* Seamless Top Apple Divider: transparent background so cutout is clearly visible */}
             <AppleSectionDivider direction="top" className="-mb-1" />
 
             <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
 
             {/* Seamless Bottom Apple Divider: stops scrolling when it reaches top 0 */}
-            <div id="coordinators-bottom-bar" className="w-full relative z-20">
+            <div id="coordinators-bottom-bar" className="w-full relative z-30">
               <AppleSectionDivider direction="bottom" className="-mt-1" />
             </div>
           </div>

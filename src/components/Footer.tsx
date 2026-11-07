@@ -35,32 +35,29 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
 
     if (!footer || !title) return;
 
-    // CODING CLUB title hides behind wall mask (like hero INVENTRA)
-    gsap.set(title, { yPercent: 125, opacity: 0 });
-
+    // CODING CLUB title rises up smoothly from behind the wall when footer enters view
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: footer,
-        start: "top 80%",
+        start: "top 95%",
         toggleActions: "play none none none",
       },
     });
 
-    // CODING CLUB text rises up from behind the wall
-    tl.to(
+    tl.fromTo(
       title,
+      { yPercent: 100, opacity: 0 },
       {
         yPercent: 0,
         opacity: 1,
-        duration: 1.4,
+        duration: 1.2,
         ease: "power3.out",
         onComplete: () => {
           if (title.parentElement) {
             title.parentElement.style.overflow = "visible";
           }
         },
-      },
-      0
+      }
     );
 
     return () => {

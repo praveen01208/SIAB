@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealHeading } from "./ui/RevealHeading";
 import { MagicText } from "./ui/MagicText";
+import AppleSectionDivider from "./ui/AppleSectionDivider";
 
 interface EditorialAboutProps {
   onNavigate: (page: string) => void;
@@ -189,76 +190,88 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
         </div>
       </div>
 
-      {/* Screen 2: Expanded Solid Black Card with Slit Reveal */}
-      <div ref={twoRef} className="op-two">
-        <ul className="op-tiles" data-8b-items=":scope > li" data-8b-fixed="4">
-          <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
-            <img
-              className="m-photo pointer-events-none select-none"
-              src="/images/page1img.png"
-              alt="Hackathon team ideation"
-              width="1600"
-              height="1254"
-              loading="lazy"
-              draggable={false}
-            />
-          </li>
-          <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
-            <img
-              className="m-photo pointer-events-none select-none"
-              src="/images/page2img2.png"
-              alt="Collaborative coding sprint"
-              width="1600"
-              height="1067"
-              loading="lazy"
-              draggable={false}
-            />
-          </li>
-          <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
-            <img
-              className="m-photo pointer-events-none select-none"
-              src="/images/page3img.png"
-              alt="Hardware & IoT prototyping"
-              width="1600"
-              height="1067"
-              loading="lazy"
-              draggable={false}
-            />
-          </li>
-          <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
-            <img
-              className="m-photo pointer-events-none select-none"
-              src="/images/H-A.png"
-              alt="Hackathon presentation and judging"
-              width="1600"
-              height="1067"
-              loading="lazy"
-              draggable={false}
-            />
-          </li>
-        </ul>
+      {/* Screen 2: Expanded Solid Black Card with Apple Borders & Slit Reveal */}
+      <div
+        ref={twoRef}
+        id="about-inventra-card"
+        className="w-full relative z-20 bg-transparent will-change-transform"
+      >
+        {/* Seamless Top Apple Divider: transparent background so Apple cutout shows white above */}
+        <AppleSectionDivider direction="top" className="-mb-1" />
 
-        <div className="m-text op-para l-b text-neutral-300">
-          <MagicText className="inline">
-            Inventra is a 24-hour national-level hackathon designed to spark innovation, creativity, and problem-solving among aspiring engineers and technologists across the country. Structured across three intensive phases—Idea Evaluation, Overnight Prototype Development, and Final Jury Pitching—teams collaborate to solve real-world industry challenges and build functional software and hardware products, competing for a bounty prize pool of ₹80,000+.
-          </MagicText>{" "}
-          <a
-            className="m-link-2 inline-block ml-1"
-            href="#ideathon-page"
-            onClick={(e) => {
-              e.preventDefault();
-              onNavigate("ideathon-page");
-            }}
-          >
-            See how the 24 hours unfold ↗
-          </a>
+        <div className="op-two bg-black text-white">
+          <ul className="op-tiles" data-8b-items=":scope > li" data-8b-fixed="4">
+            <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
+              <img
+                className="m-photo pointer-events-none select-none"
+                src="/images/page1img.png"
+                alt="Hackathon team ideation"
+                width="1600"
+                height="1254"
+                loading="lazy"
+                draggable={false}
+              />
+            </li>
+            <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
+              <img
+                className="m-photo pointer-events-none select-none"
+                src="/images/page2img2.png"
+                alt="Collaborative coding sprint"
+                width="1600"
+                height="1067"
+                loading="lazy"
+                draggable={false}
+              />
+            </li>
+            <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
+              <img
+                className="m-photo pointer-events-none select-none"
+                src="/images/page3img.png"
+                alt="Hardware & IoT prototyping"
+                width="1600"
+                height="1067"
+                loading="lazy"
+                draggable={false}
+              />
+            </li>
+            <li className="op-tile protected-image" onContextMenu={(e) => e.preventDefault()}>
+              <img
+                className="m-photo pointer-events-none select-none"
+                src="/images/H-A.png"
+                alt="Hackathon presentation and judging"
+                width="1600"
+                height="1067"
+                loading="lazy"
+                draggable={false}
+              />
+            </li>
+          </ul>
+
+          <div className="m-text op-para l-b text-neutral-300">
+            <MagicText className="inline">
+              Inventra is a 24-hour national-level hackathon designed to spark innovation, creativity, and problem-solving among aspiring engineers and technologists across the country. Structured across three intensive phases—Idea Evaluation, Overnight Prototype Development, and Final Jury Pitching—teams collaborate to solve real-world industry challenges and build functional software and hardware products, competing for a bounty prize pool of ₹80,000+.
+            </MagicText>{" "}
+            <a
+              className="m-link-2 inline-block ml-1"
+              href="#ideathon-page"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate("ideathon-page");
+              }}
+            >
+              See how the 24 hours unfold ↗
+            </a>
+          </div>
+
+          <p className="hidden md:block m-text-2 op-say font-display tracking-wider uppercase">
+            <span className="ln"><span className="ln__i l-left">the</span><span className="ln__i">best</span></span>
+            <span className="ln l-a"><span className="ln__i">hacks are the</span></span>
+            <span className="ln l-a"><span className="ln__i">daring ones.</span></span>
+          </p>
         </div>
 
-        <p className="hidden md:block m-text-2 op-say font-display tracking-wider uppercase">
-          <span className="ln"><span className="ln__i l-left">the</span><span className="ln__i">best</span></span>
-          <span className="ln l-a"><span className="ln__i">hacks are the</span></span>
-          <span className="ln l-a"><span className="ln__i">daring ones.</span></span>
-        </p>
+        {/* Seamless Bottom Apple Divider: transparent background so Apple cutout shows white below */}
+        <AppleSectionDivider direction="bottom" className="-mt-1" />
       </div>
     </section>
   );

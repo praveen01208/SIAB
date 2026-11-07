@@ -66,6 +66,7 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
     { label: "HOME", id: "home" },
     { label: "ABOUT", id: "about" },
     { label: "IDEATHON", id: "ideathon-page" },
+    { label: "SCHEDULE", id: "dates" },
     { label: "DOMAINS", id: "domains" },
     { label: "GUIDELINES", id: "guidelines" },
     { label: "EVENT DETAILS", id: "details" },
@@ -102,7 +103,7 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
           </a>
 
           {/* Center: Navigation links */}
-          <nav className="hidden md:flex items-center space-x-8 font-body text-sm font-semibold text-neutral-700 absolute left-1/2 -translate-x-1/2">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 font-body text-sm font-semibold text-neutral-700 absolute left-1/2 -translate-x-1/2">
             <a
               href="#about"
               className="hover:text-black transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black hover:after:w-full after:transition-all"
@@ -118,11 +119,25 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
               Ideathon
             </a>
             <a
+              href="#dates"
+              className="hover:text-black transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black hover:after:w-full after:transition-all"
+              onClick={(e) => handleNavClick("dates", e)}
+            >
+              Schedule
+            </a>
+            <a
               href="#domains"
               className="hover:text-black transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black hover:after:w-full after:transition-all"
               onClick={(e) => handleNavClick("domains", e)}
             >
               Domains
+            </a>
+            <a
+              href="#team"
+              className="hover:text-black transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black hover:after:w-full after:transition-all"
+              onClick={(e) => handleNavClick("team", e)}
+            >
+              Team
             </a>
           </nav>
 

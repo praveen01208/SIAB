@@ -429,13 +429,7 @@ export default function Home() {
 
       {/* Dynamic Views: Domains or Team */}
       {activeView === "domains" && (
-        <>
-          <div className="bg-white hero-grid-light">
-            <Navbar onNavigate={handleNavigate} onRegister={openRegistration} />
-          </div>
-          <DomainsView onBackToHome={() => transitionTo("main")} />
-          <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
-        </>
+        <DomainsView onBackToHome={() => transitionTo("main")} />
       )}
 
       {activeView === "team" && (
@@ -655,7 +649,10 @@ export default function Home() {
                 id="event-details-mover"
                 className="w-full flex flex-col justify-start items-center will-change-transform"
               >
-                <EventDetailsSection onExploreDomains={() => handleNavigate("domains")} />
+                <EventDetailsSection
+                  onExploreDomains={() => handleNavigate("domains")}
+                  onRegister={openRegistration}
+                />
               </div>
             </div>
           </div>
@@ -690,6 +687,28 @@ export default function Home() {
 
                 {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
                 <PrizeCards />
+
+                {/* Reminder Registration Call-to-Action */}
+                <div className="mt-12 sm:mt-14 mb-2 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 rounded-2xl bg-neutral-900/90 border border-neutral-800 shadow-2xl">
+                  <div className="text-center sm:text-left">
+                    <span className="font-mono text-xs uppercase tracking-widest text-emerald-400 font-bold block mb-1">
+                      Registration Open &bull; ₹80,000+ Prize Pool
+                    </span>
+                    <h3 className="font-display text-xl sm:text-2xl text-white font-bold uppercase tracking-wide">
+                      Ready to build the extraordinary?
+                    </h3>
+                    <p className="text-neutral-400 text-xs sm:text-sm mt-1 max-w-xl">
+                      Secure your team&apos;s spot for INVENTRA 2026. Review directives and join innovators nationwide.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={openRegistration}
+                    className="flex-shrink-0 px-8 py-3.5 rounded-full bg-white text-black font-mono text-xs sm:text-sm font-extrabold uppercase tracking-widest hover:bg-neutral-200 transition-all shadow-lg hover:shadow-white/20 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+                  >
+                    Register Team &rarr;
+                  </button>
+                </div>
               </div>
 
               {/* Overheard-style Infinite Horizontal Marquee Cards with White Borders & White Text */}

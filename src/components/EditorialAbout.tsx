@@ -165,15 +165,22 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
               <span className="op-level__bubble"></span>
             </div>
             <div className="op-actions">
+              <button
+                type="button"
+                className="m-btn cursor-pointer"
+                onClick={onRegister}
+              >
+                <span className="m-btn__label">Register Now &rarr;</span>
+              </button>
               <a
-                className="m-btn"
+                className="m-link font-mono text-xs uppercase tracking-wider"
                 href="#ideathon-page"
                 onClick={(e) => {
                   e.preventDefault();
                   onNavigate("ideathon-page");
                 }}
               >
-                <span className="m-btn__label">Explore 5 Stages</span>
+                Explore 5 Stages &nearr;
               </a>
               <a
                 className="m-link font-mono text-xs uppercase tracking-wider"
@@ -183,7 +190,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
                   onNavigate("domains");
                 }}
               >
-                Explore 5 Tech Domains ↗
+                Explore 5 Domains &nearr;
               </a>
             </div>
           </div>

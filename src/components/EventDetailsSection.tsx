@@ -8,9 +8,10 @@ import { MagicText } from "./ui/MagicText";
 
 interface EventDetailsSectionProps {
   onExploreDomains?: () => void;
+  onRegister?: (e?: React.MouseEvent) => void;
 }
 
-export default function EventDetailsSection({ onExploreDomains }: EventDetailsSectionProps) {
+export default function EventDetailsSection({ onExploreDomains, onRegister }: EventDetailsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const card1Ref = useRef<HTMLDivElement>(null);
@@ -352,8 +353,22 @@ export default function EventDetailsSection({ onExploreDomains }: EventDetailsSe
           </div>
         </div>
 
-        {/* Schedule link + Explore Domains */}
+        {/* Schedule link + Register CTA + Explore Domains */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 pt-8 border-t border-neutral-200">
+          {onRegister && (
+            <button
+              onClick={onRegister}
+              className="btn-31 h-11 sm:h-12 px-7 rounded-xl text-xs sm:text-sm font-bold bg-black text-white hover:bg-neutral-900 transition-all cursor-pointer"
+            >
+              <span className="text-container">
+                <span className="text">
+                  Register Team
+                  <i className="fa-solid fa-arrow-right text-xs ml-2"></i>
+                </span>
+              </span>
+            </button>
+          )}
+
           <a
             href="https://drive.google.com/file/d/1dnrDq_yf3yRWlla5IgQgSxMaIJRBFjiW/view?usp=sharing"
             target="_blank"

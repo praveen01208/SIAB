@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealHeading } from "./ui/RevealHeading";
 import { MagicText } from "./ui/MagicText";
 import AppleSectionDivider from "./ui/AppleSectionDivider";
+import { ShinyButton } from "./ui/ShinyButton";
 
 interface EditorialAboutProps {
   onNavigate: (page: string) => void;
@@ -165,13 +166,12 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
               <span className="op-level__bubble"></span>
             </div>
             <div className="op-actions">
-              <button
-                type="button"
-                className="m-btn cursor-pointer"
+              <ShinyButton
                 onClick={onRegister}
+                className="!py-3 !px-6 sm:!py-3.5 sm:!px-8 text-xs sm:text-sm font-bold uppercase tracking-wider"
               >
-                <span className="m-btn__label">Register Now &rarr;</span>
-              </button>
+                Register Now &rarr;
+              </ShinyButton>
               <a
                 className="m-link font-mono text-xs uppercase tracking-wider"
                 href="#ideathon-page"

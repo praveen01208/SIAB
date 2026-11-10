@@ -673,6 +673,11 @@
     margin-left: var(--space-1);
   }
 
+  .op-section .op-two {
+    min-height: auto;
+    padding: clamp(48px, 8vh, 72px) var(--space-1) clamp(40px, 6vh, 60px) 0;
+  }
+
   .op-section .op-tiles {
     height: auto;
     display: grid;

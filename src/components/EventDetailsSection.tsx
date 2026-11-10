@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealHeading } from "./ui/RevealHeading";
 import { MagicText } from "./ui/MagicText";
+import { ShinyButton } from "./ui/ShinyButton";
 
 interface EventDetailsSectionProps {
   onExploreDomains?: () => void;
@@ -356,17 +357,12 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
         {/* Schedule link + Register CTA + Explore Domains */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 pt-8 border-t border-neutral-200">
           {onRegister && (
-            <button
+            <ShinyButton
               onClick={onRegister}
-              className="btn-31 h-11 sm:h-12 px-7 rounded-xl text-xs sm:text-sm font-bold bg-black text-white hover:bg-neutral-900 transition-all cursor-pointer"
+              className="!py-3 !px-7 text-xs sm:text-sm font-bold uppercase tracking-wider"
             >
-              <span className="text-container">
-                <span className="text">
-                  Register Team
-                  <i className="fa-solid fa-arrow-right text-xs ml-2"></i>
-                </span>
-              </span>
-            </button>
+              Register Team &rarr;
+            </ShinyButton>
           )}
 
           <a

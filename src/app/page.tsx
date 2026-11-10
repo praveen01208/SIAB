@@ -26,6 +26,7 @@ import AppleSectionDivider from "@/components/ui/AppleSectionDivider";
 import { RevealHeading } from "@/components/ui/RevealHeading";
 import { MagicText } from "@/components/ui/MagicText";
 import { MagnetoText } from "@/components/ui/MagnetoText";
+import { ShinyButton } from "@/components/ui/ShinyButton";
 
 export default function Home() {
   const [activeView, setActiveView] = useState<"main" | "domains" | "team">("main");
@@ -640,7 +641,7 @@ export default function Home() {
               LAYER 1: EVENT DETAILS (Fixed underneath Guidelines, revealed as Guidelines rolls off;
               heading centered, scrolls up when Guidelines crosses it, cards fix to middle, balanced timing)
              ========================================================================= */}
-          <div id="event-details-track" className="relative z-10 w-full bg-white h-[440vh]">
+          <div id="event-details-track" className="relative z-10 w-full bg-white h-auto md:h-[440vh]">
             <div
               id="event-details-stage"
               className="w-full h-auto md:h-screen md:sticky md:top-0 flex flex-col justify-start items-center bg-white overflow-hidden"
@@ -701,13 +702,12 @@ export default function Home() {
                       Secure your team&apos;s spot for INVENTRA 2026. Review directives and join innovators nationwide.
                     </p>
                   </div>
-                  <button
-                    type="button"
+                  <ShinyButton
                     onClick={openRegistration}
-                    className="flex-shrink-0 px-8 py-3.5 rounded-full bg-white text-black font-mono text-xs sm:text-sm font-extrabold uppercase tracking-widest hover:bg-neutral-200 transition-all shadow-lg hover:shadow-white/20 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+                    className="flex-shrink-0 !py-3.5 !px-8 text-xs sm:text-sm font-bold uppercase tracking-widest"
                   >
                     Register Team &rarr;
-                  </button>
+                  </ShinyButton>
                 </div>
               </div>
 
@@ -723,7 +723,7 @@ export default function Home() {
               LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate;
               shutter reveal, moves to center, cards liquid fill, holds fixed, Coordinators rolls over)
              ========================================================================= */}
-          <div id="association-track" className="relative z-20 w-full bg-white h-[460vh]">
+          <div id="association-track" className="relative z-20 w-full bg-white h-auto md:h-[460vh]">
             <div
               id="association-stage"
               className="w-full h-auto md:h-screen md:sticky md:top-0 flex flex-col justify-center items-center bg-white overflow-hidden"

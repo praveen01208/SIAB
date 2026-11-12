@@ -16,10 +16,8 @@ import EventDetailsSection from "@/components/EventDetailsSection";
 import PrizeCards from "@/components/PrizeCards";
 import ValueCardsMarquee from "@/components/ValueCardsMarquee";
 import AssociationSection from "@/components/AssociationSection";
-import CoordinatorsSection from "@/components/CoordinatorsSection";
 import EditorialAbout from "@/components/EditorialAbout";
 import DomainsView from "@/components/DomainsView";
-import TeamView from "@/components/TeamView";
 import Footer from "@/components/Footer";
 import InitialLoader from "@/components/InitialLoader";
 import AppleSectionDivider from "@/components/ui/AppleSectionDivider";
@@ -29,7 +27,7 @@ import { MagnetoText } from "@/components/ui/MagnetoText";
 import { ShinyButton } from "@/components/ui/ShinyButton";
 
 export default function Home() {
-  const [activeView, setActiveView] = useState<"main" | "domains" | "team">("main");
+  const [activeView, setActiveView] = useState<"main" | "domains">("main");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
 
@@ -193,8 +191,6 @@ export default function Home() {
   const handleNavigate = (target: string) => {
     if (target === "domains") {
       transitionTo("domains");
-    } else if (target === "team") {
-      transitionTo("team");
     } else {
       if (activeView !== "main") {
         transitionTo("main", target);
@@ -209,7 +205,7 @@ export default function Home() {
     }
   };
 
-  const transitionTo = (newView: "main" | "domains" | "team", scrollTarget?: string) => {
+  const transitionTo = (newView: "main" | "domains", scrollTarget?: string) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
 
@@ -342,7 +338,7 @@ export default function Home() {
         assocTl.fromTo(
           assocMover,
           { y: 120 },
-          { y: 120, duration: 0.28, ease: "none" },
+          { y: 120, duration: 0.32, ease: "none" },
           0
         );
 
@@ -351,10 +347,10 @@ export default function Home() {
           assocMover,
           {
             y: 0,
-            duration: 0.18,
+            duration: 0.22,
             ease: "power2.out",
           },
-          0.28
+          0.32
         );
 
         // Phase 3: Liquid fill all 4 cards from bottom to top while in center
@@ -363,43 +359,23 @@ export default function Home() {
             fill,
             {
               clipPath: "inset(0% 0% 0%)",
-              duration: 0.14,
+              duration: 0.16,
               ease: "power2.out",
             },
-            0.46 + i * 0.04
+            0.54 + i * 0.05
           );
         });
 
-        // Phase 4: Cards are 100% filled and STAY FIXED in center for a long, generous scroll so Coordinators is delayed
+        // Phase 4: Cards are 100% filled and STAY FIXED in center for comfortable reading before scrolling to footer
         assocTl.to(
           assocMover,
           {
             y: 0,
-            duration: 0.40,
+            duration: 0.26,
             ease: "none",
           },
-          0.60
+          0.74
         );
-      }
-
-      // Stage 3: Coordinators -> Footer reveal
-      // Footer is revealed as Coordinators rolls up like a shutter on scroll.
-      // When Coordinators bottom Apple divider reaches top of viewport (top 0),
-      // it STOPS scrolling further upwards and locks at top 0, revealing the Footer below it.
-      const coordBottom = document.getElementById("coordinators-bottom-bar");
-      const footerCurtain = document.getElementById("footer-curtain-container");
-
-      if (coordBottom && footerCurtain) {
-        // Lock Coordinators bottom Apple divider at top 0 framing the screen
-        ScrollTrigger.create({
-          id: "pin-coordinators-bottom",
-          trigger: coordBottom,
-          start: "top top",
-          endTrigger: footerCurtain,
-          end: "bottom bottom",
-          pin: true,
-          pinSpacing: false,
-        });
       }
     });
 
@@ -407,7 +383,6 @@ export default function Home() {
       mm.revert();
       ScrollTrigger.getById("ev-details-choreography")?.kill();
       ScrollTrigger.getById("association-choreography")?.kill();
-      ScrollTrigger.getById("pin-coordinators-bottom")?.kill();
     };
   }, [activeView]);
 
@@ -428,13 +403,9 @@ export default function Home() {
         />
       )}
 
-      {/* Dynamic Views: Domains or Team */}
+      {/* Dynamic Views: Domains */}
       {activeView === "domains" && (
         <DomainsView onBackToHome={() => transitionTo("main")} />
-      )}
-
-      {activeView === "team" && (
-        <TeamView onBackToHome={() => transitionTo("main")} />
       )}
 
       {activeView === "main" && (
@@ -726,7 +697,11 @@ export default function Home() {
               LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate;
               shutter reveal, moves to center, cards liquid fill, holds fixed, Coordinators rolls over)
              ========================================================================= */}
-          <div id="association-track" className="relative z-20 w-full bg-white h-auto md:h-[460vh]">
+          {/* =========================================================================
+              LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate;
+              shutter reveal, moves to center, cards liquid fill, holds fixed)
+             ========================================================================= */}
+          <div id="association-track" className="relative z-20 w-full bg-white h-auto md:h-[260vh]">
             <div
               id="association-stage"
               className="w-full h-auto md:h-screen md:sticky md:top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
@@ -741,25 +716,9 @@ export default function Home() {
           </div>
 
           {/* =========================================================================
-              LAYER 4: STUDENT COORDINATORS (Black section scrolls directly ON TOP of In Association;
-              overlaps Footer underneath it)
+              LAYER 4: FOOTER
              ========================================================================= */}
-          <div id="coordinators-layer" className="relative z-30 w-full md:-mt-[100vh]">
-            {/* Seamless Top Apple Divider: transparent background so cutout is clearly visible */}
-            <AppleSectionDivider direction="top" className="-mb-1" />
-
-            <CoordinatorsSection onMeetTeam={() => handleNavigate("team")} />
-
-            {/* Seamless Bottom Apple Divider: stops scrolling when it reaches top 0 */}
-            <div id="coordinators-bottom-bar" className="w-full relative z-30">
-              <AppleSectionDivider direction="bottom" className="-mt-1" />
-            </div>
-          </div>
-
-          {/* =========================================================================
-              LAYER 5: FOOTER (Revealed like a shutter beneath Coordinators)
-             ========================================================================= */}
-          <div id="footer-curtain-container" className="relative z-10 w-full bg-white">
+          <div id="footer-curtain-container" className="relative z-30 w-full bg-white border-t border-neutral-200">
             <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
           </div>
         </main>

@@ -17,7 +17,6 @@ const navLinks = [
   { label: "Ideathon", target: "ideathon-page" },
   { label: "Schedule", target: "dates" },
   { label: "Domains", target: "domains" },
-  { label: "Team", target: "team" },
 ];
 
 export default function Footer({ onNavigate, onRegister }: FooterProps) {

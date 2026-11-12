@@ -71,7 +71,6 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
     { label: "GUIDELINES", id: "guidelines" },
     { label: "EVENT DETAILS", id: "details" },
     { label: "PRIZES", id: "prizes" },
-    { label: "TEAM", id: "team" },
   ];
 
   return (
@@ -131,13 +130,6 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
               onClick={(e) => handleNavClick("domains", e)}
             >
               Domains
-            </a>
-            <a
-              href="#team"
-              className="hover:text-black transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black hover:after:w-full after:transition-all"
-              onClick={(e) => handleNavClick("team", e)}
-            >
-              Team
             </a>
           </nav>
 

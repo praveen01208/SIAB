@@ -501,12 +501,14 @@ export default function GuidelinesSection() {
             </div>
 
             <a
-              className="m-btn op__cta"
-              href="https://drive.google.com/file/d/1Hb8IGJ5wbAyb1PTJWLSCGr3j2HQnPoSc/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+              className="m-btn op__cta cursor-pointer"
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                servicesRef.current?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
-              <span className="m-btn__label">Download PDF</span>
+              <span className="m-btn__label">Explore Rules</span>
               <svg className="m-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7 17 17 7M9 7h8v8" />
               </svg>

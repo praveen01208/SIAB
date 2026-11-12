@@ -246,8 +246,8 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                   Gigabit LAN &amp; Wi-Fi
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-utensils text-[10px] text-neutral-600"></i>
-                  Meals &amp; Midnight Fuel
+                  <i className="fa-solid fa-lightbulb text-[10px] text-neutral-600"></i>
+                  Mentorship &amp; Jury Pitch
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
                   <i className="fa-solid fa-plug text-[10px] text-neutral-600"></i>
@@ -301,7 +301,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white pointer-events-none">
                 <span className="font-mono text-[10px] sm:text-[11px] bg-black/85 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-white/20 font-medium">
-                  Official Directive PDF
+                  Official Guidelines
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-wider bg-cyan-400 text-black font-extrabold px-2 py-0.5 rounded-md">
                   Nov 19 Event
@@ -338,14 +338,17 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
             {/* Bottom Button */}
             <div className="card-btn-wrap">
               <a
-                href="https://drive.google.com/file/d/1Hb8IGJ5wbAyb1PTJWLSCGr3j2HQnPoSc/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#guidelines"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("guidelines") || document.getElementById("opening");
+                  el?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="btn-31 w-full h-11 sm:h-12 rounded-xl text-xs sm:text-sm font-bold"
               >
                 <span className="text-container">
                   <span className="text">
-                    Download Guidelines
+                    View Guidelines
                     <i className="fa-solid fa-arrow-down text-xs ml-2"></i>
                   </span>
                 </span>
@@ -366,14 +369,16 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
           )}
 
           <a
-            href="https://drive.google.com/file/d/1dnrDq_yf3yRWlla5IgQgSxMaIJRBFjiW/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#dates"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("dates")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-neutral-800 hover:text-black py-2.5 px-5 rounded-xl border border-neutral-300 hover:border-black transition-all"
           >
             <i className="fa-solid fa-calendar-days text-xs text-neutral-500"></i>
-            <span>View Round-by-Round Schedule (PDF)</span>
-            <i className="fa-solid fa-arrow-up-right-from-square text-[11px] opacity-70"></i>
+            <span>View Timeline Schedule</span>
+            <i className="fa-solid fa-arrow-right text-[11px] opacity-70"></i>
           </a>
 
           {onExploreDomains && (

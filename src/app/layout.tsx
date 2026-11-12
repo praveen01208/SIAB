@@ -1,27 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Audiowide, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-
-const audiowide = Audiowide({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: "400",
-  display: "swap",
-});
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -73,7 +52,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${audiowide.variable} ${bricolage.variable} ${jetbrainsMono.variable} font-body bg-white text-black min-h-screen selection:bg-black selection:text-white antialiased`}
+        className="font-body bg-white text-black min-h-screen selection:bg-black selection:text-white antialiased"
       >
         <SmoothScroll />
         {children}

@@ -16,6 +16,9 @@
 
 @layer base {
   :root {
+    --font-display: 'Audiowide', sans-serif;
+    --font-body: 'Bricolage Grotesque', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
     --background: #ffffff;
     --foreground: #000000;
     --card: #000000;

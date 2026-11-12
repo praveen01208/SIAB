@@ -10,34 +10,40 @@ interface DomainsViewProps {
 
 const domains = [
   {
-    title: "Generative AI",
-    icon: "fa-solid fa-brain",
-    desc: "Explore the frontier of artificial intelligence! Build models that generate text, images, music, or code using AI techniques. This domain is perfect for innovators looking to create creative solutions and intelligent applications.",
-    idealFor: "AI enthusiasts, creative coders, and data scientists.",
-  },
-  {
-    title: "Supply Chain",
-    icon: "fa-solid fa-truck-fast",
-    desc: "Explore innovative solutions to optimize logistics, track products in real time, and improve efficiency across industries. Leverage technology for transparent, secure, and automated supply chain systems.",
-    idealFor: "Supply chain enthusiasts, logistics innovators, and tech-savvy problem solvers.",
-  },
-  {
-    title: "Full Stack",
+    title: "CSE & IT Track",
     icon: "fa-solid fa-code",
-    desc: "Dive into the world of web and app development! Work on both frontend and backend to create complete, scalable, and user-friendly applications. This domain is perfect for those who want to turn ideas into real working products.",
-    idealFor: "Web developers, app creators, and problem-solvers.",
+    desc: "Develop software, web platforms, and mobile applications that tackle real-world problems. Build scalable and user-friendly tech startups.",
+    idealFor: "CSE students, software engineers, and app developers.",
   },
   {
-    title: "Internet Of Things",
+    title: "AI & Data Science",
+    icon: "fa-solid fa-brain",
+    desc: "Harness AI, machine learning, and data analytics to automate workflows, extract actionable insights, and build next-generation intelligent solutions.",
+    idealFor: "AI & DS students, data enthusiasts, and ML builders.",
+  },
+  {
+    title: "ECE & Electronics",
     icon: "fa-solid fa-microchip",
-    desc: "Connect the digital and physical worlds! Design smart devices, sensors, and systems that communicate seamlessly to automate and innovate. Ideal for building solutions for smart homes, cities, and industries.",
-    idealFor: "Hardware and software developers, innovators in automation.",
+    desc: "Design embedded systems, smart hardware, sensors, and IoT networks to bridge the physical and digital startup ecosystem.",
+    idealFor: "ECE students, hardware innovators, and IoT builders.",
   },
   {
-    title: "Cyber Security",
-    icon: "fa-solid fa-shield-halved",
-    desc: "Step into the shoes of a cyber defender! Identify vulnerabilities, prevent attacks, and build secure systems. This domain challenges participants to create solutions for real-world cybersecurity threats.",
-    idealFor: "Security enthusiasts, ethical hackers, and system defenders.",
+    title: "Mechanical & Civil",
+    icon: "fa-solid fa-gears",
+    desc: "Tackle core engineering challenges, automation, sustainable infrastructure, renewable energy, and industrial design innovations.",
+    idealFor: "Mechanical, Civil, and core engineering students.",
+  },
+  {
+    title: "Management (MBA & MCA)",
+    icon: "fa-solid fa-chart-line",
+    desc: "Create scalable business models, market analysis, operations frameworks, and commercialization strategies for real market viability.",
+    idealFor: "MBA, MCA, and business-oriented problem solvers.",
+  },
+  {
+    title: "Open Innovation",
+    icon: "fa-solid fa-lightbulb",
+    desc: "Have your own breakthrough startup idea? Enter the Open Innovation track with any original cross-disciplinary concept or prototype.",
+    idealFor: "Visionaries and cross-departmental teams.",
   },
 ];
 
@@ -51,10 +57,10 @@ export default function DomainsView({ onBackToHome }: DomainsViewProps) {
               Tracks & Challenges
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-black tracking-wider uppercase leading-none select-none">
-              Hackathon Domains
+              Branch Tracks &amp; Innovation
             </h2>
             <p className="text-neutral-600 mt-3 text-base sm:text-lg">
-              Explore the five cutting-edge domains of INVENTRA
+              Explore branch-specific challenges and Open Innovation in STARTUP IN A BOX
             </p>
           </div>
           <div className="mt-6 md:mt-0">

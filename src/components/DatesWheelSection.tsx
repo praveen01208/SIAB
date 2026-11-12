@@ -10,36 +10,36 @@ const scheduleStations = [
   {
     num: "01",
     tag: "Registration Opens",
-    date: "September 22, 2025",
-    desc: "Online registration officially opens across all 5 tracks: Gen AI, Supply Chain, IoT, Full Stack & Cybersecurity.",
+    date: "Now Open",
+    desc: "Registrations are open for all branches — CSE, AI & DS, ECE, Mechanical, Civil, MBA, MCA. Register your team of 3–5 members for ₹150.",
     img: "/images/H-1.png",
   },
   {
     num: "02",
-    tag: "Submission Closes",
-    date: "October 10, 2025",
-    desc: "Project abstract and template slide deck submissions lock in at 11:59 PM. Strict rubric evaluation begins.",
+    tag: "Registration Closes",
+    date: "November 17, 2026",
+    desc: "Team registrations close on 17th November 2026. Each team must consist of 3–5 members. Every participant can be part of only one team.",
     img: "/images/H-2.png",
   },
   {
     num: "03",
-    tag: "Shortlist Declared",
-    date: "October 11, 2025",
-    desc: "The jury announces top shortlisted finalist teams invited to the grand 24-hour offline hackathon.",
+    tag: "Problem Statement Reveal",
+    date: "November 19, 2026",
+    desc: "Problem statements revealed ONLY on the event day. Branch-specific challenges plus an Open Innovation category for teams with their own ideas.",
     img: "/images/H-3.png",
   },
   {
     num: "04",
-    tag: "Slot Confirmation",
-    date: "October 13, 2025",
-    desc: "Shortlisted finalists confirm roster spots, complete team verification, and receive their prep kits.",
+    tag: "Build & Develop",
+    date: "November 19, 2026",
+    desc: "Teams brainstorm, develop solutions, build prototypes, models, or apps. AI tools are allowed. Focus on innovation, feasibility, and business potential.",
     img: "/images/H-4.png",
   },
   {
     num: "05",
-    tag: "24H Offline Finale",
-    date: "October 17–18, 2025",
-    desc: "24 hours of nonstop building, checkpoint mentorship, and live jury pitching for ₹80,000+ prize pool at KLECET!",
+    tag: "Pitch & Win",
+    date: "November 19, 2026",
+    desc: "Present your startup idea before the judging panel. Compete for the ₹15,000+ prize pool. Participation certificates for all participants!",
     img: "/images/H-B2.png",
   },
 ];
@@ -154,7 +154,7 @@ export default function DatesWheelSection() {
               </span>
             </RevealHeading>
             <RevealHeading delay={0.08}>
-              <h2 id="bd-title" className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase text-black block leading-none select-none">
+              <h2 id="bd-title" className="font-display text-2xl xs:text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase text-black block leading-none select-none">
                 DATES
               </h2>
             </RevealHeading>

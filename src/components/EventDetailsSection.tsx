@@ -175,7 +175,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
             <RevealHeading>
               <h2
                 id="events-details-heading"
-                className="font-display text-4xl sm:text-5xl md:text-6xl text-black tracking-wider uppercase leading-tight select-none"
+                className="font-display text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-black tracking-wider uppercase leading-tight select-none"
               >
                 Event Details &amp; Venue
               </h2>
@@ -183,7 +183,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
           </div>
 
           <MagicText className="font-body text-neutral-600 text-sm sm:text-base leading-relaxed">
-            Essential directives, sprint timetable, and arena coordinates for INVENTRA 2026. Review official documentation and find your way to the campus grounds.
+            Essential directives, timetable, and venue coordinates for STARTUP IN A BOX 2026. Review official guidelines and join us at the campus grounds.
           </MagicText>
         </div>
 
@@ -285,7 +285,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                 Rulebook &amp; Docs
               </span>
               <span className="font-mono text-[11px] sm:text-xs text-neutral-600 font-bold uppercase tracking-wider">
-                INVENTRA 2026
+                STARTUP IN A BOX
               </span>
             </div>
 
@@ -293,7 +293,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
             <div className="card-visual rounded-xl group-hover:shadow-md bg-neutral-950 flex items-center justify-center p-3 border border-neutral-200">
               <img
                 src="/images/H-B2.png"
-                alt="INVENTRA Guidelines Graphic"
+                alt="STARTUP IN A BOX Guidelines Graphic"
                 className="w-full h-full object-contain filter brightness-105 transition-transform duration-500 group-hover:scale-105 pointer-events-none select-none"
                 draggable={false}
                 onContextMenu={(e) => e.preventDefault()}
@@ -304,7 +304,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                   Official Directive PDF
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-wider bg-cyan-400 text-black font-extrabold px-2 py-0.5 rounded-md">
-                  24h Sprint
+                  Nov 19 Event
                 </span>
               </div>
             </div>
@@ -312,25 +312,25 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
             {/* Content Info */}
             <div className="pt-3 pb-1">
               <h3 className="font-display text-lg sm:text-xl lg:text-2xl text-black font-black uppercase tracking-tight mb-1.5">
-                Sprint Guidelines &amp; Timeline
+                Rules &amp; Guidelines
               </h3>
               <p className="font-body text-neutral-600 text-xs sm:text-[13px] leading-relaxed mb-3">
-                Strict 9:30 AM check-in, deliverables format, team regulations, and milestone jury pitch rubrics.
+                Teams of 3–5, live problem reveal on event day, AI tools allowed, ₹150 registration fee per team.
               </p>
 
               {/* Directive Badges */}
               <div className="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-200">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-id-card text-[10px] text-neutral-600"></i>
-                  Mandatory ID Badge
+                  <i className="fa-solid fa-users text-[10px] text-neutral-600"></i>
+                  3–5 Members
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-clock text-[10px] text-neutral-600"></i>
-                  Strict 9:30 AM Cutoff
+                  <i className="fa-solid fa-robot text-[10px] text-neutral-600"></i>
+                  AI Tools Allowed
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
-                  <i className="fa-solid fa-award text-[10px] text-neutral-600"></i>
-                  Jury Evaluation
+                  <i className="fa-solid fa-graduation-cap text-[10px] text-neutral-600"></i>
+                  All Branches Eligible
                 </span>
               </div>
             </div>

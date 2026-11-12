@@ -8,71 +8,71 @@ import AppleSectionDivider from "./ui/AppleSectionDivider";
 const guidelinesList = [
   {
     num: "01",
-    short: "ID Cards",
-    rule: "All participants must wear ID cards. Entry is strictly restricted without them.",
-    badge: "Mandatory Entry",
+    short: "Team Size",
+    rule: "Each team must consist of 3–5 members. Every participant can be part of only one team only.",
+    badge: "3–5 Members",
     img: "/images/H-1.png",
   },
   {
     num: "02",
-    short: "Reporting",
-    rule: "Reporting and registrations at the INVENTRA counter will close by 9:30 AM on Day 1 (17th October, 2025). Late arrivals will not be considered.",
-    badge: "Strict 9:30 AM",
+    short: "Registration",
+    rule: "Registration closes on 17th November 2026. Register your team before the deadline to secure your spot. Fee: ₹150 per team.",
+    badge: "By Nov 17",
     img: "/images/H-2.png",
   },
   {
     num: "03",
-    short: "Dress Code",
-    rule: "Participants may maintain a dress code of their choice (optional).",
-    badge: "Optional Choice",
+    short: "Problem Reveal",
+    rule: "Assigned problem statements will be disclosed ONLY during the event on 19th November 2026. Branch-specific problems ensure opportunities for every department.",
+    badge: "Event Day Only",
     img: "/images/H-3.png",
   },
   {
     num: "04",
     short: "Deliverables",
-    rule: "Bring both hard and soft copies of presentations, abstracts, and prototypes of the submitted ideas.",
-    badge: "Hard & Soft Copies",
+    rule: "Teams must develop innovative and practical solutions. Participants may develop a prototype, model, application, or conceptual demonstration.",
+    badge: "Build & Demo",
     img: "/images/H-4.png",
   },
   {
     num: "05",
-    short: "Objectives",
-    rule: "Presentations should clearly state the Novelty, Objectives, and Expected Outcomes of the idea execution.",
-    badge: "Novelty & Impact",
+    short: "Open Innovation",
+    rule: "Have your own innovative startup idea? You can also participate under the Open Innovation category with your existing concept.",
+    badge: "Open Category",
     img: "/images/H-B2.png",
   },
   {
     num: "06",
-    short: "Equipment",
-    rule: "Venues will provide internet facilities, but participants must bring their own domain specific equipment.",
-    badge: "Bring Your Gear",
+    short: "AI Tools",
+    rule: "Participants may use AI tools responsibly to support their ideas and prototype development. No advanced coding is required.",
+    badge: "AI Allowed",
     img: "/images/H-1.png",
   },
   {
     num: "07",
-    short: "Discipline",
-    rule: "Strict discipline is mandatory during idea execution across the entire hackathon.",
+    short: "Ethics",
+    rule: "Plagiarism and unethical practices are strictly prohibited. All teams must follow the event timeline and instructions provided by the organizing committee.",
     badge: "Zero Tolerance",
     img: "/images/H-2.png",
   },
   {
     num: "08",
-    short: "Hall Lock-in",
-    rule: "Participants are not allowed to roam outside during the idea execution rounds.",
-    badge: "Campus Policy",
+    short: "Eligibility",
+    rule: "Students from ALL branches are eligible — CSE, AI & DS, ECE, Mechanical, Civil, MBA, MCA. Turn your idea into an innovation!",
+    badge: "All Branches",
     img: "/images/H-3.png",
   },
   {
     num: "09",
-    short: "Hospitality",
-    rule: "Food and refreshments will be provided to all registered participants during the event.",
-    badge: "Meals & Refreshments",
+    short: "Certificates",
+    rule: "Participation certificates will be awarded to all participants. Winners compete for the ₹15,000+ prize pool.",
+    badge: "All Participants",
     img: "/images/H-4.png",
   },
   {
     num: "10",
-    short: "Jury Visits",
-    rule: "All registered team members must be present during jury visits and evaluation rounds. Absence of any member may affect the team's overall evaluation.",
+    short: "Jury Evaluation",
+    rule: "Teams will be evaluated based on innovation, feasibility, problem-solving, prototype quality, business potential, and presentation. All team members must be present.",
     badge: "Full Team Required",
     img: "/images/H-B2.png",
   },
@@ -463,7 +463,7 @@ export default function GuidelinesSection() {
                   src="/images/page1img.png"
                   width="1600"
                   height="900"
-                  alt="INVENTRA Hackathon Arena"
+                  alt="Startup in a Box Arena"
                   fetchPriority="high"
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}

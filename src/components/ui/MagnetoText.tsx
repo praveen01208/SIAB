@@ -138,12 +138,16 @@ function MagnetoLetter({ char, stretchScale }: LetterItemProps) {
 }
 
 export function MagnetoText({ text, className = "", stretchScale = 1.38 }: MagnetoTextProps) {
-  const chars = text.split("");
+  const words = text.split(" ");
 
   return (
-    <span className={`inline-flex items-end justify-center overflow-visible ${className}`}>
-      {chars.map((char, index) => (
-        <MagnetoLetter key={`${char}-${index}`} char={char} stretchScale={stretchScale} />
+    <span className={`inline-flex flex-wrap items-end justify-center gap-x-2 sm:gap-x-4 overflow-visible max-w-full ${className}`}>
+      {words.map((word, wIdx) => (
+        <span key={`${word}-${wIdx}`} className="inline-flex items-end overflow-visible whitespace-nowrap">
+          {word.split("").map((char, cIdx) => (
+            <MagnetoLetter key={`${char}-${cIdx}`} char={char} stretchScale={stretchScale} />
+          ))}
+        </span>
       ))}
     </span>
   );

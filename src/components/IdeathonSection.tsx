@@ -9,55 +9,55 @@ import { MagicText } from "./ui/MagicText";
 
 const stages = [
   {
-    tag: "Stage 1: Domain Selection",
-    title: "Domain Selection & Problem Identification",
+    tag: "Phase 1: Problem Reveal",
+    title: "Live Problem Statement Reveal",
     content: (
       <p className="text-sm leading-relaxed text-neutral-800">
-        Choose your focus track: <strong>Generative AI</strong>, <strong>Supply Chain</strong>, <strong>IoT</strong>, <strong>Full Stack</strong>, or <strong>Cybersecurity</strong>. Identify an authentic real-world bottleneck and propose a bold solution.
+        Problem statements are revealed <strong>ONLY on the event day</strong> (19th November). Branch-specific challenges cover <strong>CSE, AI & DS, ECE, Mechanical, Civil, MBA, MCA</strong>, ensuring opportunities for every department. You can also join under <strong>Open Innovation</strong> with your own idea.
       </p>
     ),
     restRotate: -2,
   },
   {
-    tag: "Stage 2: Idea Submission",
-    title: "Template-Based Submission",
+    tag: "Phase 2: Idea Development",
+    title: "Brainstorm & Build Your Startup",
     content: (
       <p className="text-sm leading-relaxed text-neutral-800">
-        Submit your project abstract via the official template (PDF + PPT format). 1–2 pages, 800–1000 words, team of 3–4 members. Evaluated on depth and originality.
+        Teams of <strong>3–5 members</strong> brainstorm solutions, develop a concept or prototype, and create a business model. No advanced coding required — the focus is on <strong>creativity, innovation, and entrepreneurial thinking</strong>. AI tools are allowed!
       </p>
     ),
     restRotate: 3,
   },
   {
-    tag: "Stage 3: Shortlisting Criteria",
-    title: "Strict Scoring Rubric",
+    tag: "Phase 3: Evaluation Criteria",
+    title: "Judging Rubric",
     content: (
       <div className="text-xs text-neutral-800 font-medium space-y-1 text-left inline-block">
-        <div><strong className="text-black font-mono">30%</strong> Innovation &amp; Novelty</div>
-        <div><strong className="text-black font-mono">25%</strong> Relevance to Industry Theme</div>
-        <div><strong className="text-black font-mono">20%</strong> Technical Feasibility</div>
-        <div><strong className="text-black font-mono">15%</strong> Real-World Impact &amp; Scale</div>
-        <div><strong className="text-black font-mono">10%</strong> Architecture Clarity</div>
+        <div><strong className="text-black font-mono">Innovation</strong> &amp; Novelty of Idea</div>
+        <div><strong className="text-black font-mono">Feasibility</strong> &amp; Practical Solution</div>
+        <div><strong className="text-black font-mono">Problem-Solving</strong> Approach</div>
+        <div><strong className="text-black font-mono">Prototype</strong> Quality &amp; Demo</div>
+        <div><strong className="text-black font-mono">Business Potential</strong> &amp; Presentation</div>
       </div>
     ),
     restRotate: -3.5,
   },
   {
-    tag: "Stage 4: Registration & Lock-in",
-    title: "Slot Confirmation & Team Verification",
+    tag: "Phase 4: Rules & Guidelines",
+    title: "Event Rules",
     content: (
       <p className="text-sm leading-relaxed text-neutral-800">
-        Shortlisted finalists confirm their offline spot on the roster. Nominal registration of <strong>₹800 per team</strong> (3–4 members) covering venue access, mentorship, and sprint kits.
+        Each team must have <strong>3–5 members</strong>. Every participant can be part of only one team. Plagiarism and unethical practices are <strong>strictly prohibited</strong>. All teams must follow the event timeline. Registration fee: <strong>₹150 per team</strong>.
       </p>
     ),
     restRotate: 2,
   },
   {
-    tag: "Stage 5: 24h Offline Hackathon",
-    title: "Live Prototype Sprint & Grand Finale",
+    tag: "Phase 5: Final Pitch",
+    title: "Pitch Before the Jury",
     content: (
       <p className="text-sm leading-relaxed text-neutral-800">
-        24 hours of nonstop building at KLECET Chikodi campus. Rapid checkpoint mentoring, midnight reviews, and live final jury pitch for the <strong>₹80,000+ prize pool</strong>!
+        Teams present their startup ideas, prototypes, models, applications, or conceptual demonstrations before a panel of judges. Compete for the <strong>₹15,000+ prize pool</strong> and earn participation certificates!
       </p>
     ),
     restRotate: -2.5,
@@ -175,17 +175,17 @@ export default function IdeathonSection() {
       {/* Title Header */}
       <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-16 relative z-20 px-4">
         <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-neutral-500 font-semibold block mb-2">
-          5 Stages of Competition
+          5 Phases of the Challenge
         </span>
         <div className="my-3 flex justify-center">
           <RevealHeading>
-            <h2 className="ns__title font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-wider uppercase text-black leading-none select-none drop-shadow-sm" id="ns-title">
-              IDEATHON
+            <h2 className="ns__title font-display text-3xl xs:text-4xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-wider uppercase text-black leading-none select-none drop-shadow-sm" id="ns-title">
+              THE JOURNEY
             </h2>
           </RevealHeading>
         </div>
         <MagicText className="text-neutral-700 font-medium mt-7 sm:mt-9 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed relative z-20">
-          Five structured stages taking your breakthrough idea from concept to a shipped prototype.
+          Five structured phases taking your real-world problem from concept to a startup pitch.
         </MagicText>
       </div>
 
@@ -208,12 +208,13 @@ export default function IdeathonSection() {
       <div className="text-center mt-8 sm:mt-10 mb-2 sm:mb-4 relative z-20 px-4 flex flex-col items-center">
         <p className="text-base sm:text-lg md:text-xl font-display font-bold text-black flex items-center justify-center gap-2 mb-4">
           <i className="fa-solid fa-rocket text-black"></i>
-          <span>Only shortlisted teams will proceed to the final 24h round.</span>
+          <span>Register before 17th November 2026. ₹150 per team. All branches eligible!</span>
         </p>
 
         <a
-          href="https://drive.google.com/uc?export=download&id=1a9819B1zS-BitSLckzPZORaJfQoJNSaZ"
-          download
+          href="https://forms.gle/tcG4R9fb3PSJDSN79"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block"
         >
           <WebShotButton
@@ -222,8 +223,8 @@ export default function IdeathonSection() {
             color="#000000"
             className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black"
           >
-            <i className="fa-solid fa-download mr-2"></i>
-            <span>Download Ideathon Template</span>
+            <i className="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+            <span>Register Now</span>
           </WebShotButton>
         </a>
       </div>

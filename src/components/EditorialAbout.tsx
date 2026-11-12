@@ -141,25 +141,24 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
         <span ref={ruleRef} className="l-rule op-rule" aria-hidden="true"></span>
         <p className="m-text-3 op-where l-b">
           <span>Chikodi, Karnataka — 2026</span>
-          <span>KLECET Dept of Computer Science &amp; Engineering</span>
+          <span>C-TEC &amp; Coding Club Presents</span>
         </p>
         <div className="op-head">
           <div className="op-name">
             <p className="m-text-3 op-what uppercase tracking-wider text-neutral-600 font-bold">
-              24-Hour National Hackathon &amp; Ideathon
+              Innovation &amp; Entrepreneurship Challenge
             </p>
             <h2 className="m-text-2 op-h1 font-display tracking-wider uppercase">
               <RevealHeading>
-                <span className="ln"><span className="ln__i">INVENTRA</span></span>{" "}
-                <span className="ln"><span className="ln__i">HACK</span></span>
+                <span className="ln"><span className="ln__i">STARTUP</span></span>{" "}
+                <span className="ln"><span className="ln__i">IN A BOX</span></span>
               </RevealHeading>
             </h2>
           </div>
           <p className="m-text-2 op-sub font-display tracking-wide uppercase">
-            <span className="ln l-a op-a"><span className="ln__i">Ideas forged,</span></span>
-            <span className="ln l-a op-a"><span className="ln__i">code sprinted,</span></span>
-            <span className="ln l-b"><span className="ln__i">prototypes built</span></span>
-            <span className="ln l-b op-in"><span className="ln__i">in 24 hours.</span></span>
+            <span className="ln l-a op-a"><span className="ln__i">One Problem.</span></span>
+            <span className="ln l-a op-a"><span className="ln__i">One Team.</span></span>
+            <span className="ln l-b"><span className="ln__i">One Startup.</span></span>
           </p>
           <div className="op-foot">
             <div ref={levelRef} className="op-level" aria-hidden="true" title="Precision & Equilibrium">
@@ -256,7 +255,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
 
           <div className="m-text op-para l-b text-neutral-300">
             <MagicText className="inline">
-              Inventra is a 24-hour national-level hackathon designed to spark innovation, creativity, and problem-solving among aspiring engineers and technologists across the country. Structured across three intensive phases—Idea Evaluation, Overnight Prototype Development, and Final Jury Pitching—teams collaborate to solve real-world industry challenges and build functional software and hardware products, competing for a bounty prize pool of ₹80,000+.
+              Startup in a Box is an innovation and entrepreneurship challenge by C-TEC &amp; Coding Club, designed to spark creativity, problem-solving, teamwork, and entrepreneurial thinking. Teams transform real-world problems into startup ideas—brainstorming solutions, developing a concept or prototype, creating a business model, and pitching before a panel of judges. With branch-specific problem statements, Open Innovation, and AI tools allowed, it&apos;s open to ALL branches. Compete for a ₹15,000+ prize pool!
             </MagicText>{" "}
             <a
               className="m-link-2 inline-block ml-1"
@@ -271,9 +270,10 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
           </div>
 
           <p className="hidden md:block m-text-2 op-say font-display tracking-wider uppercase">
-            <span className="ln"><span className="ln__i l-left">the</span><span className="ln__i">best</span></span>
-            <span className="ln l-a"><span className="ln__i">hacks are the</span></span>
-            <span className="ln l-a"><span className="ln__i">daring ones.</span></span>
+            <span className="ln"><span className="ln__i l-left">think</span><span className="ln__i">beyond</span></span>
+            <span className="ln l-a"><span className="ln__i">the classroom.</span></span>
+            <span className="ln l-a"><span className="ln__i">innovate beyond</span></span>
+            <span className="ln l-a"><span className="ln__i">boundaries.</span></span>
           </p>
         </div>
 

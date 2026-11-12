@@ -71,7 +71,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       setStatus("Please enter a valid email address.");
       return;
     }
-    setStatus("You're subscribed for Coding Club & INVENTRA updates!");
+    setStatus("You're subscribed for Coding Club & STARTUP IN A BOX updates!");
     setEmail("");
   };
 
@@ -146,7 +146,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
         {/* Cell 2: Hackathon Campus & Updates Card */}
         <div className="ft__cell ft__club">
           <h3 className="m-text-4 font-display text-lg font-bold uppercase tracking-wide text-black flex items-center gap-2">
-            <span>KLECET INVENTRA 2026</span>
+            <span>STARTUP IN A BOX 2026</span>
           </h3>
           <p className="m-text ft__note text-sm text-neutral-600 mt-2 leading-relaxed">
             <a
@@ -156,15 +156,6 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
               className="hover:underline"
             >
               Banantikodi Road, Chikodi, Belgaum, Karnataka 591201.
-            </a>
-            <br />
-            Support:{" "}
-            <a href="tel:+9108338257100" className="hover:underline font-semibold">
-              +91 08338257100
-            </a>{" "}
-            &bull;{" "}
-            <a href="mailto:inventra.klecet@gmail.com" className="hover:underline font-semibold">
-              inventra.klecet@gmail.com
             </a>
           </p>
 
@@ -210,7 +201,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
             href="https://www.instagram.com/inventra_2k25?igsh=ejFwOGlxMGgwNW1i"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="INVENTRA on Instagram"
+            aria-label="Instagram"
           >
             <i className="fa-brands fa-instagram text-xl"></i>
           </a>
@@ -219,7 +210,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
             href="https://chat.whatsapp.com/DzzQlQDXN7BF2ALnpNYWgL"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="INVENTRA WhatsApp Community"
+            aria-label="WhatsApp Community"
           >
             <i className="fa-brands fa-whatsapp text-xl"></i>
           </a>
@@ -228,7 +219,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
             href="https://in.linkedin.com/school/klecet/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="KLECET on LinkedIn"
+            aria-label="LinkedIn"
           >
             <i className="fa-brands fa-linkedin text-xl"></i>
           </a>
@@ -241,7 +232,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-sm text-neutral-600 text-center sm:text-left">
           <p>
-            &copy; 2026 INVENTRA &bull; Dept of Computer Science &amp; Engineering{" "}
+            &copy; 2026 STARTUP IN A BOX &bull; C-TEC &amp; Coding Club{" "}
             <a
               href="https://www.klecet.edu.in/"
               target="_blank"
@@ -253,22 +244,8 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           </p>
         </div>
 
-        {/* Right side: Crafted with precision by MASOOM positioned right towards Back to Top Arrow */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          <div className="flex items-center flex-wrap justify-center gap-1.5 font-semibold text-neutral-900 text-sm">
-            <span>Crafted with precision by</span>
-            
-            <a
-              href="https://www.linkedin.com/in/masoom-mulla-5a85062a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="batman-btn"
-              title="Masoom Mulla on LinkedIn"
-            >
-              <span>MASOOM</span>
-            </a>
-          </div>
-
+        {/* Right side: Back to Top Button */}
+        <div className="flex items-center gap-4">
           <button
             type="button"
             onClick={scrollToTop}

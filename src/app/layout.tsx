@@ -31,9 +31,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "INVENTRA | 24-Hour National Hackathon",
+  title: "STARTUP IN A BOX | Innovation & Entrepreneurship Challenge 2026",
   description:
-    "Dept of Computer Science & Engineering KLECET presents INVENTRA — a 24hr national-level hackathon.",
+    "C-TEC & Coding Club present STARTUP IN A BOX — an innovation and entrepreneurship challenge. One Problem. One Team. One Startup.",
   icons: {
     icon: "/images/klecetlogo.jpg",
   },
@@ -64,7 +64,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                if (sessionStorage.getItem('inventra_intro_shown') !== 'true') {
+                if (sessionStorage.getItem('startup_intro_shown') !== 'true') {
                   document.documentElement.classList.add('loading-intro');
                 }
               } catch(e) {}

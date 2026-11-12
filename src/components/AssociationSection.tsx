@@ -123,7 +123,7 @@ export default function AssociationSection() {
           </span>
           <div className="flex justify-center">
             <RevealHeading>
-              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider uppercase leading-none text-black select-none">
+              <h2 className="font-display text-2xl xs:text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wider uppercase leading-none text-black select-none">
                 In Association
               </h2>
             </RevealHeading>

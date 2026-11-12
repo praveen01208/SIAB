@@ -88,16 +88,16 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
               src="/images/cclublogo.png"
               alt="Coding Club"
               draggable={false}
-              className="h-9 sm:h-12 w-auto max-w-[130px] sm:max-w-[170px] object-contain protected-image select-none pointer-events-none transition-transform duration-300 group-hover:scale-105"
+              className="h-8 sm:h-12 w-auto max-w-[105px] sm:max-w-[170px] object-contain protected-image select-none pointer-events-none transition-transform duration-300 group-hover:scale-105"
               onContextMenu={(e) => e.preventDefault()}
             />
             <div className="h-7 w-[1px] bg-neutral-300 hidden sm:block" />
             <div className="flex flex-col text-left">
-              <span className="font-display text-lg sm:text-2xl text-black tracking-wider uppercase leading-none">
-                INVENTRA
+              <span className="font-display text-xs xs:text-sm sm:text-2xl text-black tracking-wider uppercase leading-none">
+                STARTUP IN A BOX
               </span>
-              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-neutral-500 font-bold mt-0.5">
-                Hackathon
+              <span className="font-mono text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-500 font-bold mt-0.5">
+                2026
               </span>
             </div>
           </a>
@@ -235,7 +235,7 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
               }}
               className="relative z-10 w-full h-full flex flex-col justify-between px-6 pt-8 pb-7 sm:px-10 sm:pt-10 sm:pb-8 overflow-y-auto"
             >
-              {/* Header Row: INVENTRA Brand + Big Cross Button */}
+              {/* Header Row: STARTUP IN A BOX Brand + Big Cross Button */}
               <div className="w-full flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <img
@@ -245,10 +245,10 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
                   />
                   <div className="flex flex-col text-left">
                     <span className="font-display text-xl sm:text-2xl text-white tracking-wider uppercase leading-none">
-                      INVENTRA
+                      STARTUP IN A BOX
                     </span>
                     <span className="font-mono text-[9px] uppercase tracking-widest text-neutral-400 font-bold mt-0.5">
-                      Hackathon 2026
+                      2026
                     </span>
                   </div>
                 </div>

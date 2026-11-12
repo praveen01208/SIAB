@@ -48,13 +48,13 @@ export default function Home() {
     const forceLoader = urlParams?.get("loader") === "true";
 
     try {
-      localStorage.removeItem("inventra_intro_shown");
+      localStorage.removeItem("startup_intro_shown");
     } catch (e) {}
 
     const hasSeen =
       typeof window !== "undefined" &&
       !forceLoader &&
-      sessionStorage.getItem("inventra_intro_shown") === "true";
+      sessionStorage.getItem("startup_intro_shown") === "true";
 
     if (!hasSeen) {
       document.documentElement.classList.add("loading-intro");
@@ -185,7 +185,7 @@ export default function Home() {
   const openRegistration = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
     window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSdxi3nid1QzCMrhxJTYmwKS3Xx0jkoNZUFULqp7Kvq7QqbPRQ/viewform",
+      "https://forms.gle/tcG4R9fb3PSJDSN79",
       "_blank"
     );
   };
@@ -504,18 +504,18 @@ export default function Home() {
                     Center Content: Title, Presents, Countdown (stay in middle on mobile)
                    ------------------------------------------------------------- */}
                 <div className="flex flex-col items-center w-full my-auto md:my-0 md:pt-1 py-4 md:py-0">
-                  {/* Above INVENTRA: Dept of Computer Science & Engineering KLECET presents (lifted upwards for generous gap) */}
+                  {/* Above title: C-TEC × Coding Club presents */}
                   <p className="font-body text-[12px] sm:text-xs md:text-base text-neutral-600 font-bold tracking-wider uppercase mb-5 sm:mb-7 md:mb-9 lg:mb-12 z-30 px-3 text-center max-w-sm sm:max-w-md md:max-w-lg mx-auto">
-                    Dept of Computer Science &amp; Engineering KLECET presents
+                    C-TEC &times; Coding Club presents
                   </p>
 
-                  {/* Hackathon Name: INVENTRA with Codrops Magneto Letter Interaction (Overflow visible so stretched tops never clip) */}
+                  {/* Event Name: STARTUP IN A BOX with Codrops Magneto Letter Interaction */}
                   <div className="overflow-visible py-5 sm:py-4 md:py-3 relative z-40 w-full flex justify-center">
                     <h1
                       ref={inventraTitleRef}
-                      className="font-display text-[3.35rem] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block overflow-visible relative z-40"
+                      className="font-display text-[1.85rem] xs:text-[2.2rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[6rem] xl:text-[7rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block overflow-visible relative z-40 text-center max-w-full px-2"
                     >
-                      <MagnetoText text="INVENTRA" stretchScale={1.38} />
+                      <MagnetoText text="STARTUP IN A BOX" stretchScale={1.38} />
                     </h1>
                   </div>
 
@@ -527,13 +527,16 @@ export default function Home() {
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 scale-110 sm:scale-115 md:scale-100 origin-center">
                       <span className="w-2 h-2 rounded-full bg-black animate-ping" />
                       <span className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-800 font-bold">
-                        Registration Closes in 14 Days
+                        Registration Closes 17th November 2026
                       </span>
                     </div>
 
                     <WebShotCard reach={140} threads={5}>
                       <div className="bg-white/95 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-2.5 md:px-5 md:py-2.5 rounded-xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-100 md:scale-100 origin-top overflow-visible">
-                        <CombinationLockCountdown className="mx-auto" />
+                        <CombinationLockCountdown
+                          targetDate={new Date("2026-11-17T23:59:59+05:30").getTime()}
+                          className="mx-auto"
+                        />
                       </div>
                     </WebShotCard>
                   </div>
@@ -683,7 +686,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-neutral-300 text-base md:text-lg lg:text-xl md:leading-relaxed text-justify max-w-4xl lg:max-w-5xl mx-auto mb-16 font-normal">
-                  Sure, the prize pool and goodies are exciting—but a hackathon is about so much more. It’s a 24-hour journey of creativity, collaboration, and problem-solving. You’ll push your limits, explore bold ideas, and experience the thrill of building something from scratch. Along the way, you’ll connect with like-minded peers, enjoy free food and caffeine, collect exclusive event swag, and create memories that last a lifetime. Whether you win or not, you’ll gain new skills, boost your confidence, and take home an experience that truly sets you apart.
+                  Startup in a Box is more than a competition — it&apos;s a journey of building something real in one day. Showcase your innovative thinking, experience the thrill of building a startup, and develop teamwork and entrepreneurial skills. Present your ideas before a judging panel, compete for the ₹15,000+ prize pool, and walk away with a participation certificate. Think beyond the classroom. Innovate beyond boundaries.
                 </p>
 
                 {/* Prize Cards with Orbital Ray & Scanning Dot Effect */}
@@ -693,13 +696,13 @@ export default function Home() {
                 <div className="mt-12 sm:mt-14 mb-2 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 rounded-2xl bg-neutral-900/90 border border-neutral-800 shadow-2xl">
                   <div className="text-center sm:text-left">
                     <span className="font-mono text-xs uppercase tracking-widest text-emerald-400 font-bold block mb-1">
-                      Registration Open &bull; ₹80,000+ Prize Pool
+                      Registration Open &bull; ₹15,000+ Prize Pool
                     </span>
                     <h3 className="font-display text-xl sm:text-2xl text-white font-bold uppercase tracking-wide">
                       Ready to build the extraordinary?
                     </h3>
                     <p className="text-neutral-400 text-xs sm:text-sm mt-1 max-w-xl">
-                      Secure your team&apos;s spot for INVENTRA 2026. Review directives and join innovators nationwide.
+                      Secure your team&apos;s spot for STARTUP IN A BOX 2026. Build a startup from a real-world problem in one day.
                     </p>
                   </div>
                   <ShinyButton

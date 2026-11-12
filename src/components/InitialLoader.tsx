@@ -33,7 +33,7 @@ export default function InitialLoader({ onStartHero, onComplete }: InitialLoader
     const hasSeen =
       typeof window !== "undefined" &&
       !forceLoader &&
-      sessionStorage.getItem("inventra_intro_shown") === "true";
+      sessionStorage.getItem("startup_intro_shown") === "true";
 
     if (hasSeen) {
       onComplete();
@@ -52,8 +52,8 @@ export default function InitialLoader({ onStartHero, onComplete }: InitialLoader
         // Mark as seen for current browser session only
         try {
           if (!forceLoader) {
-            sessionStorage.setItem("inventra_intro_shown", "true");
-            localStorage.removeItem("inventra_intro_shown");
+            sessionStorage.setItem("startup_intro_shown", "true");
+            localStorage.removeItem("startup_intro_shown");
           }
         } catch (e) {
           // ignore storage quota errors
@@ -86,26 +86,20 @@ export default function InitialLoader({ onStartHero, onComplete }: InitialLoader
         });
     };
 
-    // 1. DEPT (slowed down for clear view)
-    stepInAndOut(step1Ref.current, 0.85, 0.6, 0.45);
+    // 1. C-TEC
+    stepInAndOut(step1Ref.current, 0.9, 0.6, 0.45);
 
-    // 2. OF (slowed down for clear view)
-    stepInAndOut(step2Ref.current, 0.65, 0.5, 0.4);
+    // 2. IN COLLABORATION WITH
+    stepInAndOut(step4Ref.current, 0.85, 0.6, 0.45);
 
-    // 3. CSE (slowed down for clear view)
-    stepInAndOut(step3Ref.current, 0.85, 0.6, 0.45);
-
-    // 4. IN ASSOCIATION WITH (slowed down for clear view)
-    stepInAndOut(step4Ref.current, 0.95, 0.65, 0.45);
-
-    // 5. CODING CLUB (with twist: logo replaces 'O' in CODING - slowed down to appreciate)
+    // 3. CODING CLUB (with logo)
     if (step5Ref.current) {
       tl.fromTo(
         step5Ref.current,
         { opacity: 0, scale: 0.92, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 0.7, ease: "power2.out" }
       )
-        .to(step5Ref.current, { opacity: 1, duration: 1.35 }) // hold for brand & twist
+        .to(step5Ref.current, { opacity: 1, duration: 1.2 })
         .to(step5Ref.current, {
           opacity: 0,
           scale: 1.04,
@@ -115,7 +109,7 @@ export default function InitialLoader({ onStartHero, onComplete }: InitialLoader
         });
     }
 
-    // 6. PRESENTS (slowed down for clear view)
+    // 4. PRESENTS
     if (step6Ref.current) {
       tl.fromTo(
         step6Ref.current,
@@ -127,7 +121,7 @@ export default function InitialLoader({ onStartHero, onComplete }: InitialLoader
           duration: 0.7,
           ease: "power2.out",
         }
-      ).to(step6Ref.current, { opacity: 1, duration: 1.0 }); // hold
+      ).to(step6Ref.current, { opacity: 1, duration: 0.9 });
     }
 
     // 7. Text fades out cleanly before shutter rolls up
@@ -173,43 +167,23 @@ export default function InitialLoader({ onStartHero, onComplete }: InitialLoader
           ref={textStageRef}
           className="relative z-10 w-full max-w-5xl px-4 flex items-center justify-center min-h-[340px]"
         >
-          {/* STEP 1: DEPT */}
+          {/* STEP 1: C-TEC */}
           <div
             ref={step1Ref}
             className="absolute inset-x-0 flex justify-center items-center opacity-0 pointer-events-none"
           >
             <span className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-white tracking-widest uppercase leading-none">
-              DEPT
+              C-TEC
             </span>
           </div>
 
-          {/* STEP 2: OF */}
-          <div
-            ref={step2Ref}
-            className="absolute inset-x-0 flex justify-center items-center opacity-0 pointer-events-none"
-          >
-            <span className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-white tracking-widest uppercase leading-none">
-              OF
-            </span>
-          </div>
-
-          {/* STEP 3: CSE */}
-          <div
-            ref={step3Ref}
-            className="absolute inset-x-0 flex justify-center items-center opacity-0 pointer-events-none"
-          >
-            <span className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-white tracking-widest uppercase leading-none">
-              CSE
-            </span>
-          </div>
-
-          {/* STEP 4: IN ASSOCIATION WITH */}
+          {/* STEP 4: IN COLLABORATION WITH */}
           <div
             ref={step4Ref}
             className="absolute inset-x-0 flex flex-col justify-center items-center opacity-0 pointer-events-none text-center px-4"
           >
-            <span className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-wider uppercase leading-tight">
-              IN ASSOCIATION WITH
+            <span className="font-display text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-wider uppercase leading-tight">
+              IN COLLABORATION WITH
             </span>
           </div>
 

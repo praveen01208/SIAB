@@ -11,24 +11,24 @@ interface ValueCardItem {
 
 const VALUE_CARDS: ValueCardItem[] = [
   {
-    id: "learn-and-grow",
-    tag: "Learn and Grow",
-    text: "Hackathons push you to explore new tech, try bold ideas, and turn challenges into learning. It’s your chance to innovate, improve, and grow with every step.",
+    id: "showcase-innovation",
+    tag: "Showcase Innovation",
+    text: "Transform real-world challenges into innovative startup ideas. Think beyond boundaries, solve real bottlenecks, and bring your unique solutions to life.",
   },
   {
-    id: "build-your-portfolio",
-    tag: "Build Your Portfolio",
-    text: "Hackathons help you create projects that showcase your skills, creativity, and ability to build from scratch—perfect additions to your portfolio and future career.",
+    id: "startup-journey",
+    tag: "Experience The Journey",
+    text: "Experience what it takes to build a startup from scratch: brainstorm ideas, design prototypes, build practical solutions, and craft a viable business model.",
   },
   {
-    id: "spark-innovation",
-    tag: "Spark Innovation",
-    text: "Hackathons give you the freedom to think beyond limits, experiment boldly, and create something truly unique—maybe even your next big startup idea.",
+    id: "pitch-before-judges",
+    tag: "Pitch to Win",
+    text: "Present your startup before an expert panel of judges, compete for the ₹15,000+ bounty prize pool, and earn official participation certificates.",
   },
   {
-    id: "network-with-peers",
-    tag: "Network with Peers",
-    text: "Hackathons connect people like developers, designers, and makers together. They let you team up, share ideas, and build relationships that outlast the weekend.",
+    id: "inclusive-and-open",
+    tag: "All Branches & AI",
+    text: "Open to students from all engineering branches, MBA & MCA. No advanced coding required, and AI tools are allowed to support your prototypes.",
   },
 ];
 

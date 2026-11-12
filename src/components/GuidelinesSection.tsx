@@ -537,7 +537,7 @@ export default function GuidelinesSection() {
               <div className="op__side">
                 <span className="m-badge-2">ID &amp; Check-in</span>
                 <p className="m-text-4">
-                  All participants must wear ID cards. Counter closes strictly at 9:30 AM on Day 1 (17th Oct, 2025). Late arrivals will not be considered.
+                  All participants must wear college ID cards. Reporting &amp; check-in starts at 9:00 AM on 19th November 2026. The one-day event runs from 9:00 AM to 7:00 PM.
                 </p>
               </div>
 

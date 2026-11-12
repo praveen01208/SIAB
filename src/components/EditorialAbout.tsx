@@ -265,7 +265,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
                 onNavigate("ideathon-page");
               }}
             >
-              See how the 24 hours unfold ↗
+              See how the day unfolds (9:00 AM – 7:00 PM) ↗
             </a>
           </div>
 

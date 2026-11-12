@@ -14,7 +14,7 @@ export default function Countdown() {
   useEffect(() => {
     // Keep target date dynamically or configured like in original
     // If the original date has passed, we can calculate from a future target or allow realistic timer
-    let target = new Date("October 10, 2025 23:59:59").getTime();
+    let target = new Date("November 17, 2026 23:59:59").getTime();
     const now = new Date().getTime();
     if (target < now) {
       // For demo & hackathon showcase, let's keep it set to an upcoming deadline or standard countdown

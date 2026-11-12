@@ -20,7 +20,7 @@ export default function Timeline() {
                 <h3 className="font-orbitron font-bold text-lg text-black">
                   Registration Starts
                 </h3>
-                <p className="text-neutral-700 font-medium mt-1">September 22, 2025</p>
+                <p className="text-neutral-700 font-medium mt-1">Open Now</p>
               </div>
             </TiltCard>
           </div>
@@ -32,9 +32,9 @@ export default function Timeline() {
             <TiltCard>
               <div className="card p-6 rounded-lg border-2 border-black bg-white shadow-[4px_4px_0px_0px_#000000]">
                 <h3 className="font-orbitron font-bold text-lg text-black">
-                  Registration & Idea Submission Closes
+                  Registration Closes
                 </h3>
-                <p className="text-neutral-700 font-medium mt-1">October 10, 2025</p>
+                <p className="text-neutral-700 font-medium mt-1">November 17, 2026</p>
               </div>
             </TiltCard>
           </div>
@@ -54,9 +54,9 @@ export default function Timeline() {
             <TiltCard>
               <div className="card p-6 rounded-lg border-2 border-black bg-white shadow-[4px_4px_0px_0px_#000000]">
                 <h3 className="font-orbitron font-bold text-lg text-black">
-                  Selected Teams Announcement
+                  Live Event Day (9:00 AM – 7:00 PM)
                 </h3>
-                <p className="text-neutral-700 font-medium mt-1">October 11, 2025</p>
+                <p className="text-neutral-700 font-medium mt-1">November 19, 2026</p>
               </div>
             </TiltCard>
           </div>
@@ -72,7 +72,7 @@ export default function Timeline() {
               <h3 className="font-orbitron font-bold text-md text-black">
                 Registration Starts
               </h3>
-              <p className="text-neutral-700 text-sm font-medium mt-1">September 22, 2025</p>
+              <p className="text-neutral-700 text-sm font-medium mt-1">Open Now</p>
             </div>
           </TiltCard>
         </div>
@@ -82,9 +82,9 @@ export default function Timeline() {
           <TiltCard>
             <div className="card p-4 rounded-lg border-2 border-black bg-white shadow-[4px_4px_0px_0px_#000000]">
               <h3 className="font-orbitron font-bold text-md text-black">
-                Registration Ends & Idea Submission Closes
+                Registration Closes
               </h3>
-              <p className="text-neutral-700 text-sm font-medium mt-1">October 10, 2025</p>
+              <p className="text-neutral-700 text-sm font-medium mt-1">November 17, 2026</p>
             </div>
           </TiltCard>
         </div>
@@ -94,9 +94,9 @@ export default function Timeline() {
           <TiltCard>
             <div className="card p-4 rounded-lg border-2 border-black bg-white shadow-[4px_4px_0px_0px_#000000]">
               <h3 className="font-orbitron font-bold text-md text-black">
-                Selected Teams Announcement
+                Live Event Day (9:00 AM – 7:00 PM)
               </h3>
-              <p className="text-neutral-700 text-sm font-medium mt-1">October 12, 2025</p>
+              <p className="text-neutral-700 text-sm font-medium mt-1">November 19, 2026</p>
             </div>
           </TiltCard>
         </div>

@@ -82,8 +82,7 @@ const stages = [
           confirmation mail
         </li>
         <li>
-          <strong className="text-black">Duration:</strong> 24 hours
-          (Hackathon mode)
+          <strong className="text-black">Duration:</strong> One Day (9:00 AM – 7:00 PM)
         </li>
         <li>
           <strong className="text-black">Evaluation:</strong> Implementation,

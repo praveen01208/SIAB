@@ -160,7 +160,7 @@ export default function DatesWheelSection() {
             </RevealHeading>
           </div>
           <MagicText className="text-neutral-500 mt-1.5 text-xs sm:text-sm max-w-md mx-auto">
-            Five critical checkpoints taking you from concept submission to the live 24-hour sprint.
+            Five critical checkpoints taking you from registration to the live one-day event (9:00 AM – 7:00 PM).
           </MagicText>
         </div>
 

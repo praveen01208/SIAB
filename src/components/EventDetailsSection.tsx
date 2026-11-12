@@ -236,7 +236,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                 KLECET Campus Arena
               </h3>
               <p className="font-body text-neutral-600 text-xs sm:text-[13px] leading-relaxed mb-3">
-                Department of Computer Science &amp; Engineering, KLE College of Engineering &amp; Technology. Fully equipped hackathon facilities.
+                Department of Computer Science &amp; Engineering, KLE College of Engineering &amp; Technology. Event runs from 9:00 AM to 7:00 PM on 19th November 2026.
               </p>
 
               {/* Amenity Badges */}
@@ -304,7 +304,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                   Official Guidelines
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-wider bg-cyan-400 text-black font-extrabold px-2 py-0.5 rounded-md">
-                  Nov 19 Event
+                  Nov 19 &bull; 9AM–7PM
                 </span>
               </div>
             </div>
@@ -315,11 +315,15 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                 Rules &amp; Guidelines
               </h3>
               <p className="font-body text-neutral-600 text-xs sm:text-[13px] leading-relaxed mb-3">
-                Teams of 3–5, live problem reveal on event day, AI tools allowed, ₹150 registration fee per team.
+                One-day event (9:00 AM – 7:00 PM). Teams of 3–5, live problem reveal on event day, AI tools allowed, ₹150 registration fee per team.
               </p>
 
               {/* Directive Badges */}
               <div className="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-200">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
+                  <i className="fa-solid fa-clock text-[10px] text-neutral-600"></i>
+                  9:00 AM – 7:00 PM
+                </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 font-mono text-[11px] font-semibold border border-neutral-200">
                   <i className="fa-solid fa-users text-[10px] text-neutral-600"></i>
                   3–5 Members

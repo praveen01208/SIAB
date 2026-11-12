@@ -300,7 +300,7 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between text-[10px] sm:text-xs font-mono text-neutral-400 gap-1 pt-1">
                   <span>KLECET CHIKODI, KARNATAKA</span>
-                  <span className="text-neutral-500">DEPT OF CSE &bull; 24H SPRINT</span>
+                  <span className="text-neutral-500">19 NOV 2026 &bull; 9:00 AM – 7:00 PM</span>
                 </div>
               </div>
             </motion.div>

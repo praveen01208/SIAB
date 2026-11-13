@@ -106,7 +106,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
         </h2>
 
         {/* User's Name with Batman Animation placed right below giant CODING CLUB text with nice gap */}
-        <div className="mt-5 sm:mt-7 mb-2 flex items-center flex-wrap justify-center gap-1.5 font-semibold text-neutral-900 text-sm">
+        <div className="mt-6 sm:mt-8 mb-3 flex items-center flex-wrap justify-center gap-2 sm:gap-2.5 font-bold text-neutral-900 text-base sm:text-lg tracking-wide">
           <span>Crafted with precision by</span>
           <a
             href="https://www.linkedin.com/in/masoom-mulla-5a85062a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"

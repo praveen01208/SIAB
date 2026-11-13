@@ -80,7 +80,7 @@ export default function DatesWheelSection() {
           pin: stage,
           pinType: "fixed",
           pinSpacing: false,
-          scrub: 1.0,
+          scrub: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },

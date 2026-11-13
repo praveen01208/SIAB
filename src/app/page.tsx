@@ -18,6 +18,7 @@ import ValueCardsMarquee from "@/components/ValueCardsMarquee";
 import AssociationSection from "@/components/AssociationSection";
 import EditorialAbout from "@/components/EditorialAbout";
 import DomainsView from "@/components/DomainsView";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import InitialLoader from "@/components/InitialLoader";
 import AppleSectionDivider from "@/components/ui/AppleSectionDivider";
@@ -91,7 +92,7 @@ export default function Home() {
         trigger: "#home",
         start: "top top",
         end: "bottom top",
-        scrub: 1,
+        scrub: true,
         invalidateOnRefresh: true,
       },
     });
@@ -271,7 +272,7 @@ export default function Home() {
             trigger: evTrack,
             start: "top top",
             end: "bottom bottom",
-            scrub: 0.8,
+            scrub: true,
             invalidateOnRefresh: true,
           },
         });
@@ -329,7 +330,7 @@ export default function Home() {
             trigger: assocTrack,
             start: "top top",
             end: "bottom bottom",
-            scrub: 0.8,
+            scrub: true,
             invalidateOnRefresh: true,
           },
         });
@@ -366,16 +367,36 @@ export default function Home() {
           );
         });
 
-        // Phase 4: Cards are 100% filled and STAY FIXED in center for comfortable reading before scrolling to footer
+        // Phase 4: Cards are 100% filled and STAY FIXED in center for a long, generous scroll so Contact is delayed
         assocTl.to(
           assocMover,
           {
             y: 0,
-            duration: 0.26,
+            duration: 0.40,
             ease: "none",
           },
-          0.74
+          0.60
         );
+      }
+
+      // Stage 3: Contact -> Footer reveal
+      // Footer is revealed as Contact rolls up like a shutter on scroll.
+      // When Contact bottom Apple divider reaches top of viewport (top 0),
+      // it STOPS scrolling further upwards and locks at top 0, revealing the Footer below it.
+      const coordBottom = document.getElementById("coordinators-bottom-bar");
+      const footerCurtain = document.getElementById("footer-curtain-container");
+
+      if (coordBottom && footerCurtain) {
+        // Lock Contact bottom Apple divider at top 0 framing the screen
+        ScrollTrigger.create({
+          id: "pin-coordinators-bottom",
+          trigger: coordBottom,
+          start: "top top",
+          endTrigger: footerCurtain,
+          end: "bottom bottom",
+          pin: true,
+          pinSpacing: false,
+        });
       }
     });
 
@@ -383,6 +404,7 @@ export default function Home() {
       mm.revert();
       ScrollTrigger.getById("ev-details-choreography")?.kill();
       ScrollTrigger.getById("association-choreography")?.kill();
+      ScrollTrigger.getById("pin-coordinators-bottom")?.kill();
     };
   }, [activeView]);
 
@@ -695,13 +717,9 @@ export default function Home() {
 
           {/* =========================================================================
               LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate;
-              shutter reveal, moves to center, cards liquid fill, holds fixed, Coordinators rolls over)
+              shutter reveal, moves to center, cards liquid fill, holds fixed, Contact rolls over)
              ========================================================================= */}
-          {/* =========================================================================
-              LAYER 3: IN ASSOCIATION WITH (Sitting underneath Why Participate;
-              shutter reveal, moves to center, cards liquid fill, holds fixed)
-             ========================================================================= */}
-          <div id="association-track" className="relative z-20 w-full bg-white h-auto md:h-[260vh]">
+          <div id="association-track" className="relative z-20 w-full bg-white h-auto md:h-[460vh]">
             <div
               id="association-stage"
               className="w-full h-auto md:h-screen md:sticky md:top-0 flex flex-col justify-center items-center bg-white overflow-hidden"
@@ -716,9 +734,25 @@ export default function Home() {
           </div>
 
           {/* =========================================================================
-              LAYER 4: FOOTER
+              LAYER 4: CONTACT & QUERY (Black section scrolls directly ON TOP of In Association;
+              overlaps Footer underneath it)
              ========================================================================= */}
-          <div id="footer-curtain-container" className="relative z-30 w-full bg-white border-t border-neutral-200">
+          <div id="coordinators-layer" className="relative z-30 w-full md:-mt-[100vh]">
+            {/* Seamless Top Apple Divider: transparent background so cutout is clearly visible */}
+            <AppleSectionDivider direction="top" className="-mb-1" />
+
+            <ContactSection />
+
+            {/* Seamless Bottom Apple Divider: stops scrolling when it reaches top 0 */}
+            <div id="coordinators-bottom-bar" className="w-full relative z-30">
+              <AppleSectionDivider direction="bottom" className="-mt-1" />
+            </div>
+          </div>
+
+          {/* =========================================================================
+              LAYER 5: FOOTER (Revealed like a shutter beneath Contact)
+             ========================================================================= */}
+          <div id="footer-curtain-container" className="relative z-10 w-full bg-white">
             <Footer onNavigate={handleNavigate} onRegister={openRegistration} />
           </div>
         </main>

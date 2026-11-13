@@ -30,37 +30,37 @@ const PARTNERS: PartnerItem[] = [
     url: "https://www.klecet.edu.in/",
   },
   {
-    id: "nba",
-    name: "NBA",
-    style: "Accreditation Authority",
-    logo: "/images/nbalogo.png",
-    note: "National Board of Accreditation — Ensuring world-class quality and Tier-1 academic excellence.",
-    leftBadge: "Tier-1",
-    rightBadge: "Accredited",
+    id: "codingclub",
+    name: "Coding Club",
+    style: "Technical Student Club",
+    logo: "/images/cclublogo.png",
+    note: "Official coding club of KLECET fostering student innovation and technical excellence.",
+    leftBadge: "Coding Club",
+    rightBadge: "KLECET",
     colorClass: "tap__card--2",
-    url: "https://www.nbaind.org/",
+    url: "https://www.instagram.com/cse_klecet_official",
   },
   {
-    id: "vtu",
-    name: "VTU",
-    style: "Affiliating University",
-    logo: "/images/VTUlogo.png",
-    note: "Visvesvaraya Technological University — State university pioneering technological advancement.",
-    leftBadge: "State Univ",
-    rightBadge: "Karnataka",
+    id: "ctec",
+    name: "C-TEC",
+    style: "Innovation & Startup Cell",
+    logo: "/images/CTECH.png",
+    note: "Centre for Technology, Entrepreneurship & Creativity empowering student ventures.",
+    leftBadge: "C-TEC",
+    rightBadge: "Incubation",
     colorClass: "tap__card--3",
-    url: "https://vtu.ac.in/",
+    url: "https://www.klecet.edu.in/",
   },
   {
-    id: "ieee",
-    name: "IEEE",
-    style: "Technical Partner",
-    logo: "/images/ieelogo.png",
-    note: "Institute of Electrical and Electronics Engineers — Advancing technology for student innovation.",
-    leftBadge: "Global Body",
-    rightBadge: "Student Branch",
+    id: "cse",
+    name: "Dept of CSE",
+    style: "Computer Science & Engg",
+    logo: "",
+    note: "Department of Computer Science & Engineering, KLE College of Engineering & Technology.",
+    leftBadge: "CSE Dept",
+    rightBadge: "Chikodi",
     colorClass: "tap__card--4",
-    url: "https://www.ieee.org/",
+    url: "https://www.klecet.edu.in/",
   },
 ];
 
@@ -97,7 +97,7 @@ export default function AssociationSection() {
               trigger: card,
               start: "top 80%",
               end: "bottom 55%",
-              scrub: 0.5,
+              scrub: true,
             },
           }
         );
@@ -142,11 +142,11 @@ export default function AssociationSection() {
             >
               {/* BASE LAYER: White background with black text (Visible before black liquid fills) */}
               <div className="relative z-0 flex flex-col h-full select-none">
-                <h3 className="tap__name font-display text-lg sm:text-2xl font-extrabold uppercase text-center tracking-wide text-black">
+                <h3 className="tap__name font-display text-base sm:text-xl md:text-lg lg:text-2xl font-extrabold uppercase text-center tracking-wide text-black">
                   {partner.name}
                 </h3>
 
-                <p className="tap__style font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-1 sm:mt-1.5 text-neutral-600">
+                <p className="tap__style font-mono text-[9.5px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-1 sm:mt-1.5 text-neutral-600">
                   {partner.style}
                 </p>
 
@@ -154,15 +154,22 @@ export default function AssociationSection() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tap__photo-wrapper w-[48%] sm:w-[45%] aspect-square mx-auto my-3 sm:my-4 rounded-full bg-neutral-100 flex items-center justify-center p-2.5 sm:p-3 border border-black/20 shadow-sm transition-transform duration-300 hover:scale-105"
+                  className="tap__photo-wrapper w-20 h-20 sm:w-24 sm:h-24 md:w-20 md:h-20 lg:w-24 lg:h-24 aspect-square mx-auto my-3 sm:my-4 rounded-full bg-neutral-100 flex items-center justify-center p-2.5 sm:p-3 border border-black/20 shadow-sm transition-transform duration-300 hover:scale-105 overflow-hidden flex-shrink-0"
                   title={`Visit ${partner.name}`}
                 >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    draggable={false}
-                    className="max-h-full max-w-full object-contain pointer-events-none select-none"
-                  />
+                  {partner.logo ? (
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      draggable={false}
+                      className="w-full h-full object-contain rounded-full pointer-events-none select-none"
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-full flex flex-col items-center justify-center bg-black text-white font-display font-black text-center px-1">
+                      <span className="text-[10px] sm:text-xs md:text-[9px] lg:text-xs uppercase tracking-wider leading-tight">DEPT</span>
+                      <span className="text-[12px] sm:text-sm md:text-[11px] lg:text-sm uppercase tracking-widest text-emerald-400 font-extrabold leading-tight">CSE</span>
+                    </div>
+                  )}
                 </a>
 
                 <p className="tap__note font-body text-[11px] sm:text-xs leading-relaxed text-center text-neutral-700 mb-3 sm:mb-4 min-h-0 line-clamp-2 sm:line-clamp-none">
@@ -180,21 +187,28 @@ export default function AssociationSection() {
                 className="tap__fill absolute inset-0 z-10 flex flex-col p-4 sm:p-5 rounded-2xl bg-black text-white pointer-events-none border-t-2 border-white/60 shadow-[0_-4px_16px_rgba(255,255,255,0.2)]"
                 style={{ clipPath: "inset(100% 0% 0% 0%)" }}
               >
-                <h3 className="tap__name font-display text-lg sm:text-2xl font-extrabold uppercase text-center tracking-wide text-white">
+                <h3 className="tap__name font-display text-base sm:text-xl md:text-lg lg:text-2xl font-extrabold uppercase text-center tracking-wide text-white">
                   {partner.name}
                 </h3>
 
-                <p className="tap__style font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-1 sm:mt-1.5 text-neutral-300">
+                <p className="tap__style font-mono text-[9.5px] sm:text-xs font-semibold uppercase tracking-wider text-center mt-1 sm:mt-1.5 text-neutral-300">
                   {partner.style}
                 </p>
 
-                <div className="tap__photo-wrapper w-[48%] sm:w-[45%] aspect-square mx-auto my-3 sm:my-4 rounded-full bg-white flex items-center justify-center p-2.5 sm:p-3 border border-white/20 shadow-sm">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    draggable={false}
-                    className="max-h-full max-w-full object-contain pointer-events-none select-none"
-                  />
+                <div className="tap__photo-wrapper w-20 h-20 sm:w-24 sm:h-24 md:w-20 md:h-20 lg:w-24 lg:h-24 aspect-square mx-auto my-3 sm:my-4 rounded-full bg-white flex items-center justify-center p-2.5 sm:p-3 border border-white/20 shadow-sm overflow-hidden flex-shrink-0">
+                  {partner.logo ? (
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      draggable={false}
+                      className="w-full h-full object-contain rounded-full pointer-events-none select-none"
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-full flex flex-col items-center justify-center bg-neutral-900 text-white font-display font-black text-center px-1">
+                      <span className="text-[10px] sm:text-xs md:text-[9px] lg:text-xs uppercase tracking-wider leading-tight text-neutral-200">DEPT</span>
+                      <span className="text-[12px] sm:text-sm md:text-[11px] lg:text-sm uppercase tracking-widest text-emerald-400 font-extrabold leading-tight">CSE</span>
+                    </div>
+                  )}
                 </div>
 
                 <p className="tap__note font-body text-[11px] sm:text-xs leading-relaxed text-center text-neutral-300 mb-3 sm:mb-4 min-h-0 line-clamp-2 sm:line-clamp-none">

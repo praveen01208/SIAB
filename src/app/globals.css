@@ -2920,11 +2920,12 @@ html.lenis, html.lenis body {
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #ffffff;
   vertical-align: middle;
   transform: translateY(6px);
   margin: 0 4px;
   text-decoration: none !important;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.45)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
   transition: transform 0.25s ease, filter 0.3s ease;
 }
 
@@ -2934,12 +2935,12 @@ html.lenis, html.lenis body {
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: 0px 0 0 0 white;
+  box-shadow: 0px 0 0 0 rgba(0, 0, 0, 0.2);
   transition: all 1.2s ease;
 }
 
 .batman-btn:hover::after {
-  box-shadow: 0px -13px 56px 12px #ffffffa6;
+  box-shadow: 0px -13px 56px 12px rgba(0, 0, 0, 0.25);
 }
 
 .batman-btn span {
@@ -2982,8 +2983,26 @@ html.lenis, html.lenis body {
 }
 
 .batman-btn:hover {
-  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));
   transform: translateY(6px);
+}
+
+/* Small Variant for Compact Section Placements */
+.batman-btn.batman-btn-sm {
+  width: 112px;
+  height: 39px;
+  transform: translateY(3px);
+  margin: 0 2px;
+}
+
+.batman-btn.batman-btn-sm span {
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  top: 38%;
+}
+
+.batman-btn.batman-btn-sm:hover {
+  transform: translateY(3px);
 }
 
 /* =========================================================================

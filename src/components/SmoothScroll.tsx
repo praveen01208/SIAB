@@ -17,7 +17,7 @@ export default function SmoothScroll() {
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1.0, // Crisp 1:1 natural wheel response
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.0,
       infinite: false,
     });
 
@@ -28,7 +28,8 @@ export default function SmoothScroll() {
     };
 
     gsap.ticker.add(tickerCallback);
-    gsap.ticker.lagSmoothing(500, 33);
+    // Crucial: lagSmoothing(0) prevents GSAP ticker from pausing or jumping with Lenis
+    gsap.ticker.lagSmoothing(0);
 
     // Make lenis globally accessible for anchor navigation
     (window as any).__lenis = lenis;

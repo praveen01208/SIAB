@@ -96,7 +96,7 @@ export default function IdeathonSection() {
             trigger: list,
             start: "top 88%",
             end: "bottom 60%",
-            scrub: 0.6,
+            scrub: true,
           },
         });
 
@@ -126,7 +126,7 @@ export default function IdeathonSection() {
             trigger: section,
             start: "top bottom",
             end: "top 15%",
-            scrub: 0.5,
+            scrub: true,
           },
         });
 

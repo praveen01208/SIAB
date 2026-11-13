@@ -14,9 +14,9 @@ interface FooterProps {
 const navLinks = [
   { label: "Home", target: "home" },
   { label: "About", target: "about" },
-  { label: "Ideathon", target: "ideathon-page" },
   { label: "Schedule", target: "dates" },
   { label: "Domains", target: "domains" },
+  { label: "Contact", target: "contact" },
 ];
 
 export default function Footer({ onNavigate, onRegister }: FooterProps) {
@@ -206,7 +206,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           </a>
           <a
             className="m-iconbtn"
-            href="https://chat.whatsapp.com/DzzQlQDXN7BF2ALnpNYWgL"
+            href="https://chat.whatsapp.com/I3N142ORmFOBE6acIFkP3D"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp Community"
@@ -226,10 +226,10 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       </div>
 
       {/* =========================================================================
-          3. FOOTER BOTTOM BASE: Crafted with Precision & Back to Top Button
+          3. FOOTER BOTTOM BASE: Copyright, Centered Back to Top, and Crafted by MASOOM
          ========================================================================= */}
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-sm text-neutral-600 text-center sm:text-left">
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col md:grid md:grid-cols-3 items-center justify-between gap-6">
+        <div className="text-sm text-neutral-600 text-center md:text-left order-3 md:order-1">
           <p>
             &copy; 2026 STARTUP IN A BOX &bull; C-TEC &amp; Coding Club{" "}
             <a
@@ -243,8 +243,8 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           </p>
         </div>
 
-        {/* Right side: Back to Top Button */}
-        <div className="flex items-center gap-4">
+        {/* Center: Back to Top Button centered in Desktop view */}
+        <div className="flex justify-center items-center order-2 md:order-2">
           <button
             type="button"
             onClick={scrollToTop}
@@ -255,6 +255,21 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
               <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
             </svg>
           </button>
+        </div>
+
+        {/* Right side: Crafted with precision by MASOOM */}
+        <div className="flex items-center flex-wrap justify-center md:justify-end gap-1.5 font-semibold text-neutral-900 text-sm order-1 md:order-3">
+          <span>Crafted with precision by</span>
+          
+          <a
+            href="https://www.linkedin.com/in/masoom-mulla-5a85062a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="batman-btn"
+            title="Masoom Mulla on LinkedIn"
+          >
+            <span>MASOOM</span>
+          </a>
         </div>
       </div>
     </footer>

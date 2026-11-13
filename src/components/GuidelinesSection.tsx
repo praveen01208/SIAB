@@ -408,7 +408,7 @@ export default function GuidelinesSection() {
             trigger: wrapper,
             start: "bottom 92%",
             end: "bottom 35%",
-            scrub: 0.6,
+            scrub: true,
             invalidateOnRefresh: true,
           },
         });

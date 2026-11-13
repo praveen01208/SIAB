@@ -69,7 +69,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
           trigger: ".op-one",
           start: "top 60%",
           end: "bottom 30%",
-          scrub: 0.6,
+          scrub: true,
         },
       })
       .to(left, { x: -24, ease: "power1.out" }, 0)
@@ -87,7 +87,7 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
           trigger: two,
           start: "top 85%",
           end: "top 25%",
-          scrub: 0.6,
+          scrub: true,
         },
       });
 

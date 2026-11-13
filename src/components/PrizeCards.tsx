@@ -30,7 +30,7 @@ export default function PrizeCards() {
           trigger: container,
           start: "top 90%",
           end: "bottom 75%",
-          scrub: 0.6,
+          scrub: true,
           invalidateOnRefresh: true,
         },
       });
@@ -71,7 +71,7 @@ export default function PrizeCards() {
           trigger: container,
           start: "top 92%",
           end: "bottom 78%",
-          scrub: 0.5,
+          scrub: true,
           invalidateOnRefresh: true,
         },
       });

@@ -197,7 +197,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
         <div className="ft__cell ft__social" aria-label="Social Links">
           <a
             className="m-iconbtn"
-            href="https://www.instagram.com/inventra_2k25?igsh=ejFwOGlxMGgwNW1i"
+            href="https://www.instagram.com/cse_klecet_official?exln=aXM3bWhxZ2VjMW4="
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

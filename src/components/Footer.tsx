@@ -88,7 +88,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       {/* =========================================================================
           1. CODING CLUB DISPLAY WORDMARK (Hero INVENTRA Rising-Up Wall Animation)
          ========================================================================= */}
-      <div className="overflow-hidden py-3 mb-8 w-full flex justify-center items-center">
+      <div className="overflow-hidden py-3 mb-6 w-full flex flex-col justify-center items-center">
         <h2
           ref={codingClubTitleRef}
           className="font-display flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black tracking-wider uppercase leading-none select-none text-center will-change-transform"
@@ -104,6 +104,20 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           </span>
           <KidnapText text="CLUB" />
         </h2>
+
+        {/* User's Name with Batman Animation placed right below giant CODING CLUB text with nice gap */}
+        <div className="mt-5 sm:mt-7 mb-2 flex items-center flex-wrap justify-center gap-1.5 font-semibold text-neutral-900 text-sm">
+          <span>Crafted with precision by</span>
+          <a
+            href="https://www.linkedin.com/in/masoom-mulla-5a85062a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="batman-btn"
+            title="Masoom Mulla on LinkedIn"
+          >
+            <span>MASOOM</span>
+          </a>
+        </div>
       </div>
 
       {/* =========================================================================
@@ -226,10 +240,10 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       </div>
 
       {/* =========================================================================
-          3. FOOTER BOTTOM BASE: Copyright, Centered Back to Top, and Crafted by MASOOM
+          3. FOOTER BOTTOM BASE: Copyright on left, Back to Top on right
          ========================================================================= */}
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col md:grid md:grid-cols-3 items-center justify-between gap-6">
-        <div className="text-sm text-neutral-600 text-center md:text-left order-3 md:order-1">
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="text-sm text-neutral-600 text-center sm:text-left">
           <p>
             &copy; 2026 STARTUP IN A BOX &bull; C-TEC &amp; Coding Club{" "}
             <a
@@ -243,8 +257,8 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           </p>
         </div>
 
-        {/* Center: Back to Top Button centered in Desktop view */}
-        <div className="flex justify-center items-center order-2 md:order-2">
+        {/* Right side: Back to Top Button */}
+        <div className="flex items-center justify-center sm:justify-end">
           <button
             type="button"
             onClick={scrollToTop}
@@ -255,21 +269,6 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
               <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
             </svg>
           </button>
-        </div>
-
-        {/* Right side: Crafted with precision by MASOOM */}
-        <div className="flex items-center flex-wrap justify-center md:justify-end gap-1.5 font-semibold text-neutral-900 text-sm order-1 md:order-3">
-          <span>Crafted with precision by</span>
-          
-          <a
-            href="https://www.linkedin.com/in/masoom-mulla-5a85062a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="batman-btn"
-            title="Masoom Mulla on LinkedIn"
-          >
-            <span>MASOOM</span>
-          </a>
         </div>
       </div>
     </footer>

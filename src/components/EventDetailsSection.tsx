@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealHeading } from "./ui/RevealHeading";
 import { MagicText } from "./ui/MagicText";
-import { ShinyButton } from "./ui/ShinyButton";
+import { WebShotButton } from "./WebShotButton";
 
 interface EventDetailsSectionProps {
   onExploreDomains?: () => void;
@@ -362,14 +362,18 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
         </div>
 
         {/* Schedule link + Register CTA + Explore Domains */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 pt-8 border-t border-neutral-200">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 pt-8 border-t border-neutral-200 w-full max-w-2xl mx-auto">
           {onRegister && (
-            <ShinyButton
+            <WebShotButton
+              size="md"
+              shape="square"
+              color="#000000"
+              inkColor="#000000"
               onClick={onRegister}
-              className="!py-3 !px-7 text-xs sm:text-sm font-bold uppercase tracking-wider"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center"
             >
-              Register Team &rarr;
-            </ShinyButton>
+              <span>Register Team &rarr;</span>
+            </WebShotButton>
           )}
 
           <a
@@ -378,25 +382,24 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
               e.preventDefault();
               document.getElementById("dates")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-neutral-800 hover:text-black py-2.5 px-5 rounded-xl border border-neutral-300 hover:border-black transition-all"
+            className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-neutral-800 hover:text-black h-12 px-6 rounded-none border border-neutral-300 hover:border-black transition-all w-full sm:w-auto"
           >
             <i className="fa-solid fa-calendar-days text-xs text-neutral-500"></i>
-            <span>View Timeline Schedule</span>
+            <span>View Timeline</span>
             <i className="fa-solid fa-arrow-right text-[11px] opacity-70"></i>
           </a>
 
           {onExploreDomains && (
-            <button
+            <WebShotButton
+              size="md"
+              shape="square"
+              color="#000000"
+              inkColor="#000000"
               onClick={onExploreDomains}
-              className="btn-31 h-11 sm:h-12 px-7 rounded-xl text-xs sm:text-sm font-bold"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center"
             >
-              <span className="text-container">
-                <span className="text">
-                  Explore Domains
-                  <i className="fa-solid fa-arrow-right text-xs ml-2"></i>
-                </span>
-              </span>
-            </button>
+              <span>Explore Domains &rarr;</span>
+            </WebShotButton>
           )}
         </div>
       </div>

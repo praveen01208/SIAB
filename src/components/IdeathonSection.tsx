@@ -215,13 +215,14 @@ export default function IdeathonSection() {
           href="https://forms.gle/tcG4R9fb3PSJDSN79"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block"
+          className="inline-block w-full sm:w-auto max-w-sm"
         >
           <WebShotButton
             size="md"
             shape="square"
             color="#000000"
-            className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black"
+            inkColor="#000000"
+            className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center"
           >
             <i className="fa-solid fa-arrow-up-right-from-square mr-2"></i>
             <span>Register Now</span>

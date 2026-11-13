@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import VaporCountdown from "@/components/VaporCountdown";
 import CombinationLockCountdown from "@/components/CombinationLockCountdown";
-import { WebShotCard } from "@/components/WebShotButton";
+import { WebShotCard, WebShotButton } from "@/components/WebShotButton";
 import StarButton from "@/components/StarButton";
 import TiltCard from "@/components/TiltCard";
 import IdeathonSection from "@/components/IdeathonSection";
@@ -517,9 +517,9 @@ export default function Home() {
                     ref={timerCardRef}
                     className="w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-3 mb-0 relative z-30 will-change-transform"
                   >
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 scale-110 sm:scale-115 md:scale-100 origin-center">
-                      <span className="w-2 h-2 rounded-full bg-black animate-ping" />
-                      <span className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-800 font-bold">
+                    <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 max-w-[85%] sm:max-w-none origin-center">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-black animate-ping" />
+                      <span className="font-mono text-[9.5px] xs:text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-neutral-800 font-bold whitespace-nowrap">
                         Registration Closes 17th November 2026
                       </span>
                     </div>
@@ -698,12 +698,16 @@ export default function Home() {
                       Secure your team&apos;s spot for STARTUP IN A BOX 2026. Build a startup from a real-world problem in one day.
                     </p>
                   </div>
-                  <ShinyButton
+                  <WebShotButton
+                    size="md"
+                    shape="square"
+                    color="#ffffff"
+                    inkColor="#ffffff"
                     onClick={openRegistration}
-                    className="flex-shrink-0 !py-3.5 !px-8 text-xs sm:text-sm font-bold uppercase tracking-widest"
+                    className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-white bg-white text-black w-full sm:w-auto flex items-center justify-center flex-shrink-0"
                   >
-                    Register Team &rarr;
-                  </ShinyButton>
+                    <span>Register Team &rarr;</span>
+                  </WebShotButton>
                 </div>
               </div>
 

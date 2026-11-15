@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextEffect from "@/components/ui/text-effect";
 import { KidnapText } from "@/components/ui/KidnapText";
-import { useLiveStats } from "@/hooks/useLiveStats";
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -23,7 +22,6 @@ const navLinks = [
 export default function Footer({ onNavigate, onRegister }: FooterProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
-  const stats = useLiveStats();
 
   const footerRef = useRef<HTMLElement>(null);
   const codingClubTitleRef = useRef<HTMLHeadingElement>(null);
@@ -90,7 +88,7 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       {/* =========================================================================
           1. CODING CLUB DISPLAY WORDMARK (Hero INVENTRA Rising-Up Wall Animation)
          ========================================================================= */}
-      <div className="overflow-hidden py-3 mb-6 w-full flex flex-col justify-center items-center">
+      <div className="overflow-hidden py-3 mb-8 w-full flex justify-center items-center">
         <h2
           ref={codingClubTitleRef}
           className="font-display flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black tracking-wider uppercase leading-none select-none text-center will-change-transform"
@@ -106,20 +104,6 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
           </span>
           <KidnapText text="CLUB" />
         </h2>
-
-        {/* User's Name with Batman Animation placed right below giant CODING CLUB text with nice gap */}
-        <div className="mt-6 sm:mt-8 mb-3 flex items-center flex-wrap justify-center gap-2 sm:gap-2.5 font-bold text-neutral-900 text-base sm:text-lg tracking-wide">
-          <span>Crafted with precision by</span>
-          <a
-            href="https://www.linkedin.com/in/masoom-mulla-5a85062a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="batman-btn"
-            title="Masoom Mulla on LinkedIn"
-          >
-            <span>MASOOM</span>
-          </a>
-        </div>
       </div>
 
       {/* =========================================================================
@@ -242,11 +226,11 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
       </div>
 
       {/* =========================================================================
-          3. FOOTER BOTTOM BASE: Copyright on left, Live Visitor Count, Back to Top on right
+          3. FOOTER BOTTOM BASE: Copyright on left, Back to Top on right
          ========================================================================= */}
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
-          <p className="text-sm text-neutral-600">
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="text-sm text-neutral-600 text-center sm:text-left">
+          <p>
             &copy; 2026 STARTUP IN A BOX &bull; C-TEC &amp; Coding Club{" "}
             <a
               href="https://www.klecet.edu.in/"
@@ -257,22 +241,6 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
               KLECET
             </a>
           </p>
-
-          {/* Live Visitor & Total Count Badge (from SIH-CCWeb) */}
-          {stats && (
-            <div className="inline-flex items-center gap-2 font-mono text-[10.5px] tracking-wider text-neutral-600 select-none px-3 py-1 rounded-full bg-neutral-100/90 border border-neutral-200/90 shadow-sm">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block shrink-0" />
-                <span className="tabular-nums font-bold text-neutral-900">{stats.live}</span>
-                <span className="text-neutral-500 text-[9.5px] uppercase font-semibold">live</span>
-              </span>
-              <span className="text-neutral-300">&bull;</span>
-              <span className="inline-flex items-center gap-1">
-                <span className="tabular-nums font-semibold text-neutral-800">{stats.total.toLocaleString()}</span>
-                <span className="text-neutral-500 text-[9.5px] uppercase font-semibold">visits</span>
-              </span>
-            </div>
-          )}
         </div>
 
         {/* Right side: Back to Top Button */}

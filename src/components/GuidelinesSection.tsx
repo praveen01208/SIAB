@@ -16,14 +16,14 @@ const guidelinesList = [
   {
     num: "02",
     short: "Registration",
-    rule: "Registration closes on 17th November 2026. Register your team before the deadline to secure your spot. Fee: ₹150 per team.",
-    badge: "By Nov 17",
+    rule: "Registration closes on 26th November 2026. Register your team before the deadline to secure your spot. Fee: ₹150 per team.",
+    badge: "By Nov 26",
     img: "/images/H-2.png",
   },
   {
     num: "03",
     short: "Problem Reveal",
-    rule: "Assigned problem statements will be disclosed ONLY during the event on 19th November 2026. Branch-specific problems ensure opportunities for every department.",
+    rule: "Assigned problem statements will be disclosed ONLY during the event on 28th November 2026. Branch-specific problems ensure opportunities for every department.",
     badge: "Event Day Only",
     img: "/images/H-3.png",
   },
@@ -537,7 +537,7 @@ export default function GuidelinesSection() {
               <div className="op__side">
                 <span className="m-badge-2">ID &amp; Check-in</span>
                 <p className="m-text-4">
-                  All participants must wear college ID cards. Reporting &amp; check-in starts at 9:00 AM on 19th November 2026. The one-day event runs from 9:00 AM to 7:00 PM.
+                  All participants must wear college ID cards. Reporting &amp; check-in starts at 9:00 AM on 28th November 2026. The one-day event runs from 9:00 AM to 7:00 PM.
                 </p>
               </div>
 

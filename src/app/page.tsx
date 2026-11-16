@@ -520,14 +520,14 @@ export default function Home() {
                     <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 max-w-[85%] sm:max-w-none origin-center">
                       <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-black animate-ping" />
                       <span className="font-mono text-[9.5px] xs:text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-neutral-800 font-bold whitespace-nowrap">
-                        Registration Closes 17th November 2026
+                        Registration Closes 26th November 2026
                       </span>
                     </div>
 
                     <WebShotCard reach={140} threads={5}>
                       <div className="bg-white/95 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-2.5 md:px-5 md:py-2.5 rounded-xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-100 md:scale-100 origin-top overflow-visible">
                         <CombinationLockCountdown
-                          targetDate={new Date("2026-11-17T23:59:59+05:30").getTime()}
+                          targetDate={new Date("2026-11-26T23:59:59+05:30").getTime()}
                           className="mx-auto"
                         />
                       </div>

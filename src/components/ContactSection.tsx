@@ -7,29 +7,29 @@ import { RevealHeading } from "./ui/RevealHeading";
 
 interface ContactItem {
   id: number;
-  label: string;
+  name: string;
   phone: string;
 }
 
 const contacts: ContactItem[] = [
   {
     id: 1,
-    label: "Contact 1",
+    name: "Praveen Patil",
     phone: "8792946625",
   },
   {
     id: 2,
-    label: "Contact 2",
+    name: "Pradeep Kadagi",
     phone: "9008626171",
   },
   {
     id: 3,
-    label: "Contact 3",
+    name: "Sanket Tengale",
     phone: "6361385838",
   },
   {
     id: 4,
-    label: "Contact 4",
+    name: "Pradeep Adaragi",
     phone: "8970901105",
   },
 ];
@@ -66,15 +66,15 @@ export default function ContactSection() {
           </RevealHeading>
 
           <p className="font-body text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto leading-relaxed">
-            Have questions about rules, team registration, or the event schedule? Connect directly with our team on WhatsApp.
+            Have questions about rules, team registration, or the event schedule? Connect directly with our coordinators on WhatsApp.
           </p>
         </motion.div>
 
-        {/* 4 Clean WhatsApp Cards (Contact 1, 2, 3, 4) */}
+        {/* 4 WhatsApp Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
           {contacts.map((contact, idx) => {
             const whatsappUrl = `https://wa.me/91${contact.phone}?text=${encodeURIComponent(
-              "Hi, I have a query regarding Startup in a Box 2026."
+              `Hi ${contact.name}, I have a query regarding Startup in a Box 2026.`
             )}`;
 
             return (
@@ -91,7 +91,7 @@ export default function ContactSection() {
                   delay: idx * 0.1,
                   ease: [0.21, 0.47, 0.32, 0.98],
                 }}
-                aria-label={`Chat with ${contact.label} on WhatsApp`}
+                aria-label={`Chat with ${contact.name} on WhatsApp`}
                 className="group relative flex flex-col items-center justify-between p-6 sm:p-7 rounded-2xl bg-neutral-950/90 border border-neutral-800 hover:border-[#25D366] shadow-lg hover:shadow-[0_12px_35px_rgba(37,211,102,0.22)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] text-center"
               >
                 {/* Top: Green Original WhatsApp Icon */}
@@ -105,12 +105,15 @@ export default function ContactSection() {
                   </svg>
                 </div>
 
-                {/* Middle: Title without showing phone number */}
+                {/* Middle: Name & Coordinator tag (No phone number displayed) */}
                 <div className="flex flex-col items-center mb-4">
-                  <h3 className="font-display text-xl sm:text-2xl text-white font-bold uppercase tracking-wider group-hover:text-[#25D366] transition-colors">
-                    {contact.label}
+                  <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#25D366] font-bold mb-1">
+                    Contact {contact.id}
+                  </span>
+                  <h3 className="font-display text-lg sm:text-xl text-white font-bold tracking-wide group-hover:text-[#25D366] transition-colors leading-tight">
+                    {contact.name}
                   </h3>
-                  <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 font-semibold mt-1 flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 font-semibold mt-1.5 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
                     Online on WhatsApp
                   </span>

@@ -236,7 +236,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                 KLECET Campus Arena
               </h3>
               <p className="font-body text-neutral-600 text-xs sm:text-[13px] leading-relaxed mb-3">
-                Department of Computer Science &amp; Engineering, KLE College of Engineering &amp; Technology. Event runs from 9:00 AM to 7:00 PM on 28th November 2026.
+                Department of Computer Science &amp; Engineering, KLE College of Engineering &amp; Technology. Event runs from 9:00 AM to 7:00 PM on 26th November 2026.
               </p>
 
               {/* Amenity Badges */}
@@ -304,7 +304,7 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
                   Official Guidelines
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-wider bg-cyan-400 text-black font-extrabold px-2 py-0.5 rounded-md">
-                  Nov 28 &bull; 9AM–7PM
+                  Nov 26 &bull; 9AM–7PM
                 </span>
               </div>
             </div>

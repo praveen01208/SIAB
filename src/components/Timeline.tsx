@@ -34,7 +34,7 @@ export default function Timeline() {
                 <h3 className="font-orbitron font-bold text-lg text-black">
                   Registration Closes
                 </h3>
-                <p className="text-neutral-700 font-medium mt-1">November 26, 2026</p>
+                <p className="text-neutral-700 font-medium mt-1">November 24, 2026</p>
               </div>
             </TiltCard>
           </div>
@@ -56,7 +56,7 @@ export default function Timeline() {
                 <h3 className="font-orbitron font-bold text-lg text-black">
                   Live Event Day (9:00 AM – 7:00 PM)
                 </h3>
-                <p className="text-neutral-700 font-medium mt-1">November 28, 2026</p>
+                <p className="text-neutral-700 font-medium mt-1">November 26, 2026</p>
               </div>
             </TiltCard>
           </div>
@@ -84,7 +84,7 @@ export default function Timeline() {
               <h3 className="font-orbitron font-bold text-md text-black">
                 Registration Closes
               </h3>
-              <p className="text-neutral-700 text-sm font-medium mt-1">November 26, 2026</p>
+              <p className="text-neutral-700 text-sm font-medium mt-1">November 24, 2026</p>
             </div>
           </TiltCard>
         </div>
@@ -96,7 +96,7 @@ export default function Timeline() {
               <h3 className="font-orbitron font-bold text-md text-black">
                 Live Event Day (9:00 AM – 7:00 PM)
               </h3>
-              <p className="text-neutral-700 text-sm font-medium mt-1">November 28, 2026</p>
+              <p className="text-neutral-700 text-sm font-medium mt-1">November 26, 2026</p>
             </div>
           </TiltCard>
         </div>

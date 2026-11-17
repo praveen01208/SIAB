@@ -13,7 +13,7 @@ const stages = [
     title: "Live Problem Statement Reveal",
     content: (
       <p className="text-sm leading-relaxed text-neutral-800">
-        Problem statements are revealed <strong>ONLY on the event day</strong> (28th November). Branch-specific challenges cover <strong>CSE, AI & DS, ECE, Mechanical, Civil, MBA, MCA</strong>, ensuring opportunities for every department. You can also join under <strong>Open Innovation</strong> with your own idea.
+        Problem statements are revealed <strong>ONLY on the event day</strong> (26th November). Branch-specific challenges cover <strong>CSE, AI & DS, ECE, Mechanical, Civil, MBA, MCA</strong>, ensuring opportunities for every department. You can also join under <strong>Open Innovation</strong> with your own idea.
       </p>
     ),
     restRotate: -2,
@@ -208,7 +208,7 @@ export default function IdeathonSection() {
       <div className="text-center mt-8 sm:mt-10 mb-2 sm:mb-4 relative z-20 px-4 flex flex-col items-center">
         <p className="text-base sm:text-lg md:text-xl font-display font-bold text-black flex items-center justify-center gap-2 mb-4">
           <i className="fa-solid fa-rocket text-black"></i>
-          <span>Register before 26th November 2026. ₹150 per team. All branches eligible!</span>
+          <span>Register before 24th November 2026. ₹150 per team. All branches eligible!</span>
         </p>
 
         <a

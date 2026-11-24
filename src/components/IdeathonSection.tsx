@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealHeading } from "./ui/RevealHeading";
 import { MagicText } from "./ui/MagicText";
+import { ProblemBookletCard } from "./ProblemBookletCard";
 
 const stages = [
   {
@@ -202,6 +203,11 @@ export default function IdeathonSection() {
           </li>
         ))}
       </ul>
+
+      {/* Problem Statement Booklet Vault with Reverse Counter & Lock Button */}
+      <div className="mt-10 sm:mt-12 mb-4 relative z-20 px-4">
+        <ProblemBookletCard />
+      </div>
 
       {/* Bottom Announcement Callout */}
       <div className="text-center mt-8 sm:mt-10 mb-2 sm:mb-4 relative z-20 px-4 flex flex-col items-center max-w-2xl mx-auto">

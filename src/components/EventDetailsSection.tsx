@@ -363,18 +363,9 @@ export default function EventDetailsSection({ onExploreDomains, onRegister }: Ev
 
         {/* Schedule link + Register CTA + Explore Domains */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 pt-8 border-t border-neutral-200 w-full max-w-2xl mx-auto">
-          {onRegister && (
-            <WebShotButton
-              size="md"
-              shape="square"
-              color="#000000"
-              inkColor="#000000"
-              onClick={onRegister}
-              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center"
-            >
-              <span>Register Team &rarr;</span>
-            </WebShotButton>
-          )}
+          <div className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center">
+            <span>Registration Closed</span>
+          </div>
 
           <a
             href="#dates"

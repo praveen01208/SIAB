@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
-import { VenomButton } from "./ui/VenomButton";
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -141,26 +140,22 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
             </a>
           </nav>
 
-          {/* Right: Clean modern Register Button with Venom liquid-metal effect */}
+          {/* Right: Registration Closed badge */}
           <div className="hidden sm:flex items-center justify-center z-10">
-            <VenomButton
-              onClick={handleRegisterClick}
-              captureRadius={55}
-              senseRadius={200}
+            <span
               style={{
-                width: "135px",
-                height: "40px",
+                height: "36px",
                 borderRadius: "8px",
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
                 textAlign: "center",
-                lineHeight: 1,
+                padding: "0 16px",
               }}
-              className="font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center"
+              className="font-mono text-[11px] font-bold uppercase tracking-wider bg-red-500/10 text-red-400 border border-red-500/30"
             >
-              Register
-            </VenomButton>
+              Registration Closed
+            </span>
           </div>
 
           {/* Mobile: 2-Line Minimalist Hamburger Menu Button (BrandnnewPortfolio Pattern) */}
@@ -298,13 +293,11 @@ export default function Navbar({ onNavigate, onRegister }: NavbarProps) {
 
               {/* Bottom Actions: Register & College Details */}
               <div className="pt-4 flex flex-col gap-3.5 text-left border-t border-neutral-800">
-                <button
-                  type="button"
-                  onClick={handleRegisterClick}
-                  className="w-full py-3 px-6 bg-white text-black font-mono text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors text-center shadow-lg cursor-pointer"
+                <div
+                  className="w-full py-3 px-6 bg-neutral-900 text-neutral-300 border border-neutral-800 font-mono text-xs font-bold uppercase tracking-widest text-center shadow-lg"
                 >
-                  Register for Hackathon &rarr;
-                </button>
+                  Registration Closed
+                </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between text-[10px] sm:text-xs font-mono text-neutral-400 gap-1 pt-1">
                   <span>KLECET CHIKODI, KARNATAKA</span>

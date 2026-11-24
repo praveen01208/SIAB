@@ -16,8 +16,8 @@ const guidelinesList = [
   {
     num: "02",
     short: "Registration",
-    rule: "Registration closes on 24th November 2026. Register your team before the deadline to secure your spot. Fee: ₹150 per team.",
-    badge: "By Nov 24",
+    rule: "Registration is closed as of 24th November 2026. Teams who got registered, be ready for tomorrow's event — all the best!",
+    badge: "Closed",
     img: "/images/H-2.png",
   },
   {

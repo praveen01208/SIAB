@@ -130,14 +130,9 @@ export default function Footer({ onNavigate, onRegister }: FooterProps) {
               </li>
             ))}
             <li>
-              <button
-                type="button"
-                onClick={onRegister}
-                className="m-link text-black font-extrabold flex items-center gap-1.5 hover:translate-x-1 transition-transform"
-              >
-                <span>Register</span>
-                <span>&rarr;</span>
-              </button>
+              <span className="font-mono text-xs uppercase tracking-wider text-neutral-400 font-semibold">
+                Registrations Closed
+              </span>
             </li>
           </ul>
         </nav>

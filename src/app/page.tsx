@@ -183,10 +183,10 @@ export default function Home() {
 
   const openRegistration = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
-    window.open(
-      "https://forms.gle/tcG4R9fb3PSJDSN79",
-      "_blank"
-    );
+    const announcementEl = document.getElementById("registration-announcement");
+    if (announcementEl) {
+      announcementEl.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleNavigate = (target: string) => {
@@ -517,21 +517,35 @@ export default function Home() {
                     ref={timerCardRef}
                     className="w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-3 mb-0 relative z-30 will-change-transform"
                   >
-                    <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 max-w-[85%] sm:max-w-none origin-center">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-black animate-ping" />
-                      <span className="font-mono text-[9.5px] xs:text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-neutral-800 font-bold whitespace-nowrap">
-                        Registration Closes 24th November 2026
+                    <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-red-600/10 border border-red-500/30 shadow-sm backdrop-blur-md mb-2.5 max-w-[90%] sm:max-w-none origin-center">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-600 animate-pulse" />
+                      <span className="font-mono text-[9.5px] xs:text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-red-600 font-bold whitespace-nowrap">
+                        Registrations Closed
                       </span>
                     </div>
 
                     <WebShotCard reach={140} threads={5}>
                       <div className="bg-white/95 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-2.5 md:px-5 md:py-2.5 rounded-xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-100 md:scale-100 origin-top overflow-visible">
                         <CombinationLockCountdown
-                          targetDate={new Date("2026-11-24T23:59:59+05:30").getTime()}
+                          targetDate={new Date("2026-11-26T09:00:00+05:30").getTime()}
                           className="mx-auto"
                         />
                       </div>
                     </WebShotCard>
+
+                    {/* Prominent Announcement Banner for Registered Teams */}
+                    <div
+                      id="registration-announcement"
+                      className="mt-3.5 max-w-lg mx-auto px-4 py-2.5 sm:py-3 rounded-xl bg-black text-white border border-neutral-800 shadow-xl text-center backdrop-blur-md"
+                    >
+                      <div className="inline-flex items-center gap-1.5 text-amber-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                        <span>Announcement</span>
+                      </div>
+                      <p className="text-xs sm:text-sm font-sans font-medium text-neutral-200 leading-snug">
+                        Registrations are now closed! Teams who got registered, be ready for tomorrow&apos;s event &mdash; all the best!
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -688,26 +702,19 @@ export default function Home() {
                 {/* Reminder Registration Call-to-Action */}
                 <div className="mt-12 sm:mt-14 mb-2 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 rounded-2xl bg-neutral-900/90 border border-neutral-800 shadow-2xl">
                   <div className="text-center sm:text-left">
-                    <span className="font-mono text-xs uppercase tracking-widest text-emerald-400 font-bold block mb-1">
-                      Registration Open &bull; ₹15,000+ Prize Pool
+                    <span className="font-mono text-xs uppercase tracking-widest text-red-400 font-bold block mb-1">
+                      Registrations Closed &bull; ₹15,000+ Prize Pool
                     </span>
                     <h3 className="font-display text-xl sm:text-2xl text-white font-bold uppercase tracking-wide">
-                      Ready to build the extraordinary?
+                      Event Starts Tomorrow &bull; 9:00 AM
                     </h3>
-                    <p className="text-neutral-400 text-xs sm:text-sm mt-1 max-w-xl">
-                      Secure your team&apos;s spot for STARTUP IN A BOX 2026. Build a startup from a real-world problem in one day.
+                    <p className="text-neutral-300 text-xs sm:text-sm mt-1 max-w-xl">
+                      Registrations are now closed! Teams who got registered, be ready for tomorrow&apos;s event &mdash; all the best!
                     </p>
                   </div>
-                  <WebShotButton
-                    size="md"
-                    shape="square"
-                    color="#ffffff"
-                    inkColor="#ffffff"
-                    onClick={openRegistration}
-                    className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-white bg-white text-black w-full sm:w-auto flex items-center justify-center flex-shrink-0"
-                  >
-                    <span>Register Team &rarr;</span>
-                  </WebShotButton>
+                  <div className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 rounded-none border border-neutral-700 bg-neutral-800 text-neutral-300 w-full sm:w-auto flex items-center justify-center flex-shrink-0">
+                    <span>Registration Closed</span>
+                  </div>
                 </div>
               </div>
 

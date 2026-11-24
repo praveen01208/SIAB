@@ -9,16 +9,16 @@ import { MagicText } from "./ui/MagicText";
 const scheduleStations = [
   {
     num: "01",
-    tag: "Registration Opens",
-    date: "Now Open",
-    desc: "Registrations are open for all branches — CSE, AI & DS, ECE, Mechanical, Civil, MBA, MCA. Register your team of 3–5 members for ₹150.",
+    tag: "Registration Closed",
+    date: "Closed (Nov 24)",
+    desc: "Registrations are closed. Teams who got registered, be ready for tomorrow's event — all the best!",
     img: "/images/H-1.png",
   },
   {
     num: "02",
-    tag: "Registration Closes",
+    tag: "Registration Deadline",
     date: "November 24, 2026",
-    desc: "Team registrations close on 24th November 2026. Each team must consist of 3–5 members. Every participant can be part of only one team.",
+    desc: "Team registrations closed on 24th November 2026. Each registered team must consist of 3–5 members.",
     img: "/images/H-2.png",
   },
   {

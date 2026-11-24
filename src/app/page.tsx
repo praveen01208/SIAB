@@ -5,8 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import VaporCountdown from "@/components/VaporCountdown";
-import CombinationLockCountdown from "@/components/CombinationLockCountdown";
-import { WebShotCard, WebShotButton } from "@/components/WebShotButton";
 import StarButton from "@/components/StarButton";
 import TiltCard from "@/components/TiltCard";
 import IdeathonSection from "@/components/IdeathonSection";
@@ -26,15 +24,9 @@ import { RevealHeading } from "@/components/ui/RevealHeading";
 import { MagicText } from "@/components/ui/MagicText";
 import { MagnetoText } from "@/components/ui/MagnetoText";
 import { ShinyButton } from "@/components/ui/ShinyButton";
-import {
-  PROBLEM_UNLOCK_TIMESTAMP,
-  PROBLEM_BOOKLET_URL,
-  useProblemUnlockCountdown,
-} from "@/components/ProblemBookletCard";
+import { ProblemBookletCard } from "@/components/ProblemBookletCard";
 
 export default function Home() {
-  const { isLocked: isBookletLocked } = useProblemUnlockCountdown();
-  const [heroLockNotice, setHeroLockNotice] = useState(false);
   const [activeView, setActiveView] = useState<"main" | "domains">("main");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
@@ -519,72 +511,13 @@ export default function Home() {
                     </h1>
                   </div>
 
-                  {/* Small Minimalist Particle Countdown (enlarged & shifted downwards on mobile) */}
+                  {/* Problem Statement Booklet Vault with Reverse Counter & Locked Buttons */}
                   <div
                     ref={timerCardRef}
-                    className="w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-3 mb-0 relative z-30 will-change-transform"
+                    id="registration-announcement"
+                    className="w-full flex flex-col items-center mt-5 sm:mt-7 md:mt-3 mb-0 px-3 sm:px-4 relative z-30 will-change-transform"
                   >
-                    <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 shadow-sm backdrop-blur-md mb-2.5 max-w-[92%] sm:max-w-none origin-center">
-                      <span className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${isBookletLocked ? "bg-amber-500 animate-pulse" : "bg-emerald-500 animate-ping"}`} />
-                      <span className="font-mono text-[9.5px] xs:text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-neutral-900 font-bold whitespace-nowrap">
-                        {isBookletLocked ? "Problem Statement Live In" : "Problem Statement Live Now"}
-                      </span>
-                    </div>
-
-                    <WebShotCard reach={140} threads={5}>
-                      <div className="bg-white/95 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-2.5 md:px-5 md:py-2.5 rounded-xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-100 md:scale-100 origin-top overflow-visible">
-                        <CombinationLockCountdown
-                          targetDate={PROBLEM_UNLOCK_TIMESTAMP}
-                          className="mx-auto"
-                        />
-                      </div>
-                    </WebShotCard>
-
-                    {/* Access the File Button with Lock Emoji */}
-                    <div className="mt-3 flex flex-col items-center">
-                      {isBookletLocked ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setHeroLockNotice(true);
-                            setTimeout(() => setHeroLockNotice(false), 2600);
-                          }}
-                          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-700 font-mono text-xs font-bold uppercase tracking-wider shadow-lg transition-all cursor-not-allowed active:scale-[0.98]"
-                        >
-                          <span>Access the File</span>
-                          <span aria-hidden="true" className="text-sm">🔒</span>
-                        </button>
-                      ) : (
-                        <a
-                          href={PROBLEM_BOOKLET_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-bold uppercase tracking-wider shadow-lg transition-all"
-                        >
-                          <span>Access the File</span>
-                          <span aria-hidden="true" className="text-sm">🔓</span>
-                        </a>
-                      )}
-                      {heroLockNotice && isBookletLocked && (
-                        <span className="mt-1.5 font-mono text-[10px] sm:text-[11px] font-semibold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
-                          Locked until timer hits 00:00:00!
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Prominent Announcement Banner for Registered Teams */}
-                    <div
-                      id="registration-announcement"
-                      className="mt-3 max-w-lg mx-auto px-4 py-2 sm:py-2.5 rounded-xl bg-black text-white border border-neutral-800 shadow-xl text-center backdrop-blur-md"
-                    >
-                      <div className="inline-flex items-center gap-1.5 text-red-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-                        <span>Registrations Closed</span>
-                      </div>
-                      <p className="text-xs sm:text-sm font-sans font-medium text-neutral-200 leading-snug">
-                        Teams who got registered, be ready for tomorrow&apos;s event &mdash; all the best!
-                      </p>
-                    </div>
+                    <ProblemBookletCard />
                   </div>
                 </div>
 

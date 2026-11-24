@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 // Target unlock time: 32 hours 55 minutes from 2026-11-25T00:36:17+05:30 -> 2026-11-26T09:31:17+05:30
 export const PROBLEM_UNLOCK_TIMESTAMP = new Date("2026-11-26T09:31:17+05:30").getTime();
 export const PROBLEM_BOOKLET_URL = "/Startup_in_a_Box_Participant_Problem_Booklet.pdf";
+export const IDEA_REGISTRATION_URL = "https://forms.gle/kqUDepXeGFhzRM9A7";
 
 export function useProblemUnlockCountdown() {
   const [remainingMs, setRemainingMs] = useState<number>(() =>
@@ -115,31 +116,60 @@ export function ProblemBookletCard() {
           </div>
         </div>
 
-        {/* Access the File Button with Lock Emoji */}
-        {isLocked ? (
-          <button
-            type="button"
-            onClick={handleLockedClick}
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
-          >
-            <span>Access the File</span>
-            <span aria-hidden="true" className="text-base">
-              🔒
-            </span>
-          </button>
-        ) : (
-          <a
-            href={PROBLEM_BOOKLET_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
-          >
-            <span>Access the File</span>
-            <span aria-hidden="true" className="text-base">
-              🔓
-            </span>
-          </a>
-        )}
+        {/* Action Buttons beside each other: Access the File + Register Your Idea Here */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+          {isLocked ? (
+            <>
+              <button
+                type="button"
+                onClick={handleLockedClick}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
+              >
+                <span>Access the File</span>
+                <span aria-hidden="true" className="text-base">
+                  🔒
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleLockedClick}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
+              >
+                <span>Register Your Idea Here</span>
+                <span aria-hidden="true" className="text-base">
+                  🔒
+                </span>
+              </button>
+            </>
+          ) : (
+            <>
+              <a
+                href={PROBLEM_BOOKLET_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
+              >
+                <span>Access the File</span>
+                <span aria-hidden="true" className="text-base">
+                  🔓
+                </span>
+              </a>
+
+              <a
+                href={IDEA_REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-neutral-200 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
+              >
+                <span>Register Your Idea Here</span>
+                <span aria-hidden="true" className="text-base">
+                  🔓
+                </span>
+              </a>
+            </>
+          )}
+        </div>
 
         <p
           className={`mt-3 font-mono text-[11px] transition-opacity duration-200 ${
@@ -150,9 +180,9 @@ export function ProblemBookletCard() {
         >
           {isLocked
             ? lockNotice
-              ? "Locked! This booklet unlocks automatically when the timer reaches 00:00:00."
+              ? "Locked! Both buttons unlock automatically when the timer reaches 00:00:00."
               : "Unlocks automatically on 26th November 2026 at 9:31 AM IST."
-            : "The Problem Statement Booklet is now unlocked. All the best!"}
+            : "Both the Problem Statement Booklet and Idea Submission Form are now unlocked. All the best!"}
         </p>
       </div>
     </div>

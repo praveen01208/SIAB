@@ -28,6 +28,7 @@ import { MagicText } from "@/components/ui/MagicText";
 import { MagnetoText } from "@/components/ui/MagnetoText";
 import { ShinyButton } from "@/components/ui/ShinyButton";
 import ProblemBookletNotification from "@/components/ProblemBookletNotification";
+import ImportantNotificationsSection from "@/components/ImportantNotificationsSection";
 
 export default function Home() {
   const router = useRouter();
@@ -616,6 +617,11 @@ export default function Home() {
               </div>
             </section>
           </div>
+
+          {/* =========================================================================
+              IMPORTANT LIVE NOTIFICATIONS SECTION (Immediately below Hero)
+             ========================================================================= */}
+          <ImportantNotificationsSection />
 
           {/* =========================================================================
               2. EDITORIAL OPENING & EXPANDED BLACK ABOUT CARD (From Template with GSAP)

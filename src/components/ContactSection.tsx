@@ -11,7 +11,6 @@ interface ContactItem {
   role: string;
   about: string;
   phone: string;
-  image: string;
 }
 
 const contacts: ContactItem[] = [
@@ -21,8 +20,6 @@ const contacts: ContactItem[] = [
     role: "President, C-TEC",
     about: "Coding Club Lead • Final Year CSE",
     phone: "8792946625",
-    image:
-      "https://cdn.21st.dev/assets/localized/90f8eb479a4a56a4da83ebf6be45a9ff73515b0af2cff481f665ea40189a8137.png",
   },
   {
     id: 2,
@@ -30,8 +27,6 @@ const contacts: ContactItem[] = [
     role: "Vice-President",
     about: "Operations & Events • C-TEC",
     phone: "9008626171",
-    image:
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=80",
   },
   {
     id: 3,
@@ -39,8 +34,6 @@ const contacts: ContactItem[] = [
     role: "Secretary",
     about: "Logistics & Management • C-TEC",
     phone: "6361385838",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80",
   },
   {
     id: 4,
@@ -48,10 +41,77 @@ const contacts: ContactItem[] = [
     role: "Technical Lead",
     about: "Technical Systems & Platforms",
     phone: "8970901105",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop&q=80",
   },
 ];
+
+function MaleAvatar() {
+  return (
+    <svg
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full object-cover select-none pointer-events-none"
+      style={{ transformOrigin: "50% 45%" }}
+    >
+      {/* Background card fill */}
+      <rect width="200" height="200" fill="#09090b" />
+
+      {/* Subtle circular ambient halo */}
+      <circle cx="100" cy="94" r="64" fill="#141416" stroke="#27272a" strokeWidth="1.5" />
+
+      {/* Shoulders & Jacket (High-contrast tech silhouette) */}
+      <path
+        d="M36 195C38 150 68 136 100 136C132 136 162 150 164 195"
+        fill="#18181b"
+        stroke="#ffffff"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+      {/* Inner collar */}
+      <path
+        d="M84 136L100 160L116 136"
+        stroke="#ffffff"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="#09090b"
+      />
+
+      {/* Neck */}
+      <rect x="90" y="112" width="20" height="26" rx="3" fill="#e4e4e7" />
+
+      {/* Face */}
+      <ellipse cx="100" cy="93" rx="30" ry="36" fill="#fafafa" stroke="#09090b" strokeWidth="2" />
+
+      {/* Stylish Modern Male Haircut */}
+      <path
+        d="M68 88C66 62 80 48 100 48C122 48 134 60 132 86C128 68 116 58 100 58C82 58 72 72 68 88Z"
+        fill="#09090b"
+      />
+      <path
+        d="M72 68C78 52 90 44 104 44C118 44 130 52 132 66C126 56 116 52 102 52C88 52 78 58 72 68Z"
+        fill="#09090b"
+      />
+
+      {/* Eyebrows */}
+      <path d="M82 81C85 79 90 79 93 81" stroke="#09090b" strokeWidth="2" strokeLinecap="round" />
+      <path d="M107 81C110 79 115 79 118 81" stroke="#09090b" strokeWidth="2" strokeLinecap="round" />
+
+      {/* Eyes */}
+      <circle cx="87" cy="88" r="2.5" fill="#09090b" />
+      <circle cx="113" cy="88" r="2.5" fill="#09090b" />
+
+      {/* Nose */}
+      <path d="M100 88V98L103 99" stroke="#09090b" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+
+      {/* Confident Smile */}
+      <path d="M93 107C97 111 103 111 107 107" stroke="#09090b" strokeWidth="2" strokeLinecap="round" />
+
+      {/* Ears */}
+      <path d="M69 89C67 91 67 97 69 99" stroke="#09090b" strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M131 89C133 91 133 97 131 99" stroke="#09090b" strokeWidth="1.75" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export default function ContactSection() {
   const [activeCardId, setActiveCardId] = useState<number | null>(null);
@@ -149,13 +209,9 @@ export default function ContactSection() {
                     </svg>
                   </a>
 
-                  {/* Profile Picture */}
+                  {/* Profile Picture: Pure Vector Male Avatar */}
                   <div className="profile-pic">
-                    <img
-                      src={contact.image}
-                      alt={contact.name}
-                      loading="lazy"
-                    />
+                    <MaleAvatar />
                   </div>
 
                   {/* Slide-up Bottom Sheet */}

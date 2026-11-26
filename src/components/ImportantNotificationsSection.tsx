@@ -26,21 +26,29 @@ export interface NotificationItem {
 // Ordered strictly: index 0 is TOP (most recent), last index is BOTTOM (oldest)
 export const initialNotifications: NotificationItem[] = [
   {
-    id: "notice-5",
-    tag: "Presentation Template",
+    id: "notice-6",
+    tag: "Mandatory • PPT Template",
     isLatest: true,
     iconType: "file",
-    title: "Download Official PPT Template",
-    content: "All teams must download this PPT template, edit it, and add their idea details for the final pitch.",
+    title: "The PPT template is uploaded in website!!",
+    content: "It's mandatory to use that template. Download the PPT template, edit it, and add your idea details for the pitch.",
     fileAttachment: {
-      label: "Download PPT",
+      label: "Download PPT Template",
       url: "/event_ppt_template.pptx",
       fileName: "event_ppt_template.pptx",
     },
   },
   {
+    id: "notice-5",
+    tag: "Round 1 & Lunch Break",
+    isLatest: false,
+    iconType: "bell",
+    title: "Round 1 Complete • Lunch & Round 2 Schedule",
+    content: "The teams whose round one is complete can go and have their lunch and be ready for round 2 at exactly 4:00 PM.",
+  },
+  {
     id: "notice-4",
-    tag: "Urgent • Jury Round",
+    tag: "Jury Round",
     isLatest: false,
     iconType: "bell",
     title: "Attention participants!!!!",
@@ -49,6 +57,7 @@ export const initialNotifications: NotificationItem[] = [
   {
     id: "notice-3",
     tag: "Wi-Fi & Network Access",
+    isLatest: false,
     iconType: "wifi",
     title: "Network Login Credentials",
     content: "Username : cse_placement  |  Password : cse@987",
@@ -60,6 +69,7 @@ export const initialNotifications: NotificationItem[] = [
   {
     id: "notice-2",
     tag: "Registration Guide",
+    isLatest: false,
     iconType: "info",
     title: "Unique Problem Statement Registration",
     content: "Those who are registering for unique problem statement in enter team id as ur problem statement id.",
@@ -67,6 +77,7 @@ export const initialNotifications: NotificationItem[] = [
   {
     id: "notice-1",
     tag: "Venue Plan",
+    isLatest: false,
     iconType: "file",
     title: "Find Seating Arrangement",
     content: "Find seating arrangement for all registered teams across labs and rooms.",

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 export const PROBLEM_UNLOCK_TIMESTAMP = new Date("2026-11-26T09:31:17+05:30").getTime();
 export const PROBLEM_BOOKLET_URL = "/Startup_in_a_Box_Participant_Problem_Booklet.pdf";
 export const IDEA_REGISTRATION_URL = "https://forms.gle/kqUDepXeGFhzRM9A7";
+export const PPT_TEMPLATE_URL = "/event_ppt_template.pptx";
 
 export function useProblemUnlockCountdown() {
   const [remainingMs, setRemainingMs] = useState<number>(() =>
@@ -116,14 +117,14 @@ export function ProblemBookletCard() {
           </div>
         </div>
 
-        {/* Action Buttons beside each other: Access the File + Register Your Idea Here */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+        {/* Action Buttons beside each other: Access the File + Register Your Idea Here + Download PPT Template */}
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 w-full">
           {isLocked ? (
             <>
               <button
                 type="button"
                 onClick={handleLockedClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
               >
                 <span>Access the File</span>
                 <span aria-hidden="true" className="text-base">
@@ -134,7 +135,7 @@ export function ProblemBookletCard() {
               <button
                 type="button"
                 onClick={handleLockedClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-lg active:scale-[0.98]"
               >
                 <span>Register Your Idea Here</span>
                 <span aria-hidden="true" className="text-base">
@@ -148,7 +149,7 @@ export function ProblemBookletCard() {
                 href={PROBLEM_BOOKLET_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
               >
                 <span>Access the File</span>
                 <span aria-hidden="true" className="text-base">
@@ -160,7 +161,7 @@ export function ProblemBookletCard() {
                 href={IDEA_REGISTRATION_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-neutral-200 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-white hover:bg-neutral-200 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
               >
                 <span>Register Your Idea Here</span>
                 <span aria-hidden="true" className="text-base">
@@ -169,6 +170,17 @@ export function ProblemBookletCard() {
               </a>
             </>
           )}
+
+          <a
+            href={PPT_TEMPLATE_URL}
+            download="event_ppt_template.pptx"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-lg"
+          >
+            <span>Download PPT Template</span>
+            <span aria-hidden="true" className="text-base">
+              📥
+            </span>
+          </a>
         </div>
 
         <p

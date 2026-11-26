@@ -165,9 +165,16 @@ export default function EditorialAbout({ onNavigate, onRegister }: EditorialAbou
               <span className="op-level__bubble"></span>
             </div>
             <div className="op-actions flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-              <div className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center">
+              <WebShotButton
+                size="md"
+                shape="square"
+                color="#000000"
+                inkColor="#000000"
+                onClick={onRegister}
+                className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center"
+              >
                 <span>Registration Closed</span>
-              </div>
+              </WebShotButton>
               <a
                 className="m-link font-mono text-xs uppercase tracking-wider"
                 href="#ideathon-page"

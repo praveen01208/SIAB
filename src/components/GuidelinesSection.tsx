@@ -16,7 +16,7 @@ const guidelinesList = [
   {
     num: "02",
     short: "Registration",
-    rule: "Registration is closed as of 24th November 2026. Teams who got registered, be ready for tomorrow's event — all the best!",
+    rule: "Registration is closed as of 24th November 2026. Teams who got registered, be ready for the event on 26th November 2026 — all the best!",
     badge: "Closed",
     img: "/images/H-2.png",
   },

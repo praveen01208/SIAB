@@ -5,7 +5,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealHeading } from "./ui/RevealHeading";
 import { MagicText } from "./ui/MagicText";
-import { ProblemBookletCard } from "./ProblemBookletCard";
+import { WebShotButton } from "./WebShotButton";
+
+interface IdeathonSectionProps {
+  onRegister?: (e?: React.MouseEvent) => void;
+}
 
 const stages = [
   {
@@ -64,7 +68,7 @@ const stages = [
   },
 ];
 
-export default function IdeathonSection() {
+export default function IdeathonSection({ onRegister }: IdeathonSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -204,23 +208,25 @@ export default function IdeathonSection() {
         ))}
       </ul>
 
-      {/* Problem Statement Booklet Vault with Reverse Counter & Lock Button */}
-      <div className="mt-10 sm:mt-12 mb-4 relative z-20 px-4">
-        <ProblemBookletCard />
-      </div>
+      {/* Bottom Download Template Callout (Open directly on section bg with square WebShot button) */}
+      <div className="text-center mt-8 sm:mt-10 mb-2 sm:mb-4 relative z-20 px-4 flex flex-col items-center">
+        <p className="text-base sm:text-lg md:text-xl font-display font-bold text-black flex items-center justify-center gap-2 mb-4">
+          <i className="fa-solid fa-rocket text-black"></i>
+          <span>Register before 24th November 2026. ₹150 per team. All branches eligible!</span>
+        </p>
 
-      {/* Bottom Announcement Callout */}
-      <div className="text-center mt-8 sm:mt-10 mb-2 sm:mb-4 relative z-20 px-4 flex flex-col items-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 text-red-700 font-mono text-xs font-bold uppercase tracking-widest mb-3 border border-red-200">
-          <span className="w-2 h-2 rounded-full bg-red-600" />
-          Registrations Closed
+        <div className="inline-block w-full sm:w-auto max-w-sm">
+          <WebShotButton
+            size="md"
+            shape="square"
+            color="#000000"
+            inkColor="#000000"
+            onClick={onRegister ? onRegister : () => { window.location.href = "/closed"; }}
+            className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-black bg-black text-white w-full sm:w-auto flex items-center justify-center"
+          >
+            <span>Registration Closed</span>
+          </WebShotButton>
         </div>
-        <p className="text-base sm:text-lg md:text-xl font-display font-bold text-black mb-2 leading-snug">
-          Teams who got registered, be ready for tomorrow&apos;s event &mdash; all the best!
-        </p>
-        <p className="text-xs sm:text-sm font-mono text-neutral-600">
-          Event Date: 26th November 2026 &bull; 9:00 AM – 7:00 PM
-        </p>
       </div>
     </section>
   );

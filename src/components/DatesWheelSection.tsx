@@ -11,7 +11,7 @@ const scheduleStations = [
     num: "01",
     tag: "Registration Closed",
     date: "Closed (Nov 24)",
-    desc: "Registrations are closed. Teams who got registered, be ready for tomorrow's event — all the best!",
+    desc: "Registrations are closed. Teams who got registered, be ready for the event on 26th November 2026 — all the best!",
     img: "/images/H-1.png",
   },
   {

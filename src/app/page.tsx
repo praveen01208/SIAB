@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import VaporCountdown from "@/components/VaporCountdown";
+import CombinationLockCountdown from "@/components/CombinationLockCountdown";
+import { WebShotCard, WebShotButton } from "@/components/WebShotButton";
 import StarButton from "@/components/StarButton";
 import TiltCard from "@/components/TiltCard";
 import IdeathonSection from "@/components/IdeathonSection";
@@ -24,9 +27,10 @@ import { RevealHeading } from "@/components/ui/RevealHeading";
 import { MagicText } from "@/components/ui/MagicText";
 import { MagnetoText } from "@/components/ui/MagnetoText";
 import { ShinyButton } from "@/components/ui/ShinyButton";
-import { ProblemBookletCard } from "@/components/ProblemBookletCard";
+import ProblemBookletNotification from "@/components/ProblemBookletNotification";
 
 export default function Home() {
+  const router = useRouter();
   const [activeView, setActiveView] = useState<"main" | "domains">("main");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
@@ -182,10 +186,7 @@ export default function Home() {
 
   const openRegistration = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
-    const announcementEl = document.getElementById("registration-announcement");
-    if (announcementEl) {
-      announcementEl.scrollIntoView({ behavior: "smooth" });
-    }
+    router.push("/closed");
   };
 
   const handleNavigate = (target: string) => {
@@ -440,6 +441,7 @@ export default function Home() {
             {/* Simple Clean Full-Width Navbar over the shared grid (with entrance animation ref) */}
             <div ref={headerRef} className="w-full relative z-50 flex-shrink-0">
               <Navbar onNavigate={handleNavigate} onRegister={openRegistration} />
+              <ProblemBookletNotification />
             </div>
 
             {/* HERO SECTION */}
@@ -501,23 +503,42 @@ export default function Home() {
                     C-TEC &times; Coding Club presents
                   </p>
 
-                  {/* Event Name: STARTUP IN A BOX with Codrops Magneto Letter Interaction */}
-                  <div className="overflow-visible py-5 sm:py-4 md:py-3 relative z-40 w-full flex justify-center">
+                  {/* Event Name: STARTUP IN A BOX (2 Lines: STARTUP IN A / BOX) with Codrops Magneto Letter Interaction */}
+                  <div className="overflow-visible py-4 sm:py-3 md:py-2 relative z-40 w-full flex justify-center">
                     <h1
                       ref={inventraTitleRef}
-                      className="font-display text-[1.85rem] xs:text-[2.2rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[6rem] xl:text-[7rem] text-black tracking-wider uppercase select-none my-1 drop-shadow-sm will-change-transform inline-block overflow-visible relative z-40 text-center max-w-full px-2"
+                      className="font-frijole text-[1.55rem] xs:text-[1.95rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-[5.2rem] xl:text-[6.2rem] text-black tracking-normal uppercase select-none my-1 drop-shadow-sm will-change-transform flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3.5 overflow-visible relative z-40 text-center max-w-full px-2"
+                      style={{ fontFamily: "'Frijole', cursive" }}
                     >
-                      <MagnetoText text="STARTUP IN A BOX" stretchScale={1.38} />
+                      <span className="block overflow-visible">
+                        <MagnetoText text="STARTUP IN A" stretchScale={1.38} />
+                      </span>
+                      <span className="block overflow-visible">
+                        <MagnetoText text="BOX" stretchScale={1.38} />
+                      </span>
                     </h1>
                   </div>
 
-                  {/* Problem Statement Booklet Vault with Reverse Counter & Locked Buttons */}
+                  {/* Small Minimalist Particle Countdown (enlarged & shifted downwards on mobile) */}
                   <div
                     ref={timerCardRef}
-                    id="registration-announcement"
-                    className="w-full flex flex-col items-center mt-5 sm:mt-7 md:mt-3 mb-0 px-3 sm:px-4 relative z-30 will-change-transform"
+                    className="w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-3 mb-0 relative z-30 will-change-transform"
                   >
-                    <ProblemBookletCard />
+                    <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/95 border border-neutral-300/80 shadow-sm backdrop-blur-md mb-3 max-w-[85%] sm:max-w-none origin-center">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-black animate-ping" />
+                      <span className="font-mono text-[9.5px] xs:text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-neutral-800 font-bold whitespace-nowrap">
+                        Registration Closes 24th November 2026
+                      </span>
+                    </div>
+
+                    <WebShotCard reach={140} threads={5}>
+                      <div className="bg-white/95 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-2.5 md:px-5 md:py-2.5 rounded-xl border border-neutral-200/90 shadow-xl scale-95 sm:scale-100 md:scale-100 origin-top overflow-visible">
+                        <CombinationLockCountdown
+                          targetDate={new Date("2026-11-24T23:59:59+05:30").getTime()}
+                          className="mx-auto"
+                        />
+                      </div>
+                    </WebShotCard>
                   </div>
                 </div>
 
@@ -604,7 +625,7 @@ export default function Home() {
           {/* =========================================================================
               3. IDEATHON SECTION (From Brewery Template with GSAP Tags-Swing Animation)
              ========================================================================= */}
-          <IdeathonSection />
+          <IdeathonSection onRegister={openRegistration} />
 
           {/* =========================================================================
               4. IMPORTANT DATES (Brewery Template Rotating Wheel)
@@ -678,15 +699,22 @@ export default function Home() {
                       Registrations Closed &bull; ₹15,000+ Prize Pool
                     </span>
                     <h3 className="font-display text-xl sm:text-2xl text-white font-bold uppercase tracking-wide">
-                      Event Starts Tomorrow &bull; 9:00 AM
+                      Event Date &bull; 26th November 2026 &bull; 9:00 AM
                     </h3>
                     <p className="text-neutral-300 text-xs sm:text-sm mt-1 max-w-xl">
-                      Registrations are now closed! Teams who got registered, be ready for tomorrow&apos;s event &mdash; all the best!
+                      Registrations are now closed! Teams who got registered, be ready for the event day &mdash; all the best!
                     </p>
                   </div>
-                  <div className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 rounded-none border border-neutral-700 bg-neutral-800 text-neutral-300 w-full sm:w-auto flex items-center justify-center flex-shrink-0">
+                  <WebShotButton
+                    size="md"
+                    shape="square"
+                    color="#ffffff"
+                    inkColor="#ffffff"
+                    onClick={openRegistration}
+                    className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider h-12 px-8 cursor-pointer shadow-md rounded-none border border-white bg-white text-black w-full sm:w-auto flex items-center justify-center flex-shrink-0"
+                  >
                     <span>Registration Closed</span>
-                  </div>
+                  </WebShotButton>
                 </div>
               </div>
 

@@ -5,6 +5,7 @@ import {
   useProblemUnlockCountdown,
   PROBLEM_BOOKLET_URL,
   IDEA_REGISTRATION_URL,
+  PPT_TEMPLATE_URL,
 } from "./ProblemBookletCard";
 
 export default function ProblemBookletNotification() {
@@ -101,6 +102,14 @@ export default function ProblemBookletNotification() {
                 </a>
               </>
             )}
+
+            <a
+              href={PPT_TEMPLATE_URL}
+              download="event_ppt_template.pptx"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-none bg-amber-400 hover:bg-amber-300 text-black border border-amber-400 font-mono text-[10.5px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_14px_rgba(251,191,36,0.45)] hover:shadow-[0_0_22px_rgba(251,191,36,0.75)] whitespace-nowrap"
+            >
+              <span>Download PPT Template</span>
+            </a>
 
             <button
               type="button"

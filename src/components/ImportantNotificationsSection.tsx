@@ -26,9 +26,22 @@ export interface NotificationItem {
 // Ordered strictly: index 0 is TOP (most recent), last index is BOTTOM (oldest)
 export const initialNotifications: NotificationItem[] = [
   {
+    id: "notice-5",
+    tag: "Presentation Template",
+    isLatest: true,
+    iconType: "file",
+    title: "Download Official PPT Template",
+    content: "All teams must download this PPT template, edit it, and add their idea details for the final pitch.",
+    fileAttachment: {
+      label: "Download PPT",
+      url: "/event_ppt_template.pptx",
+      fileName: "event_ppt_template.pptx",
+    },
+  },
+  {
     id: "notice-4",
     tag: "Urgent • Jury Round",
-    isLatest: true,
+    isLatest: false,
     iconType: "bell",
     title: "Attention participants!!!!",
     content: "Jury members will be visiting at approx 12:45PM so be prepared😁👍🏻",
@@ -214,12 +227,13 @@ export default function ImportantNotificationsSection() {
                     </div>
                   )}
 
-                  {/* PDF Attachment Action Button */}
+                  {/* File Attachment Action Button */}
                   {notice.fileAttachment && (
                     <a
                       href={notice.fileAttachment.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      download={notice.fileAttachment.url.endsWith(".pptx") ? notice.fileAttachment.fileName : undefined}
+                      target={notice.fileAttachment.url.endsWith(".pptx") ? undefined : "_blank"}
+                      rel={notice.fileAttachment.url.endsWith(".pptx") ? undefined : "noopener noreferrer"}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>{notice.fileAttachment.label}</span>
